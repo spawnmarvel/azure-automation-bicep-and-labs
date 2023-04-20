@@ -105,5 +105,9 @@ Shell and files
 7. Low code option
 
 
+## Azure PowerShell Documentation
+
+https://learn.microsoft.com/en-us/powershell/azure/?view=azps-9.6.0
+
 
 
