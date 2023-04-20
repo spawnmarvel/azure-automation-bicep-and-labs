@@ -71,6 +71,9 @@ Make our life easier in Azure. Explorer Powershell and where it fits in, main to
 
 1. Azure Portal
 
+
+![Cloud shell ](https://github.com/spawnmarvel/quickguides/blob/main/azure/quick-guide/main-roles2.jpg)
+
 2. Cloud shell
 
 3. Scripts, ARM templates, Bicep
