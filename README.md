@@ -161,6 +161,16 @@ Shell and files
             "apiVersion": "2021-04-01",
             // var used
             "name": "[variables('customNameUnique')]",
+            "location": "[parameters('location')]",
+            "tags": "[parameters('resourceTags')]",
+
+            "dependsOn": [],
+
+            "sku": {
+                "name": "[parameters('storageSKU')]"
+            },
+
+            "kind": "StorageV2",
 
     "outputs": {
         //
