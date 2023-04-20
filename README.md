@@ -12,9 +12,9 @@ According to Microsoft https://learn.microsoft.com/en-us/certifications/azure-ad
 
 * Candidates for this certification should be familiar with operating systems, networking, servers, and virtualization. In addition, professionals in this role should have experience using PowerShell, Azure CLI, the Azure portal, Azure Resource Manager templates (ARM templates), and Microsoft Azure Active Directory (Azure AD), part of Microsoft Entra.
 
-### Microsoft Certified: Azure Administrator Associate
+## Microsoft Certified: Azure Administrator Associate
 
-After passing AZ 104 Microsoft Azure Administrator and earning Microsoft Certified: Azure Administrator Associate focus on:
+After passing AZ 104 Microsoft Azure Administrator and earning Microsoft Certified: Azure Administrator Associate the focus will be:
 
 1. Compute. 
    The Azure Administrator is most often identified with infrastructure-as-a-service (IaaS), which normally boils down to running virtual machines (VMs) in the cloud.
