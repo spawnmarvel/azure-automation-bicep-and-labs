@@ -98,7 +98,81 @@ Shell and files
 
 * Some limitiations of scripts:
 * * Many collaborators and different styles
-* * Have to have the correct modules (have to keep track of)
+* * Have to have the correct modules (have to keep track of versions etc)
+* * Current modules starts with Az: Get-AzContext | Select-Object Account, Name
+* * Template JSON files, template and parameter
+```
+
+# parameters.json
+
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "customName": {
+            "value": "testtutorial"
+        },
+        "storageSKU": {
+            "value": "Standard_LRS"
+          },
+        "location": {
+            "value": "westeurope"
+        },
+        "resourceTags": {
+            "value": {
+              "Environment": "Test",
+              "Project": "Tutorial"
+            }
+          }
+        
+    }
+}
+
+# template.json
+
+    // your api reference
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    // your version
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+
+        "customName": {
+            // a custom paramter
+            "type": "string",
+            "metadata" :{
+                "description": "a description"
+            }
+        },
+
+         "location": {
+            "type": "string",
+            // a function call
+            "defaultValue": "[resourceGroup().location]",
+
+    "variables": {
+        // a var
+        "customNameUnique": "[concat(parameters('customName'),uniqueString(resourceGroup().id))]"
+
+    "functions": [],
+    "resources": [
+        // 1 resource
+        {
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2021-04-01",
+            // var used
+            "name": "[variables('customNameUnique')]",
+
+    "outputs": {
+        //
+            "storageEndpoint": {
+                "type": "object",
+                "value": "[reference(variables('customNameUnique')).primaryEndpoints]"
+            }
+        //
+
+
+```
+
 
 4. Blueprints
 
