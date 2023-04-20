@@ -101,6 +101,8 @@ Shell and files
 * * Have to have the correct modules (have to keep track of versions etc)
 * * Current modules starts with Az: Get-AzContext | Select-Object Account, Name
 * * Template JSON files, template and parameter.json
+* * Custom script extensions 
+
 ```
 
 # parameters.json
@@ -250,12 +252,22 @@ Use or view template that was deployed
 * https://learn.microsoft.com/en-us/azure/automation/automation-runbook-types?tabs=lps51%2Cpy27
 
 5. 1 Automation Accounts
-* 
-* 
+* Automation is needed in three broad areas of cloud operations:
+* * Deploy and manage - Deliver repeatable and consistent infrastructure as code.
+* * Response - Create event-based automation to diagnose and resolve issues.
+* * Orchestrate - Orchestrate and integrate your automation with other Azure or third party services and products.
+* https://learn.microsoft.com/en-us/azure/automation/overview
+* DSC will be auto manage
+* Update management, install monitoring extenions to windows and linux
+* Runbook is a script you can run in Azure (Powershell or Python, Yea!)
+* Edit Powershell Runbook, modules, cmdlets.
+* Test it in portal an run it.
+* Hybrid worker can be outside of Azure, if agent from Azure is installed.
 
 
-6. Azure functions
+6. Azure functions (alternative to Automation Account, why use Automation, functions are more for dev, but not necessarily infrastructure, but processing data)
 * Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs.
+* Executed after visit to API URL for example, can run logic app schedule.
 * https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview
 * The following are a common, but by no means exhaustive, set of scenarios for Azure Functions.
 
@@ -272,7 +284,12 @@ Use or view template that was deployed
 | Connect to a SQL database	| Use SQL bindings to read or write data from Azure SQL
 
 7. Low code option
-* 
+* Azure Logic Apps is a cloud platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, you can quickly build a workflow that integrates and manages your apps, data, services, and systems.
+* * Schedule and send email notifications
+* * Route and process customer orders across on-premises systems and cloud services.
+* * Move uploaded files from an SFTP or FTP server to Azure Storage.
+* * Run an Azure Function
+* https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-overview
 
 
 ## Azure PowerShell Documentation
