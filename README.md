@@ -67,7 +67,7 @@ What now.....
 
 ## Automating Azure (glasspaper 2023 Paul "Dash" Wojcicki-Jarocki)
 
-Make our life easier in Azure
+Make our life easier in Azure. Explorer Powershell and where it fits in, main topic is Automation accounts.
 
 1. Azure Portal
 
