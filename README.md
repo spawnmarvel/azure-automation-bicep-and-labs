@@ -22,7 +22,9 @@ According to Microsoft https://learn.microsoft.com/en-us/certifications/azure-ad
 
 Yea, finally passed AZ 104 Microsoft Azure Administrator and earned the title Microsoft Certified: Azure Administrator Associate.
 
-### Focus
+What now.....
+
+### Focus on
 
 1. Compute. 
    The Azure Administrator is most often identified with infrastructure-as-a-service (IaaS), which normally boils down to running virtual machines (VMs) in the cloud.
