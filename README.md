@@ -233,12 +233,20 @@ Use or view template that was deployed
 
 
 4. Blueprints
+* Makes sense with templates
+* https://learn.microsoft.com/en-us/azure/governance/blueprints/overview
+* Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements.
+* Deploy the resource group (can do it with extra Powershell before New-AzResourceGroupDeployment, New-AzResourceGroup)
+* Policy's
 
-5. Automation runbooks and
+5. Automation runbooks
+* 
 
 6. Azure functions
+* 
 
 7. Low code option
+* 
 
 
 ## Azure PowerShell Documentation
