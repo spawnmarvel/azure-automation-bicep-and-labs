@@ -31,4 +31,3 @@ After passing AZ 104 Microsoft Azure Administrator and earning Microsoft Certifi
 
 Bone up on your PowerShell/CLI/templates; unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
 
-
