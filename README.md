@@ -216,7 +216,7 @@ New-AzResourceGroupDeployment
 
 ```
 
-3. Template specs
+3. 1 Template specs
 * A template spec is a resource type for storing an Azure Resource Manager template (ARM template) in Azure for later deployment. 
 * This resource type enables you to share ARM templates with other users in your organization.
 * https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-specs?tabs=azure-powershell
