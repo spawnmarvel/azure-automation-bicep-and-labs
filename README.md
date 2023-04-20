@@ -69,15 +69,16 @@ What now.....
 
 Make our life easier in Azure. Explorer Powershell and where it fits in, main topic is Automation accounts.
 
-1. Azure Portal, check out stuff in preview
+1. Azure Portal, check out stuff in preview.
 
 ![Preview things ](https://github.com/spawnmarvel/azure-automation/blob/main/images/preview.jpg)
 
-2. Cloud shell
+2. Cloud shell (a bit buggy but ok)
 
 ![Cloud shell ](https://github.com/spawnmarvel/azure-automation/blob/main/images/cloudshell.jpg)
 
 3. Scripts, ARM templates, Bicep
+   ARM templates
    * https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
 
 4. Blueprints
