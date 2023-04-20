@@ -96,6 +96,10 @@ Shell and files
 * ARM templates
 * https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
 
+* Some limitiations of scripts:
+* * Many collaborators and different styles
+* * Have to have the correct modules (have to keep track of)
+
 4. Blueprints
 
 5. Automation runbooks
