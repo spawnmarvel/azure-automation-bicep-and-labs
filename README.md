@@ -65,7 +65,7 @@ What now.....
    * Unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
 
 
-## Automating Azure (glasspaper 2023)
+## Automating Azure (glasspaper 2023 Paul "Dash" Wojcicki-Jarocki)
 
 Make our life easier in Azure
 
