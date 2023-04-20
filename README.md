@@ -74,7 +74,7 @@ Make our life easier in Azure. Explorer Powershell and where it fits in, main to
 ![Preview things ](https://github.com/spawnmarvel/azure-automation/blob/main/images/preview.jpg)
 
 2. Cloud shell (a bit buggy but ok), store scripts and files in the fileshare.
-* 
+*  Disable Predictive Intellisens and Save autentication token (could need it later)
 ```
 PS /home/espen/clouddrive> code $PROFILE.CurrentUserAllHosts
 
