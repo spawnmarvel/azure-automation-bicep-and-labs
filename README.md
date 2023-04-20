@@ -26,31 +26,31 @@ What now.....
 
 ### Focus on
 
-1. Compute. 
+#### 1. Compute. 
 
    * The Azure Administrator is most often identified with infrastructure-as-a-service (IaaS), which normally boils down to running virtual machines (VMs) in the cloud.
    * Containers represent a newer way to virtualize services, and Docker is extremely well-represented in Azure.
 
-2. Storage
+#### 2. Storage
 
    * Azure provides Administrators with essentially limitless storage. You need space to store VM virtual hard disks (VHDs), database files, application data, and potentially user data.
    * Cloud computing’s shared responsibility model.
    * Securing data against unauthorized access.
    * Backing up data and making it efficient to restore when needed.
 
-3. Network
+#### 3. Network
 
    * Deploying and configuring virtual networks
    * Managing public and private IP addresses for your VMs and selected other Azure resources
 
-4. Security
+####  4. Security
 
    * The security stakes are high in the Azure public cloud because your business stores its proprietary data on someone else’s infrastructure.
    * Encrypting data in transit, at rest, and in use.
    * Protecting Azure Active Directory accounts against compromise
    * Reducing the attack surface of all your Azure resources
 
-5. Monitor
+####  5. Monitor
 
    * Azure Monitor Insights overview
    * https://learn.microsoft.com/en-us/azure/azure-monitor/insights/insights-overview
@@ -60,7 +60,7 @@ What now.....
    * Network insights
 
 
-6. Bone up on your PowerShell and JavaScript Object Notation, (ARM and BICEP).
+####  6. Bone up on your PowerShell and JavaScript Object Notation, (ARM and BICEP).
 
    * Unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
 
@@ -69,11 +69,11 @@ What now.....
 
 Make our life easier in Azure. Explorer Powershell and where it fits in, main topic is Automation accounts.
 
-1. Azure Portal, check out stuff in preview.
+#### 1. Azure Portal, check out stuff in preview.
 
 ![Preview things ](https://github.com/spawnmarvel/azure-automation/blob/main/images/preview.jpg)
 
-2. Cloud shell (a bit buggy but ok), store scripts and files in the fileshare.
+####  2. Cloud shell (a bit buggy but ok), store scripts and files in the fileshare.
 *  Disable Predictive Intellisens and Save autentication token (could need it later)
 ```
 PS /home/espen/clouddrive> code $PROFILE.CurrentUserAllHosts
@@ -92,7 +92,7 @@ Shell and files
 
 ![Cloud shell ](https://github.com/spawnmarvel/azure-automation/blob/main/images/cloudshell.jpg)
 
-3. Scripts, ARM templates, Bicep
+####  3. Scripts, ARM templates, Bicep
 * ARM templates
 * https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
 
@@ -218,7 +218,7 @@ New-AzResourceGroupDeployment
 
 ```
 
-3. 1 Template specs
+#### 3. 1 Template specs
 * A template spec is a resource type for storing an Azure Resource Manager template (ARM template) in Azure for later deployment. 
 * This resource type enables you to share ARM templates with other users in your organization.
 * https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-specs?tabs=azure-powershell
@@ -234,7 +234,7 @@ Use or view template that was deployed
 ![Reuse template ](https://github.com/spawnmarvel/azure-automation/blob/main/images/reuse-template.jpg)
 
 
-4. Blueprints
+####  4. Blueprints
 * Makes sense with templates
 * https://learn.microsoft.com/en-us/azure/governance/blueprints/overview
 * Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements.
@@ -244,14 +244,14 @@ Use or view template that was deployed
 * How it's different from Azure Policy?
 * A blueprint is a package or container for composing focus-specific sets of standards, patterns, and requirements related to the implementation of Azure cloud services, security, and design that can be reused to maintain consistency and compliance.
 
-5. Automation runbook
+#### 5. Automation runbook
 * Process automation in Azure Automation allows you to create and manage PowerShell, PowerShell Workflow, and graphical runbooks.
 * Automation executes your runbooks based on the logic defined inside them.
 * Starting a runbook in Azure Automation creates a job, which is a single execution instance of the runbook.
 * The Azure Automation Process Automation feature supports several types of runbooks (ps1, py, graphical)
 * https://learn.microsoft.com/en-us/azure/automation/automation-runbook-types?tabs=lps51%2Cpy27
 
-5. 1 Automation Accounts
+#### 5. 1 Automation Accounts
 * Automation is needed in three broad areas of cloud operations:
 * * Deploy and manage - Deliver repeatable and consistent infrastructure as code.
 * * Response - Create event-based automation to diagnose and resolve issues.
@@ -265,7 +265,7 @@ Use or view template that was deployed
 * Hybrid worker can be outside of Azure, if agent from Azure is installed.
 
 
-6. Azure functions (alternative to Automation Account, why use Automation, functions are more for dev, but not necessarily infrastructure, but processing data)
+#### 6. Azure functions (alternative to Automation Account, why use Automation, functions are more for dev, but not necessarily infrastructure, but processing data)
 * Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs.
 * Executed after visit to API URL for example, can run logic app schedule.
 * https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview
@@ -283,7 +283,7 @@ Use or view template that was deployed
 | Process data in real time	| Use Functions and SignalR to respond to data in the moment
 | Connect to a SQL database	| Use SQL bindings to read or write data from Azure SQL
 
-7. Low code option
+#### 7. Low code option
 * Azure Logic Apps is a cloud platform where you can create and run automated workflows with little to no code. By using the visual designer and selecting from prebuilt operations, you can quickly build a workflow that integrates and manages your apps, data, services, and systems.
 * * Schedule and send email notifications
 * * Route and process customer orders across on-premises systems and cloud services.
