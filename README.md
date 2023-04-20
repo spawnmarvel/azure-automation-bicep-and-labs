@@ -27,6 +27,7 @@ What now.....
 ### Focus on
 
 1. Compute. 
+
    The Azure Administrator is most often identified with infrastructure-as-a-service (IaaS), which normally boils down to running virtual machines (VMs) in the cloud.
    Containers represent a newer way to virtualize services, and Docker is extremely well-represented in Azure.
 2. 
