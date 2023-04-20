@@ -237,7 +237,10 @@ Use or view template that was deployed
 * https://learn.microsoft.com/en-us/azure/governance/blueprints/overview
 * Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements.
 * Deploy the resource group (can do it with extra Powershell before New-AzResourceGroupDeployment, New-AzResourceGroup)
-* Policy's
+* How it's different from ARM templates?
+* The service is designed to help with environment setup. This setup often consists of a set of resource groups, policies, role assignments, and ARM template deployments. A blueprint is a package to bring each of these artifact types together and allow you to compose and version that package, including through a continuous integration and continuous delivery (CI/CD) pipeline. 
+* How it's different from Azure Policy?
+* A blueprint is a package or container for composing focus-specific sets of standards, patterns, and requirements related to the implementation of Azure cloud services, security, and design that can be reused to maintain consistency and compliance.
 
 5. Automation runbooks
 * 
