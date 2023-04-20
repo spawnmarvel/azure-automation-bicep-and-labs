@@ -242,11 +242,33 @@ Use or view template that was deployed
 * How it's different from Azure Policy?
 * A blueprint is a package or container for composing focus-specific sets of standards, patterns, and requirements related to the implementation of Azure cloud services, security, and design that can be reused to maintain consistency and compliance.
 
-5. Automation runbooks
+5. Automation runbook
+* Process automation in Azure Automation allows you to create and manage PowerShell, PowerShell Workflow, and graphical runbooks.
+* Automation executes your runbooks based on the logic defined inside them.
+* Starting a runbook in Azure Automation creates a job, which is a single execution instance of the runbook.
+* The Azure Automation Process Automation feature supports several types of runbooks (ps1, py, graphical)
+* https://learn.microsoft.com/en-us/azure/automation/automation-runbook-types?tabs=lps51%2Cpy27
+
+5. 1 Automation Accounts
+* 
 * 
 
+
 6. Azure functions
-* 
+* Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs.
+* https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview
+* The following are a common, but by no means exhaustive, set of scenarios for Azure Functions.
+| If you want to | Then...|
+| -------------- | -------| 
+| Build a web API |	Implement an endpoint for your web applications using the HTTP trigger
+| Process file uploads |	Run code when a file is uploaded or changed in blob storage
+| Build a serverless workflow |	Create an event-driven workflow from a series of functions using durable functions
+| Respond to database changes |	Run custom logic when a document is created or updated in Azure Cosmos DB
+| Run scheduled tasks |	Execute code on pre-defined timed intervals
+| Create reliable message queue systems |	Process message queues using Queue Storage, Service Bus, or Event Hubs
+| Analyze IoT data streams |	Collect and process data from IoT devices
+| Process data in real time	| Use Functions and SignalR to respond to data in the moment
+| Connect to a SQL database	| Use SQL bindings to read or write data from Azure SQL
 
 7. Low code option
 * 
