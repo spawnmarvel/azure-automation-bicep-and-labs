@@ -2,8 +2,17 @@
 
 ## Description
 
+According to Microsoft https://learn.microsoft.com/en-us/certifications/azure-administrator/
 
-According to Microsoft, Azure Administrators “implement, monitor, and maintain Microsoft Azure solutions, including major services related to compute, storage, network, and security.”
+* Candidates for the Azure Administrator Associate certification should have subject matter expertise in implementing, managing, and monitoring an organization’s Microsoft Azure environment, including virtual networks, storage, compute, identity, security, and governance.
+
+* An Azure administrator often serves as part of a larger team dedicated to implementing an organization's cloud infrastructure. 
+
+* Azure administrators also coordinate with other roles to deliver Azure networking, security, database, application development, and DevOps solutions.
+
+* Candidates for this certification should be familiar with operating systems, networking, servers, and virtualization. In addition, professionals in this role should have experience using PowerShell, Azure CLI, the Azure portal, Azure Resource Manager templates (ARM templates), and Microsoft Azure Active Directory (Azure AD), part of Microsoft Entra.
+
+### Microsoft Certified: Azure Administrator Associate
 
 After passing AZ 104 Microsoft Azure Administrator and earning Microsoft Certified: Azure Administrator Associate focus on:
 
