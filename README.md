@@ -20,7 +20,7 @@ According to Microsoft https://learn.microsoft.com/en-us/certifications/azure-ad
 
 ## Microsoft Certified: Azure Administrator Associate
 
-After passing AZ 104 Microsoft Azure Administrator and earning Microsoft Certified: Azure Administrator Associate.
+Yea, finally passed AZ 104 Microsoft Azure Administrator and earned the title Microsoft Certified: Azure Administrator Associate.
 
 ### Focus
 
