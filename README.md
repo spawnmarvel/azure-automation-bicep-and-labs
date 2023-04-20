@@ -1,5 +1,11 @@
 # Azure Automation
 
+## Preface
+
+1. azure-arm-104 https://github.com/spawnmarvel/azure-arm-104
+2. Azure Administrator Cheat Sheet https://github.com/spawnmarvel/quickguides/tree/main/azure
+3. Azure Administrator Cheat Sheet quick guide https://github.com/spawnmarvel/quickguides/tree/main/azure/quick-guide
+
 ##  Azure Automation as Microsoft Certified: Azure Administrator Associate
 
 According to Microsoft https://learn.microsoft.com/en-us/certifications/azure-administrator/
