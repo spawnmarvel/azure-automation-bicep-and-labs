@@ -128,7 +128,7 @@ Shell and files
     }
 }
 
-# template.json
+# template.json (Not complete file just for logic)
 
     // your api reference
     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
