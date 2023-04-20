@@ -71,10 +71,11 @@ Make our life easier in Azure. Explorer Powershell and where it fits in, main to
 
 1. Azure Portal
 
-
-![Cloud shell ](https://github.com/spawnmarvel/azure-automation/blob/main/images/cloudshell.jpg)
+![Preview things ](https://github.com/spawnmarvel/azure-automation/blob/main/images/preview.jpg)
 
 2. Cloud shell
+
+![Cloud shell ](https://github.com/spawnmarvel/azure-automation/blob/main/images/cloudshell.jpg)
 
 3. Scripts, ARM templates, Bicep
 
