@@ -227,6 +227,10 @@ View deployments in RG:
 
 ![View deployments ](https://github.com/spawnmarvel/azure-automation/blob/main/images/deployments.jpg)
 
+Use or view template that was deployed
+
+![Reuse template ](https://github.com/spawnmarvel/azure-automation/blob/main/images/reuse-template.jpg)
+
 
 4. Blueprints
 
