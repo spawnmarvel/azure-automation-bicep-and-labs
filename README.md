@@ -33,35 +33,34 @@ What now.....
 
 2. Storage
 
-   Azure provides Administrators with essentially limitless storage. You need space to store VM virtual hard disks (VHDs), database files, application data, and potentially user data.
-   Cloud computing’s shared responsibility model.
-   Securing data against unauthorized access.
-   Backing up data and making it efficient to restore when needed.
+   * Azure provides Administrators with essentially limitless storage. You need space to store VM virtual hard disks (VHDs), database files, application data, and potentially user data.
+   * Cloud computing’s shared responsibility model.
+   * Securing data against unauthorized access.
+   * Backing up data and making it efficient to restore when needed.
 
 3. Network
 
-   Deploying and configuring virtual networks
-   Managing public and private IP addresses for your VMs and selected other Azure resources
+   * Deploying and configuring virtual networks
+   * Managing public and private IP addresses for your VMs and selected other Azure resources
 
 4. Security
-   The security stakes are high in the Azure public cloud because your business stores its proprietary data on someone else’s infrastructure.
-   Encrypting data in transit, at rest, and in use.
-   Protecting Azure Active Directory accounts against compromise
-   Reducing the attack surface of all your Azure resources
+
+   * The security stakes are high in the Azure public cloud because your business stores its proprietary data on someone else’s infrastructure.
+   * Encrypting data in transit, at rest, and in use.
+   * Protecting Azure Active Directory accounts against compromise
+   * Reducing the attack surface of all your Azure resources
 
 5. Monitor
 
-   Azure Monitor Insights overview
-
-   https://learn.microsoft.com/en-us/azure/azure-monitor/insights/insights-overview
-
-   Application insight
-   Container insight
-   VM insights
-   Network insights
+   * Azure Monitor Insights overview
+   * https://learn.microsoft.com/en-us/azure/azure-monitor/insights/insights-overview
+   * Application insight
+   * Container insight
+   * VM insights
+   * Network insights
 
 
 6. Bone up on your PowerShell and JavaScript Object Notation, (ARM and BICEP).
 
-   Unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
+   * Unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
 
