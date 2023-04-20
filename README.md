@@ -186,6 +186,7 @@ Shell and files
 The newer version of this is Bicep
 * Another txt file.bicep with simpler syntax, more readble.
 * MS is investing much in this 2023.
+* Bicep gets translated to json ARM.
 
 ```
 # https://learn.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-9.6.0
@@ -214,9 +215,15 @@ New-AzResourceGroupDeployment
 
 
 ```
+
+3. Template specs
+* A template spec is a resource type for storing an Azure Resource Manager template (ARM template) in Azure for later deployment. 
+* This resource type enables you to share ARM templates with other users in your organization.
+* https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-specs?tabs=azure-powershell
+
 4. Blueprints
 
-5. Automation runbooks
+5. Automation runbooks and
 
 6. Azure functions
 
