@@ -258,8 +258,9 @@ Use or view template that was deployed
 * Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs.
 * https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview
 * The following are a common, but by no means exhaustive, set of scenarios for Azure Functions.
-| If you want to | Then...|
-| -------------- | -------| 
+
+| If you want to | Then...
+| -------------- | -------
 | Build a web API |	Implement an endpoint for your web applications using the HTTP trigger
 | Process file uploads |	Run code when a file is uploaded or changed in blob storage
 | Build a serverless workflow |	Create an event-driven workflow from a series of functions using durable functions
