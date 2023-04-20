@@ -73,13 +73,26 @@ Make our life easier in Azure. Explorer Powershell and where it fits in, main to
 
 ![Preview things ](https://github.com/spawnmarvel/azure-automation/blob/main/images/preview.jpg)
 
-2. Cloud shell (a bit buggy but ok)
+2. Cloud shell (a bit buggy but ok), store scripts and files in the fileshare.
+* 
+```
+PS /home/espen/clouddrive> code $PROFILE.CurrentUserAllHosts
+
+# Edit the profile.ps1
+# profile.ps1 for use in Azure Cloud Shell
+
+# Disable Predictive Intellisens
+Set-PSReadLineOption -PredictiveSource None -BellStyle Visual
+
+# Save autentication token
+$AUTH = Invoke-RestMethod -Uri "env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata = 'true'}
+```
 
 ![Cloud shell ](https://github.com/spawnmarvel/azure-automation/blob/main/images/cloudshell.jpg)
 
 3. Scripts, ARM templates, Bicep
-   * ARM templates
-   * https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
+* ARM templates
+* https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/overview
 
 4. Blueprints
 
