@@ -100,7 +100,7 @@ Shell and files
 * * Many collaborators and different styles
 * * Have to have the correct modules (have to keep track of versions etc)
 * * Current modules starts with Az: Get-AzContext | Select-Object Account, Name
-* * Template JSON files, template and parameter
+* * Template JSON files, template and parameter.json
 ```
 
 # parameters.json
@@ -183,7 +183,37 @@ Shell and files
 
 ```
 
+The newer version of this is Bicep
+* Another txt file.bicep with simpler syntax, more readble.
+* MS is investing much in this 2023.
 
+```
+# https://learn.microsoft.com/en-us/powershell/module/az.resources/new-azresourcegroupdeployment?view=azps-9.6.0
+
+New-AzResourceGroupDeployment
+   [-Name <String>]
+   -ResourceGroupName <String>
+   [-Mode <DeploymentMode>]
+   [-DeploymentDebugLogLevel <String>]
+   [-RollbackToLastDeployment]
+   [-RollBackDeploymentName <String>]
+   [-Tag <Hashtable>]
+   [-WhatIfResultFormat <WhatIfResultFormat>]
+   [-WhatIfExcludeChangeType <String[]>]
+   [-Force]
+   [-ProceedIfNoChange]
+   [-AsJob]
+   [-QueryString <String>]
+   -TemplateFile <String>
+   [-SkipTemplateParameterPrompt]
+   [-Pre]
+   [-DefaultProfile <IAzureContextContainer>]
+   [-WhatIf]
+   [-Confirm]
+   [<CommonParameters>]
+
+
+```
 4. Blueprints
 
 5. Automation runbooks
