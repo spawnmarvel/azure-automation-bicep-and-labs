@@ -88,6 +88,7 @@ Set-PSReadLineOption -PredictiveSource None -BellStyle Visual
 $AUTH = Invoke-RestMethod -Uri "env:MSI_ENDPOINT`?resource=https://management.core.windows.net/" -Headers @{Metadata = 'true'}
 ```
 
+Shell and files
 ![Cloud shell ](https://github.com/spawnmarvel/azure-automation/blob/main/images/cloudshell.jpg)
 
 3. Scripts, ARM templates, Bicep
