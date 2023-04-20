@@ -64,3 +64,6 @@ What now.....
 
    * Unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
 
+
+## 1 Compute automation with Powershell
+
