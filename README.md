@@ -221,6 +221,13 @@ New-AzResourceGroupDeployment
 * This resource type enables you to share ARM templates with other users in your organization.
 * https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-specs?tabs=azure-powershell
 
+![Template spec ](https://github.com/spawnmarvel/azure-automation/blob/main/images/templatespec.jpg)
+
+View deployments in RG:
+
+![View deployments ](https://github.com/spawnmarvel/azure-automation/blob/main/images/deployments.jpg)
+
+
 4. Blueprints
 
 5. Automation runbooks and
