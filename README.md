@@ -65,5 +65,24 @@ What now.....
    * Unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
 
 
-## 1 Compute automation with Powershell
+## Automating Azure (glasspaper 2023)
+
+Make our life easier in Azure
+
+1. Azure Portal
+
+2. Cloud shell
+
+3. Scripts, ARM templates, Bicep
+
+4. Blueprints
+
+5. Automation runbooks
+
+6. Azure functions
+
+7. Low code option
+
+
+
 
