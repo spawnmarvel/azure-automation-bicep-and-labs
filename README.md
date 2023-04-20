@@ -296,5 +296,12 @@ Use or view template that was deployed
 
 https://learn.microsoft.com/en-us/powershell/azure/?view=azps-9.6.0
 
+## 1 Azure Resource Manager template specs
+
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-specs?tabs=azure-powershell
+
+A template spec is a resource type for storing an Azure Resource Manager template (ARM template) in Azure for later deployment
+
+
 
 
