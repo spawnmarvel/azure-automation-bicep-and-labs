@@ -89,6 +89,7 @@ $AUTH = Invoke-RestMethod -Uri "env:MSI_ENDPOINT`?resource=https://management.co
 ```
 
 Shell and files
+
 ![Cloud shell ](https://github.com/spawnmarvel/azure-automation/blob/main/images/cloudshell.jpg)
 
 3. Scripts, ARM templates, Bicep
