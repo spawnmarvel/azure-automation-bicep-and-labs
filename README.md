@@ -69,7 +69,7 @@ What now.....
 
 Make our life easier in Azure. Explorer Powershell and where it fits in, main topic is Automation accounts.
 
-1. Azure Portal
+1. Azure Portal, check out stuff in preview
 
 ![Preview things ](https://github.com/spawnmarvel/azure-automation/blob/main/images/preview.jpg)
 
