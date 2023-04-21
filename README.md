@@ -320,7 +320,7 @@ Benefits of Bicep
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep
 
-## Go to azure-1-ARM-Bicep
+## Go folder azure-1-ARM-Bicep
 
 ## 1.1 Azure Resource Manager template specs
 
