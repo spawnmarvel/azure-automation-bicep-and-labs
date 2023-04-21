@@ -64,7 +64,7 @@ What now.....
    * Network insights
 
 
-####  6. Bone up on your PowerShell and JavaScript Object Notation, (ARM and BICEP).
+####  6. Bone up on your PowerShell / Cli and JavaScript Object Notation, (ARM and BICEP).
 
    * Unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
 
@@ -308,6 +308,10 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile .\az104-0
 ## Azure PowerShell Documentation
 
 https://learn.microsoft.com/en-us/powershell/azure/?view=azps-9.6.0
+
+## Azure Command-Line Interface (CLI) documentation
+
+https://learn.microsoft.com/en-us/cli/azure/
 
 ## 1 Bicep TODO
 
