@@ -296,7 +296,7 @@ Use or view template that was deployed
 
 https://learn.microsoft.com/en-us/powershell/azure/?view=azps-9.6.0
 
-## Bicep
+## 1 Bicep
 
 We've introduced a new language named Bicep that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. 
 
@@ -307,7 +307,7 @@ Benefits of Bicep
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?tabs=bicep
 
-## 1 Azure Resource Manager template specs
+## 1.1 Azure Resource Manager template specs
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-specs?tabs=azure-powershell
 
