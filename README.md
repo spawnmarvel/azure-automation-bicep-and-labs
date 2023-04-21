@@ -242,7 +242,7 @@ Use or view template that was deployed
 * Makes sense with templates
 * https://learn.microsoft.com/en-us/azure/governance/blueprints/overview
 * Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements.
-* Deploy the resource group (can do it with extra Powershell)
+* Deploy the resource group also (can do it with extra Powershell and ARM:)
 ```
 
 $rgName = "az104-06-rg1-682093"
