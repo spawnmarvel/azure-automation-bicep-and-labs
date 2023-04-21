@@ -244,9 +244,9 @@ Use or view template that was deployed
 * Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements.
 * Deploy the resource group (can do it with extra Powershell)
 ```
-New-AzResourceGroup
+New-AzResourceGroup [-Name] <String>  [-Location] <String>  [-Tag <Hashtable>] [...]  [-WhatIf] [...]
 
-New-AzResourceGroupDeployment
+New-AzResourceGroupDeployment [-Name <String>] -ResourceGroupName <String> [...]
 
 ```
 * How it's different from ARM templates?
