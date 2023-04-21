@@ -25,3 +25,7 @@ Bicep is a domain-specific language (DSL) that uses declarative syntax to deploy
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
+
+## Part 1: Fundamentals of Bicep
+
+### Introduction to infrastructure as code using Bicep
