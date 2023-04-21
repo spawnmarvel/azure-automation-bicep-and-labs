@@ -309,7 +309,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile .\az104-0
 
 https://learn.microsoft.com/en-us/powershell/azure/?view=azps-9.6.0
 
-## 1 Bicep
+## 1 Bicep TODO
 
 We've introduced a new language named Bicep that offers the same capabilities as ARM templates but with a syntax that's easier to use. Each Bicep file is automatically converted to an ARM template during deployment. 
 
@@ -322,7 +322,7 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?ta
 
 ## Go folder azure-1-ARM-Bicep
 
-## 1.1 Azure Resource Manager template specs TODO
+## 1.1 Azure Resource Manager template specs NEXT
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-specs?tabs=azure-powershell
 
