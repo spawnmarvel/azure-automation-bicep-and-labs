@@ -49,7 +49,15 @@ You can now run the Azure CLI with the az command from either Windows Command Pr
 
 ![Az cli from ps1 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/az-cli.jpg)
 
-````
+
+* Manage multiple environments
+* Non-production environments: A common problem organizations face is differentiation between production and non-production environments. When you manually provision resources in separate environments, it's possible that the end configurations won't match.
+* Disaster recovery
+
+Better understand your cloud resources
+
+
+
 
 
 
