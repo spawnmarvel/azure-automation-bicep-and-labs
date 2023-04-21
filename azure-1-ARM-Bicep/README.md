@@ -29,3 +29,27 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 ## Part 1: Fundamentals of Bicep
 
 ### Introduction to infrastructure as code using Bicep
+
+Why use infrastructure as code?
+* Integration with current processes
+* Consistency
+* Automated scanning
+* Secret management
+* Access control
+* Avoid configuration drift: Idempotence is a term that's frequently associated with infrastructure as code. When an operation is idempotent, it means that it provides the same result each time it's run. If you choose tooling that uses idempotent operations, you can avoid configuration drift.
+
+Install Azure CLI on Windows
+
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+
+azure-cli-2.47.0.msi
+
+Run the Azure CLI
+You can now run the Azure CLI with the az command from either Windows Command Prompt or PowerShell.
+
+![Az cli from ps1 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/az-cli.jpg)
+
+````
+
+
+
