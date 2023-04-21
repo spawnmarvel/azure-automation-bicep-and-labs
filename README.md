@@ -322,7 +322,7 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/overview?ta
 
 ## Go folder azure-1-ARM-Bicep
 
-## 1.1 Azure Resource Manager template specs
+## 1.1 Azure Resource Manager template specs TODO
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/templates/template-specs?tabs=azure-powershell
 
