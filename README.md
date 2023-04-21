@@ -22,6 +22,10 @@ According to Microsoft https://learn.microsoft.com/en-us/certifications/azure-ad
 
 Yea, finally passed AZ 104 Microsoft Azure Administrator and earned the title Microsoft Certified: Azure Administrator Associate.
 
+
+https://www.credly.com/badges/6576b809-9a24-41ff-80bf-f52aab150a49/public_url
+
+
 What now.....
 
 ### Focus on
