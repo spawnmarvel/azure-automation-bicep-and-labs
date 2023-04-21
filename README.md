@@ -247,7 +247,7 @@ Use or view template that was deployed
 
 $rgName = "az104-06-rg1-682093"
 
-New-AzResourceGroup -Name $rgname -Location "west europe" [-Tag <Hashtable>] [...]  [-WhatIf] [...] -Force 
+New-AzResourceGroup -Name $rgName -Location "west europe" [-Tag <Hashtable>] [...]  [-WhatIf] [...] -Force 
 
 New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile .\az104-06-vms-loop-template.json -TemplateParameterFile .\az104-06-vms-loop-parameters.json -WhatIf
 
