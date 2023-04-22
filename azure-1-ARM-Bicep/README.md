@@ -98,8 +98,17 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
 
  Before beginning the process of building your first template, you need to understand how Azure Resource Manager works. Investigating the types of templates that are available to use with Azure will help you determine the next steps in your infrastructure-as-code strategy.
 
- Resource Manager and two types of Resource Manager templates.
+ Resource Manager and the two types of Resource Manager templates.
 
+ * Resource: A manageable item that is available on the Azure platform.
+ * Resource group: A logical container that holds related resources for an Azure solution.
+ * Subscription: A logical container and billing boundary for your resources and resource groups. 
+ * Management group: A logical container that you use to manage more than one subscription.
+ * Azure Resource Manager template (ARM template): A template file that defines one or more resources to deploy to a resource group, subscription, management group, or tenant.
+
+ There are two types of ARM template files: JSON and Bicep. This module focuses on Bicep.
  
+
+
 
 
