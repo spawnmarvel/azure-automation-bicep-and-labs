@@ -28,7 +28,7 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
 ## Part 1: Fundamentals of Bicep
 
-### Introduction to infrastructure as code using Bicep
+#### Introduction to infrastructure as code using Bicep
 
 Why use infrastructure as code?
 * Integration with current processes
@@ -54,9 +54,12 @@ You can now run the Azure CLI with the az command from either Windows Command Pr
 * Non-production environments: A common problem organizations face is differentiation between production and non-production environments. When you manually provision resources in separate environments, it's possible that the end configurations won't match.
 * Disaster recovery
 
-Better understand your cloud resources
+#### Better understand your cloud resources
 
-
+* Audit trail
+* Documentation
+* Unified system
+* Better understanding of cloud infrastructure
 
 
 
