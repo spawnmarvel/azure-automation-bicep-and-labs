@@ -213,7 +213,9 @@ deploy.ps1
 ```
 Script https://github.com/spawnmarvel/azure-automation/tree/main/azure-1-ARM-Bicep/1-storage
 
+Verify deployment
 
+![Verify deployment ](https://github.com/spawnmarvel/azure-automation/blob/main/images/verify_deployment.jpg)
 
 
 
