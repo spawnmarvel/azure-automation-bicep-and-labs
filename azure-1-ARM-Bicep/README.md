@@ -94,5 +94,12 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
 
 ```
 
+#### Azure Resource Manager
+
+ Before beginning the process of building your first template, you need to understand how Azure Resource Manager works. Investigating the types of templates that are available to use with Azure will help you determine the next steps in your infrastructure-as-code strategy.
+
+ Resource Manager and two types of Resource Manager templates.
+
+ 
 
 
