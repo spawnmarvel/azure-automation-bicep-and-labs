@@ -96,18 +96,36 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
 
 #### Azure Resource Manager
 
- Before beginning the process of building your first template, you need to understand how Azure Resource Manager works. Investigating the types of templates that are available to use with Azure will help you determine the next steps in your infrastructure-as-code strategy.
+Before beginning the process of building your first template, you need to understand how Azure Resource Manager works. Investigating the types of templates that are available to use with Azure will help you determine the next steps in your infrastructure-as-code strategy.
 
- Resource Manager and the two types of Resource Manager templates.
+Resource Manager and the two types of Resource Manager templates.
 
- * Resource: A manageable item that is available on the Azure platform.
- * Resource group: A logical container that holds related resources for an Azure solution.
- * Subscription: A logical container and billing boundary for your resources and resource groups. 
- * Management group: A logical container that you use to manage more than one subscription.
- * Azure Resource Manager template (ARM template): A template file that defines one or more resources to deploy to a resource group, subscription, management group, or tenant.
+* Resource: A manageable item that is available on the Azure platform.
+* Resource group: A logical container that holds related resources for an Azure solution.
+* Subscription: A logical container and billing boundary for your resources and resource groups. 
+* Management group: A logical container that you use to manage more than one subscription.
+* Azure Resource Manager template (ARM template): A template file that defines one or more resources to deploy to a resource group, subscription, management group, or tenant.
 
- There are two types of ARM template files: JSON and Bicep. This module focuses on Bicep.
- 
+There are two types of ARM template files: JSON and Bicep. This module focuses on Bicep.
+
+Operations: Control plane and data plane
+
+* You use a control plane operation to create a virtual machine.
+* * When you send a request from any of the Azure tools, APIs, or SDKs, Resource Manager receives, authenticates, and authorizes the request. Then, it sends the request to the Azure resource provider, which takes the requested action.
+
+* You use a data plane operation to connect to the virtual machine by using Remote Desktop Protocol (RDP).
+* * When a data plane operation starts, the requests are sent to a specific endpoint in your Azure subscription.
+
+
+JSON and Bicep templates
+
+Bicep is a new domain-specific language that was recently developed for authoring ARM templates by using an easier syntax.
+
+What is Bicep?
+
+
+
+
 
 
 
