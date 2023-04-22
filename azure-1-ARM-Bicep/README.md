@@ -188,6 +188,36 @@ bicep --version
 ```
 
 
+```
+
+Connect-AzAccount -TenantID 123-THE-ID
+
+# Set the default subscription for all of the Azure PowerShell commands that you run in this session.
+$context = Get-AzSubscription -SubscriptionName 'THE-NAME'
+Set-AzContext $context
+
+# Get the subscription ID. Running the following command lists your subscriptions and their IDs.
+Get-AzSubscription
+
+$context = Get-AzSubscription -SubscriptionId 456-THE-ID
+Set-AzContext $context
+
+# Set the default resource group or make one in ps1
+# Set-AzDefault -ResourceGroupName 789-RG
+
+# Deploy the template to Azure
+
+$rgName = "Rg-iac-0001"
+$location  = "uk south"
+
+New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure="IAC"} -Force
+
+Set-Location -Path templates
+
+New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile main.bicep # -WhatIf
+
+```
+
 
 
 
