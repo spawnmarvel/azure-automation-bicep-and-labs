@@ -5,8 +5,11 @@
 param location string = resourceGroup().location
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
-  name: 'toylanchstorage0041'
+  name: 'toylanchstorage0041x'
   location: location
+  tags:{
+    Infrastructure: 'IAC'
+  }
   sku:{
     name:'Standard_LRS'
   }
@@ -15,3 +18,8 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
     accessTier:'Cool'
   }
 }
+
+// Properties for storage account
+// https://learn.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep
+
+
