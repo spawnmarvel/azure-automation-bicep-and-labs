@@ -168,8 +168,24 @@ When is Bicep not the right tool?
 
 ### Build your first Bicep template
 
+1 Bicep language support for Visual Studio Code
+2 Either the latest Azure CLI tools, or the latest version of Azure PowerShell.
+* Azure CLI automatically installs the Bicep CLI. Azure PowerShell requires a manual installation.
 
 
+### Create a Bicep template that contains a storage account
+
+Install Bicep tools
+
+Azure PowerShell doesn't automatically install the Bicep CLI. Instead, you must manually install the Bicep CLI.
+
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install?tabs=azure-powershell#install-manually
+
+```
+bicep --version
+
+# Bicep CLI version 0.16.2 (de7fdd2b33)
+```
 
 
 
