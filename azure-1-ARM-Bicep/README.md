@@ -61,6 +61,38 @@ You can now run the Azure CLI with the az command from either Windows Command Pr
 * Unified system
 * Better understanding of cloud infrastructure
 
+When you use the Azure portal to provision resources, many of the processes are abstracted from view. Infrastructure as code can help provide a better understanding of how Azure works and how to troubleshoot issues that might arise.
+
+
+Imperative code
+* Sequence of commands
+* Is accomplished programmatically by using a scripting language like Bash or Azure PowerShell.
+
+Declarative code
+* Specify only the end configuration
+* A declarative code approach is accomplished by using templates. (jJSON, Bicep, Ansible, Terraform)
+
+Bicep example:
+* The resources section defines the storage account configuration.
+* The Bicep template doesn't specify how to deploy the storage account. It specifies only what the storage account needs to look like. 
+* The actual steps that are executed, are left for Azure to decide.
+
+```
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
+  name: 'mystorageaccount'
+  location: 'eastus'
+  sku: {
+    name: 'Standard_LRS'
+  }
+  kind: 'StorageV2'
+  properties: {
+    accessTier: 'Hot'
+    supportsHttpsTrafficOnly: true
+  }
+}
+
+```
 
 
 
