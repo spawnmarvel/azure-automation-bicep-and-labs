@@ -206,18 +206,12 @@ Set-AzContext $context
 # Set-AzDefault -ResourceGroupName 789-RG
 
 # Deploy the template to Azure
+# cd to:
 
-$rgName = "Rg-iac-0001"
-$location  = "uk south"
-
-New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure="IAC"} -Force
-
-Set-Location -Path templates
-
-New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile main.bicep # -WhatIf
+deploy.ps1
 
 ```
-
+Script https://github.com/spawnmarvel/azure-automation/tree/main/azure-1-ARM-Bicep/1-storage
 
 
 
