@@ -211,7 +211,7 @@ Set-AzContext $context
 deploy.ps1
 
 ```
-Script https://github.com/spawnmarvel/azure-automation/tree/main/azure-1-ARM-Bicep/1-storage
+Script and files https://github.com/spawnmarvel/azure-automation/tree/main/azure-1-ARM-Bicep/1-storage
 
 Verify deployment
 
