@@ -218,5 +218,5 @@ Verify deployment
 ![Verify deployment ](https://github.com/spawnmarvel/azure-automation/blob/main/images/verify_deployment.jpg)
 
 
-
+#### Add an App Service plan and app to your Bicep template
 
