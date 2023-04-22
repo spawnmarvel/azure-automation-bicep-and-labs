@@ -4,7 +4,7 @@ $location  = "uk south"
 
 # deployment name
 $deploymentUnixTime = Get-Date -UFormat %s
-$deploymentName = $deploymentUnixTime + "-unixTime"
+$deploymentName = $deploymentUnixTime + "-unixTimeId"
 Write-Host $deploymentName
 
 New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure="IAC"} -Force

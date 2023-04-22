@@ -222,13 +222,15 @@ NOTE!
 New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile main.bicep [..]
 
 # -Name The name of the deployment it's going to create. If not specified, defaults to the template file name when a template file is provided
-# -Force Forces the command to run without asking for user confirmation.
 # -Mode Complete: In complete mode, Resource Manager deletes resources that exist in the resource group but are not specified in the template.
 # -Mode Incremental: Default value, In incremental mode, Resource Manager leaves unchanged resources that exist in the resource group but are not specified in the template.
 # -Tag
+# -Force Forces the command to run without asking for user confirmation.
+# -AsJob Run cmdlet in the background
 # -TemplateFile
 # -TemplateUri
 # -WhatIf
+
 
 ```
 
