@@ -173,7 +173,7 @@ When is Bicep not the right tool?
 * Azure CLI automatically installs the Bicep CLI. Azure PowerShell requires a manual installation.
 
 
-### Create a Bicep template that contains a storage account
+### 1 Create a Bicep template that contains a storage account
 
 Install Bicep tools
 
