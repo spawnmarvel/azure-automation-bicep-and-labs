@@ -28,7 +28,7 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
 ## Part 1: Fundamentals of Bicep
 
-#### Introduction to infrastructure as code using Bicep
+## Introduction to infrastructure as code using Bicep
 
 Why use infrastructure as code?
 * Integration with current processes
@@ -121,7 +121,55 @@ JSON and Bicep templates
 
 Bicep is a new domain-specific language that was recently developed for authoring ARM templates by using an easier syntax.
 
-What is Bicep?
+#### What is Bicep?
+
+* Bicep is used only to create Resource Manager templates. 
+* Bicep provides many improvements over JSON for template authoring, including:
+* * Simpler syntax
+* * Modules
+* * Automatic dependency management
+* * Type validation and IntelliSense
+
+#### How Bicep works
+
+* When you deploy a resource or series of resources to Azure, you submit the Bicep template to Resource Manager, which still requires JSON templates.
+* The tooling that's built into Bicep converts your Bicep template into a JSON template. 
+* The latest versions of Azure CLI and Azure PowerShell have built-in Bicep support.
+* You can use the same deployment commands to deploy Bicep and JSON templates. 
+
+```
+az deployment group create \
+  --template-file main.bicep \
+  --resource-group storage-resource-group
+```
+
+You can view the JSON template that's submitted to Resource Manager by using the bicep build command.
+
+```
+bicep build main.bicep
+```
+
+### When to use Bicep
+
+When is Bicep the right tool?
+
+* Azure-native
+* Azure integration
+* Azure support
+* No state management
+* Easy transition from JSON
+
+When is Bicep not the right tool?
+
+* Bicep doesn't work as a language for other cloud providers.
+* Existing tool set: When you're determining when to use Bicep, the first question to ask is, does my organization already have a tool set in use?
+* Multicloud, Other cloud providers don't support Bicep as a template language. Open source tools like Terraform can be used for multicloud deployments, including deployments to Azure.
+
+
+### Build your first Bicep template
+
+
+
 
 
 
