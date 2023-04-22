@@ -217,6 +217,21 @@ Verify deployment
 
 ![Verify deployment ](https://github.com/spawnmarvel/azure-automation/blob/main/images/verify_deployment.jpg)
 
+NOTE!
+```
+New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile main.bicep [..]
+
+# -Name The name of the deployment it's going to create. If not specified, defaults to the template file name when a template file is provided
+# -Force Forces the command to run without asking for user confirmation.
+# -Mode Complete: In complete mode, Resource Manager deletes resources that exist in the resource group but are not specified in the template.
+# -Mode Incremental: Default value, In incremental mode, Resource Manager leaves unchanged resources that exist in the resource group but are not specified in the template.
+# -Tag
+# -TemplateFile
+# -TemplateUri
+# -WhatIf
+
+```
+
 
 #### Add an App Service plan and app to your Bicep template
 
