@@ -211,7 +211,7 @@ Set-AzContext $context
 deploy.ps1, verify.ps1, remove.ps1
 
 ```
-Script and files https://github.com/spawnmarvel/azure-automation/tree/main/azure-1-ARM-Bicep/1-storage
+Script and files https://github.com/spawnmarvel/azure-automation/tree/main/azure-1-ARM-Bicep/exercise1
 
 Verify deployment
 
