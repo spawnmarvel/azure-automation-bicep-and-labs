@@ -182,6 +182,7 @@ Azure PowerShell doesn't automatically install the Bicep CLI. Instead, you must 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install?tabs=azure-powershell#install-manually
 
 ```
+# check version
 bicep --version
 
 # Bicep CLI version 0.16.2 (de7fdd2b33)
@@ -189,24 +190,24 @@ bicep --version
 
 
 ```
-
+# Connect to Azure
 Connect-AzAccount -TenantID 123-THE-ID
 
 # Set the default subscription for all of the Azure PowerShell commands that you run in this session.
-$context = Get-AzSubscription -SubscriptionName 'THE-NAME'
-Set-AzContext $context
+# $context = Get-AzSubscription -SubscriptionName 'THE-NAME'
+# Set-AzContext $context
 
 # Get the subscription ID. Running the following command lists your subscriptions and their IDs.
-Get-AzSubscription
+# Get-AzSubscription
 
 $context = Get-AzSubscription -SubscriptionId 456-THE-ID
-Set-AzContext $context
+# Set-AzContext $context
 
 # Set the default resource group or make one in ps1
 # Set-AzDefault -ResourceGroupName 789-RG
 
-# Deploy the template to Azure
-# cd to:
+# Deploy/verify/remove the template to Azure
+# cd to folders:
 
 deploy.ps1, verify.ps1, remove.ps1
 
