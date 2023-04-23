@@ -11,7 +11,7 @@ $location  = "uk south"
 
 # deployment id
 $tempId = Get-Date -UFormat %s
-$deploymentId = "Depl-" + $tempId.ToString()
+$deploymentId = "DeplN-" + $tempId.ToString()
 Write-Host $deploymentId
 LogModule($deploymentId)
 
