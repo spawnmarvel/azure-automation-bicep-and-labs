@@ -215,7 +215,7 @@ Script and files https://github.com/spawnmarvel/azure-automation/tree/main/azure
 
 Verify deployment
 
-![Verify deployment ](https://github.com/spawnmarvel/azure-automation/blob/main/images/verify_deployment.jpg)
+![Verify deployments ](https://github.com/spawnmarvel/azure-automation/blob/main/images/verify_deployments.jpg)
 
 NOTE!
 ```

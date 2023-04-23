@@ -10,8 +10,8 @@ $rgName = "Rg-iac-0001"
 $location  = "uk south"
 
 # deployment id
-$tempId = New-Guid
-$deploymentId = $tempId.ToString()
+$tempId = Get-Date -UFormat %s
+$deploymentId = "Depl-" + $tempId.ToString()
 Write-Host $deploymentId
 LogModule($deploymentId)
 
