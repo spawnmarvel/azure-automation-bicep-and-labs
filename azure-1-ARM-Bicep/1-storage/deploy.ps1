@@ -1,10 +1,9 @@
 
-# Log it
-Function LogResult($txt) {
-    Add-Content log.txt $txt
-}
+# import log module
+Import-Module .\Modules\LogModule\LogModule.psm1
+
 $st = "Start deploy:" + (Get-Date)
-LogResult($st)
+LogModule($st)
 
 # rg and location
 $rgName = "Rg-iac-0001"
@@ -14,7 +13,7 @@ $location  = "uk south"
 $tempId = New-Guid
 $deploymentId = $tempId.ToString()
 Write-Host $deploymentId
-LogResult($deploymentId)
+LogModule($deploymentId)
 
 # deploy rg
 New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure="IAC"} -Force
@@ -24,6 +23,7 @@ $deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $
 
 Write-Host $deployResult.ProvisioningState
 $end = "End deploy:" + ($deployResult.ProvisioningState)
-LogResult($end)
+LogModule($end)
+
 
 
