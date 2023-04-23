@@ -242,5 +242,31 @@ https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/4-
 
 #### Add flexibility by using parameters and variables
 
+* You need to avoid using fixed resource names, so you can reuse the template for multiple product launches. 
+* You also have to deploy the resources in different locations, which means you can't embed the resource locations in your template either.
+
+Parameters, para
+* A parameter lets you bring in values from outside the template file
+
+Variables, var
+* A variable is defined and set within the template.
+
+Things that will change between each deployment, like:
+* The names of resources that need to be unique.
+* Locations into which to deploy the resources.
+* Settings that affect the pricing of resources, like their SKUs, pricing tiers, and instance counts.
+* Credentials and information needed to access other systems that aren't defined in the template.
+
+? is called a ternary operator and it evaluates an if/then statement. The value after the ? operator is used if the expression is true. If the expression evaluates to false, the value after the colon (:) is used.
+
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/5-add-flexibility-parameters-variables
+
+#### Exercise - Add parameters and variables to your Bicep template
+
+
+Notice that you're explicitly specifying the value for the environmentType parameter when you execute the deployment. You don't need to specify the other parameter values, because they have valid default values.
+
+![Deploy nonprod ](https://github.com/spawnmarvel/azure-automation/blob/main/images/deploy_non_prod.jpg)
+
+https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/6-exercise-add-parameters-variables-bicep-template?pivots=powershell
 
