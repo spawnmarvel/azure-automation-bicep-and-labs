@@ -235,5 +235,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile main.bice
 ```
 
 
-#### Add an App Service plan and app to your Bicep template
+#### Add an App Service plan and app to your Bicep template, done
 
+#### Add flexibility by using parameters and variables

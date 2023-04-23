@@ -5,7 +5,7 @@
 param location string = resourceGroup().location
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
-  name: 'toylanchstorage0041x'
+  name: 'toylaunchstorage0041x'
   location: location
   tags:{
     Infrastructure: 'IAC'
@@ -18,8 +18,27 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
     accessTier:'Cool'
   }
 }
-
 // Properties for storage account
 // https://learn.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep
 
-
+resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
+  name:'toy-product-launch-plan-starter0041'
+  location:location
+  tags:{
+    Infrastructure: 'IAC'
+  }
+  sku:{
+    name:'F1'
+  }
+}
+resource appServiceApp 'Microsoft.Web/sites@2022-09-01' = {
+  name:'toy-product-launch00041'
+  location:location
+  tags:{
+    Infrastructure: 'IAC'
+  }
+  properties:{
+    serverFarmId:appServicePlan.id
+    httpsOnly:true
+  }
+}
