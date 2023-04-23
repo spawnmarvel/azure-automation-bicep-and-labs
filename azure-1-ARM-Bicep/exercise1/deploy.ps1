@@ -1,6 +1,6 @@
 
 # import log module
-Import-Module .\Modules\LogModule\LogModule.psm1
+Import-Module .\Modules\LogModule\
 
 $st = "Start deploy:" + (Get-Date)
 LogModule($st)
@@ -24,6 +24,7 @@ $deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $
 Write-Host $deployResult.ProvisioningState
 $end = "End deploy:" + ($deployResult.ProvisioningState)
 LogModule($end)
+
 
 
 
