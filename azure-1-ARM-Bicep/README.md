@@ -187,7 +187,7 @@ bicep --version
 
 # Bicep CLI version 0.16.2 (de7fdd2b33)
 ```
-
+![Bicep version ](https://github.com/spawnmarvel/azure-automation/blob/main/images/bicep_version.jpg)
 
 ```
 # Connect to Azure
