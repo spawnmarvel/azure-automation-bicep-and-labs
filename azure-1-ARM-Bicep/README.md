@@ -270,3 +270,9 @@ Notice that you're explicitly specifying the value for the environmentType param
 
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/6-exercise-add-parameters-variables-bicep-template?pivots=powershell
 
+#### Group related resources by using modules
+
+https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/7-group-related-resources-modules
+
+
+

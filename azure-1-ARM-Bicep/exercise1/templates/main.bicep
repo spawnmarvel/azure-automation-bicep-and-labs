@@ -17,7 +17,7 @@ param environmentType string
 var appServicePlanName = 'toy-product-launch-plan'
 // For the storageAccountSkuName variable, if the environmentType parameter is set to prod, then use the Standard_GRS SKU. Otherwise, use the Standard_LRS SKU.
 var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS': 'Standard_LRS'
-var appServicePlanSkuName = (environmentType == 'nonprod') ? 'P2V3':'F1'
+var appServicePlanSkuName = (environmentType == 'prod') ? 'P2V3':'F1'
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: storageAccountName
