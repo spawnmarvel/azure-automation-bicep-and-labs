@@ -319,3 +319,7 @@ https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/7-
 
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=powershell
 
+
+#### Build reusable Bicep templates by using parameters
+
+https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/
