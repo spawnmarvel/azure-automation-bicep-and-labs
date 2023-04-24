@@ -280,7 +280,42 @@ https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/6-
 
 #### Group related resources by using modules
 
+* Outputs
+* * For logs
+* * Input to another process
+* * If expression is used to generate name->URL
+
+Note:
+Outputs can use the same names as variables and parameters. This convention can be helpful if you construct a complex expression within a variable to use within your template's resources, and you also need to expose the variable's value as an output.
+
+```
+module myModule 'modules/mymodule.bicep' = {
+  name: 'MyModule'
+  params: {
+    location: location
+  }
+}
+```
+
+Design your modules
+* A module should have a clear purpose.
+* Don't put every resource into its own module.
+* A module should have clear parameters and outputs that make sense.
+* A module should be as self-contained as possible. 
+* *  If a module needs to use a variable to define a part of a module, the variable should generally be included in the module file rather than in the parent template.
+* A module should not output secrets.
+
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/7-group-related-resources-modules
 
 
+#### Exercise - Refactor your template to use modules
+
+* Add a new module and move the App Service resources into it.
+* Reference the module from the main Bicep template.
+* Add an output for the App Service app's host name, and emit it from the module and template deployments.
+* Test the deployment to ensure that the template is valid.
+
+![App is ready ](https://github.com/spawnmarvel/azure-automation/blob/main/images/app_ready1.jpg)
+
+https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=powershell
 

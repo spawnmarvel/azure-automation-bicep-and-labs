@@ -13,11 +13,9 @@ param appServiceAppName string = 'toylaunch${uniqueString(resourceGroup().id)}'
 ])
 param environmentType string
 
-// vars
-var appServicePlanName = 'toy-product-launch-plan'
 // For the storageAccountSkuName variable, if the environmentType parameter is set to prod, then use the Standard_GRS SKU. Otherwise, use the Standard_LRS SKU.
 var storageAccountSkuName = (environmentType == 'prod') ? 'Standard_GRS': 'Standard_LRS'
-var appServicePlanSkuName = (environmentType == 'prod') ? 'P2V3':'F1'
+
 
 resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   name: storageAccountName
@@ -37,26 +35,14 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 // https://learn.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep
 
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
-  name:appServicePlanName
-  location:location
-  tags:{
-    Infrastructure: 'IAC'
+module appService 'modules/appService.bicep' = {
+  name:'appService'
+  params:{
+    location:location
+    //module: main
+    appServiceAppName:appServiceAppName
+    environmentType:environmentType
   }
-  sku:{
-    name:appServicePlanSkuName
-  }
+  
 }
-
-
-resource appServiceApp 'Microsoft.Web/sites@2022-09-01' = {
-  name:appServiceAppName
-  location:location
-  tags:{
-    Infrastructure: 'IAC'
-  }
-  properties:{
-    serverFarmId:appServicePlan.id
-    httpsOnly:true
-  }
-}
+output appServiceAppHostName string = appService.outputs.appServiceAppHostName

@@ -1,6 +1,6 @@
 
 # import log module
-Import-Module .\Modules\LogModule\
+Import-Module .\ModulesPs1\LogModule\
 
 $st = "Start deploy:" + (Get-Date)
 LogModule($st)
