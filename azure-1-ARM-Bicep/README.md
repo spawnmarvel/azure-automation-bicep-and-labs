@@ -268,6 +268,14 @@ Notice that you're explicitly specifying the value for the environmentType param
 
 ![Deploy nonprod ](https://github.com/spawnmarvel/azure-automation/blob/main/images/deploy_non_prod.jpg)
 
+Or you coud pass the args in the file
+
+```
+# -environmentType nonprod
+New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -environmentType nonprod -TemplateFile templates\main.bicep # -WhatIf
+```
+![Deploy nonprod args ](https://github.com/spawnmarvel/azure-automation/blob/main/images/deploy_non_prod_args.jpg)
+
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/6-exercise-add-parameters-variables-bicep-template?pivots=powershell
 
 #### Group related resources by using modules
