@@ -582,6 +582,8 @@ Deploy the Bicep template with parameter file and Azure Key Vault references
 * You aren't prompted to enter the values for sqlServerAdministratorLogin and sqlServerAdministratorPassword parameters when you execute the deployment this time. 
 * Azure retrieves the values from your key vault instead.
 
+![Sql deploy key vault ](https://github.com/spawnmarvel/azure-automation/blob/main/images/sql_deploy_keyvault.jpg)
+
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 
 
