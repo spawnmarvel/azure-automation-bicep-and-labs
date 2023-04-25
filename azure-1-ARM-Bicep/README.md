@@ -342,3 +342,88 @@ By the end of this module, you'll be able to:
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/
 
 
+* With parameters, you can provide information to a Bicep template at deployment time. You can make a Bicep template flexible and reusable by declaring parameters within your template.
+* Decorators provide a way to attach constraints and metadata to a parameter, which helps anyone using your templates to understand what information they need to provide.
+
+https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/2-understand-parameters
+
+```
+# param, name, type, value
+param environmentName string = 'dev'
+
+param location string = resourceGroup().location
+
+```
+Parameters in Bicep can be one of the following types:
+* string
+* int
+* bool
+* object and array, which represent structured data and lists.
+
+Object:
+
+```
+param appServicePlanSku object = {
+  name: 'F1'
+  tier: 'Free'
+  capacity: 1
+}
+
+resource appServicePlan 'Microsoft.Web/serverfarms@2022-03-01' = {
+  name: appServicePlanName
+  location: location
+  sku: {
+    name: appServicePlanSku.name
+    tier: appServicePlanSku.tier
+    capacity: appServicePlanSku.capacity
+  }
+}
+
+
+# Tags are another exmaple of objects
+ tags:{
+    Infrastructure: 'IAC'
+  }
+
+# Arrays
+
+param cosmosDBAccountLocations array = [
+  {
+    locationName: 'australiaeast'
+  }
+  {
+    locationName: 'southcentralus'
+  }
+  {
+    locationName: 'westeurope'
+  }
+]
+
+resource account 'Microsoft.DocumentDB/databaseAccounts@2022-08-15' = {
+  name: accountName
+  location: location
+  properties: {
+    locations: cosmosDBAccountLocations
+  }
+}
+
+# Specify a list of allowed values
+# To enforce this rule, you can use the @allowed parameter decorator, string can be restricted so that only a few specific values can be assigned:
+@allowed([
+  'nonprod'
+  'prod'
+])
+param environmentType string
+
+# Restrict parameter length and values
+@minLength(5)
+@maxLength(24)
+param storageAccountName string
+
+# with a description
+@description('This will ensure a max and min instance for the app service plan')
+@minValue(1)
+@maxValue(10)
+param appServicePlanInstanceCount int
+
+```
