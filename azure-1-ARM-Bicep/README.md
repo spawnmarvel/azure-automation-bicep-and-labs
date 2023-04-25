@@ -427,3 +427,5 @@ param storageAccountName string
 param appServicePlanInstanceCount int
 
 ```
+Note:
+Bicep templates can sometimes be made available in the Azure portal for users to deploy, like when you use template specs. The portal uses the descriptions and other decorators on parameters to help users understand what a parameter value needs to be.
