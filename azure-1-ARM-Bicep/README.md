@@ -595,3 +595,6 @@ Add IAM Key vault officer and view the secrets
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 
 
+#### Build flexible Bicep templates by using conditions and loops
+
+https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/
