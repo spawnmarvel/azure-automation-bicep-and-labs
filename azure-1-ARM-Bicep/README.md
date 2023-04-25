@@ -173,7 +173,7 @@ When is Bicep not the right tool?
 * Azure CLI automatically installs the Bicep CLI. Azure PowerShell requires a manual installation.
 
 
-### 1 Create a Bicep template that contains a storage account
+### Exercise 1 Create a Bicep template that contains a storage account
 
 Install Bicep tools
 
@@ -429,3 +429,19 @@ param appServicePlanInstanceCount int
 ```
 Note:
 Bicep templates can sometimes be made available in the Azure portal for users to deploy, like when you use template specs. The portal uses the descriptions and other decorators on parameters to help users understand what a parameter value needs to be.
+@description('The name of tier of the app service plan SKU')
+
+#### Exercise 2 - Add parameters and decorators
+
+* Create a Bicep file that includes parameters and variables.
+* Add decorators to the parameters.
+* Test the deployment to ensure that the template is valid.
+
+![Exercise 2 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise2.jpg)
+
+https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/3-exercise-add-parameters-with-decorators?pivots=powershell
+
+
+#### Provide values using parameter files
+
+https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/4-how-use-parameter-file-with-bicep?pivots=powershell
