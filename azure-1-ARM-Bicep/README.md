@@ -212,7 +212,6 @@ $context = Get-AzSubscription -SubscriptionId 456-THE-ID
 deploy.ps1, verify.ps1, remove.ps1
 
 ```
-Script and files https://github.com/spawnmarvel/azure-automation/tree/main/azure-1-ARM-Bicep/exercise1
 
 Verify deployment
 
