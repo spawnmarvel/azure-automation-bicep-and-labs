@@ -1,5 +1,8 @@
 
-# import log module
+
+Function LogModule($txt) {
+    Add-Content log.txt $txt
+}
 
 $st = "Start deploy:" + (Get-Date)
 LogModule($st)
@@ -12,7 +15,7 @@ $location  = "uk south"
 $tempId = Get-Date -UFormat %s
 $deploymentId = "DeplN-" + $tempId.ToString()
 Write-Host $deploymentId
-# LogModule($deploymentId)
+LogModule($deploymentId)
 
 # deploy rg
 New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure="IAC"} -Force
@@ -23,7 +26,7 @@ $deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $
 Write-Host $deployResult.ProvisioningState
 $end = "End deploy:" + ($deployResult.ProvisioningState)
 Write-Host $end
-# LogModule($end)
+LogModule($end)
 
 
 
