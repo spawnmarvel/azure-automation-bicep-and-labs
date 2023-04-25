@@ -541,11 +541,46 @@ $keyVaultName = 'kviac0041'
 $login = Read-Host "Enter the login name" -AsSecureString
 $password = Read-Host "Enter the password" -AsSecureString
 
+# You're setting the -EnabledForTemplateDeployment setting on the vault so that Azure can use the secrets from your vault during deployments. 
 New-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment
 Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'sqlServerAdministratorLogin' -SecretValue $login
 Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'sqlServerAdministratorPassword' -SecretValue $password
 ```
 ![Vault ](https://github.com/spawnmarvel/azure-automation/blob/main/images/vault.jpg)
+
+```
+# Get the key vault's resource ID
+$keyVaultName = 'kviac0041'
+
+(Get-AzKeyVault -Name $keyVaultName).ResourceId
+
+# The resource ID will look something like this example:
+/subscriptions/f0750bbe-ea75-4ae5-b24d-a92ca601da2c/resourceGroups/PlatformResources/providers/Microsoft.KeyVault/vaults/toysecrets
+
+```
+
+Add a key vault reference to a parameter file
+
+```
+"sqlServerAdministratorLogin": {
+      "reference": {
+        "keyVault": {
+          "id": "YOUR-KEY-VAULT-RESOURCE-ID"
+        },
+        "secretName": "sqlServerAdministratorLogin"
+      }
+    },
+    "sqlServerAdministratorPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "YOUR-KEY-VAULT-RESOURCE-ID"
+        },
+        "secretName": "sqlServerAdministratorPassword"
+      }
+```
+Deploy the Bicep template with parameter file and Azure Key Vault references
+* You aren't prompted to enter the values for sqlServerAdministratorLogin and sqlServerAdministratorPassword parameters when you execute the deployment this time. 
+* Azure retrieves the values from your key vault instead.
 
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 
