@@ -286,7 +286,12 @@ https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/6-
 * * If expression is used to generate name->URL
 
 ```
+# appService.bicep
 output appServiceAppHostName string = appServiceApp.properties.defaultHostName
+
+# main.bicep
+output appServiceAppHostName string = appService.outputs.appServiceAppHostName
+
 ```
 
 Note:
