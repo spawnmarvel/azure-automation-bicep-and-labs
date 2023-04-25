@@ -218,7 +218,7 @@ Verify deployment
 
 ![Verify deployments ](https://github.com/spawnmarvel/azure-automation/blob/main/images/verify_deployments.jpg)
 
-NOTE!
+Note:
 ```
 New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile main.bicep [..]
 
