@@ -582,7 +582,15 @@ Deploy the Bicep template with parameter file and Azure Key Vault references
 * You aren't prompted to enter the values for sqlServerAdministratorLogin and sqlServerAdministratorPassword parameters when you execute the deployment this time. 
 * Azure retrieves the values from your key vault instead.
 
+1. Notice that the appServicePlanSku and the sqlDatabaseSku parameter values have both been set to the values in the parameter file. 
+2. Also, notice that the sqlServerAdministratorLogin and sqlServerAdministratorPassword parameter values aren't displayed, because you applied the @secure() decorator to them.
+
+
 ![Sql deploy key vault ](https://github.com/spawnmarvel/azure-automation/blob/main/images/sql_deploy_keyvault.jpg)
+
+Add IAM Key vault officer and view the secrets
+
+![Key vault secret ](https://github.com/spawnmarvel/azure-automation/blob/main/images/keyvault_secret.jpg)
 
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 

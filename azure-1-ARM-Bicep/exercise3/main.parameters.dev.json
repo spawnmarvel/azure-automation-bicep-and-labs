@@ -17,7 +17,7 @@
         "sqlServerAdministratorLogin": {
             "reference": {
                 "keyVault": {
-                    "id": "/subscriptions/f2da8212-69a4-42ed-a0b8-bfd2ab1b11c8/resourceGroups/Rg-iac-0003/providers/Microsoft.KeyVault/vaults/kviac0041"
+                    "id": "/subscriptions/-------/Microsoft.KeyVault/vaults/kvname"
                 },
                 "secretName": "sqlServerAdministratorLogin"
             }
@@ -25,7 +25,7 @@
         "sqlServerAdministratorPassword": {
             "reference": {
                 "keyVault": {
-                    "id": "/subscriptions/f2da8212-69a4-42ed-a0b8-bfd2ab1b11c8/resourceGroups/Rg-iac-0003/providers/Microsoft.KeyVault/vaults/kviac0041"
+                    "id": "/subscriptions/-------/Microsoft.KeyVault/vaults/kvname"
                 },
                 "secretName": "sqlServerAdministratorPassword"
             }
