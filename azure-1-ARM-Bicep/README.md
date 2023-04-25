@@ -460,5 +460,58 @@ Override parameter values:
 
 ![Override ](https://github.com/spawnmarvel/azure-automation/blob/main/images/override.jpg)
 
+By using a mixture of the approaches to specify parameter values, you can avoid having to duplicate parameter values in lots of places, while still getting the flexibility to override where you need to.
 
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/4-how-use-parameter-file-with-bicep?pivots=powershell
+
+#### Secure your parameters
+
+Sometimes you need to pass sensitive values into your deployments, like passwords and API keys. But you need to ensure these values are protected. 
+
+Note:
+The best approach is to avoid using credentials entirely. Managed identities for Azure resources can enable the components of your solution to securely communicate with one another without any credentials. Managed identities aren't available for every resource, but it's a good idea to use them wherever you can. Where you can't, you can use the approaches described here.
+
+Define secure parameters
+
+```
+#Azure won't make the parameter values available in the deployment logs.
+@secure()
+param sqlServerAdministratorLogin string
+
+@secure()
+param sqlServerAdministratorPassword string
+```
+
+* Make sure you don't create outputs for sensitive data
+* Avoid using parameter files for secrets
+* Integrate with Azure Key Vault
+* * You can integrate your Bicep templates with Key Vault by using a parameter file with a reference to a Key Vault secret.
+* * The value is never exposed because you only reference its identifier, which by itself isn't anything secret.
+
+```
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "sqlServerAdministratorLogin": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/f0750bbe-ea75-4ae5-b24d-a92ca601da2c/resourceGroups/PlatformResources/providers/Microsoft.KeyVault/vaults/toysecrets"
+        },
+        "secretName": "sqlAdminLogin"
+      }
+    },
+    "sqlServerAdministratorPassword": {
+      "reference": {
+        "keyVault": {
+          "id": "/subscriptions/f0750bbe-ea75-4ae5-b24d-a92ca601da2c/resourceGroups/PlatformResources/providers/Microsoft.KeyVault/vaults/toysecrets"
+        },
+        "secretName": "sqlAdminLoginPassword"
+      }
+    }
+  }
+}
+```
+
+
+https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/5-how-secure-parameter
