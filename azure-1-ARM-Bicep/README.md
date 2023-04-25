@@ -532,8 +532,20 @@ $deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $
 Create a key vault and secrets
 * Make sure you use the same login and password that you used in the previous step. If you don't, the next deployment won't complete successfully.
 
+```
+# rg and location
+$rgName = "Rg-iac-0003"
+$location  = "uk south"
 
+$keyVaultName = 'kviac0041'
+$login = Read-Host "Enter the login name" -AsSecureString
+$password = Read-Host "Enter the password" -AsSecureString
 
+New-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment
+Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'sqlServerAdministratorLogin' -SecretValue $login
+Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'sqlServerAdministratorPassword' -SecretValue $password
+```
+![Vault ](https://github.com/spawnmarvel/azure-automation/blob/main/images/vault.jpg)
 
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 
