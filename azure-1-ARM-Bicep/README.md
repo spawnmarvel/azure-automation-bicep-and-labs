@@ -515,3 +515,19 @@ param sqlServerAdministratorPassword string
 
 
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/5-how-secure-parameter
+
+#### Exercise 3 - Add a parameter file and secure parameters
+
+You're prompted to enter the values for sqlServerAdministratorLogin and sqlServerAdministratorPassword parameters when you execute the deployment. You don't need to specify solutionName because it has a default value specified in the template. You don't need to specify the other parameter values because their values are specified in the parameter file.
+
+```
+# deploy resources
+$deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -TemplateFile main.bicep -TemplateParameterFile .\main.parameters.dev.json # -WhatIf
+
+```
+
+![Sql deploy ](https://github.com/spawnmarvel/azure-automation/blob/main/images/sql_deploy.jpg)
+
+https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
+
+
