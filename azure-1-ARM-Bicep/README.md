@@ -526,7 +526,14 @@ $deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $
 
 ```
 
-![Sql deploy ](https://github.com/spawnmarvel/azure-automation/blob/main/images/sql_deploy.jpg)
+![Sql deploy ](https://github.com/spawnmarvel/azure-automation/blob/main/images/sql_deploy1.jpg)
+
+
+Create a key vault and secrets
+* Make sure you use the same login and password that you used in the previous step. If you don't, the next deployment won't complete successfully.
+
+
+
 
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 
