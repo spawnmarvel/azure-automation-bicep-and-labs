@@ -4,8 +4,8 @@ $rgName = "Rg-iac-0003"
 $location  = "uk south"
 
 $keyVaultName = 'kviac0041'
-$login = Read-Host "Marcus0041man" -AsSecureString
-$password = Read-Host "Meditations0041-" -AsSecureString
+$login = Read-Host "Enter username" -AsSecureString
+$password = Read-Host "Enterpassword" -AsSecureString
 
 New-AzKeyVault -VaultName $keyVaultName -ResourceGroupName $rgName -Location $location -EnabledForTemplateDeployment
 Set-AzKeyVaultSecret -VaultName $keyVaultName -Name 'sqlServerAdministratorLogin' -SecretValue $login
