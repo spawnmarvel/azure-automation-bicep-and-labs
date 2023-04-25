@@ -443,4 +443,22 @@ https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-template
 
 #### Provide values using parameter files
 
+* Parameter files make it easy to specify parameter values together as a set.
+* Within the parameter file, you provide values for the parameters in your Bicep file. 
+* Parameter files are created by using the JavaScript Object Notation (JSON) language.
+
+* $schema helps Azure Resource Manager to understand that this file is a parameter file.
+* contentVersion is a property that you can use to keep track of significant changes.
+* The parameters section lists each parameter and the value you want to use.
+
+Note:
+Make sure you only specify values for parameters that exist in your Bicep template. When you create a deployment, Azure checks your parameters and gives you an error if you've tried to specify a value for a parameter that isn't in the Bicep file.
+
+Note:
+Override parameter values:
+* Parameter files override default values, and command-line parameter values override parameter files.
+
+![Override ](https://github.com/spawnmarvel/azure-automation/blob/main/images/override.jpg)
+
+
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/4-how-use-parameter-file-with-bicep?pivots=powershell
