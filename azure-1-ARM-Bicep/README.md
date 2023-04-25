@@ -285,8 +285,21 @@ https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/6-
 * * Input to another process
 * * If expression is used to generate name->URL
 
+```
+output appServiceAppHostName string = appServiceApp.properties.defaultHostName
+```
+
 Note:
 Outputs can use the same names as variables and parameters. This convention can be helpful if you construct a complex expression within a variable to use within your template's resources, and you also need to expose the variable's value as an output.
+
+
+Design your modules
+* A module should have a clear purpose.
+* Don't put every resource into its own module.
+* A module should have clear parameters and outputs that make sense.
+* A module should be as self-contained as possible. 
+* *  If a module needs to use a variable to define a part of a module, the variable should generally be included in the module file rather than in the parent template.
+* A module should not output secrets.
 
 ```
 module myModule 'modules/mymodule.bicep' = {
@@ -296,14 +309,6 @@ module myModule 'modules/mymodule.bicep' = {
   }
 }
 ```
-
-Design your modules
-* A module should have a clear purpose.
-* Don't put every resource into its own module.
-* A module should have clear parameters and outputs that make sense.
-* A module should be as self-contained as possible. 
-* *  If a module needs to use a variable to define a part of a module, the variable should generally be included in the module file rather than in the parent template.
-* A module should not output secrets.
 
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/7-group-related-resources-modules
 
@@ -322,4 +327,13 @@ https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/8-
 
 #### Build reusable Bicep templates by using parameters
 
+By using parameters, you can create flexible and reusable Bicep templates. You define parameters for any aspect of your deployment that might change, such as environment-specific settings, pricing and capacity configuration for your Azure resources, and API keys to access external systems.
+By the end of this module, you'll be able to:
+
+* Customize parameters and limit the values that can be used by each parameter
+* Understand the ways that parameters can be passed to a Bicep template
+* Work with secure parameters to ensure that secrets aren't leaked or shared unnecessarily
+
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/
+
+
