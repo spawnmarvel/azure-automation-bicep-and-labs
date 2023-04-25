@@ -597,4 +597,12 @@ https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-template
 
 #### Build flexible Bicep templates by using conditions and loops
 
+In this module, you'll extend a Bicep template by using conditions and loops. You'll:
+
+* Use conditions to deploy Azure resources only when they're required.
+* Use loops to deploy multiple instances of Azure resources.
+* Learn how to control loop parallelism.
+* Learn how to create nested loops.
+* Combine loops with variables and outputs.
+
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/
