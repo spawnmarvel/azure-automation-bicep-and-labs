@@ -691,3 +691,8 @@ Be sure to use the same login and password that you used previously, or else the
 ![Deploy 2 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise4_2.jpg)
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/3-exercise-conditions?pivots=powershell
+
+#### Deploy multiple resources by using loops
+
+https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/4-use-loops-deploy-resources
+
