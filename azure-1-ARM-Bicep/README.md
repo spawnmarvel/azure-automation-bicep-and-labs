@@ -694,5 +694,7 @@ https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-template
 
 #### Deploy multiple resources by using loops
 
+Often, you need to deploy multiple resources that are very similar. By adding loops to your Bicep files, you can avoid having to repeat resource definitions. Instead, you can dynamically set the number of instances of a resource you want to deploy. You can even customize the properties for each instance.
+
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/4-use-loops-deploy-resources
 
