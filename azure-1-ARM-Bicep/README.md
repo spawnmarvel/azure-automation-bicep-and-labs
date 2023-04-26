@@ -675,4 +675,19 @@ In this case, one logical server and one SQL database are deployed. Notice that 
 
 ![Deploy 1 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise4_1.jpg)
 
+Redeploy for the production environment
+* In the previous deployment, the default value for the environmentName parameter was used, which meant that it was set to Development.
+```
+param environmentName string = 'Development'
+```
+* You expect that, by making this change, the storage account for auditing purposes will be deployed, and auditing will be enabled on the logical server.
+
+```
+New-AzResourceGroupDeployment -ResourceGroupName $rgName -environmentName Production -Name $deploymentId -TemplateFile main.bicep # -WhatIf
+```
+Note:
+Be sure to use the same login and password that you used previously, or else the deployment won't finish successfully.
+
+![Deploy 2 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise4_2.jpg)
+
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/3-exercise-conditions?pivots=powershell

@@ -33,7 +33,7 @@ var sqlDatabaseName = 'TeddyBear'
 // Notice that you're creating a variable called auditingEnabled, which you'll use as the condition for deploying the auditing resources.
 var auditingEnabled = environmentName == 'Production'
 // take(). Storage account names have a maximum length of 24 characters, so this function trims the end off the string to ensure that the name is valid.
-var auditStorageAccountName = take('bearaudit${location}.${uniqueString(resourceGroup().id)}',24)
+var auditStorageAccountName = take('bearaudit${location}${uniqueString(resourceGroup().id)}',24)
 
 resource sqlServer 'Microsoft.Sql/servers@2021-11-01-preview' = {
   name:sqlServerName
