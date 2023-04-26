@@ -667,7 +667,7 @@ https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-template
 * Set up an infrastructure for your development environment, and then verify the result.
 * Redeploy your infrastructure against your production environment, and then look at the changes.
 
-* Verify the deployment
+Verify the deployment
 * Also, be sure to note the login and password that you enter. You'll use them again shortly.
 
 
