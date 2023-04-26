@@ -606,3 +606,73 @@ In this module, you'll extend a Bicep template by using conditions and loops. Yo
 * Combine loops with variables and outputs.
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/
+
+#### Deploy resources conditionally
+
+When you deploy a resource in Bicep, you can provide the if keyword followed by a condition.
+
+It's common to create conditions based on the values of parameters that you provide. For example, the following code deploys a storage account only when the deployStorageAccount parameter is set to true:
+
+```
+// The deployStorageAccount parameter was of type bool, so it's clear whether it has a value of true or false.
+
+param deployStorageAccount bool
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2021-09-01' = if (deployStorageAccount) {
+  name: 'teddybearstorage'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  // ...
+}
+
+// It's usually a good idea to create a variable for the expression that you're using as a condition. 
+
+@allowed([
+  'Development'
+  'Production'
+])
+param environmentName string
+
+var auditingEnabled = environmentName == 'Production'
+
+resource auditingSettings 'Microsoft.Sql/servers/auditingSettings@2021-11-01-preview' = if (auditingEnabled) {
+  parent: server
+  name: 'default'
+  properties: {
+  }
+}
+
+// Depend on conditionally deployed resources
+// 
+resource auditingSettings 'Microsoft.Sql/servers/auditingSettings@2021-11-01-preview' = if (auditingEnabled) {
+  parent: server
+  name: 'default'
+  properties: {
+    state: 'Enabled'
+    storageEndpoint: environmentName == 'Production' ? auditStorageAccount.properties.primaryEndpoints.blob : ''
+    storageAccountAccessKey: environmentName == 'Production' ? listKeys(auditStorageAccount.id, auditStorageAccount.apiVersion).keys[0].value : ''
+  }
+}
+
+```
+Note:
+You can't define two resources with the same name in the same Bicep file and then conditionally deploy only one of them. The deployment will fail, because Resource Manager views this as a conflict.
+
+https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/2-use-conditions-deploy-resources
+
+#### Exercise 4 - Deploy resources conditionally
+
+* Create a Bicep file that defines a logical server with a database.
+* Add a storage account and SQL auditing settings, each of which is deployed with a condition.
+* Set up an infrastructure for your development environment, and then verify the result.
+* Redeploy your infrastructure against your production environment, and then look at the changes.
+
+* Verify the deployment
+* Also, be sure to note the login and password that you enter. You'll use them again shortly.
+
+
+In this case, one logical server and one SQL database are deployed. Notice that the storage account and auditing settings aren't on the list of resources.
+
+![Deploy 1 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise4_1.jpg)
+
+https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/3-exercise-conditions?pivots=powershell
