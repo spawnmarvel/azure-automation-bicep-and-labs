@@ -694,7 +694,75 @@ https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-template
 
 #### Deploy multiple resources by using loops
 
-Often, you need to deploy multiple resources that are very similar. By adding loops to your Bicep files, you can avoid having to repeat resource definitions. Instead, you can dynamically set the number of instances of a resource you want to deploy. You can even customize the properties for each instance.
+* Often, you need to deploy multiple resources that are very similar. By adding loops to your Bicep files, you can avoid having to repeat resource definitions. 
+* Instead, you can dynamically set the number of instances of a resource you want to deploy. 
+* You can even customize the properties for each instance.
+
+```
+// for keyword to create a loop.
+
+param storageAccountNames array = [
+  'saauditus'
+  'saauditeurope'
+  'saauditapac'
+]
+
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-09-01' = [for storageAccountName in storageAccountNames: {
+  name: storageAccountName
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}]
+
+// Loop based on a count for
+
+resource storageAccountResources 'Microsoft.Storage/storageAccounts@2021-09-01' = [for i in range(1,4): {
+  //Access the iteration index
+  name: 'sa${i}'
+  location: resourceGroup().location
+  kind: 'StorageV2'
+  sku: {
+    name: 'Standard_LRS'
+  }
+}]
+
+// Filter items with loops , for and if
+param sqlServerDetails array = [
+  {
+    name: 'sqlserver-we'
+    location: 'westeurope'
+    environmentName: 'Production'
+  }
+  {
+    name: 'sqlserver-eus2'
+    location: 'eastus2'
+    environmentName: 'Development'
+  }
+  {
+    name: 'sqlserver-eas'
+    location: 'eastasia'
+    environmentName: 'Production'
+  }
+]
+
+resource sqlServers 'Microsoft.Sql/servers@2021-11-01-preview' = [for sqlServer in sqlServerDetails: if (sqlServer.environmentName == 'Production') {
+  name: sqlServer.name
+  location: sqlServer.location
+  properties: {
+    administratorLogin: administratorLogin
+    administratorLoginPassword: administratorLoginPassword
+  }
+  tags: {
+    environment: sqlServer.environmentName
+  }
+}]
+```
+
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/4-use-loops-deploy-resources
 
+#### Exercise 5 - Deploy multiple resources by using loops
+
+https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/5-exercise-loops?pivots=powershell
