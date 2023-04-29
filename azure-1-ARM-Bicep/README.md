@@ -859,4 +859,62 @@ https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-template
 
 #### Use variable and output loops
 
+In Bicep, loops can also be used with variables and outputs.
+
+```
+// Variable loops
+var items = [for i in range(1, 5): 'item${i}']
+
+
+// Output loops
+var items = [
+  'item1'
+  'item2'
+  'item3'
+  'item4'
+  'item5'
+]
+
+output outputItems array = [for i in range(0, length(items)): items[i]]
+
+```
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/7-use-loops-with-variables-and-outputs
+
+#### Exercise 6 - Use variable and output loops
+
+Deployment takes time....
+
+https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
+
+#### Create composable Bicep files by using modules
+
+Bicep modules let you split a complex template into smaller parts. You can ensure that each module is focused on a specific task, and that the modules are reusable for multiple deployments and workloads.
+
+In this module, you'll learn about the benefits of Bicep modules and how you can create, use, and combine them for your own deployments.
+
+https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/
+
+
+Example scenario
+
+* You've previously created a Bicep template that deploys websites to support the launch of each new toy product.
+* Customers are complaining about slow response times because the server can't keep up with the demand.
+* To improve performance and reduce cost, you've been asked to add a content delivery network, or CDN, to the website.
+
+What will we be doing?
+In this module, you'll create a set of Bicep modules to deploy your website and CDN. Then, you'll create a template that uses those modules together.
+
+https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/1-introduction
+
+#### Create and use Bicep modules
+
+Bicep modules help you address these challenges by splitting your code into smaller, more manageable files that multiple templates can reference. Modules give you some key benefits.
+* Reusability
+* Encapsulation
+* Composability
+
+The Bicep visualizer can help you put your whole Bicep file in perspective. The visualizer is included in the Bicep extension for Visual Studio Code.
+
+![Bicep visualizer ](https://github.com/spawnmarvel/azure-automation/blob/main/images/visualizer.jpg)
+
+https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/2-create-use-bicep-modules?tabs=visualizer
