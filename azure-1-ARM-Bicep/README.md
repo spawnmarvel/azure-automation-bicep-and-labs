@@ -771,6 +771,14 @@ https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-template
 * Modify the parameter to add an additional location, redeploy the file, and then verify that the new resources have been deployed.
 
 
+```
+@description('The az regions for deployments')
+param locations array = [
+  'westeurope'
+  'uksouth'
+]
+
+```
 
 ![Loop region sql db ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise5.jpg)
 
