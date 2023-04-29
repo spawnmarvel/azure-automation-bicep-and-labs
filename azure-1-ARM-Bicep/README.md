@@ -809,6 +809,36 @@ resource appServiceApp 'Microsoft.Web/sites@2021-03-01' = [for i in range(1,3): 
   // ...
 }]
 
+// You can also tell Bicep to run the loop sequentially by setting the @batchSize to 1:
+@batchSize(1)
+
 ```
+
+Use loops with resource properties
+
+```
+param subnetNames array = [
+  'api'
+  'worker'
+]
+
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-08-01' = {
+  
+  // more code here
+  }
+    subnets: [for (subnetName, i) in subnetNames: {
+      name: subnetName
+      properties: {
+        addressPrefix: '10.0.${i}.0/24'
+      }
+
+
+}
+
+```
+
+Nested loops
+
+
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/6-use-loops-advanced
