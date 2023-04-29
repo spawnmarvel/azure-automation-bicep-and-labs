@@ -919,4 +919,46 @@ The Bicep visualizer can help you put your whole Bicep file in perspective. The 
 
 ![Bicep visualizer ](https://github.com/spawnmarvel/azure-automation/blob/main/images/visualizer.jpg)
 
+Use the module in a Bicep template
+
+```
+module appModule 'modules/app.bicep' = {
+  name: 'myApp'
+  params: {
+    location: location
+    appServiceAppName: appServiceAppName
+    environmentType: environmentType
+  }
+}
+
+```
+
 https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/2-create-use-bicep-modules?tabs=visualizer
+
+
+```
+// Add parameters and outputs to modules
+@description('The name of the storage account to deploy.')
+param storageAccountName string
+
+// Use conditions
+
+param logAnalyticsWorkspaceId string = ''
+//
+resource cosmosDBAccountDiagnostics 'Microsoft.Insights/diagnosticSettings@2021-05-01-preview' =  if (logAnalyticsWorkspaceId != '') {
+
+// Module outputs
+@description('The fully qualified Azure resource ID of the blob container within the storage account.')
+output blobContainerResourceId string = storageAccount::blobService::container.id
+```
+
+#### Exercise - Create and use a module
+
+* Add a module for your application.
+* Create a Bicep template that uses the module.
+* Add another module for the CDN.
+* Add the CDN module to your template, while making it optional.
+* Deploy the template to Azure.
+* Review the deployment history.
+
+https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/4-exercise-create-use-module?pivots=powershell
