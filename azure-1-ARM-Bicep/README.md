@@ -839,6 +839,24 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-08-01' = {
 
 Nested loops
 
+* You can use a nested loop to deploy the subnets within each virtual network:
+
+```
+resource virtualNetworks 'Microsoft.Network/virtualNetworks@2021-08-01' = [for (location, i) in locations : {
+  name: 'vnet-${location}'
+
+  // mode code here
+  subnets: [for j in range(1, subnetCount): {
+      name: 'subnet-${j}'
+      properties: {
+        addressPrefix: '10.${i}.${j}.0/24'
+      }
+
+```
 
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/6-use-loops-advanced
+
+#### Use variable and output loops
+
+https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/7-use-loops-with-variables-and-outputs
