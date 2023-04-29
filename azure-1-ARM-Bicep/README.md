@@ -765,4 +765,10 @@ https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-template
 
 #### Exercise 5 - Deploy multiple resources by using loops
 
+* Move your existing Bicep code into a module.
+* Create a new Bicep file with a copy loop to deploy the module's resources multiple times.
+* Deploy the Bicep file, and verify the deployment of the resources.
+* Modify the parameter to add an additional location, redeploy the file, and then verify that the new resources have been deployed.
+
+
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/5-exercise-loops?pivots=powershell
