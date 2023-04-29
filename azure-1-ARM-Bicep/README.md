@@ -771,4 +771,9 @@ https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-template
 * Modify the parameter to add an additional location, redeploy the file, and then verify that the new resources have been deployed.
 
 
+
+![Loop region sql db ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise5.jpg)
+
+
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/5-exercise-loops?pivots=powershell
+
