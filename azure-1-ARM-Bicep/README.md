@@ -952,7 +952,7 @@ resource cosmosDBAccountDiagnostics 'Microsoft.Insights/diagnosticSettings@2021-
 output blobContainerResourceId string = storageAccount::blobService::container.id
 ```
 
-#### Exercise - Create and use a module
+#### Exercise 7 - Create and use a module
 
 * Add a module for your application.
 * Create a Bicep template that uses the module.
