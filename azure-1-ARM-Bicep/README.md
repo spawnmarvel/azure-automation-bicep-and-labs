@@ -882,7 +882,9 @@ https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-template
 
 #### Exercise 6 - Use variable and output loops
 
-Deployment takes time....
+Deployment takes time....just cancel, it is saturday!
+
+![Cancel deploy ](https://github.com/spawnmarvel/azure-automation/blob/main/images/cancel.jpg)
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
 
