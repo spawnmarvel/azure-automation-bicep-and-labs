@@ -786,3 +786,29 @@ param locations array = [
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/5-exercise-loops?pivots=powershell
 
+
+#### Control loop execution and nest loops
+
+In this unit, you learn how to control the execution of copy loops, and how to use resource property loops and nested loops in Bicep.
+* By default, Azure Resource Manager creates resources from loops in parallel, and in a non-deterministic order. 
+* In some cases, however, you might need to deploy resources in loops sequentially instead of in parallel, or deploy small batches of changes together in parallel. 
+
+```
+// Let's look at an example Bicep definition for a set of App Service applications without the @batchSize decorator:
+// All the resources in this loop will be deployed at the same time, in parallel:
+resource appServiceApp 'Microsoft.Web/sites@2021-03-01' = [for i in range(1,3): {
+  name: 'app${i}'
+  // ...
+}]
+
+// Now let's apply the @batchSize decorator with a value of 2:
+// When you deploy the template, Bicep will deploy in batches of two:
+@batchSize(2)
+resource appServiceApp 'Microsoft.Web/sites@2021-03-01' = [for i in range(1,3): {
+  name: 'app${i}'
+  // ...
+}]
+
+```
+
+https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/6-use-loops-advanced
