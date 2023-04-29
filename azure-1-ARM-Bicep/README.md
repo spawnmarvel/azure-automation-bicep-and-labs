@@ -770,6 +770,7 @@ https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-template
 * Deploy the Bicep file, and verify the deployment of the resources.
 * Modify the parameter to add an additional location, redeploy the file, and then verify that the new resources have been deployed.
 
+You now need to deploy multiple logical servers, one for each region where your company is launching its new smart teddy bear.
 
 ```
 @description('The az regions for deployments')
