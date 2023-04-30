@@ -1009,3 +1009,6 @@ https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files
 
 https://learn.microsoft.com/en-us/training/paths/intermediate-bicep/
 
+#### Deploy child and extension resources by using Bicep
+
+https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/
