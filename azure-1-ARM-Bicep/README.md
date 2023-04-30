@@ -982,4 +982,19 @@ Register
 Register-AzResourceProvider -ProviderNamespace "Microsoft.Cdn"
 ```
 
+* Review the deployment history
+* Three deployments are listed.
+
+* Test the website
+* Select the copy button for the appServiceAppHostName output.
+* On a new browser tab, try to go to the address that you copied in the previous step. The address should begin with https://.
+* The App Service welcome page appears, showing that you've successfully deployed the app.
+
+![Exercise 7 app ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise7.jpg)
+
+* Copy the value of the websiteHostName output. Notice that this host name is different, because it's an Azure Content Delivery Network host name.
+* On a new browser tab, try to go to the host name that you copied in the previous step. Add https:// to the start of the address.
+
+![Exercise 7.1 cnd ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise7_1.jpg)
+
 https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/4-exercise-create-use-module?pivots=powershell
