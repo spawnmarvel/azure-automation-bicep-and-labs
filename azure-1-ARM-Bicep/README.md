@@ -961,4 +961,9 @@ output blobContainerResourceId string = storageAccount::blobService::container.i
 * Deploy the template to Azure.
 * Review the deployment history.
 
+Bicep extension for Visual Studio Code helps you to scaffold the module declaration.
+When you type the path to your module and type the equals (=) character, a pop-up menu appears with several options.
+
+![Required properties ](https://github.com/spawnmarvel/azure-automation/blob/main/images/required_props.jpg)
+
 https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/4-exercise-create-use-module?pivots=powershell
