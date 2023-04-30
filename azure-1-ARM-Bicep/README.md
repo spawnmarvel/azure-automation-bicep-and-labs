@@ -1002,3 +1002,10 @@ Deployment
 ![Exercise 7.1 all ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise7_1_all.jpg)
 
 https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/4-exercise-create-use-module?pivots=powershell
+
+
+## Part 2: Intermediate Bicep
+
+
+https://learn.microsoft.com/en-us/training/paths/intermediate-bicep/
+
