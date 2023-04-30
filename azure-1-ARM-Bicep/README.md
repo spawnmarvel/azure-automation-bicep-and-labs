@@ -966,4 +966,20 @@ When you type the path to your module and type the equals (=) character, a pop-u
 
 ![Required properties ](https://github.com/spawnmarvel/azure-automation/blob/main/images/required_props.jpg)
 
+```
+// error
+ "details": [
+    {
+      "code": "BadRequest",
+      "message": "Azure subscription is not registered with CDN Provider."
+
+// https://learn.microsoft.com/en-us/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-powershell
+```
+
+Register
+
+```
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Cdn"
+```
+
 https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/4-exercise-create-use-module?pivots=powershell

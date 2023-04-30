@@ -12,15 +12,27 @@ param appServiceAppName string = 'toy-${uniqueString(resourceGroup().id)}'
 @description('The name of the app service plan SKU')
 param appServicePlanSkuName string = 'F1'
 
+@description('Indicates wheter a CND should be deployed')
+param deployCDN bool = true
+
 var appServicePlanName = 'toy-product-launch-plan'
 
 module app 'modules/app.bicep' = {
-  name: 
+  name: 'toy-launch-app'
   params: {
-    appServiceAppName: 
-    appServicePlanName: 
-    appServicePlanSkuName: 
-    location: 
+    appServiceAppName: appServiceAppName
+    appServicePlanName: appServicePlanName
+    appServicePlanSkuName: appServicePlanSkuName
+    location: location
   }
 }
 
+module cnd 'modules/cdn.bicep' = if(deployCDN) {
+  name: 'toy-launch-cnd'
+  params: {
+    httpsOnly: true
+    originHostName:app.outputs.appServiceHostName 
+  }
+}
+
+output webSiteHostName string = deployCDN ? cnd.outputs.endpointHostName: app.outputs.appServiceHostName
