@@ -997,4 +997,8 @@ Register-AzResourceProvider -ProviderNamespace "Microsoft.Cdn"
 
 ![Exercise 7.1 cnd ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise7_1.jpg)
 
+Deployment
+
+![Exercise 7.1 all ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise7_1_all.jpg)
+
 https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/4-exercise-create-use-module?pivots=powershell
