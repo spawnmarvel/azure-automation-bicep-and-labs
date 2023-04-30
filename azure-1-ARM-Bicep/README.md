@@ -1003,6 +1003,20 @@ Deployment
 
 https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/4-exercise-create-use-module?pivots=powershell
 
+Note:
+
+```
+// if we remove this parameter from New-AzResourceGroupDeployment 
+-Name $deploymentId 
+
+// deploy again
+ New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile main.bicep
+
+```
+Then the deployments will have correct names according to the bicep files and three deployments will be listed.
+
+![Exercise 7 main deployments ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise7_main.jpg)
+
 
 ## Part 2: Intermediate Bicep
 
