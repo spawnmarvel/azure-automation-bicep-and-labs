@@ -1040,3 +1040,19 @@ What will we be doing?
 
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/
 
+#### Understand Azure resources
+
+Resource providers
+* All Azure resources are deployed with a specific type. The type identifies the kind of resource it is. A resource ID is the way Azure identifies a specific instance of a resource. 
+* A resource provider is a logical grouping of resource types, which usually relate to one or a small number of Azure services. Examples of resource providers include:
+
+| Provider | Desciption
+| -------- | ----------
+|Microsoft.Compute | for vms
+|Microsoft.Network | for vnets, nsg and route tables
+|Microsoft.Cache   | for Azure Cache for Redis
+|Microsoft.Sql     | for Azure SQL
+|Microsoft.Web     | for Azure App Service and Azure Functions
+|Microsoft.DocumentDB| for Azure Cosmos DB
+
+https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/2-understand-azure-resources
