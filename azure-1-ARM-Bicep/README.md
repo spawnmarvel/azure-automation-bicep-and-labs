@@ -1055,4 +1055,45 @@ Resource providers
 |Microsoft.Web     | for Azure App Service and Azure Functions
 |Microsoft.DocumentDB| for Azure Cosmos DB
 
+Note:
+Not all names match: For example, the resource provider for Log Analytics workspaces is Microsoft.OperationalInsights.
+Resource providers have to be registered for your subscription before you can use the resource types they expose. Registration is usually a one-time process. 
+
+Resource types
+* Each resource type has its own set of properties and behaviors that define the resource and what it can do.
+
+Microsoft.Web resource provider, there are several resource types, including:
+* sites: Defines an App Service application or Azure Functions application. (vars, https/https)
+* serverFarms: Defines an App Service plan, the infrastructure that runs your applications. (size, SKU, num of instances)
+
+FQDN:
+* For example, a storage account’s fully qualified type name is Microsoft.Storage/storageAccounts
+
+Resource IDs
+* Every Azure resource has a unique resource ID.
+```
+/subscriptions/f0750bbe-ea75-4ae5-b24d-a92ca601da2c/resourceGroups/ToyDevelopment/providers/Microsoft.Storage/storageAccounts/secrettoys
+```
+Note:
+You can access the ID of any resource in Bicep by using the symbolic name and the id property. 
+For example:
+* if you define a storage account with the symbolic name toyDesignDocumentsStorageAccount
+* you can access its resource ID by using the expression toyDesignDocumentsStorageAccount.id.
+
+
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/2-understand-azure-resources
+
+
+#### Define child resources
+
+| Name | Resource type
+| ---- | ------------
+|Virtual networks subnets        | Microsoft.Network/virtualNetworks/subnets
+|App Service Configuration       | Microsoft.Web/sites/config
+|SQL databases                   | Microsoft.Sql/servers/databases
+|Virtual machine extensions      | Microsoft.Compute/virtualMachines/extensions
+|Storage blob container          | Microsoft.Storage/storageAccounts/blobservice/container
+
+
+
+https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/3-define-child-resources
