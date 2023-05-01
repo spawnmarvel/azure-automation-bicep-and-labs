@@ -1177,3 +1177,12 @@ Child resource IDs
 * /subscriptions/f0750bbe-ea75-4ae5-b24d-a92ca601da2c/resourceGroups/ToyDevelopment/providers/Microsoft.DocumentDB/databaseAccounts/toyrnd
 
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/3-define-child-resources
+
+
+#### Exercise 8 - Define child resources
+
+* Create a Bicep file that deploys a Cosmos DB account.
+* Add a database and container, which are child resources of the Cosmos DB account.
+* Deploy the template and verify the deployment.
+
+https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/4-exercise-define-child-resources?pivots=powershell
