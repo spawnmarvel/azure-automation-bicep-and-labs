@@ -1094,6 +1094,6 @@ https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templat
 |Virtual machine extensions      | Microsoft.Compute/virtualMachines/extensions
 |Storage blob container          | Microsoft.Storage/storageAccounts/blobservice/container
 
-
+How are child resources defined?
 
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/3-define-child-resources
