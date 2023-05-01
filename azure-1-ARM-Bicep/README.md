@@ -1094,6 +1094,86 @@ https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templat
 |Virtual machine extensions      | Microsoft.Compute/virtualMachines/extensions
 |Storage blob container          | Microsoft.Storage/storageAccounts/blobservice/container
 
-How are child resources defined?
+#### How are child resources defined?
+
+Nested resources
+
+```
+resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+  name: vmName
+  location: location
+  properties: {
+    // ...
+  }
+
+  // The nested resource has a simpler resource type than normal. 
+  // Even though the fully qualified type name is Microsoft.Compute/virtualMachines/extensions, the nested resource automatically inherits the parent's resource type
+  resource installCustomScriptExtension 'extensions' = {
+    // Bicep assumes that you want to use the same API version as the parent resource, although you can override the API version if you want to.
+    name: 'InstallCustomScript'
+    location: location
+    properties: {
+      // ...
+    }
+  }
+}
+
+// You can refer to a nested resource by using the :: operator.
+output childResourceId string = vm::installCustomScriptExtension.id
+```
+
+Parent property
+
+```
+resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+  name: vmName
+  location: location
+  properties: {
+    // ...
+  }
+}
+
+resource installCustomScriptExtension 'Microsoft.Compute/virtualMachines/extensions@2020-06-01' = {
+  // A second approach is to declare the child resource without any nesting and then tell Bicep about,
+  // the parent-child relationship by using the parent property:
+  parent: vm
+  name: 'InstallCustomScript'
+  location: location
+  properties: {
+    // ...
+  }
+}
+
+// To refer to a child resource that's declared with the parent property, you use its symbolic name as you would with a normal parent resource:
+output childResourceId string = installCustomScriptExtension.id
+```
+
+Construct the resource name IS NOT GOOD TO USE.
+It's generally best to avoid constructing resource names, because you lose a lot of the benefits that Bicep can provide when it understands the relationships between your resources. Use this option only when you can't use one of the other approaches for declaring child resources.
+Depends on is should be used wuth this, to reslove the order..
+
+```
+resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
+  name: vmName
+  location: location
+  properties: {
+    // ...
+  }
+}
+
+resource installCustomScriptExtension 'Microsoft.Compute/virtualMachines/extensions@2020-06-01' = {
+  name: '${vmName}/InstallCustomScript'
+  // you could manually tell Bicep about the dependency by using the dependsOn keyword
+  dependsOn: [
+    vm
+  ]
+  //...
+}
+```
+
+Child resource IDs
+*  You start creating a child resource ID by including its parent's resource ID and then appending the child resource type and name. 
+* Parent: Microsoft.DocumentDB/databaseAccounts, child toyrnd
+* /subscriptions/f0750bbe-ea75-4ae5-b24d-a92ca601da2c/resourceGroups/ToyDevelopment/providers/Microsoft.DocumentDB/databaseAccounts/toyrnd
 
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/3-define-child-resources
