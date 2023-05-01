@@ -1025,4 +1025,18 @@ https://learn.microsoft.com/en-us/training/paths/intermediate-bicep/
 
 #### Deploy child and extension resources by using Bicep
 
+* Child and extension resources allow your Azure deployments to access the advanced functionality and power of the Azure platform.
+* Can also use Bicep to refer to resources that were created outside the Bicep file itself. 
+* * Refere to resources that were created manually or from another bicep template, module, rg or subscription.
+
+Note:
+Example scenario
+* They've already created a storage account to store all their product design documents, and they've asked you to help audit all attempts to access them.
+
+What will we be doing?
+* parent, Child resource definitions, through nested resources, the parent property, and by constructing multipart resource names.
+* scope, Extension resource definitions, by using the scope property.
+* existing, Existing resource references, by using the existing keyword.
+
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/
+
