@@ -92,5 +92,7 @@ Obtaining keys
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?pivots=programming-language-powershell#http-auth
 
 
+### Create a function in Powershell in with Bicep
 
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-bicep
 
