@@ -1,7 +1,7 @@
 ## Functions
 
 
-### Done it with Python
+### Create function in Python from VSC
 
 https://follow-e-lo.com/
 
