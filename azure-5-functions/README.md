@@ -14,7 +14,6 @@ https://learn.microsoft.com/en-us/azure/azure-functions/
 
 ### Create a function in the portal
 
-
 Create the function app
 * From the top search box, search for and select Function app.
 * Select Create.
@@ -43,11 +42,12 @@ Create an HTTP-triggered function
 * New Function	name. This is the name of your function.
 * Authorization level	Function	
 
+![Function ](https://github.com/spawnmarvel/azure-automation/blob/main/images/function.jpg)
+
 Select the Add button.
 * Select the Code + Test button.
 * Paste the your code in the code editor window.
 
-![Function ](https://github.com/spawnmarvel/azure-automation/blob/main/images/function.jpg)
 
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-twitter-email
