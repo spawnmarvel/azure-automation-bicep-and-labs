@@ -33,6 +33,8 @@ Create the function app
 
 Once the deployment is complete, select Go to Resource.
 
+https://test0041.azurewebsites.net/
+
 Create an HTTP-triggered function
 * From the left menu of the Functions window, select Functions.
 * Select Add from the top menu and enter the following values.
@@ -47,7 +49,9 @@ Create an HTTP-triggered function
 Select the Add button.
 * Select the Code + Test button.
 * Paste the your code in the code editor window.
+* Or edit the boiler code
 
+![Function code ](https://github.com/spawnmarvel/azure-automation/blob/main/images/function2.jpg)
 
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-twitter-email
