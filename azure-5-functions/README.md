@@ -54,7 +54,38 @@ Select the Add button.
 ![Function code ](https://github.com/spawnmarvel/azure-automation/blob/main/images/function2.jpg)
 
 
+Visit the app
+
+Visit the function (since Authorization level Function, you must have Function keys )
+
+![Function http ](https://github.com/spawnmarvel/azure-automation/blob/main/images/function_http.jpg)
+
+
+
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-twitter-email
+
+##### Azure Functions HTTP trigger Authorization level
+
+Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see Authorization level.
+
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?pivots=programming-language-powershell
+
+Authorization level
+* anonymous	No API key is required.
+* function	A function-specific API key is required. This is the default value when a level isn't specifically set.
+* admin	The master key is required.
+
+Authorization scopes (function-level)
+* Function: These keys apply only to the specific functions under which they're defined. When used as an API key, these only allow access to that function.
+* Host: Keys with a host scope can be used to access all functions within the function app. When used as an API key, these allow access to any function within the function app.
+ 
+Obtaining keys
+* Keys are stored as part of your function app in Azure and are encrypted at rest. 
+* To view your keys, create new ones, or roll keys to new values, navigate to one of your HTTP-triggered functions in the Azure portal and select Function Keys.
+
+![Function keys ](https://github.com/spawnmarvel/azure-automation/blob/main/images/function_keys.jpg)
+
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?pivots=programming-language-powershell#http-auth
 
 
 
