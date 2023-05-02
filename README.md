@@ -1,6 +1,6 @@
 # Azure Automation
 
-## Preface
+## Continued from
 
 1. azure-arm-104 https://github.com/spawnmarvel/azure-arm-104
 2. Azure Administrator Cheat Sheet https://github.com/spawnmarvel/quickguides/tree/main/azure
@@ -30,7 +30,7 @@ What now.....
 
 ### Focus on
 
-#### 1. Compute. 
+#### 1. Compute
 
    * The Azure Administrator is most often identified with infrastructure-as-a-service (IaaS), which normally boils down to running virtual machines (VMs) in the cloud.
    * Containers represent a newer way to virtualize services, and Docker is extremely well-represented in Azure.
@@ -141,11 +141,13 @@ Azure Logic Apps is a cloud platform where you can create and run automated work
 * Route and process customer orders across on-premises systems and cloud services.
 * Move uploaded files from an SFTP or FTP server to Azure Storage.
 
+#### 7. Auto manage
 
 
-## 1. Bicep
+## Do above 1-7 after that work with the important parts again
 
-Go folder azure-1-ARM-Bicep
+### Compute, Storage, Network, Security, Monitor and more Powershell
+
 
 
 
