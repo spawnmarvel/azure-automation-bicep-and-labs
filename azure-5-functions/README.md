@@ -43,6 +43,10 @@ Create an HTTP-triggered function
 * New Function	name. This is the name of your function.
 * Authorization level	Function	
 
+Select the Add button.
+* Select the Code + Test button.
+* Paste the your code in the code editor window.
+
 ![Function ](https://github.com/spawnmarvel/azure-automation/blob/main/images/function.jpg)
 
 
