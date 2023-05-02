@@ -56,9 +56,15 @@ Select the Add button.
 
 Visit the app
 
+![Function app ](https://github.com/spawnmarvel/azure-automation/blob/main/images/function_app.jpg)
+
 Visit the function (since Authorization level Function, you must have Function keys )
 
 ![Function http ](https://github.com/spawnmarvel/azure-automation/blob/main/images/function_http.jpg)
+
+With key (read about access level below)
+
+![Function http key ](https://github.com/spawnmarvel/azure-automation/blob/main/images/function_http_key.jpg)
 
 
 
