@@ -10,7 +10,7 @@ https://follow-e-lo.com/
 
 Search for it on e-lo
 
-### Create a function in the portal
+### Create a function in Powershell in the portal
 
 Create the function app
 * From the top search box, search for and select Function app.
