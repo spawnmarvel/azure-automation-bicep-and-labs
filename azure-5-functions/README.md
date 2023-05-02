@@ -1,16 +1,14 @@
 ## Functions
 
+### Azure Functions documentation
+
+https://learn.microsoft.com/en-us/azure/azure-functions/
 
 ### Create function in Python from VSC
 
 https://follow-e-lo.com/
 
-Search for it
-
-### Azure Functions documentation
-
-https://learn.microsoft.com/en-us/azure/azure-functions/
-
+Search for it on e-lo
 
 ### Create a function in the portal
 
@@ -70,7 +68,7 @@ With key (read about access level below)
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-twitter-email
 
-##### Azure Functions HTTP trigger Authorization level
+### Azure Functions HTTP trigger Authorization level
 
 Determines what keys, if any, need to be present on the request in order to invoke the function. For supported values, see Authorization level.
 
