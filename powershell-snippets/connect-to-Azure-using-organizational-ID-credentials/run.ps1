@@ -34,7 +34,7 @@ Connect-AzAccount -Credential $credential -Tenant ID # The Tenant ID and Directo
 
 # Use this !!!!!!
 
-https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
+# https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
 
 $Credential = Get-Credential # add user@domain.com and password
 Connect-AzAccount -Credential $Credential
