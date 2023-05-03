@@ -32,4 +32,15 @@ Connect-AzAccount -Credential $credential -Tenant ID # The Tenant ID and Directo
 
 # Get-AzKeyVault -VaultName NAME -ResourceGroupName RG -SubscriptionId ID
 
+# Use this
+
+https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
+
+$Credential = Get-Credential
+Connect-AzAccount -Credential $Credential
+
+
+
+
+
 

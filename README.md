@@ -74,6 +74,17 @@ What now.....
 
 https://learn.microsoft.com/en-us/powershell/azure/?view=azps-9.6.0
 
+
+```
+# https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
+# connect as function user from a vm after installed az module
+
+$Credential = Get-Credential
+Connect-AzAccount -Credential $Credential
+```
+
+![Exercise 7 main deployments ](https://github.com/spawnmarvel/azure-automation/blob/main/images/ps1_credential.jpg)
+
 ## Azure Command-Line Interface (CLI) documentation
 
 https://learn.microsoft.com/en-us/cli/azure/
