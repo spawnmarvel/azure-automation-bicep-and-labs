@@ -90,7 +90,7 @@ $Credential = Get-Credential
 Connect-AzAccount -Credential $Credential
 ```
 
-![Credential ](https://github.com/spawnmarvel/azure-automation/blob/main/images/ps1_credential1.jpg)
+![Credential ](https://github.com/spawnmarvel/azure-automation/blob/main/images/ps1_credential.jpg)
 
 ## Azure Command-Line Interface (CLI) documentation
 
