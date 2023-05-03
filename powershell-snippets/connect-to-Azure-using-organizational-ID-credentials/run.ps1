@@ -39,6 +39,7 @@ Connect-AzAccount -Credential $credential -Tenant ID # The Tenant ID and Directo
 $Credential = Get-Credential # add user@domain.com and password
 Connect-AzAccount -Credential $Credential
 
+# RBACK must be set for correct access
 Get-AzKeyVault -VaultName NAME -ResourceGroupName RG -SubscriptionId ID
 
 
