@@ -107,6 +107,13 @@ There are three types of service accounts in Azure Active Directory (Azure AD):
 
 https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/service-accounts-governing-azure
 
+There are three types of service accounts in Active Directory (AD):
+* Built-on local user accounts
+* Domain user accounts
+* Managed service accounts
+
+https://www.dnsstuff.com/active-directory-service-accounts
+
 ## Azure Command-Line Interface (CLI) documentation
 
 https://learn.microsoft.com/en-us/cli/azure/
