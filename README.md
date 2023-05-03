@@ -75,6 +75,7 @@ What now.....
 https://learn.microsoft.com/en-us/powershell/azure/?view=azps-9.6.0
 
 
+
 ```
 # After installed Az module
 
@@ -95,6 +96,16 @@ Connect-AzAccount -Credential $Credential
 ```
 
 ![Credential user ](https://github.com/spawnmarvel/azure-automation/blob/main/images/ps1_credential.jpg)
+
+## Governing Azure Active Directory service accounts
+
+There are three types of service accounts in Azure Active Directory (Azure AD):
+* managed identities
+* service principals
+* and user accounts employed as service accounts.
+
+
+https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/service-accounts-governing-azure
 
 ## Azure Command-Line Interface (CLI) documentation
 
