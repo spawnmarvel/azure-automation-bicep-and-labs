@@ -83,6 +83,10 @@ https://learn.microsoft.com/en-us/powershell/azure/?view=azps-9.6.0
 
 Connect-AzAccount  [-Tenant <String>] [...]
 
+```
+![Connect user ](https://github.com/spawnmarvel/azure-automation/blob/main/images/ps1_connect.jpg)
+```
+
 # https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
 # Connect as function user, ad user from a vm after installed az module
 
@@ -90,7 +94,7 @@ $Credential = Get-Credential
 Connect-AzAccount -Credential $Credential
 ```
 
-![Credential ](https://github.com/spawnmarvel/azure-automation/blob/main/images/ps1_credential.jpg)
+![Credential user ](https://github.com/spawnmarvel/azure-automation/blob/main/images/ps1_credential.jpg)
 
 ## Azure Command-Line Interface (CLI) documentation
 
