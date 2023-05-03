@@ -25,19 +25,21 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 $password = "you-shall-not-pass"
 $username = "DOMAIN\f_user"
 $secpassword = $password | ConvertTo-SecureString -asPlainText -Force
-$credential = New-Object System.Management.Automation.PSCredential($username,$secpassword)
+$credential = New-Object System.Management.Automation.PSCredential($username,$secpassword) # this is not correct
 # https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
 
 Connect-AzAccount -Credential $credential -Tenant ID # The Tenant ID and Directory ID are the same.
 
 # Get-AzKeyVault -VaultName NAME -ResourceGroupName RG -SubscriptionId ID
 
-# Use this
+# Use this !!!!!!
 
 https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
 
-$Credential = Get-Credential
+$Credential = Get-Credential # add user@domain.com and password
 Connect-AzAccount -Credential $Credential
+
+Get-AzKeyVault -VaultName NAME -ResourceGroupName RG -SubscriptionId ID
 
 
 
