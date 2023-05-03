@@ -76,8 +76,14 @@ https://learn.microsoft.com/en-us/powershell/azure/?view=azps-9.6.0
 
 
 ```
+
 # https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
-# connect as function user from a vm after installed az module
+# connect as user with mfa
+
+Connect-AzAccount  [-Tenant <String>] [...]
+
+# https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
+# connect as function user, ad user from a vm after installed az module
 
 $Credential = Get-Credential
 Connect-AzAccount -Credential $Credential
