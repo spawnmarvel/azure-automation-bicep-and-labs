@@ -69,11 +69,17 @@ resource functionApp 'Microsoft.Web/sites@2021-03-01' = {
     serverFarmId: hostingPlan.id
     siteConfig: {
       appSettings: [
+        
         {
+          // https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings
+          //  Keys are stored in a Blob storage container in the account provided by the AzureWebJobsStorage setting. Blob storage is the default behavior when AzureWebJobsSecretStorageType isn't set.
           name: 'AzureWebJobsStorage'
           value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
         {
+          // https://learn.microsoft.com/en-us/azure/azure-functions/functions-app-settings
+          // Connection string for storage account where the function app code and configuration are stored in event-driven scaling plans.
+          // This setting is required for Consumption and Premium plan apps on both Windows and Linux. It's not required for Dedicated plan apps, which aren't dynamically scaled by Functions.
           name: 'WEBSITE_CONTENTAZUREFILECONNECTIONSTRING'
           value: 'DefaultEndpointsProtocol=https;AccountName=${storageAccountName};EndpointSuffix=${environment().suffixes.storage};AccountKey=${storageAccount.listKeys().keys[0].value}'
         }
