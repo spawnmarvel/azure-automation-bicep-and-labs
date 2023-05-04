@@ -94,7 +94,7 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-
 
 ### Create a function in Powershell in with Bicep
 
-You only need to specify rg and location the rest of the parameters and vars will always be unique to the rg.
+You only need to specify rg and location the rest of the parameters and vars will always be unique to the rg in main.bicep.
 ```
 # rg and location
 $rgName = "Rg-iac-0052"
