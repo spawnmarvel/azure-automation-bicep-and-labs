@@ -94,6 +94,13 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-
 
 ### Create a function in Powershell in with Bicep
 
+You only need to specify rg and location the rest of the parameters and vars will always be unique to the rg.
+```
+# rg and location
+$rgName = "Rg-iac-0052"
+$location  = "uk south"
+
+```
 Deploy it with the deploy.ps1 that uses the main.bicep
 
 ![Extra function deploy ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_deploy.jpg)
