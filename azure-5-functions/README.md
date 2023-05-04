@@ -94,7 +94,7 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-
 
 ### Create a function in Powershell in with Bicep
 
-Deploy it with the deploy.ps1
+Deploy it with the deploy.ps1 that uses the main.bicep
 
 ![Extra function deploy ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_deploy.jpg)
 
@@ -108,6 +108,17 @@ Deployed to Azure
 
 ```
 ![Extra function resources ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_resources.jpg)
+
+Now you can create a function in Powershell, edit runtime for Python
+
+```
+@description('The language worker runtime to load in the function app.')
+@allowed([
+  'powershell'
+  'python'
+])
+param runtime string = 'powershell'
+```
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-bicep
 
