@@ -94,5 +94,7 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-
 
 ### Create a function in Powershell in with Bicep
 
+![Extra function deploy ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_deploy.jpg)
+
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-bicep
 
