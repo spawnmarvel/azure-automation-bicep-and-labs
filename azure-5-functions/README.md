@@ -131,7 +131,13 @@ Make a function
 
 ![Extra function create ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_create.jpg)
 
-Test default boiler
+Test default boiler (NB: Authorization level = App Key)
+* Press Test/Run or Get Function URL
+* Example default URL
+* * https://fnappk5ifnn2azmpow.azurewebsites.net/api/HttpTrigger1?code=HJnH5BJ1ZKcgZV5DReBQDrlkTYGwmL66jQ5vu8GHCjOpAzFuNQk4Lw==
+* For Function URL with param
+* * 
+
 
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-bicep
