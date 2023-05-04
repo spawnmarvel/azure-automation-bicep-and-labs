@@ -1,3 +1,8 @@
+// Microsoft.Storage/storageAccounts: create an Azure Storage account, which is required by Functions.
+// Microsoft.Web/serverfarms: create a serverless Consumption hosting plan for the function app.
+// Microsoft.Web/sites: create a function app.
+// microsoft.insights/components: create an Application Insights instance for monitoring.
+
 @description('The name of the function app that you wish to create.')
 param appName string = 'fnapp${uniqueString(resourceGroup().id)}'
 

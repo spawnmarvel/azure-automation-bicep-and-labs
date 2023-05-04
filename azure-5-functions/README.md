@@ -94,7 +94,20 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-
 
 ### Create a function in Powershell in with Bicep
 
+Deploy it with the deploy.ps1
+
 ![Extra function deploy ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_deploy.jpg)
+
+Deployed to Azure
+
+```
+// Microsoft.Storage/storageAccounts: create an Azure Storage account, which is required by Functions.
+// Microsoft.Web/serverfarms: create a serverless Consumption hosting plan for the function app.
+// Microsoft.Web/sites: create a function app.
+// microsoft.insights/components: create an Application Insights instance for monitoring.
+
+```
+![Extra function resources ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_resources.jpg)
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-bicep
 
