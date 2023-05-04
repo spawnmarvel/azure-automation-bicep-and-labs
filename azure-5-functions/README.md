@@ -132,11 +132,16 @@ Make a function
 ![Extra function create ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_create.jpg)
 
 Test default boiler (NB: Authorization level = App Key)
+
+![Extra function boiler ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_boiler.jpg)
+
 * Press Test/Run or Get Function URL
 * Example default URL
 * * https://fnappk5ifnn2azmpow.azurewebsites.net/api/HttpTrigger1?code=HJnH5BJ1ZKcgZV5DReBQDrlkTYGwmL66jQ5vu8GHCjOpAzFuNQk4Lw==
 * For Function URL with param
-* * 
+* * https://fnappk5ifnn2azmpow.azurewebsites.net/api/HttpTrigger1?name=John&code=HJnH5BJ1ZKcgZV5DReBQDrlkTYGwmL66jQ5vu8GHCjOpAzFuNQk4Lw==
+
+![Extra function john ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_john.jpg)
 
 
 
