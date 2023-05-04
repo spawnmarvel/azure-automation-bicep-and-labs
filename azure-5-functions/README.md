@@ -116,7 +116,7 @@ Deployed to Azure
 ```
 ![Extra function resources ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_resources.jpg)
 
-Now you can create a function in Powershell, edit runtime for Python
+Now you can create a function in Powershell (default), edit runtime for Python function
 
 ```
 @description('The language worker runtime to load in the function app.')
@@ -126,6 +126,13 @@ Now you can create a function in Powershell, edit runtime for Python
 ])
 param runtime string = 'powershell'
 ```
+
+Make a function
+
+![Extra function create ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_create.jpg)
+
+Test default boiler
+
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-bicep
 
