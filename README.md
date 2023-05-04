@@ -89,7 +89,7 @@ Connect-AzAccount  [-Tenant <String>] [...]
 ```
 
 # https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
-# Connect as function user, ad user from a vm after installed az module
+# Connect as function user, ad user from a vm after installed az module in interactive mode
 
 $Credential = Get-Credential
 Connect-AzAccount -Credential $Credential
