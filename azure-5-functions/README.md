@@ -135,13 +135,22 @@ Test default boiler (NB: Authorization level = App Key)
 
 ![Extra function boiler ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_boiler.jpg)
 
-* Press Test/Run or Get Function URL
-* Example default URL
-* * https://fnappk5ifnn2azmpow.azurewebsites.net/api/HttpTrigger1?code=HJnH5BJ1ZKcgZV5DReBQDrlkTYGwmL66jQ5vu8GHCjOpAzFuNQk4Lw==
-* For Function URL with param
-* * https://fnappk5ifnn2azmpow.azurewebsites.net/api/HttpTrigger1?name=John&code=HJnH5BJ1ZKcgZV5DReBQDrlkTYGwmL66jQ5vu8GHCjOpAzFuNQk4Lw==
+Example function app URL
+* https://fnappk5ifnn2azmpow.azurewebsites.net/
 
-![Extra function john ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_john.jpg)
+![Extra function main ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_main.jpg)
+
+Press Test/Run or Get Function URL
+
+Example default URL
+* * https://fnappk5ifnn2azmpow.azurewebsites.net/api/HttpTrigger1?code=APPKEY==
+
+![Extra function main sub ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_main_sub.jpg)
+
+For Function URL with param
+* * https://fnappk5ifnn2azmpow.azurewebsites.net/api/HttpTrigger1?name=John&code=APP-KEY==
+
+![Extra function param john ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_john.jpg)
 
 
 
