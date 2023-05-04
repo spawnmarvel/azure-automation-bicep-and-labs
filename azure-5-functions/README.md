@@ -142,6 +142,8 @@ Example function app URL
 
 Press Test/Run or Get Function URL
 
+![Extra function test ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_test.jpg)
+
 Example default URL
 * * https://fnappk5ifnn2azmpow.azurewebsites.net/api/HttpTrigger1?code=APPKEY==
 
@@ -152,6 +154,9 @@ For Function URL with param
 
 ![Extra function param john ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_john.jpg)
 
+You can host multiple functions in one function app
+
+![Extra function multiple ](https://github.com/spawnmarvel/azure-automation/blob/main/images/extra_function_multiple.jpg)
 
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-bicep
