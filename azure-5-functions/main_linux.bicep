@@ -21,13 +21,10 @@ param location string = resourceGroup().location
 param appInsightsLocation string = resourceGroup().location
 
 @description('The language worker runtime to load in the function app.')
-@allowed([
-  'powershell'
-  'python'
-])
-param runtime string = 'powershell'
+param runtime string = 'python'
 
 var functionAppName = appName
+
 var hostingPlanName = appName
 var applicationInsightsName = appName
 var storageAccountName = '${uniqueString(resourceGroup().id)}azfunctions'
@@ -55,13 +52,15 @@ resource hostingPlan 'Microsoft.Web/serverfarms@2021-03-01' = {
     // Y1, Dynamic, a  function consumption plan
     // https://stackoverflow.com/questions/47522539/server-farm-service-plan-skus
   }
-  properties: {}
+  properties: {
+    reserved:true
+  }
 }
 
 resource functionApp 'Microsoft.Web/sites@2021-03-01' = {
   name: functionAppName
   location: location
-  kind: 'functionapp'
+  kind: 'functionapp,linux'
   identity: {
     type: 'SystemAssigned'
   }
@@ -87,14 +86,10 @@ resource functionApp 'Microsoft.Web/sites@2021-03-01' = {
           name: 'WEBSITE_CONTENTSHARE'
           value: toLower(functionAppName)
         }
-        {
-          name: 'FUNCTIONS_EXTENSION_VERSION'
-          value: '~4'
-        }
-        {
-          name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~14'
-        }
+        {  
+          name: 'FUNCTIONS_EXTENSION_VERSION'  
+          value: '~4'  
+        } 
         {
           name: 'APPINSIGHTS_INSTRUMENTATIONKEY'
           value: applicationInsights.properties.InstrumentationKey
@@ -104,6 +99,7 @@ resource functionApp 'Microsoft.Web/sites@2021-03-01' = {
           value: functionWorkerRuntime
         }
       ]
+      linuxFxVersion:'Python|3.9'
       ftpsState: 'FtpsOnly'
       minTlsVersion: '1.2'
     }

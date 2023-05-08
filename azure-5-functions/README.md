@@ -178,3 +178,17 @@ You can host multiple functions in one function app
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-first-function-bicep
 
+
+
+### Create a Consumption plan
+
+* A Consumption plan doesn't need to be defined. When not defined, a plan is automatically be created or selected on a per-region basis when you create the function app resource itself.
+* The Consumption plan is a special type of serverfarm resource. You can specify it by using the Dynamic value for the computeMode and sku properties.
+* Windows
+* Linux, The function app must have set "kind": "functionapp,linux", and it must have set property "reserved": true. Linux apps should also include a linuxFxVersion property under siteConfig. 
+
+
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-infrastructure-as-code?tabs=bicep#consumption
+
+For a sample Bicep file/Azure Resource Manager template, see:
+https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep
