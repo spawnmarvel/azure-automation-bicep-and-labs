@@ -4,6 +4,23 @@
 
 https://learn.microsoft.com/en-us/azure/azure-functions/
 
+
+#### 5. Azure functions (alternative to Automation Account, why use Automation, functions are more for dev, but not necessarily infrastructure, but processing data)
+
+Azure Functions is a serverless solution that allows you to write less code, maintain less infrastructure, and save on costs.
+
+| If you want to | Then...
+| -------------- | -------
+| Build a web API |	Implement an endpoint for your web applications using the HTTP trigger
+| Process file uploads |	Run code when a file is uploaded or changed in blob storage
+| Build a serverless workflow |	Create an event-driven workflow from a series of functions using durable functions
+| Respond to database changes |	Run custom logic when a document is created or updated in Azure Cosmos DB
+| Run scheduled tasks |	Execute code on pre-defined timed intervals
+| Create reliable message queue systems |	Process message queues using Queue Storage, Service Bus, or Event Hubs
+| Analyze IoT data streams |	Collect and process data from IoT devices
+| Process data in real time	| Use Functions and SignalR to respond to data in the moment
+| Connect to a SQL database	| Use SQL bindings to read or write data from Azure SQL
+
 ### Create function in Python from VSC
 
 https://follow-e-lo.com/
