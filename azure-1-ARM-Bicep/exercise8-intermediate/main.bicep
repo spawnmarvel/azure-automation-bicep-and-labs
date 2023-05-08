@@ -18,4 +18,16 @@ resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2020-04-01' = {
   }
 }
 
+resource cosmosDBDatabse 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases@2020-04-01' = {
+  parent:cosmosDBAccount
+  name: cosmosDBDatabaseName
+  properties: {
+    options: {
+      throughput:cosmosDBDatabaseThroughput
+    }
+    resource: {
+      id: cosmosDBDatabaseName
+    }
+  }
+}
 
