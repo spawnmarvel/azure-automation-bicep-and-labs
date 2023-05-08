@@ -2,6 +2,10 @@
 
 param cosmosDBAccountName string = 'toy-${uniqueString(resourceGroup().id)}'
 param location string = resourceGroup().location
+// Add a database
+param cosmosDBDatabaseThroughput int = 400
+
+var cosmosDBDatabaseName = 'FlightTest'
 
 resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2020-04-01' = {
   name: cosmosDBAccountName
@@ -13,3 +17,5 @@ resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2020-04-01' = {
     }]
   }
 }
+
+
