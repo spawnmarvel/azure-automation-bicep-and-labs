@@ -7,6 +7,8 @@ param cosmosDBDatabaseThroughput int = 400
 
 var cosmosDBDatabaseName = 'FlightTest'
 
+// Add a container
+
 resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2020-04-01' = {
   name: cosmosDBAccountName
   location:location
