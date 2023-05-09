@@ -192,3 +192,19 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-infrastructure
 
 For a sample Bicep file/Azure Resource Manager template, see:
 https://github.com/Azure-Samples/function-app-arm-templates/blob/main/function-app-linux-consumption/main.bicep
+
+
+### How-to-guides
+
+
+Continuous deployment for Azure Functions
+
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-continuous-deployment
+
+Azure Functions deployment slots
+
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-deployment-slots
+
+Continuous delivery by using GitHub Actions
+
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-how-to-github-actions?tabs=dotnet
