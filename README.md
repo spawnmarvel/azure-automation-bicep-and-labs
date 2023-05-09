@@ -192,6 +192,8 @@ Azure Logic Apps is a cloud platform where you can create and run automated work
 
 https://github.com/skills/hello-github-actions
 
+https://medium.com/@bassonrichard/github-actions-azure-container-apps-build-deploy-f15cb1dfbaa3
+
 
 
 
