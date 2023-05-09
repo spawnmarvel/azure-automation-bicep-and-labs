@@ -28,7 +28,7 @@ $name = $Request.Query.Name
 if (-not $name) {
     $name = $Request.Body.Name
 }
-$rv = Get-AzKeyVaultSecret -VaultName "Name"
+$rv = Get-AzKeyVaultSecret -VaultName "Key vault name"
 
 $body = "Get key vault secret by param name. Current secrets: $rv.Name"
 # $body = "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
