@@ -32,8 +32,3 @@ resource cosmosDBDatabse 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases@202
     }
   }
 }
-
-
-
-
-
