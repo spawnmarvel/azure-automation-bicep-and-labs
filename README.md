@@ -188,11 +188,11 @@ Azure Logic Apps is a cloud platform where you can create and run automated work
 
 ### Compute, Storage, Network, Security, Monitor and more Powershell
 
-### Hello GitHub Actions
+### Powershell-cmd reference
 
-https://github.com/skills/hello-github-actions
+https://github.com/spawnmarvel/powershell-cmd
 
-https://medium.com/@bassonrichard/github-actions-azure-container-apps-build-deploy-f15cb1dfbaa3
+### Hello GitHub Action or pipelines-ish.....
 
 
 
