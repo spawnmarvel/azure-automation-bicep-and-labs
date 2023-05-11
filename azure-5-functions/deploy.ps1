@@ -7,7 +7,7 @@ $st = "Start deploy:" + (Get-Date)
 LogModule($st)
 
 # rg and location
-$rgName = "Rg-iac-0062"
+$rgName = "Rg-iac-0063"
 $location  = "uk south"
 
 # deployment id

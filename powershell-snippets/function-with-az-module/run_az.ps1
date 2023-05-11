@@ -17,8 +17,6 @@
 # You can now run all ps1 az commands 
 Start-VM -Name TestVM
 
-$rv = Get-AzKeyVaultSecret -VaultName "Key vault name"
-$body = "Show key vault. $rv.Name"
 
 
 
