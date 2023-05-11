@@ -17,3 +17,4 @@ function Add-Logger($txt) {
     Add-Content log.txt $rv
     
 }
+
