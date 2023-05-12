@@ -183,14 +183,18 @@ Azure Logic Apps is a cloud platform where you can create and run automated work
 
 #### 7. Auto manage
 
+#### 8 Powershell-cmd reference
+
+Store all-things-powershell here
+https://github.com/spawnmarvel/powershell-cmd
 
 ## Do above 1-7 after that work with the important parts again
 
-### Compute, Storage, Network, Security, Monitor and more Powershell
+### Compute, Storage, Network, Security, Monitor
 
-### Powershell-cmd reference
+### Ansibel and cli
 
-https://github.com/spawnmarvel/powershell-cmd
+https://learn.microsoft.com/en-us/azure/developer/ansible/
 
 ### Hello GitHub Action or pipelines-ish.....
 
