@@ -1188,6 +1188,6 @@ https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templat
 Select the deployment called main to see what resources were deployed, and then select Deployment details to expand it. In this case, there's a Cosmos DB account, database, and container listed.
 
 
-![Exercise 8 main deployments ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8.jpg)
+![Exercise 8 main deployments ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8_main.jpg)
 
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/4-exercise-define-child-resources?pivots=powershell
