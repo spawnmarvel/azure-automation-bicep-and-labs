@@ -1227,8 +1227,10 @@ Extension resource IDs
 Let's say you deployed the previously mentioned Azure Cosmos DB account, and the account was named toyrnd. Here's what the lock's resource ID would look like:
 
 ```
-/subscriptions/f0750bbe-ea75-4ae5-b24d-a92ca601da2c/resourceGroups/ToyDevelopment/providers/Microsoft.DocumentDB/databaseAccounts/toyrnd/providers/Microsoft.Authorization/locks/DontDelete
+/subscriptions/f0750bbe-ea75-4ae5-b24d-a92ca601da2c/resourceGroups/ToyDevelopment/providers/Microsoft.DocumentDB/databaseAccounts/
+toyrnd/providers/Microsoft.Authorization/locks/DontDelete
 
-// If you see a resource ID that starts with a normal resource ID and then adds /providers/ and another resource type and name, it means that you're looking at an extension resource ID.
+// If you see a resource ID that starts with a normal resource ID and then adds /providers/ 
+// and another resource type and name, it means that you're looking at an extension resource ID.
 ```
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/5-define-extension-resources
