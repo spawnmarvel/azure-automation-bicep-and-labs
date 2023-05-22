@@ -1191,3 +1191,44 @@ Select the deployment called main to see what resources were deployed, and then 
 ![Exercise 8 main deployments ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8_main.jpg)
 
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/4-exercise-define-child-resources?pivots=powershell
+
+
+#### Define extension resources
+
+Extension resources are always attached to other Azure resources. They extend the behavior of those resources with extra functionality.
+* Role assignment
+* Policy assignment
+* Locks
+* Diagnostic settings
+* etc
+
+```
+// In Bicep, you define an extension resource in mostly the same way as a normal resource. 
+// However, you add the scope property to tell Bicep that the resource should be attached to another resource that's defined elsewhere in the Bicep file. 
+// You use the resource's symbolic name to refer to it
+
+resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2020-04-01' = {
+  name: cosmosDBAccountName
+  //...
+    }
+
+resource lockResource 'Microsoft.Authorization/locks@2016-09-01' = {
+  scope: cosmosDBAccount
+  name: 'DontDelete'
+  properties: {
+    level: 'CanNotDelete'
+    notes: 'Prevents deletion of the toy data Cosmos DB account.'
+  }
+}
+
+```
+Extension resource IDs
+
+Let's say you deployed the previously mentioned Azure Cosmos DB account, and the account was named toyrnd. Here's what the lock's resource ID would look like:
+
+```
+/subscriptions/f0750bbe-ea75-4ae5-b24d-a92ca601da2c/resourceGroups/ToyDevelopment/providers/Microsoft.DocumentDB/databaseAccounts/toyrnd/providers/Microsoft.Authorization/locks/DontDelete
+
+// If you see a resource ID that starts with a normal resource ID and then adds /providers/ and another resource type and name, it means that you're looking at an extension resource ID.
+```
+https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/5-define-extension-resources
