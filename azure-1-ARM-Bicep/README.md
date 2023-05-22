@@ -1234,3 +1234,32 @@ toyrnd/providers/Microsoft.Authorization/locks/DontDelete
 // and another resource type and name, it means that you're looking at an extension resource ID.
 ```
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/5-define-extension-resources
+
+
+#### Work with existing resources
+
+* Bicep files often need to refer to resources that have been created elsewhere. 
+* These resources might have been created manually, maybe by a colleague using the Azure portal.
+* Or they might have been created in another Bicep file.
+
+Example
+* Add SQL db to Azure SQL server
+* Diagnostics settings
+* Securley access keys for a storage account
+
+```
+// Bicep provides the existing keyword for you to use in these situations.
+// Within a Bicep file, you can define a resource that already exists
+
+resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
+  name: 'toydesigndocs'
+}
+
+```
+* The existing keyword indicates to Bicep that this resource definition is a reference to an already-created resource, and that Bicep shouldn't try to deploy it.
+* The name property is the Azure resource name of the storage account that was previously deployed.
+* You don't need to specify the location, sku, or properties, because the template doesn't deploy the resource. It references an existing resource.
+
+Refer to child resources
+
+https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/6-work-with-existing-resources
