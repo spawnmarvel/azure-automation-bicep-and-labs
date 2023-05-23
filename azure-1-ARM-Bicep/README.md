@@ -1328,3 +1328,22 @@ new-azstorageAccount -ResourceGroupName "Rg-iac-0080" -Name "toyteststorage0062u
 ```
 
 ![Exercise 8 2  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8_2.jpg)
+
+Add diagnostics settings for storage account
+
+You need to update your Bicep template to reference the storage account you created in the previous step.
+
+Deploy your template and verify the result.
+
+```
+ New-AzResourceGroupDeployment -templateFile main.bicep -storageAccountName "toyteststorage0062uks" -ResourceGroupName "Rg-iac-0080"
+
+```
+
+Check your deployment
+
+Notice that there are two resources listed with a type of Microsoft.Insights/diagnosticSettings. 
+These are the extension resources you deployed. 
+One of the resources was attached to the storage account and the other was attached to the Azure Cosmos DB account. Now you will verify that the Azure Cosmos DB diagnostic settings are configured correctly.
+
+![Exercise 8 3  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8_3.jpg)
