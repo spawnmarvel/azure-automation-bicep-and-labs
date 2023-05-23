@@ -8,6 +8,9 @@ var cosmosDBDatabaseName = 'FlightTest'
 // Add a container
 var cosmosDBContainerName = 'FlightTests'
 var cosmosDBContainerPartionKey = '/droneId'
+// Add diagnostics settings for Azure Cosmos DB
+var logAnalyticsWorkspaceName = 'ToyLogs'
+var cosmosDBAccountDignosticsSettingsName = 'route-logs-to-log-analytics'
 
 resource cosmosDBAccount 'Microsoft.DocumentDB/databaseAccounts@2020-04-01' = {
   name: cosmosDBAccountName
@@ -52,4 +55,22 @@ resource cosmosDBDatabse 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases@202
   }
 }
 
+// Notice that this resource definition uses the existing keyword, and that you're purposely omitting 
+// other properties that you'd normally specify if you were deploying the Log Analytics workspace through this Bicep template.
+resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2020-03-01-preview' existing = {
+  name: logAnalyticsWorkspaceName
+}
 
+resource cosmosDBAccountDiagnostics 'Microsoft.Insights/diagnosticSettings@2017-05-01-preview' = {
+  scope:cosmosDBAccount
+  name: cosmosDBAccountDignosticsSettingsName
+  properties:{
+    workspaceId:logAnalyticsWorkspace.id
+    logs:[
+      {
+        category:'DataPlaneRequests'
+        enabled:true
+      }
+    ]
+  }
+}

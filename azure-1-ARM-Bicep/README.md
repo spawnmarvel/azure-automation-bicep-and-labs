@@ -1313,3 +1313,18 @@ Create a Log Analytics workspace
 ```
 
 ![Exercise 8 1  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8_1.jpg)
+
+Update your Bicep file to add diagnostic settings to your Cosmos DB account.
+
+Now that you've created your simulated pre-existing Log Analytics workspace, you can reference it from within your Bicep template as an existing resource. You can use it as the destination for the Azure Cosmos DB logs.
+
+Create a storage account.
+
+```
+/// Create an Azure storage account to simulate your R&D team's already having created one in your organization. 
+// Use Azure PowerShell instead of Bicep.
+
+new-azstorageAccount -ResourceGroupName "Rg-iac-0080" -Name "toyteststorage0062uks" -SkuName Standard_LRS -Location uksouth
+```
+
+![Exercise 8 2  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8_2.jpg)
