@@ -1347,3 +1347,10 @@ These are the extension resources you deployed.
 One of the resources was attached to the storage account and the other was attached to the Azure Cosmos DB account. Now you will verify that the Azure Cosmos DB diagnostic settings are configured correctly.
 
 ![Exercise 8 3  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8_3.jpg)
+
+4. Select the Azure Cosmos DB account resource. The portal will open to the Azure Cosmos DB account.
+Press not now for full text query support
+Notice that there is a diagnostic setting named route-logs-to-log-analytics, which is configured to route the logs to the ToyLogs workspace.
+Verify that the storage account has a similar diagnostic setting enabled for blob storage.
+
+![Exercise 8 4  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8_4.jpg)
