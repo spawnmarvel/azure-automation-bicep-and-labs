@@ -1290,5 +1290,26 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-11-01' existing = {
 ```
 
 Add child and extension resources to an existing resource
+* By using a combination of the existing keyword and the parent keyword.
+
+Refer to an existing resource's properties
+* By using the existing keyword, you get access to the properties of the resource that you're referring to.
 
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/6-work-with-existing-resources
+
+### Exercise - Deploy extension resources and use existing resources
+
+
+* Create a Log Analytics workspace.
+* Update your Bicep file to add diagnostic settings to your Cosmos DB account.
+* Create a storage account.
+* In your Bicep file, update the diagnostic settings for the storage account.
+* Deploy your template and verify the result.
+
+Create a Log Analytics workspace
+
+```
+ New-AzOperationalInsightsWorkspace -Name ToyLogs -Location uksouth -ResourceGroupName "Rg-iac-0080"
+```
+
+![Exercise 8 1  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8_1.jpg)
