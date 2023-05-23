@@ -54,7 +54,7 @@ You can now run the Azure CLI with the az command from either Windows Command Pr
 * Non-production environments: A common problem organizations face is differentiation between production and non-production environments. When you manually provision resources in separate environments, it's possible that the end configurations won't match.
 * Disaster recovery
 
-#### Better understand your cloud resources
+### Better understand your cloud resources
 
 * Audit trail
 * Documentation
@@ -94,7 +94,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-05-01' = {
 
 ```
 
-#### Azure Resource Manager
+### Azure Resource Manager
 
 Before beginning the process of building your first template, you need to understand how Azure Resource Manager works. Investigating the types of templates that are available to use with Azure will help you determine the next steps in your infrastructure-as-code strategy.
 
@@ -121,7 +121,7 @@ JSON and Bicep templates
 
 Bicep is a new domain-specific language that was recently developed for authoring ARM templates by using an easier syntax.
 
-#### What is Bicep?
+### What is Bicep?
 
 * Bicep is used only to create Resource Manager templates. 
 * Bicep provides many improvements over JSON for template authoring, including:
@@ -130,7 +130,7 @@ Bicep is a new domain-specific language that was recently developed for authorin
 * * Automatic dependency management
 * * Type validation and IntelliSense
 
-#### How Bicep works
+### How Bicep works
 
 * When you deploy a resource or series of resources to Azure, you submit the Bicep template to Resource Manager, which still requires JSON templates.
 * The tooling that's built into Bicep converts your Bicep template into a JSON template. 
@@ -235,11 +235,11 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile main.bice
 ```
 
 
-#### Add an App Service plan and app to your Bicep template
+### Add an App Service plan and app to your Bicep template
 
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/4-exercise-define-resources-bicep-template?pivots=powershell
 
-#### Add flexibility by using parameters and variables
+### Add flexibility by using parameters and variables
 
 * You need to avoid using fixed resource names, so you can reuse the template for multiple product launches. 
 * You also have to deploy the resources in different locations, which means you can't embed the resource locations in your template either.
@@ -260,7 +260,7 @@ Things that will change between each deployment, like:
 
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/5-add-flexibility-parameters-variables
 
-#### Exercise - Add parameters and variables to your Bicep template
+### Exercise - Add parameters and variables to your Bicep template
 
 
 Notice that you're explicitly specifying the value for the environmentType parameter when you execute the deployment. You don't need to specify the other parameter values, because they have valid default values.
@@ -277,7 +277,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -en
 
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/6-exercise-add-parameters-variables-bicep-template?pivots=powershell
 
-#### Group related resources by using modules
+### Group related resources by using modules
 
 * Outputs
 * * For logs
@@ -317,7 +317,7 @@ module myModule 'modules/mymodule.bicep' = {
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/7-group-related-resources-modules
 
 
-#### Exercise - Refactor your template to use modules
+### Exercise - Refactor your template to use modules
 
 * Add a new module and move the App Service resources into it.
 * Reference the module from the main Bicep template.
@@ -329,7 +329,7 @@ https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/7-
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=powershell
 
 
-#### Build reusable Bicep templates by using parameters
+### Build reusable Bicep templates by using parameters
 
 By using parameters, you can create flexible and reusable Bicep templates. You define parameters for any aspect of your deployment that might change, such as environment-specific settings, pricing and capacity configuration for your Azure resources, and API keys to access external systems.
 By the end of this module, you'll be able to:
@@ -430,7 +430,7 @@ Note:
 Bicep templates can sometimes be made available in the Azure portal for users to deploy, like when you use template specs. The portal uses the descriptions and other decorators on parameters to help users understand what a parameter value needs to be.
 @description('The name of tier of the app service plan SKU')
 
-#### Exercise 2 - Add parameters and decorators
+### Exercise 2 - Add parameters and decorators
 
 * Create a Bicep file that includes parameters and variables.
 * Add decorators to the parameters.
@@ -441,7 +441,7 @@ Bicep templates can sometimes be made available in the Azure portal for users to
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/3-exercise-add-parameters-with-decorators?pivots=powershell
 
 
-#### Provide values using parameter files
+### Provide values using parameter files
 
 * Parameter files make it easy to specify parameter values together as a set.
 * Within the parameter file, you provide values for the parameters in your Bicep file. 
@@ -464,7 +464,7 @@ By using a mixture of the approaches to specify parameter values, you can avoid 
 
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/4-how-use-parameter-file-with-bicep?pivots=powershell
 
-#### Secure your parameters
+### Secure your parameters
 
 Sometimes you need to pass sensitive values into your deployments, like passwords and API keys. But you need to ensure these values are protected. 
 
@@ -516,7 +516,7 @@ param sqlServerAdministratorPassword string
 
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/5-how-secure-parameter
 
-#### Exercise 3 - Add a parameter file and secure parameters
+### Exercise 3 - Add a parameter file and secure parameters
 
 You're prompted to enter the values for sqlServerAdministratorLogin and sqlServerAdministratorPassword parameters when you execute the deployment. You don't need to specify solutionName because it has a default value specified in the template. You don't need to specify the other parameter values because their values are specified in the parameter file.
 
@@ -595,7 +595,7 @@ Add IAM Key vault officer and view the secrets
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 
 
-#### Build flexible Bicep templates by using conditions and loops
+### Build flexible Bicep templates by using conditions and loops
 
 In this module, you'll extend a Bicep template by using conditions and loops. You'll:
 
@@ -607,7 +607,7 @@ In this module, you'll extend a Bicep template by using conditions and loops. Yo
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/
 
-#### Deploy resources conditionally
+### Deploy resources conditionally
 
 When you deploy a resource in Bicep, you can provide the if keyword followed by a condition.
 
@@ -660,7 +660,7 @@ You can't define two resources with the same name in the same Bicep file and the
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/2-use-conditions-deploy-resources
 
-#### Exercise 4 - Deploy resources conditionally
+### Exercise 4 - Deploy resources conditionally
 
 * Create a Bicep file that defines a logical server with a database.
 * Add a storage account and SQL auditing settings, each of which is deployed with a condition.
@@ -692,7 +692,7 @@ Be sure to use the same login and password that you used previously, or else the
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/3-exercise-conditions?pivots=powershell
 
-#### Deploy multiple resources by using loops
+### Deploy multiple resources by using loops
 
 * Often, you need to deploy multiple resources that are very similar. By adding loops to your Bicep files, you can avoid having to repeat resource definitions. 
 * Instead, you can dynamically set the number of instances of a resource you want to deploy. 
@@ -763,7 +763,7 @@ resource sqlServers 'Microsoft.Sql/servers@2021-11-01-preview' = [for sqlServer 
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/4-use-loops-deploy-resources
 
-#### Exercise 5 - Deploy multiple resources by using loops
+### Exercise 5 - Deploy multiple resources by using loops
 
 * Move your existing Bicep code into a module.
 * Create a new Bicep file with a copy loop to deploy the module's resources multiple times.
@@ -787,7 +787,7 @@ param locations array = [
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/5-exercise-loops?pivots=powershell
 
 
-#### Control loop execution and nest loops
+### Control loop execution and nest loops
 
 In this unit, you learn how to control the execution of copy loops, and how to use resource property loops and nested loops in Bicep.
 * By default, Azure Resource Manager creates resources from loops in parallel, and in a non-deterministic order. 
@@ -857,7 +857,7 @@ resource virtualNetworks 'Microsoft.Network/virtualNetworks@2021-08-01' = [for (
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/6-use-loops-advanced
 
-#### Use variable and output loops
+### Use variable and output loops
 
 In Bicep, loops can also be used with variables and outputs.
 
@@ -880,7 +880,7 @@ output outputItems array = [for i in range(0, length(items)): items[i]]
 ```
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/7-use-loops-with-variables-and-outputs
 
-#### Exercise 6 - Use variable and output loops
+### Exercise 6 - Use variable and output loops
 
 Deployment takes time....just cancel, it is saturday!
 
@@ -888,7 +888,7 @@ Deployment takes time....just cancel, it is saturday!
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
 
-#### Create composable Bicep files by using modules
+### Create composable Bicep files by using modules
 
 Bicep modules let you split a complex template into smaller parts. You can ensure that each module is focused on a specific task, and that the modules are reusable for multiple deployments and workloads.
 
@@ -908,7 +908,7 @@ In this module, you'll create a set of Bicep modules to deploy your website and 
 
 https://learn.microsoft.com/en-us/training/modules/create-composable-bicep-files-using-modules/1-introduction
 
-#### Create and use Bicep modules
+### Create and use Bicep modules
 
 Bicep modules help you address these challenges by splitting your code into smaller, more manageable files that multiple templates can reference. Modules give you some key benefits.
 * Reusability
@@ -952,7 +952,7 @@ resource cosmosDBAccountDiagnostics 'Microsoft.Insights/diagnosticSettings@2021-
 output blobContainerResourceId string = storageAccount::blobService::container.id
 ```
 
-#### Exercise 7 - Create and use a module
+### Exercise 7 - Create and use a module
 
 * Add a module for your application.
 * Create a Bicep template that uses the module.
@@ -1023,7 +1023,7 @@ Then the deployments will have correct names according to the bicep files and th
 
 https://learn.microsoft.com/en-us/training/paths/intermediate-bicep/
 
-#### Deploy child and extension resources by using Bicep
+### Deploy child and extension resources by using Bicep
 
 * Child and extension resources allow your Azure deployments to access the advanced functionality and power of the Azure platform.
 * Can also use Bicep to refer to resources that were created outside the Bicep file itself. 
@@ -1040,7 +1040,7 @@ What will we be doing?
 
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/
 
-#### Understand Azure resources
+### Understand Azure resources
 
 Resource providers
 * All Azure resources are deployed with a specific type. The type identifies the kind of resource it is. A resource ID is the way Azure identifies a specific instance of a resource. 
@@ -1084,7 +1084,7 @@ For example:
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/2-understand-azure-resources
 
 
-#### Define child resources
+### Define child resources
 
 | Name | Resource type
 | ---- | ------------
@@ -1094,7 +1094,7 @@ https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templat
 |Virtual machine extensions      | Microsoft.Compute/virtualMachines/extensions
 |Storage blob container          | Microsoft.Storage/storageAccounts/blobservice/container
 
-#### How are child resources defined?
+### How are child resources defined?
 
 Nested resources
 
@@ -1179,7 +1179,7 @@ Child resource IDs
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/3-define-child-resources
 
 
-#### Exercise 8 - Define child resources
+### Exercise 8 - Define child resources
 
 * Create a Bicep file that deploys a Cosmos DB account.
 * Add a database and container, which are child resources of the Cosmos DB account.
@@ -1193,7 +1193,7 @@ Select the deployment called main to see what resources were deployed, and then 
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/4-exercise-define-child-resources?pivots=powershell
 
 
-#### Define extension resources
+### Define extension resources
 
 Extension resources are always attached to other Azure resources. They extend the behavior of those resources with extra functionality.
 * Role assignment
@@ -1236,7 +1236,7 @@ toyrnd/providers/Microsoft.Authorization/locks/DontDelete
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/5-define-extension-resources
 
 
-#### Work with existing resources
+### Work with existing resources
 
 * Bicep files often need to refer to resources that have been created elsewhere. 
 * These resources might have been created manually, maybe by a colleague using the Azure portal.
@@ -1288,5 +1288,7 @@ resource vnet 'Microsoft.Network/virtualNetworks@2020-11-01' existing = {
 // Notice that the scope uses the resourceGroup() keyword to refer to the resource group that contains the virtual network.
 // You can even refer to resources within a different Azure subscription, as long as the subscription is within your Azure Active Directory tenant.
 ```
+
+Add child and extension resources to an existing resource
 
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/6-work-with-existing-resources
