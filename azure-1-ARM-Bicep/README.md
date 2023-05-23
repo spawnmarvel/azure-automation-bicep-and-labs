@@ -1262,4 +1262,31 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2019-06-01' existing 
 
 Refer to child resources
 
+```
+// The following example shows how you can refer to an existing subnet, which is a child resource of a virtual network. 
+// The example uses a nested child resource, as shown here:
+
+resource vnet 'Microsoft.Network/virtualNetworks@2020-11-01' existing = {
+  name: 'toy-design-vnet'
+
+  resource managementSubnet 'subnets' existing = {
+    name: 'management'
+  }
+}
+```
+Refer to resources outside the resource group
+
+```
+// Often, you'll need to refer to resources in a different resource group. 
+// For example, if you have a virtual network in a centralized resource group, 
+// you might want to deploy a virtual machine into that virtual network in its own resource group. 
+
+resource vnet 'Microsoft.Network/virtualNetworks@2020-11-01' existing = {
+  scope: resourceGroup('networking-rg')
+  name: 'toy-design-vnet'
+}
+// Notice that the scope uses the resourceGroup() keyword to refer to the resource group that contains the virtual network.
+// You can even refer to resources within a different Azure subscription, as long as the subscription is within your Azure Active Directory tenant.
+```
+
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/6-work-with-existing-resources
