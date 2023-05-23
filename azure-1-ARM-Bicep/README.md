@@ -1354,3 +1354,7 @@ Notice that there is a diagnostic setting named route-logs-to-log-analytics, whi
 Verify that the storage account has a similar diagnostic setting enabled for blob storage.
 
 ![Exercise 8 4  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise8_4.jpg)
+
+### Manage changes to your Bicep code by using Git
+
+https://learn.microsoft.com/en-us/training/modules/manage-changes-bicep-code-git/
