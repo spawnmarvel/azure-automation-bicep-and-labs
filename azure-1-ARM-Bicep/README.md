@@ -1357,4 +1357,9 @@ Verify that the storage account has a similar diagnostic setting enabled for blo
 
 ### Manage changes to your Bicep code by using Git
 
+* Explain the benefits of version control and Git
+* Commit Bicep templates to a Git repository and view the history of your changes
+* Create and merge a branch
+* Publish a Git repository to GitHub or Azure Repos so that you can collaborate with others
+
 https://learn.microsoft.com/en-us/training/modules/manage-changes-bicep-code-git/
