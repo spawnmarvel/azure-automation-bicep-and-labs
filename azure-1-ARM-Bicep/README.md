@@ -1363,3 +1363,15 @@ Verify that the storage account has a similar diagnostic setting enabled for blo
 * Publish a Git repository to GitHub or Azure Repos so that you can collaborate with others
 
 https://learn.microsoft.com/en-us/training/modules/manage-changes-bicep-code-git/
+
+
+What are GitHub and Azure Repos?
+
+* Git is software that you install and run on your own computer. As you've learned, Git keeps track of the changes you make to your files. It enables features like branching.
+* GitHub and Azure Repos are online services that keep copies of your Git repository and enable collaborative development.
+
+Note: Azure Repos is a feature of Azure DevOps. When you work with Azure Repos, you use the Azure DevOps website.
+
+https://learn.microsoft.com/en-us/training/modules/manage-changes-bicep-code-git/8-publish-repository-enable-collaboration
+
+![Exercise 9 git  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise9.jpg)
