@@ -1375,3 +1375,8 @@ Note: Azure Repos is a feature of Azure DevOps. When you work with Azure Repos, 
 https://learn.microsoft.com/en-us/training/modules/manage-changes-bicep-code-git/8-publish-repository-enable-collaboration
 
 ![Exercise 9 git  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise9.jpg)
+
+
+### Structure your Bicep code for collaboration
+
+https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/
