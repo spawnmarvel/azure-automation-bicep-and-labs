@@ -1456,8 +1456,88 @@ var environmentConfigurationMap = {
 ```
 
 How are your resources named?
-* 
-* 
+* Symbolic names
+* camelCase capitalization style for the names of parameters, variables, and resource symbolic names.
 
+```
+//  suppose you want to define a storage account that will contain product manuals for users to download from your website. 
+
+resource productManualStorageAccount 
+```
+
+* Resource names
+
+```
+// Every Azure resource has a name. Names make up a part of the resource's identifier. 
+// In many cases, they also are represented as the hostnames that you use to access the resource.
+
+// Guidelines link below
+// Develop your naming and tagging strategy for Azure resources
+
+// It's a good idea to use the uniqueString() function to generate a default value. People who deploy your template can override this with a specific value if they want to have a meaningful name.
+// use the @maxLength() decorator to limit the length of this suffix
+
+```
+#### Develop your naming and tagging strategy for Azure resources
+
+https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 
 https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/3-improve-parameters-names
+
+### Plan the structure of your Bicep file
+
+
+There are two main approaches to ordering your code:
+* Group elements by element type
+* * You can group all elements of the same type together. So, all your parameters would go in one place, usually at the top of the file. Variables come next, followed by resources and modules, and outputs are at the bottom. 
+* * If you follow this convention, consider putting the targetScope at the top of the file.
+* * This ordering makes sense when you're used to other infrastructure as code languages (for example, the language in Azure Resource Manager templates).
+* * ... though, it can be challenging to navigate and jump between the elements.
+
+* Group elements by resource
+* * Alternatively, you can group your elements based on the type of resources that are being deployed
+* *  you could group all the parameters, variables, resources, and outputs that relate to the Azure SQL database resources.
+* * You could then add the parameters, variables, resources, and outputs for the storage account, as shown here:
+* * Grouping by resource can make it easier to read your template, because all the elements you need for a specific resource are in one place. 
+* *  But it makes it harder to quickly check how specific element types are declared when, for example, you want to review all your parameters.
+
+
+How do you define several similar resources?
+* With Bicep, you can use loops to deploy similar resources from a single definition. By using the for keyword to define resource loops
+
+```
+var cosmosDBContainerDefinitions = [
+  {
+    name: 'customers'
+    partitionKey: '/customerId'
+  }
+  {
+    name: 'orders'
+    partitionKey: '/orderId'
+  }
+  {
+    name: 'products'
+    partitionKey: '/productId'
+  }
+]
+
+resource cosmosDBContainers 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2020-04-01' = [for cosmosDBContainerDefinition in cosmosDBContainerDefinitions: {
+  parent: cosmosDBDatabase
+  name: cosmosDBContainerDefinition.name
+  properties: {
+    resource: {
+      id: cosmosDBContainerDefinition.name
+      partitionKey: {
+        kind: 'Hash'
+        paths: [
+          cosmosDBContainerDefinition.partitionKey
+        ]
+      }
+    }
+    options: {}
+  }
+}]
+
+```
+
+https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/4-plan-structure-bicep-file
