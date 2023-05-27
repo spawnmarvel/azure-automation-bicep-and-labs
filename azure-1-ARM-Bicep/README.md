@@ -1379,4 +1379,8 @@ https://learn.microsoft.com/en-us/training/modules/manage-changes-bicep-code-git
 
 ### Structure your Bicep code for collaboration
 
+* Select the appropriate parameters for a Bicep file
+* Structure your Bicep code and parameters to support team collaboration
+* Document your Bicep code by using comments and resource tags
+
 https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/
