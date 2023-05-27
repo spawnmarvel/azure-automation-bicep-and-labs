@@ -1383,4 +1383,81 @@ https://learn.microsoft.com/en-us/training/modules/manage-changes-bicep-code-git
 * Structure your Bicep code and parameters to support team collaboration
 * Document your Bicep code by using comments and resource tags
 
+* By the end of this module, you'll be able to author Bicep templates that are clear, reusable, and well documented.
+
 https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/
+
+
+### Exercise 10 - Review your existing Bicep template
+
+https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/2-exercise-review-existing-template
+
+### Improve parameters and names
+
+* One of the goals of defining your infrastructure as code is to make your templates reusable and flexible. 
+* You don't want to create single-purpose templates that have a hard-coded configuration. 
+
+
+Provide free-form configuration options
+* Both the App Service plan and the storage account require that you specify their SKUs
+
+```
+// You might consider creating a set of parameters to control each of the SKUs and instance counts for the resources:
+
+param appServicePlanSkuName string
+param appServicePlanSkuCapacity int
+param storageAccountSkuName string
+
+// This format provides the most flexibility, because anyone who uses the template can specify any combination of parameter values. 
+// However, as you add more resources, you need more parameters.
+
+```
+
+You might be able to reduce the number of parameters by grouping related parameters in the form of a parameter object, like this:
+
+```
+param appServicePlanSku object = {
+  name: 'S1'
+  capacity: 2
+}
+```
+
+Use predefined configuration sets
+* Use predefined configuration sets
+
+```
+@allowed([
+  'Production'
+  'Test'
+])
+param environmentType string = 'Test'
+
+// When you work with configuration sets, you create a map variable to define the specific properties to set on various resources, based on the parameter value:
+
+var environmentConfigurationMap = {
+  Production: {
+    appServicePlan: {
+      sku: {
+        name: 'P2V3'
+        capacity: 3
+      }
+    }
+    storageAccount: {
+      sku: {
+
+        [...]
+
+  resource appServicePlan 'Microsoft.Web/serverfarms@2020-06-01' = {
+  name: appServicePlanName
+  location: location
+  sku: environmentConfigurationMap[environmentType].appServicePlan.sku
+}      
+
+```
+
+How are your resources named?
+* 
+* 
+
+
+https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/3-improve-parameters-names
