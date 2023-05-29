@@ -1505,39 +1505,52 @@ There are two main approaches to ordering your code:
 How do you define several similar resources?
 * With Bicep, you can use loops to deploy similar resources from a single definition. By using the for keyword to define resource loops
 
-```
-var cosmosDBContainerDefinitions = [
-  {
-    name: 'customers'
-    partitionKey: '/customerId'
-  }
-  {
-    name: 'orders'
-    partitionKey: '/orderId'
-  }
-  {
-    name: 'products'
-    partitionKey: '/productId'
-  }
-]
+How do you deploy resources only to certain environments?
+* By using the if keyword, you can selectively deploy resources based on a parameter value, a configuration map variable, or another condition.
 
-resource cosmosDBContainers 'Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers@2020-04-01' = [for cosmosDBContainerDefinition in cosmosDBContainerDefinitions: {
-  parent: cosmosDBDatabase
-  name: cosmosDBContainerDefinition.name
-  properties: {
-    resource: {
-      id: cosmosDBContainerDefinition.name
-      partitionKey: {
-        kind: 'Hash'
-        paths: [
-          cosmosDBContainerDefinition.partitionKey
-        ]
-      }
-    }
-    options: {}
-  }
-}]
+How do you express dependencies between your resources?
+* Bicep allows you to explicitly specify a dependency by using the dependsOn property. However, in most cases, it's possible to let Bicep automatically detect dependencies. When you use the symbolic name of one resource within a property of another, Bicep detects the relationship. It's better to let Bicep manage these itself whenever you can. 
 
-```
+How do you express parent-child relationships?
+* but in most cases, it's a good idea to use the parent property. This helps Bicep to understand the relationship so it can provide validation in Visual Studio Code.
+
+How do you set resource properties?
+* When creating outputs, try to use resource properties wherever you can.
+* output hostname string = app.properties.defaultHostname
+
 
 https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/4-plan-structure-bicep-file
+
+
+Document your code by adding comments and metadata
+* 
+```
+// We need to define a firewall rule to allow Azure services to access the database.
+
+startIpAddress: '0.0.0.0' // This combination represents 'all Azure IP addresses'.
+
+/*
+  This Bicep file was developed by the web team.
+  It deploys the resources we need for our toy company's website.
+*/
+
+// Add descriptions to parameters, variables, and outputs
+@description('The Azure region into which the resources should be deployed.')
+param location string = resourceGroup().location
+
+// Apply resource tags
+ tags: {
+    CostCenter: 'Marketing'
+    DataClassification: 'Public'
+    Owner: 'WebsiteTeam'
+    Environment: 'Production'
+ }
+
+```
+
+https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/5-document-code-comments-metadata
+
+### Exercise 10 - Refactor your Bicep file
+
+
+https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/6-exercise-refactor-bicep-file
