@@ -1553,4 +1553,7 @@ https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collabor
 ### Exercise 10 - Refactor your Bicep file
 
 
+![Exercise 10  ](https://github.com/spawnmarvel/azure-automation/blob/main/images/exercise10.jpg)
+
 https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/6-exercise-refactor-bicep-file
+
