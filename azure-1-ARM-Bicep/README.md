@@ -1557,3 +1557,8 @@ https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collabor
 
 https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/6-exercise-refactor-bicep-file
 
+
+
+### Review Azure infrastructure changes by using Bicep and pull requests
+
+https://learn.microsoft.com/en-us/training/modules/review-azure-infrastructure-changes-using-bicep-pull-requests/
