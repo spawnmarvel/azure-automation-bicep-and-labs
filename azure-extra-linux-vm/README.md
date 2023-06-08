@@ -4,7 +4,7 @@
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-bicep?tabs=CLI
 
-Modifications
+Modifications, since the template was not made for redeploy when resources existed.
 
 * This will happen when the subnet is declared as a child resource. 
 * It is instead recommended to create all the subnets in the array property inside of the vnet, like you are doing with the first subnet in the above code sample:
