@@ -198,7 +198,18 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
         }
       }
       imageReference: imageReference[ubuntuOSVersion]
+      // add a data disk start
+      dataDisks:[
+        {
+          diskSizeGB:8
+          lun:0
+          createOption:'Empty'
+          name:'${vmName}-dataDiskLun0'
+        }
+      ]
+      // add a datadisk end
     }
+    
     networkProfile: {
       networkInterfaces: [
         {
@@ -215,6 +226,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
     securityProfile: ((securityType == 'TrustedLaunch') ? securityProfileJson : null)
   }
 }
+
 
 resource vmExtension 'Microsoft.Compute/virtualMachines/extensions@2022-03-01' = if ((securityType == 'TrustedLaunch') && ((securityProfileJson.uefiSettings.secureBootEnabled == true) && (securityProfileJson.uefiSettings.vTpmEnabled == true))) {
   parent: vm
