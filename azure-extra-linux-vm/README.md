@@ -77,6 +77,17 @@ subnet: {
 ```
 * Add a data disk
 
+```
+ dataDisks:[
+        {
+          diskSizeGB:8
+          lun:0
+          createOption:'Empty'
+          name:'${vmName}-dataDiskLun0'
+        }
+      ]
+```
+
 * Place in existing vnet in a different rg
 
 ## Login
