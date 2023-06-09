@@ -1,15 +1,15 @@
-# Azure Linux VM Biicep deploy
+# Azure Linux VM Bicep deploy
 
 ## How to deploy
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-bicep?tabs=CLI
 
-Modifications, since the template was not made for redeploy when resources existed.
+### Modifications, since the template was not made for redeploy when resources existed.
 
-* This will happen when the subnet is declared as a child resource. 
-* It is instead recommended to create all the subnets in the array property inside of the vnet, like you are doing with the first subnet in the above code sample:
-
-https://github.com/Azure/bicep/issues/4653
+* i.e default template was deployed, tried to change SKU, but it prompted error about vnet elready existing
+* * This will happen when the subnet is declared as a child resource. 
+* *  It is instead recommended to create all the subnets in the array property inside of the vnet, like you are doing with the first subnet in the above code sample:
+* * https://github.com/Azure/bicep/issues/4653
 
 ```
 // Not able to redeploy due to hardcode subnet
@@ -75,8 +75,13 @@ subnet: {
           }
 
 ```
+* Add a data disk
+
+* Place in existing vnet in a different rg
 
 ## Login
+
+ssh user@ip
 
 ## Learn
 
