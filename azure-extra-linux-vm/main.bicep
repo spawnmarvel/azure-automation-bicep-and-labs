@@ -48,6 +48,15 @@ param networkSecurityGroupName string = 'SecGroupNet'
 ])
 param securityType string = 'TrustedLaunch'
 
+param tags object = {
+  CostCenter: 'Learning'
+  DataClassification: 'NA'
+  Owner: 'Me'
+  Environment: 'Test'
+}
+
+
+
 var imageReference = {
   'Ubuntu-1804': {
     publisher: 'Canonical'
@@ -147,6 +156,7 @@ resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2021-05-0
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
   name: virtualNetworkName
   location: location
+  tags:tags
   properties: {
     addressSpace: {
       addressPrefixes: [
@@ -190,6 +200,7 @@ resource publicIPAddress 'Microsoft.Network/publicIPAddresses@2021-05-01' = {
 resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
   name: vmName
   location: location
+  tags:tags
   properties: {
     hardwareProfile: {
       vmSize: vmSize
