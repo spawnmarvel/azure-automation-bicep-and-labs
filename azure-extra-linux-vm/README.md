@@ -59,13 +59,11 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
 
 // And had to update reference subnet id on the NetworkInterface
 // From
-
 subnet: {
             id: subnet.id
           }
 
 // To
-
 subnet: {
              // 1.2 And had to update reference subnet id on the NetworkInterface
             id: resourceId('Microsoft.Network/VirtualNetworks/subnets', virtualNetworkName, subnetName)
