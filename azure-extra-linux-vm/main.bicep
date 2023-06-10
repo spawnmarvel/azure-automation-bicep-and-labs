@@ -50,9 +50,9 @@ param securityType string = 'TrustedLaunch'
 
 @description('The tags to be used.')
 param tags object = {
-  CostCenter: 'Learning'
+  CostCenter: 'GOT'
   DataClassification: 'NA'
-  Owner: 'Me'
+  Owner: 'Hodor'
   Environment: 'Test'
 }
 
