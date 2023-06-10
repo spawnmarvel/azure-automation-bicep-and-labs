@@ -48,6 +48,7 @@ param networkSecurityGroupName string = 'SecGroupNet'
 ])
 param securityType string = 'TrustedLaunch'
 
+@description('The tags to be used')
 param tags object = {
   CostCenter: 'Learning'
   DataClassification: 'NA'
