@@ -106,6 +106,7 @@ resource networkInterface 'Microsoft.Network/networkInterfaces@2021-05-01' = {
         name: 'ipconfig1'
         properties: {
           subnet: {
+             // 1.2 And had to update reference subnet id on the NetworkInterface
             id: resourceId('Microsoft.Network/VirtualNetworks/subnets', virtualNetworkName, subnetName)
           }
           privateIPAllocationMethod: 'Dynamic'
@@ -152,6 +153,8 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
         addressPrefix
       ]
     }
+    // 1. It is instead recommended to create all the subnets in the array property inside of the vnet, like you are doing with the first subnet in the above code sample:
+    // 1. https://github.com/Azure/bicep/issues/4653
     subnets: [
       {
         name: subnetName
@@ -163,6 +166,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
       }
 
     ]
+    // 1. End
   }
 }
 
@@ -198,7 +202,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
         }
       }
       imageReference: imageReference[ubuntuOSVersion]
-      // add a data disk start
+      // 2. Add a data disk start
       dataDisks:[
         {
           diskSizeGB:8
@@ -207,7 +211,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
           name:'${vmName}-dataDiskLun0'
         }
       ]
-      // add a datadisk end
+      // . Add a datadisk end
     }
     
     networkProfile: {
