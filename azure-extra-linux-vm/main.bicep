@@ -211,7 +211,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
           name:'${vmName}-dataDiskLun0'
         }
       ]
-      // . Add a datadisk end
+      // 2. Add a datadisk end
     }
     
     networkProfile: {

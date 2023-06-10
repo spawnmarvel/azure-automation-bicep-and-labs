@@ -47,6 +47,8 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
         addressPrefix
       ]
     }
+    // 1. It is instead recommended to create all the subnets in the array property inside of the vnet, like you are doing with the first subnet in the above code sample:
+    // 1. https://github.com/Azure/bicep/issues/4653
     subnets: [
       {
         name: subnetName
@@ -61,7 +63,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
   }
 }
 
-// And had to update reference subnet id on the NetworkInterface
+// 1.2 And had to update reference subnet id on the NetworkInterface
 // From
 
 subnet: {
@@ -78,6 +80,7 @@ subnet: {
 * Add a data disk
 
 ```
+  // 2. Add a data disk start
  dataDisks:[
         {
           diskSizeGB:8
@@ -86,6 +89,7 @@ subnet: {
           name:'${vmName}-dataDiskLun0'
         }
       ]
+     // 2. Add a datadisk end
 ```
 
 * Place in existing vnet in a different rg
