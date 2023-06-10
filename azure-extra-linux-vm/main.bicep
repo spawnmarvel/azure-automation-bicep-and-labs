@@ -48,15 +48,13 @@ param networkSecurityGroupName string = 'SecGroupNet'
 ])
 param securityType string = 'TrustedLaunch'
 
-@description('The tags to be used')
+@description('The tags to be used.')
 param tags object = {
   CostCenter: 'Learning'
   DataClassification: 'NA'
   Owner: 'Me'
   Environment: 'Test'
 }
-
-
 
 var imageReference = {
   'Ubuntu-1804': {
