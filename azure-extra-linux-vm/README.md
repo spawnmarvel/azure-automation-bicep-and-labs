@@ -23,9 +23,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
       addressPrefixes: [
         addressPrefix
       ]
-    }
-  }
-}
+    [...]
 
 resource subnet 'Microsoft.Network/virtualNetworks/subnets@2021-05-01' = {
   parent: virtualNetwork
@@ -57,11 +55,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
           privateEndpointNetworkPolicies: 'Enabled'
           privateLinkServiceNetworkPolicies: 'Enabled'
         }
-      }
-
-    ]
-  }
-}
+      [...]
 
 // From
 
