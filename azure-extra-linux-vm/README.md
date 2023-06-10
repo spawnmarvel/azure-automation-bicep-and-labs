@@ -57,6 +57,7 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
         }
       [...]
 
+// And had to update reference subnet id on the NetworkInterface
 // From
 
 subnet: {
