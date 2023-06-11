@@ -219,6 +219,8 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
           lun:0
           createOption:'Empty'
           name:'${vmName}-dataDiskLun0'
+          // It must be mounted after
+          // https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu
         }
       ]
       // 2. Add a datadisk end

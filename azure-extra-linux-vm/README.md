@@ -99,6 +99,76 @@ ssh user@ip-orname@something
 
 ![Output ](https://github.com/spawnmarvel/azure-automation/blob/main/images/linux_output.jpg)
 
+
+## Useful things
+
+1. Connect to the Linux VM to mount the new disk
+https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu
+
+```
+// 1 Find the disk
+lsblk
+
+sda       8:0    0   30G  0 disk
+sdb       8:16   0   16G  0 disk
+sdc       8:32   0    8G  0 disk
+
+
+// 1.1 
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
+
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     0:0:0:1      16G
+└─sdb1               16G /mnt
+sdc     1:0:0:0       8G
+
+
+// In this example, the disk that was added was sdc. It's a LUN 0 and is 8GB.
+
+// 3 Prepare a new empty disk (Important If you are using an existing disk that contains data, skip to mounting the disk. The following instructions will delete data on the disk.)
+// The following example uses parted on /dev/sdc, which is where the first data disk will typically be on most VMs. 
+// Replace sdc with the correct option for your disk. We're also formatting it using the XFS filesystem.
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
+
+// 4 Mount the disk
+sudo mkdir /datadrive
+sudo mount /dev/sdc1 /datadrive
+
+// 5 Verify mount
+lsblk
+
+[...]
+sdc       8:32   0    8G  0 disk
+└─sdc1    8:33   0    8G  0 part /datadrive
+
+// 6 To ensure that the drive is remounted automatically after a reboot, it must be added to the /etc/fstab file.
+//  It's also highly recommended that the UUID (Universally Unique Identifier) is used in /etc/fstab to refer to the drive rather than just the device name (such as, /dev/sdc1)
+//  To find the UUID of the new drive, use the blkid utility:
+sudo blkid
+
+[...]
+/dev/sdc1: UUID="5fb6228d-e3d4-4666-a291-8c311bbe6c7f" TYPE="xfs" PARTLABEL="xfspart" PARTUUID="a149db51-bd45-4ad7-876a-39b140b19ee1"
+
+// Next, open the /etc/fstab file in a text editor. 
+// Add a line to the end of the file, using the UUID value for the /dev/sdc1 device that was created in the previous steps, and the mountpoint of /datadrive. 
+sudo nano /etc/fstab
+
+UUID=5fb6228d-e3d4-4666-a291-8c311bbe6c7f   /datadrive   xfs   defaults,nofail   1   2
+CTRL + X and Y
+
+// 7 Verify mount
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
+
+// Enter drive
+cd /datadrive
+pwd
+
+```
 ## Learn
 
 Bash for Beginners
