@@ -87,9 +87,17 @@ subnet: {
 
 * Place in existing vnet in a different rg
 
-## Login
+## Login view outputs
 
-ssh user@ip
+```
+output adminUsername string = adminUsername
+output hostname string = publicIPAddress.properties.dnsSettings.fqdn
+output sshCommand string = 'ssh ${adminUsername}@${publicIPAddress.properties.dnsSettings.fqdn}'
+```
+
+ssh user@ip-orname@something
+
+![Output ](https://github.com/spawnmarvel/azure-automation/blob/main/images/linux_output.jpg)
 
 ## Learn
 
