@@ -11,7 +11,7 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-bice
 * *  It is instead recommended to create all the subnets in the array property inside of the vnet, like you are doing with the first subnet in the above code sample:
 * * https://github.com/Azure/bicep/issues/4653
 
-```
+``` bash
 // Not able to redeploy due to hardcode subnet
 // Edit from
 
@@ -72,7 +72,7 @@ subnet: {
 ```
 * Add a data disk
 
-```
+``` bash
   // 2. Add a data disk start
  dataDisks:[
         {
@@ -105,7 +105,7 @@ ssh user@ip-orname@something
 1. Connect to the Linux VM to mount the new disk
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu
 
-```
+``` bash
 // 1 Find the disk
 lsblk
 
