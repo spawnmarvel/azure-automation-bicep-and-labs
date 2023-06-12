@@ -103,7 +103,7 @@ https://gitforwindows.org/
 
 
 ```bash
-ssh user@ip-or-dnsname@something
+ssh user@serverip
 ```
 
 ![Git Bash ](https://github.com/spawnmarvel/azure-automation/blob/main/images/git_bash.jpg)
@@ -187,8 +187,24 @@ df -h
 ## List of Basic SSH Commands
 
 | SSH cmds | Description
-|----------|------------
-|ls        | Show directory contents (list the names of files).
+|---------- |------------
+| ls        | Show directory contents (list the names of files).
+| cd        | Change dir
+| mkdir     | Make dir
+| touch     | New file
+| rm        | Remove a file
+| cat       | Show content of file
+| pwd       | Show current dir
+| cp        | Copy file/folder
+| mv        | Move file/folder
+| grep      | Search for a phrase in file/lines  
+| find      | Search files and dirs
+| nano      | Text editor
+| history   | Show last 50 cmds
+| clear     | Clear terminal
+| tar       | Create and unpack compressed archives
+| wget      | Download files from internet
+| du        | Get file size
 
 ## Learn
 
