@@ -103,7 +103,7 @@ https://gitforwindows.org/
 
 
 ```bash
-ssh user@ip-orname@something
+ssh user@ip-or-dnsname@something
 ```
 
 ![Git Bash ](https://github.com/spawnmarvel/azure-automation/blob/main/images/git_bash.jpg)
@@ -111,7 +111,7 @@ ssh user@ip-orname@something
 
 
 
-## Useful things
+## Mount the data drive
 
 1. Connect to the Linux VM to mount the new disk
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu
@@ -183,6 +183,13 @@ pwd
 df -h
 
 ```
+
+## List of Basic SSH Commands
+
+| SSH cmds | Description
+|----------|------------
+|ls        | Show directory contents (list the names of files).
+
 ## Learn
 
 Bash for Beginners
