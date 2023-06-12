@@ -111,12 +111,14 @@ ssh user@serverip
 
 
 
-## Mount the data drive
+## Attach an new data disk
 
-1. Connect to the Linux VM to mount the new disk
+1. Use the portal to attach a data disk to a Linux VM
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu
 
-We mounted it above with Bicep
+### Find the disk
+
+We attached it above with Bicep, now find the disk, prepare it, mount and verify it
 
 ``` bash
 # 1 Find the disk
