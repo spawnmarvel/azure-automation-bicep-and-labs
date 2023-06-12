@@ -118,7 +118,7 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-porta
 
 ### Find the disk
 
-We attached it above with Bicep, now find the disk, prepare it, mount and verify it
+We attached it above with Bicep, now find the disk, prepare it, mount and verify it.
 
 ``` bash
 # 1 Find the disk
