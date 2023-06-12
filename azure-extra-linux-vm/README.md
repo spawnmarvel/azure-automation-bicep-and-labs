@@ -1,6 +1,6 @@
 # Azure Linux VM Bicep deploy
 
-## How to deploy
+## How to deploy (with Powershell)
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-bicep?tabs=CLI
 
@@ -87,17 +87,28 @@ subnet: {
 
 * Place in existing vnet in a different rg
 
-## Login view outputs
+## Login,  view outputs from deployments in main
 
-```
-output adminUsername string = adminUsername
-output hostname string = publicIPAddress.properties.dnsSettings.fqdn
-output sshCommand string = 'ssh ${adminUsername}@${publicIPAddress.properties.dnsSettings.fqdn}'
-```
-
-ssh user@ip-orname@something
+* output adminUsername string = adminUsername
+* output hostname string = publicIPAddress.properties.dnsSettings.fqdn
+* output sshCommand string = 'ssh ${adminUsername}@${publicIPAddress.properties.dnsSettings.fqdn}'
 
 ![Output ](https://github.com/spawnmarvel/azure-automation/blob/main/images/linux_output.jpg)
+
+## Bash it, Git BASH
+
+Git for Windows provides a BASH emulation used to run Git from the command line. *NIX users should feel right at home, as the BASH emulation behaves just like the "git" command in LINUX and UNIX environments.
+
+https://gitforwindows.org/
+
+
+```bash
+ssh user@ip-orname@something
+```
+
+![Git Bash ](https://github.com/spawnmarvel/azure-automation/blob/main/images/git_bash.jpg)
+
+
 
 
 ## Useful things
