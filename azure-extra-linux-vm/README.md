@@ -168,6 +168,9 @@ lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 cd /datadrive
 pwd
 
+// Display Usage in Megabytes and Gigabytes
+df -h
+
 ```
 ## Learn
 
