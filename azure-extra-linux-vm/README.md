@@ -116,6 +116,8 @@ ssh user@serverip
 1. Connect to the Linux VM to mount the new disk
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu
 
+We mounted it above with Bicep
+
 ``` bash
 # 1 Find the disk
 lsblk
