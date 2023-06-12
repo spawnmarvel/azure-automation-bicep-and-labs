@@ -70,7 +70,7 @@ subnet: {
           }
 
 ```
-* Add a data disk
+### Add a data disk
 
 ``` bash
   // 2. Add a data disk start
