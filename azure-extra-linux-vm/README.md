@@ -108,9 +108,6 @@ ssh user@serverip
 
 ![Git Bash ](https://github.com/spawnmarvel/azure-automation/blob/main/images/git_bash.jpg)
 
-
-
-
 ## Attach an new data disk
 
 1. Use the portal to attach a data disk to a Linux VM
