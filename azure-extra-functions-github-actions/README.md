@@ -8,3 +8,8 @@ https://follow-e-lo.com/2023/06/13/implement-ci-cd-with-github-deploy-azure-func
 ## Result github actions
 
 ![Github Actions ](https://github.com/spawnmarvel/azure-automation/blob/main/images/github_actions.jpg)
+
+## Security
+
+https://github.com/spawnmarvel/quickguides/tree/main/security
+
