@@ -6,7 +6,7 @@ Discover how to migrate and extend your Linux-based workloads on Azure with impr
 
 https://learn.microsoft.com/en-us/training/paths/azure-linux/?wt.mc_id=youtube_S-1076_video_reactor&source=learn
 
-## Introduction to Linux on Azure
+## 1 Introduction to Linux on Azure
 
 First, choose the Linux distribution you want based on familiarity, usage, cost, and support requirements.
 
@@ -87,5 +87,5 @@ Azure offers an end-to-end backup and disaster recovery solution for Linux that'
 * Azure Migrate, Use Azure Migrate to simplify migration and optimization when moving Linux workloads to Azure.
 
 
-## Plan your Linux environment in Azure
+## 2 Plan your Linux environment in Azure
 
