@@ -152,7 +152,126 @@ At a minimum, every Azure VM has two virtual disks:
 * The OS disk, labeled as /dev/sda
 * A temporary disk that provides temporary storage, labeled as /dev/sdb, and mounted to /mnt.
 
+NOTE: Avoid storing data and installing applications on the OS disk because it's optimized for fast boot rather than running non-operating–system workloads. Instead, create data disks, attach them to the Azure VM, and mount them within the OS. Add extra disks as needed according to your storage and IOPS requirements. Keep in mind that the maximum number of disks you can attach to an Azure VM depends on its size.
 
+Disable barriers
+
+To achieve the highest IOPS on Premium SSD disks, where their cache settings have been set to either ReadOnly or None, disable barriers while mounting the file system in Linux.
+
+* If you use reiserFS, disable barriers using the mount option barrier=none.
+* If you use ext3/ext4, disable barriers using the mount option barrier=0.
+* If you use XFS, disable barriers using the mount option nobarrier.
+
+NOTE: If caching is set to read/write, barriers should remain enabled to ensure write durability.
+
+Configure a swap file
+
+There are two main approaches to implementing the optimal configuration of a swap file:
+
+* Use the Azure VM Linux Agent for images that don't support cloud-init.
+* For implementation details, see the Optimize your Linux VM on Azure Microsoft Learn article.
+* Use cloud-init for images that support it.
+
+Adjust the I/O scheduling algorithm
+
+* For Linux kernels using the 'blk' subsystem, choose the "noop" scheduler.
+* For Linux kernels using the 'blk-mq' subsystem, choose the "none" scheduler.
+
+Implement multi-disk configurations
+
+* If your workloads require more IOPS than a single disk can provide, use a software Redundant Array of Independent Disks (RAID) configuration that combines multiple disks
+
+
+## 3 Provisioning a Linux virtual machine in Microsoft Azure
+
+Microsoft Azure supports several methods both to provision resources for a Linux VM and transition existing Linux-based workloads.
+
+* Azure portal, Azure CLI
+* Terraform, Terraform is an open-source, multi-platform Infrastructure as Code (IaC) tool that you can use to provision and configure a wide range of environments, including multi-vendor public and private clouds. 
+* Red Hat Ansible is another popular open-source tool you can use to complement the Terraform functionality. However, Ansible facilitates provisioning of cloud resources and supports both configuration management and application deployments.
+* Bicep, Bicep offers an alternative declarative provisioning method to Terraform. Although it exclusively targets Azure resources, you can benefit from several integration and usability features common across Microsoft cloud-based technologies.
+
+Azure supports two types of templates for declarative provisioning:
+
+* Azure Resource Manager template. This template uses the JavaScript Object Notation (JSON) open-standard file format.
+* Bicep template. This template relies on a domain-specific language (DSL).
+
+Provision a Linux virtual machine by using the Azure portal
+
+NOTE:
+
+If you deploy an individual Azure VM for testing or evaluation purposes, you might choose to allow connectivity from the internet due to the convenience it provides. However, in general, you should avoid exposing Azure VMs to connections originating from the internet without additional constraints. To enhance security in such scenarios, consider implementing Azure Bastion or just-in-time (JIT) VM access, which is available as part of the Microsoft Defender for Cloud service. Azure also offers hybrid connectivity options, including Site-to-Site (S2S) virtual private network (VPN), Point-to-Site (P2S) VPN, and Azure ExpressRoute. All three options eliminate the need for assigning public IP addresses to Azure VM network interfaces for connections originating from your on-premises datacenter or designated, internet-connected computers.
+
+Provision a Linux virtual machine by using Azure CLI
+
+Identify the suitable VM size
+
+```bash
+
+az vm list-sizes --location uksouth --output table
+
+```
+Create a resource group
+
+After identifying the Azure VM image and size, you can now begin the provisioning process. 
+
+Start by creating a resource group that will host the Azure VM and its dependent resources. 
+
+```bash
+
+az group create --name rg_lnx-cli --location uksouth
+
+```
+Create an Azure VM
+
+```bash
+
+az vm create \
+    --resource-group rg_lnx-cli \
+    --name lnx-cli-vm \
+    --image Canonical:0001-com-ubuntu-server-jammy:22_04-lts-gen2:latest \
+    --size Standard_B2ms \
+    --admin-username azureuser \
+    --generate-ssh-keys
+
+```
+
+The Azure VM will begin running shortly afterwards, usually within a couple of minutes. The output of the Azure CLI command will include JSON-formatted information about the newly deployed Azure VM
+
+At this point, you'll be able to connect to the Azure VM by running the following command (after replacing the <public_ip_address> placeholder with the IP address you identified in the Azure CLI-generated output) from the computer where the private key is stored:
+
+```bash
+
+ssh azureuser@<public_ip_address>
+
+```
+
+Provision a Linux virtual machine by using Terraform
+
+Provision a Linux virtual machine by using Bicep
+
+https://learn.microsoft.com/en-us/training/modules/provision-linux-virtual-machine-in-azure/5-provision-linux-virtual-machine-using-bicep
+
+```bash
+
+az group create --name rg-lnx-bcp --location eastus
+
+az bicep upgrade
+
+az deployment group create --resource-group rg-lnx-bcp --template-file main.bicep --parameters adminUsername=azureuser
+
+# In case you didn't record the Bicep deployment's output values, you can display them again by running the following command:
+
+az deployment group show \
+  --resource-group rg-lnx-bcp \
+  --name main \
+  --query properties.outputs
+
+```
+
+## 4 Build and run a web application with the MEAN stack on an Azure Linux virtual machine
+
+https://learn.microsoft.com/en-us/training/modules/build-a-web-app-with-mean-on-a-linux-vm/?wt.mc_id=youtube_S-1076_video_reactor&source=learn
 
 
 
