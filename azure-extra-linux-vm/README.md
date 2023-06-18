@@ -207,11 +207,16 @@ df -h
 | wget      | Download files from internet
 | du        | Get file size
 
+
+## Linux on Azure
+
 ## Learn
 
 Bash for Beginners
 
 https://learn.microsoft.com/en-us/shows/bash-for-beginners/
+
+
 
 ```bash
 ## comment
