@@ -130,6 +130,30 @@ There are many scenarios in which the serial console can help you restore an Azu
 
 Optimize Linux on Azure VMs for performance and functionality
 
+Optimize network performance of Azure VMs running Linux
+
+Leverage kernel-based network optimizations
+
+* Linux kernels that have been released after September 2017 include new network optimization options that enable Azure VMs running Linux to achieve higher network throughput. You can achieve significant throughput performance by using the latest Linux kernel.
+
+Implement accelerated networking
+
+* In addition to using the latest version of the Linux kernel and LIS, you should implement accelerated networking. This feature utilizes the host hardware's single-root I/O virtualization (SR-IOV) capabilities to improve network performance, resulting in minimized latency, maximized throughput, and lower CPU utilization.
+* Without accelerated networking, all networking traffic in and out of the VM must traverse the host and the virtual switch. With accelerated networking, network traffic arrives at the VM's network interface and then gets forwarded directly to the VM, bypassing the host.
+
+Optimize storage performance of Azure VMs running Linux
+
+* Azure uses and manages block-level storage volumes that you can use with Azure VMs. A managed disk is similar to a physical disk, but also similar to virtual hard disks (VHDs) in that they present the underlying storage to an Azure VM.
+
+Configure virtual disks
+
+At a minimum, every Azure VM has two virtual disks:
+
+* The OS disk, labeled as /dev/sda
+* A temporary disk that provides temporary storage, labeled as /dev/sdb, and mounted to /mnt.
+
+
+
 
 
 
