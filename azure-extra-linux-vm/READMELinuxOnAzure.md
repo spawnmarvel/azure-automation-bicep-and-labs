@@ -92,13 +92,43 @@ Azure offers an end-to-end backup and disaster recovery solution for Linux that'
 
 Plan for sizing and networking of Azure VMs running Linux
 
-This planning process should consider the compute, networking, and storage aspects of the VM configuration.
+* This planning process should consider the compute, networking, and storage aspects of the VM configuration.
+* Microsoft has partnered with prominent Linux vendors to integrate their products with the Azure platform, such as SUSE, Red Hat, and Ubuntu.
+* Sizes for virtual machines in Azure
+* * https://learn.microsoft.com/en-us/azure/virtual-machines/sizes?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+* Plan for networking of Azure VMs running Linux
+* Virtual networks and subnets
+* Remote connectivity
+* Azure Bastion
+* JIT VM Access
+* Network throughput
+* * Although an Azure VM can have multiple network interfaces, its available bandwidth is dependent exclusively on its size. In general, larger VM sizes are allocated more bandwidth than smaller ones.
 
-Microsoft has partnered with prominent Linux vendors to integrate their products with the Azure platform, such as SUSE, Red Hat, and Ubuntu.
+Implement best practices for managing Linux on Azure VMs
 
-Sizes for virtual machines in Azure
+VM provisioning is the process in which the platform creates the Azure VM configuration parameter values (such as hostname, username, and password) that are available to the OS during the boot process. A provisioning agent consumes these values, configures the OS, and then reports the results when completed.
 
-https://learn.microsoft.com/en-us/azure/virtual-machines/sizes?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+Azure supports cloud-init provisioning agents and Azure Linux Agent (WALA):
+
+* Cloud-init provisioning agent. The cloud-init agent is a widely used approach to customizing Linux during an initial boot. You can use cloud-init to install packages and write files, or to configure users and security.
+* WALA. WALA is an Azure platform-specific agent you can use to provision and configure Azure VMs. You can also use it to implement support for Azure extensions.
+
+Optimize the management and troubleshooting boot process
+
+* Enable boot diagnostics when provisioning an Azure VM.
+* Leverage the Azure VM serial console access for troubleshooting boot failures.
+
+There are many scenarios in which the serial console can help you restore an Azure VM running Linux to an operational state. The most common ones include:
+
+* Broken file system table (fstab) files
+* Misconfigured firewall rules
+* File system corruption
+* SSH configuration issues
+* Interaction with bootloader
+* Increase the timeout value in the grub menu on generation 2 Azure VMs.
+* Reserve more memory for kdump. Just in case the dump capture kernel ends up with a panic on boot, you should reserve more memory for the kernel.
+
+Optimize Linux on Azure VMs for performance and functionality
 
 
 
