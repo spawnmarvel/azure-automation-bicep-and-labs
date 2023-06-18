@@ -89,3 +89,17 @@ Azure offers an end-to-end backup and disaster recovery solution for Linux that'
 
 ## 2 Plan your Linux environment in Azure
 
+
+Plan for sizing and networking of Azure VMs running Linux
+
+This planning process should consider the compute, networking, and storage aspects of the VM configuration.
+
+Microsoft has partnered with prominent Linux vendors to integrate their products with the Azure platform, such as SUSE, Red Hat, and Ubuntu.
+
+Sizes for virtual machines in Azure
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/sizes?toc=%2Fazure%2Fvirtual-network%2Ftoc.json
+
+
+
+
