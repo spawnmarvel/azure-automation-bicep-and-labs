@@ -210,9 +210,9 @@ df -h
 
 ## Linux on Azure
 
-## Learn
+https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMELinuxOnAzure.md
 
-Bash for Beginners
+## Bash for Beginners
 
 https://learn.microsoft.com/en-us/shows/bash-for-beginners/
 
