@@ -212,9 +212,15 @@ df -h
 
 https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMELinuxOnAzure.md
 
+
 ## Bash for Beginners
 
 https://learn.microsoft.com/en-us/shows/bash-for-beginners/
+
+Bash for Beginners GitHub Repository
+
+https://github.com/microsoft/bash-for-beginners?wt.mc_id=youtube_S-1076_video_reactor
+
 
 
 
