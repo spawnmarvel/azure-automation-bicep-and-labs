@@ -1,5 +1,5 @@
 
 
-$rgName = "Rg-iac-linux-fu-0982"
-Get-AzResourceGroup -Name $rgName
+rgName='Rg-iac-linux-fu-0982'
+az group show --resource-group $rgName
 

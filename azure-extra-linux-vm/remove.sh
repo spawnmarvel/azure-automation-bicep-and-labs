@@ -1,2 +1,3 @@
-$rgName = "Rg-iac-linux-fu-0982"
-Remove-AzResourceGroup -Name $rgName -Force -AsJob
+
+rgName='Rg-iac-linux-fu-0982'
+az group delete --resource-group $rgName  --yes -y
