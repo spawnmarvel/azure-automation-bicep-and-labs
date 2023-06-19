@@ -197,7 +197,7 @@ df -h
 | rm        | Remove a file | rmi-f, force
 | cat       | Show content of file | cat
 | pwd       | Show current dir |
-| cp        | Copy file/folder | source desintation
+| cp        | Copy file/folder | source destination
 | mv        | Move file/folder | source destination
 | grep      | Search for a phrase in file/lines |
 | find      | Search files and dirs
