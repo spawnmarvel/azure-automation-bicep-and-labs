@@ -187,19 +187,19 @@ df -h
 
 ## List of Basic SSH Commands
 
-| SSH cmds | Description
-|---------- |------------
-| help      | help pwd
-| ls        | Show directory contents (list the names of files).
-| cd        | Change dir
-| mkdir     | Make dir
-| touch     | New file
-| rm        | Remove a file
-| cat       | Show content of file
-| pwd       | Show current dir
-| cp        | Copy file/folder
-| mv        | Move file/folder
-| grep      | Search for a phrase in file/lines  
+| SSH cmds  | Description | Example
+|---------- |------------ | ------------------------------
+| help      | help pwd    | help pwd
+| ls        | Show directory contents (list the names of files) | -a, list all + hidden, -l list all + size
+| cd        | Change dir  | 
+| mkdir     | Make dir    | 
+| touch     | New file    |
+| rm        | Remove a file | rmi-f, force
+| cat       | Show content of file | cat
+| pwd       | Show current dir |
+| cp        | Copy file/folder | source desintation
+| mv        | Move file/folder | source destination
+| grep      | Search for a phrase in file/lines |
 | find      | Search files and dirs
 | nano      | Text editor
 | history   | Show last 50 cmds
@@ -209,8 +209,8 @@ df -h
 | du        | Get file size
 | less      | Display the contents of a file one page at a time
 | more      | Loads the entire file at once
-| curl      | Download or upload data using protocols such as FTP, SFTP, HTTP and HTTPS.
-| top       | Monitor running processes and the resources (such as memory) they are currently using.
+| curl      | Download or upload data using protocols such as FTP, SFTP, HTTP and HTTPS
+| top       | Monitor running processes and the resources (such as memory) they are currently using
 | which     | Identify and report the location of the provided executable
 
 ## Script
