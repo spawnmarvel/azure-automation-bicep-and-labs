@@ -204,6 +204,11 @@ If you deploy an individual Azure VM for testing or evaluation purposes, you mig
 
 Provision a Linux virtual machine by using Azure CLI
 
+```bash
+az login --tenant the-tenant-id-from-ad
+
+```
+
 Identify the suitable VM size
 
 ```bash
