@@ -213,6 +213,12 @@ Script file, myScript.sh
 
 #!/bin/bash
 
+echo "Start script"
+
+sleep 3
+
+echo "End script"
+
 ```
 
 Run it
