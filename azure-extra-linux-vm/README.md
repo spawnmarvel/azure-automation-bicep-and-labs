@@ -254,7 +254,16 @@ ls -l
 
 https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMELinuxOnAzure.md
 
-## Learn to use Bash with the Azure CLI
+## Learn to use Bash with the Azure CLI (quick guide)
+
+* Query results as JSON dictionaries or arrays
+* Format output as JSON, table, or TSV
+* Query, filter, and format single and multiple values
+* Use if/exists/then and case syntax
+* Use for loops
+* Use grep, sed, paste, and bc commands
+* Populate and use shell and environment variables
+
 
 https://learn.microsoft.com/en-us/cli/azure/azure-cli-learn-bash
 
