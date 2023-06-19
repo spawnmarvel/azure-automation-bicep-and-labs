@@ -230,21 +230,15 @@ echo "End script"
 
 # Run it 1
 bash myScript.sh
-
 # Run it 2, Permission denied
 ./myScript.sh
-
 # Get permission
 ls -l
-
 # -rw-r--r-- no execute, add it
 chmod +x myScript.sh
-
 # Get permission
 ls -l
-
 # -rwxr-xr-r- 
-
 # Run it 3
 ./myScript.sh
 
