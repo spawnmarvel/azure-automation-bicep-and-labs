@@ -254,6 +254,10 @@ ls -l
 
 https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMELinuxOnAzure.md
 
+## Learn to use Bash with the Azure CLI
+
+https://learn.microsoft.com/en-us/cli/azure/azure-cli-learn-bash
+
 
 ## Bash for Beginners
 
