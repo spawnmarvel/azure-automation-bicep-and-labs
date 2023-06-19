@@ -209,11 +209,9 @@ df -h
 
 ## Script
 
-touch myScript.sh
+1. touch myScript.sh
 
-nano myScript.sh
-
-Script file, myScript.sh
+2. nano myScript.sh
 
 ```bash
 
@@ -227,7 +225,7 @@ echo "End script"
 
 ```
 
-Run it
+3. Run it
 ```bash
 
 # Run it 1
