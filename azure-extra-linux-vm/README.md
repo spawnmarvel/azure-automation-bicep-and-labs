@@ -207,6 +207,23 @@ df -h
 | wget      | Download files from internet
 | du        | Get file size
 
+Script file, myScript.sh
+
+```bash
+
+#!/bin/bash
+
+```
+
+Run it
+```bash
+
+bash myScript.sh
+
+
+```
+
+
 
 ## Linux on Azure
 
