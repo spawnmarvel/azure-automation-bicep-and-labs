@@ -195,7 +195,7 @@ df -h
 | mkdir     | Make dir    | 
 | touch     | New file    |
 | rm        | Remove a file | rmi-f, force
-| cat       | Show content of file | cat
+| cat       | Show content of file |  cat keyvault.txt
 | pwd       | Show current dir |
 | cp        | Copy file/folder | source destination
 | mv        | Move file/folder | source destination
@@ -267,6 +267,10 @@ https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/R
 
 https://learn.microsoft.com/en-us/cli/azure/azure-cli-learn-bash
 
+
+## az deployment
+
+https://learn.microsoft.com/en-us/cli/azure/deployment?view=azure-cli-latest#az-deployment-create
 
 ## Bash for Beginners
 
