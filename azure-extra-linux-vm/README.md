@@ -209,6 +209,10 @@ df -h
 
 ## Script
 
+touch myScript.sh
+
+nano myScript.sh
+
 Script file, myScript.sh
 
 ```bash
