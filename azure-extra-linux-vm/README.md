@@ -207,6 +207,8 @@ df -h
 | wget      | Download files from internet
 | du        | Get file size
 
+## Script
+
 Script file, myScript.sh
 
 ```bash
@@ -228,8 +230,6 @@ bash myScript.sh
 
 
 ```
-
-
 
 ## Linux on Azure
 
