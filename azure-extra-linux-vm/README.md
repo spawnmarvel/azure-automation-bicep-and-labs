@@ -309,7 +309,7 @@ https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/R
 https://learn.microsoft.com/en-us/cli/azure/azure-cli-learn-bash
 
 
-## az deployment
+## az deployment create Manage Azure Resource Manager template deployment at subscription scope.
 
 https://learn.microsoft.com/en-us/cli/azure/deployment?view=azure-cli-latest#az-deployment-create
 
@@ -321,19 +321,11 @@ Bash for Beginners GitHub Repository
 
 https://github.com/microsoft/bash-for-beginners?wt.mc_id=youtube_S-1076_video_reactor
 
-Examples bash
+## Examples bash from Bash for Beginners tutorial above
 
 https://github.com/spawnmarvel/azure-automation/tree/main/azure-extra-linux-vm/bash-for-beginners-ms
 
 
-
-
-
-```bash
-## comment
-ls
-
-```
 
 Learn the ways of Linux-fu, for free.
 
