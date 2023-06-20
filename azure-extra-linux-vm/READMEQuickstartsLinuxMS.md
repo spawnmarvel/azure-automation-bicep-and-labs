@@ -1,6 +1,13 @@
 # MS Tutorials for Linux
 
+https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-bicep?tabs=CLI
+
+
 ![Linux tutorials ](https://github.com/spawnmarvel/azure-automation/blob/main/images/linux_tutorials.jpg)
+
+Just follow next steps
+
+![Next step ](https://github.com/spawnmarvel/azure-automation/blob/main/images/linux_next.jpg)
 
 ## Quickstart: Create an Ubuntu Linux virtual machine using a Bicep file
 
