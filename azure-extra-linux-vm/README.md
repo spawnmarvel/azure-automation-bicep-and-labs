@@ -288,6 +288,10 @@ http://www.compciv.org/topics/bash/variables-and-substitution/
 
 ## Linux on Azure MS Learn
 
+This comprehensive learning path reviews deployment and management of Linux on Azure. Learn about cloud computing concepts, Linux IaaS and PaaS solutions and benefits and Azure cloud services.
+
+Discover how to migrate and extend your Linux-based workloads on Azure with improved scalability, security, and privacy.
+
 ```bash
 az login --tenant 6dae3ddb-0cf5-4fa6-a49c-c32ae6589d1f
 
@@ -296,6 +300,8 @@ az login --tenant 6dae3ddb-0cf5-4fa6-a49c-c32ae6589d1f
 https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMELinuxOnAzure.md
 
 ## Learn to use Bash with the Azure CLI (quick guide)
+
+Azure CLI reference commands can execute in several different shell environments, but Microsoft Docs primarily use the Bash environment. If you are new to Bash and also the Azure CLI, you will find this article a great place to begin your learning journey. Work through this article much like you would a tutorial, and you'll soon be using the Azure CLI in a Bash environment with ease.
 
 * Query results as JSON dictionaries or arrays
 * Format output as JSON, table, or TSV
@@ -309,7 +315,7 @@ https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/R
 https://learn.microsoft.com/en-us/cli/azure/azure-cli-learn-bash
 
 
-## az deployment create Manage Azure Resource Manager template deployment at subscription scope.
+## Reference az deployment create (Manage Azure Resource Manager template deployment at subscription scope)
 
 https://learn.microsoft.com/en-us/cli/azure/deployment?view=azure-cli-latest#az-deployment-create
 
