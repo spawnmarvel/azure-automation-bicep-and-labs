@@ -1,3 +1,3 @@
 
 rgName='Rg-iac-linux-fu-0982'
-az group delete --resource-group $rgName  --yes -y
+az group delete --name $rgName  --yes -y
