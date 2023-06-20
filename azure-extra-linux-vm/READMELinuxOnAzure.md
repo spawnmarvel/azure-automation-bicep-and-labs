@@ -1,4 +1,4 @@
-# Linux on Azure
+# Linux on Azure MS Learn
 
 This comprehensive learning path reviews deployment and management of Linux on Azure. Learn about cloud computing concepts, Linux IaaS and PaaS solutions and benefits and Azure cloud services. 
 
