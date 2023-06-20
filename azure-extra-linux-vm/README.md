@@ -248,9 +248,51 @@ ls -l
 # Run it 3
 ./myScript.sh
 
+# When we write functions and shell scripts, in which arguments are passed in to be processed, 
+# the arguments will be passed int numerically-named variables, e.g. $1, $2, $3
+myScript.sh Hello World 42
+
+# The variable reference, $0, will expand to the current script's name, e.g. my_script.sh
+
 ```
 
+
+## Bash variables and command substitution
+
+```bash
+# Variables
+* var_a="Hello World" (notice no space)
+
+¤ Referencing the value of a variable
+echo $var_a
+
+# Failure to dereference
+echo "$var_a"
+Hello World
+
+echo '$var_a'
+$var_a
+
+```
+
+Valid variable names
+* Should start with either an alphabetical letter or an underscore
+* hey, x9, THESQL_STRING, _secret
+
+
+The internal field separator
+* The global variable IFS is what Bash uses to split a string of expanded into separate words
+* By default, the IFS variable is set to three characters: newline, space, and the tab. If you echo $IFS, you won't see anything because those characters
+
+http://www.compciv.org/topics/bash/variables-and-substitution/
+
+
 ## Linux on Azure MS Learn
+
+```bash
+az login --tenant 6dae3ddb-0cf5-4fa6-a49c-c32ae6589d1f
+
+```
 
 https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMELinuxOnAzure.md
 
