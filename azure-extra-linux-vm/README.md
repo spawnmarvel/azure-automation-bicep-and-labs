@@ -101,7 +101,7 @@ The internal field separator
 http://www.compciv.org/topics/bash/variables-and-substitution/
 
 
-## Linux on Azure MS Learn
+## Linux on Azure MS Learn TODO
 
 This comprehensive learning path reviews deployment and management of Linux on Azure. Learn about cloud computing concepts, Linux IaaS and PaaS solutions and benefits and Azure cloud services.
 
@@ -147,9 +147,15 @@ https://github.com/microsoft/bash-for-beginners?wt.mc_id=youtube_S-1076_video_re
 https://github.com/spawnmarvel/azure-automation/tree/main/azure-extra-linux-vm/bash-for-beginners-ms
 
 
-
 ## Learn the ways of Linux-fu, for free. TODO
 
 https://linuxjourney.com/
+
+## MS Tutorials for Linux TODO
+
+https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMEQuickstartsLinuxMS.md
+
+
+
 
 
