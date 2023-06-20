@@ -250,7 +250,7 @@ ls -l
 
 ```
 
-## Linux on Azure
+## Linux on Azure MS Learn
 
 https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMELinuxOnAzure.md
 
