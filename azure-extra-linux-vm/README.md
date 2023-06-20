@@ -261,9 +261,9 @@ myScript.sh Hello World 42
 
 ```bash
 # Variables
-* var_a="Hello World" (notice no space)
+var_a="Hello World" # (notice no space)
 
-¤ Referencing the value of a variable
+# Referencing the value of a variable
 echo $var_a
 
 # Failure to dereference
