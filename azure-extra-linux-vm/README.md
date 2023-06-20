@@ -267,11 +267,10 @@ myScript.sh Hello World 42
 echo $var_a
 
 # Failure to dereference
-echo "$var_a"
-Hello World
-
 echo '$var_a'
 $var_a
+echo "$var_a"
+Hello World
 
 ```
 
