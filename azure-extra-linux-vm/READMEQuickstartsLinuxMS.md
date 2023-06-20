@@ -7,7 +7,7 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-bi
 
 Just follow next steps
 
-![Next step ](https://github.com/spawnmarvel/azure-automation/blob/main/images/linux_next.jpg)
+![Next step ](https://github.com/spawnmarvel/azure-automation/blob/main/images/next_steps.jpg)
 
 ## Quickstart: Create an Ubuntu Linux virtual machine using a Bicep file
 
