@@ -134,7 +134,7 @@ https://learn.microsoft.com/en-us/cli/azure/azure-cli-learn-bash
 
 https://learn.microsoft.com/en-us/cli/azure/deployment?view=azure-cli-latest#az-deployment-create
 
-## Bash for Beginners
+## Bash for Beginners TODO
 
 https://learn.microsoft.com/en-us/shows/bash-for-beginners/
 
@@ -148,7 +148,7 @@ https://github.com/spawnmarvel/azure-automation/tree/main/azure-extra-linux-vm/b
 
 
 
-## Learn the ways of Linux-fu, for free.
+## Learn the ways of Linux-fu, for free. TODO
 
 https://linuxjourney.com/
 
