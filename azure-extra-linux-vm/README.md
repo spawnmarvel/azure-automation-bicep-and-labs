@@ -322,6 +322,11 @@ Bash for Beginners GitHub Repository
 
 https://github.com/microsoft/bash-for-beginners?wt.mc_id=youtube_S-1076_video_reactor
 
+Examples bash
+
+https://github.com/spawnmarvel/azure-automation/tree/main/azure-extra-linux-vm/bash-for-beginners-ms
+
+
 
 
 
