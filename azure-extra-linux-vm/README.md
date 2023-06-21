@@ -27,6 +27,8 @@
 | curl      | Download or upload data using protocols such as FTP, SFTP, HTTP and HTTPS
 | top       | Monitor running processes and the resources (such as memory) they are currently using
 | which     | Identify and report the location of the provided executable
+| sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
+| apt list --installed| Get installed packages |
 
 ## Script
 
