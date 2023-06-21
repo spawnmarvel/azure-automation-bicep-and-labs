@@ -276,5 +276,207 @@ az deployment group show \
 
 ## 4 Build and run a web application with the MEAN stack on an Azure Linux virtual machine TODO
 
+You've heard about the MEAN stack (MongoDB, Express.js, AngularJS, and Node.js) and you know it uses JavaScript, so you decide to try it out by building a MEAN stack and a basic web application that stores information about books.
+
+* Decide if the MEAN web stack is right for you.
+* Create an Ubuntu Linux VM to host your web app.
+* Install the MEAN stack components on your VM.
+* Create a basic web app on your MEAN stack.
+
+Decide if MEAN is right for you
+* MEAN is a development stack for building and hosting web applications. MEAN is an acronym for its component parts: MongoDB, Express, AngularJS, and Node.js.
+* The main reason you might consider MEAN is if you're familiar with JavaScript.
+
+
+Exercise - Create a VM to host your web application
+
+```bash
+# The following az group create code sample is for you to run with your own account
+
+resourceGroup='Rg-msl-meanstack-0013'
+location='uksouth'
+tags='Environment=Qa'
+
+az group create --location $location --name $resourceGroup --tags $tags
+
+# Mongdb is not ready for ubuntu 22 yet
+az vm create \
+    --resource-group $resourceGroup \
+    --name MeanStack \
+    --image Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest \
+    --size Standard_B2ms \
+    --admin-username azureuser \
+    --generate-ssh-keys
+
+# Open port 80 on the VM to allow incoming HTTP traffic to the web application you'll later create.
+az vm open-port \
+  --port 80 \
+  --resource-group $resourceGroup \
+  --name MeanStack
+
+# Create an SSH connection to your VM.
+# Although the output from the az vm create command displays your VM's public IP address, you may find it useful to store the address in a Bash variable.
+ipaddress=$(az vm show \
+  --name MeanStack \
+  --resource-group $resourceGroup \
+  --show-details \
+  --query [publicIps] \
+  --output tsv)
+
+
+ssh azureuser@$ipaddress
+
+```
+
+Exercise - Install MongoDB
+
+```bash
+# First, we'll make sure all current packages are up to date:
+sudo apt update && sudo apt upgrade -y
+
+# Install the MongoDB package:
+sudo apt-get install -y mongodb
+
+# After the installation completes, the service should automatically start up. Let's confirm this by running the following command:
+sudo systemctl status mongodb
+
+# Verify version
+mongod --version
+
+```
+
+Exercise - Install Node.js
+
+```bash
+# You can get Node.js in two ways:
+# LTS or current, here we use LTS
+
+# Register the Node.js repository so the package manager can locate the packages using the following command.
+curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+# Install the Node.js package
+sudo apt install nodejs
+
+# Verify version
+node -v
+
+# Exit your SSH session
+```
+
+Exercise - Create a basic web application
+
+So far, you have MongoDB and Node.js installed on your Ubuntu VM. Now it's time to create a basic web application to see things in action. Along the way, you'll see how AngularJS and Express fit in.
+
+Create the Books web application
+
+From the Cloud Shell, run these commands to create the folders and files for your web application:
+
+```bash
+cd ~
+mkdir Books
+touch Books/server.js
+touch Books/package.json
+mkdir Books/app
+touch Books/app/model.js
+touch Books/app/routes.js
+mkdir Books/public
+touch Books/public/script.js
+touch Books/public/index.html
+
+
+# Run the code command to open your files through the Cloud Shell editor.
+code Books
+```
+Create the data model
+
+From the editor, open app/model.js and add the following:
+
+```js
+var mongoose = require('mongoose');
+var dbHost = 'mongodb://localhost:27017/Books';
+mongoose.connect(dbHost, { useNewUrlParser: true } );
+mongoose.connection;
+mongoose.set('debug', true);
+var bookSchema = mongoose.Schema( {
+    name: String,
+    isbn: {type: String, index: true},
+    author: String,
+    pages: Number
+});
+var Book = mongoose.model('Book', bookSchema);
+module.exports = Book;
+
+```
+
+Create the Express.js routes that handle HTTP requests
+
+Create the client-side JavaScript application
+
+Create the user interface
+
+Create the Express.js server to host the application
+
+Define package information and dependencies
+
+Copy the files to your VM, make sure you have your VM's IP address handy
+
+```bash
+ipaddress=$(az vm show \
+  --name MeanStack \
+  --resource-group Rg-msl-meanstack-0013 \
+  --show-details \
+  --query [publicIps] \
+  --output tsv)
+
+echo $ipaddress
+
+# You're all done editing files. Make sure that you saved changes to each file and then close the editor.
+# You're all done editing files. Make sure that you saved changes to each file and then close the editor.
+scp -r ~/Books azureuser@$ipaddress:~/Books
+
+```
+
+Install additional Node packages
+
+```bash
+# Recall that the application uses Mongoose to help transfer data in and out of your MongoDB database.
+
+# The application also requires Express.js and the body-parser packages. Body-parser is a plugin that enables Express to work with data from the web form sent by the client.
+
+# Let's connect to your VM and install the packages you specified in package.json.
+ssh azureuser@$ipaddress
+
+
+cd ~/Books
+
+# Run npm install to install the dependent packages:
+sudo apt install npm -y && npm install
+
+Some packages could not be installed. This may mean that you have
+requested an impossible situation or if you are using the unstable
+distribution that some required packages have not yet been created
+or been moved out of Incoming.
+
+# Run
+npm install express
+
+```
+
+Test the application
+
+```bash
+# This command starts the application by listening on port 80 for incoming HTTP requests.
+sudo node server.js
+```
+
+From a separate browser tab, navigate to your VM's public IP address.
+
+You see the index page, which includes a web form.
+
+Try adding a few books to the database. Each time you add a book, the page updates the complete list of books.
+
+
+![Output ](https://github.com/spawnmarvel/azure-automation/blob/main/images/meanstack.jpg)
+
 https://learn.microsoft.com/en-us/training/modules/build-a-web-app-with-mean-on-a-linux-vm/?wt.mc_id=youtube_S-1076_video_reactor&source=learn
 
