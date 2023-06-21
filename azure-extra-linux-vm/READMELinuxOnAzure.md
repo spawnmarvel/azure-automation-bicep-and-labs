@@ -274,7 +274,7 @@ az deployment group show \
 
 ```
 
-## 4 Build and run a web application with the MEAN stack on an Azure Linux virtual machine TODO
+## 4 Build and run a web application with the MEAN stack on an Azure Linux virtual machine
 
 You've heard about the MEAN stack (MongoDB, Express.js, AngularJS, and Node.js) and you know it uses JavaScript, so you decide to try it out by building a MEAN stack and a basic web application that stores information about books.
 
