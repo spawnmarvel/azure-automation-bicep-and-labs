@@ -12,7 +12,7 @@
 | rm        | Remove a file | rmi-f, force
 | cat       | Show content of file |  cat keyvault.txt
 | pwd       | Show current dir |
-| cp        | Copy file/folder | source destination
+| cp        | Copy file/folder use if for backup | source destination
 | mv        | Move file/folder | source destination
 | grep      | Search for a phrase in file/lines |
 | find      | Search files and dirs |
