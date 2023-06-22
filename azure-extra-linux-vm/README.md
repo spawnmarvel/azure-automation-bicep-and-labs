@@ -6,27 +6,27 @@
 |---------- |------------ | ------------------------------
 | help      | help pwd    | help pwd
 | ls        | Show directory contents (list the names of files) | -a, list all + hidden, -l list all + size
-| cd        | Change dir  | 
-| mkdir     | Make dir    | 
-| touch     | New file    |
+| cd        | Change dir  | cd ./folder
+| mkdir     | Make dir    |  mkdir folder
+| touch     | New file    | touch file.txt
 | rm        | Remove a file | rmi-f, force
 | cat       | Show content of file |  cat keyvault.txt
 | pwd       | Show current dir |
 | cp        | Copy file/folder | source destination
 | mv        | Move file/folder | source destination
 | grep      | Search for a phrase in file/lines |
-| find      | Search files and dirs
-| nano      | Text editor
-| history   | Show last 50 cmds
-| clear     | Clear terminal
-| tar       | Create and unpack compressed archives
-| wget      | Download files from internet
-| du        | Get file size
-| less      | Display the contents of a file one page at a time
-| more      | Loads the entire file at once
-| curl      | Download or upload data using protocols such as FTP, SFTP, HTTP and HTTPS
-| top       | Monitor running processes and the resources (such as memory) they are currently using
-| which     | Identify and report the location of the provided executable
+| find      | Search files and dirs |
+| nano      | Text editor |
+| history   | Show last 50 cmds |
+| clear     | Clear terminal |
+| tar       | Create and unpack compressed archives |
+| wget      | Download files from internet |
+| du        | Get file size |
+| less      | Display the contents of a file one page at a time |
+| more      | Loads the entire file at once |
+| curl      | Download or upload data using protocols such as FTP, SFTP, HTTP and HTTPS |
+| top       | Monitor running processes and the resources (such as memory) they are currently using |
+| which     | Identify and report the location of the provided executable |
 | sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
 | apt list --installed| Get installed packages |
 | sudo ufw | Use iptables or ufw to open ports | sudo ufw allow 1022/tcp
