@@ -341,3 +341,6 @@ az group delete --name $rgName --no-wait --yes
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm
 
 
+## Tutorial - Manage Azure disks with the Azure CLI
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
