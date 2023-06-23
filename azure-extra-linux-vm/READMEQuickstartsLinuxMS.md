@@ -196,6 +196,29 @@ df -h
 
 ## Tutorial: Create and Manage Linux VMs with the Azure CLI
 
+
+* Create and connect to a VM
+* Select and use VM images
+* View and use specific VM sizes
+* Resize a VM
+* View and understand VM state
+
+```bash
+
+rgName='Rg-az-quickstarts-001'
+az group create --name $rgName --location uksouth
+
+
+az vm create \
+    --resource-group $rgName \
+    --name vmhodor0045 \
+    --image Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest \
+    --size Standard_B2ms \
+    --admin-username azureuser \
+    --generate-ssh-keys
+
+```
+
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm
 
 
