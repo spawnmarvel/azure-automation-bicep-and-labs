@@ -208,6 +208,7 @@ df -h
 rgName='Rg-az-quickstarts-001'
 az group create --name $rgName --location uksouth
 
+# Create virtual machine
 
 az vm create \
     --resource-group $rgName \
@@ -217,8 +218,126 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys
 
+# Take note of the publicIpAddress, this address can be used to access the virtual machine.
+# Connect to VM
+ssh azureuser@ip-address
+
+# Understand VM images
+# To see a list of the most commonly used images, use the az vm image list command.
+az vm image list --output table
+
+# A full list can be seen by adding the --all parameter. The image list can also be filtered by --publisher or –-offer. In this example, 
+# the list is filtered for all images, published by Canonical, with an offer that matches UbuntuServer.
+az vm image list --offer UbuntuServer --publisher Canonical --all --output table
+
+
+```
+NOTE:
+Canonical has changed the Offer names they use for the most recent versions. Before Ubuntu 20.04, the Offer name is UbuntuServer. For Ubuntu 20.04 the Offer name is 0001-com-ubuntu-server-focal and for Ubuntu 22.04 it's 0001-com-ubuntu-server-jammy.
+
+Understand VM sizes
+
+```bash
+# Find available VM sizes
+az vm list-sizes --location eastus2 --output table
+
+
+# Create VM with specific size
+rgName='Rg-az-quickstarts-001'
+
+az vm create \
+    --resource-group $rgName \
+    --name vmhodor0045 \
+    --image Canonical:0001-com-ubuntu-server-focal:20_04-lts:latest \
+    --size Standard_B2ms \
+    --admin-username azureuser \
+    --generate-ssh-keys
+
+# After a VM has been deployed, it can be resized to increase or decrease resource allocation. 
+# You can view the current of size of a VM with az vm show:
+rgName='Rg-az-quickstarts-001'
+az vm show --resource-group $rgName --name vmhodor0045 --query hardwareProfile.vmSize
+
+"Standard_B2ms"
+
+{
+  "additionalCapabilities": null,
+  "applicationProfile": null,
+  "availabilitySet": null,
+  "billingProfile": null,
+  "capacityReservation": null,
+  "diagnosticsProfile": null,
+  "evictionPolicy": null,
+  "extendedLocation": null,
+  "extensionsTimeBudget": null,
+  "hardwareProfile": {
+    "vmSize": "Standard_B2ms",
+    "vmSizeProperties": null
+
+
+# Before resizing a VM, check if the desired size is available on the current Azure cluster. The az vm list-vm-resize-options command returns the list of sizes.
+rgName='Rg-az-quickstarts-001'
+az vm list-vm-resize-options --resource-group $rgName --name vmhodor0045 --query [].name
+
+# If the desired size is available, the VM can be resized from a powered-on state, however it is rebooted during the operation. 
+# Use the az vm resize command to perform the resize.
+rgName='Rg-az-quickstarts-001'
+az vm resize --resource-group $rgName --name vmhodor0045 --size Standard_B4ms
+
+# If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Use the az vm deallocate command to stop and deallocate the VM. Note, when the VM is powered back on, any data on the temp disk may be removed. 
+
+
 ```
 
+VM power states
+
+* Starting, Running, Stopping, Stopped.
+* 
+* Deallocating, Indicates that the virtual machine is being deallocated.
+* Deallocated, Indicates that the virtual machine is removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges.
+* -, Indicates that the power state of the virtual machine is unknown.
+
+```bash
+# Find the power state
+rgName='Rg-az-quickstarts-001'
+vmName='vmhodor0045'
+az vm get-instance-view \
+    --name $vmName \
+    --resource-group $rgName \
+    --query instanceView.statuses[1] --output table
+
+Code                Level    DisplayStatus
+------------------  -------  ---------------
+PowerState/running  Info     VM running
+
+```
+
+Management tasks
+
+```bash
+
+# Get IP address
+rgName='Rg-az-quickstarts-001'
+vmName='vmhodor0045'
+az vm list-ip-addresses --resource-group $rgName --name $vmName --output table
+
+# Stop virtual machine
+az vm stop --resource-group $rgName --name $vmName
+
+About to power off the specified VM...
+It will continue to be billed. To deallocate a VM, run: az vm deallocate.
+
+# Dealloctaed virtual machine
+az vm deallocate --resource-group $rgName --name $vmName
+
+# Start virtual machine
+az vm start --resource-group $rgName --name $vmName
+
+# Deleting a resource group also deletes all resources in the resource group, like the VM, virtual network, and disk. 
+az group delete --name $rgName --no-wait --yes
+
+
+```
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm
 
 
