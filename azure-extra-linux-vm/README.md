@@ -68,6 +68,9 @@ ls -l
 # Run it 3
 ./myScript.sh
 
+# Sudo
+sudo ./myScript.sh
+
 # When we write functions and shell scripts, in which arguments are passed in to be processed, 
 # the arguments will be passed int numerically-named variables, e.g. $1, $2, $3
 myScript.sh Hello World 42
