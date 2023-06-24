@@ -112,6 +112,17 @@ http://www.compciv.org/topics/bash/variables-and-substitution/
 |/dec/sdc | Data disk(s) | Attach disk at VM creation or Attach disk to existing VM, Prepare data disks, Mount and /etc/fstab
 
 
+## Initial Server Setup with Ubuntu 20.04 TODO
+
+* Step 1 — Logging in as root
+* Step 2 — Creating a New User
+* Step 3 — Granting Administrative Privileges
+* Step 4 — Setting Up a Basic Firewall
+* Step 5 — Enabling External Access for Your Regular User
+
+
+https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04
+
 ## Linux on Azure MS Learn
 
 This comprehensive learning path reviews deployment and management of Linux on Azure. Learn about cloud computing concepts, Linux IaaS and PaaS solutions and benefits and Azure cloud services.
