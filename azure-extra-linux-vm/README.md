@@ -29,6 +29,7 @@
 | which     | Identify and report the location of the provided executable |
 | sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
 | apt list --installed| Get installed packages |
+| sudo ufw enable | By default, when UFW is enabled, it blocks external access to all ports on the server |
 | sudo ufw | Use iptables or ufw to open ports | sudo ufw allow 1022/tcp
 | sudo ufw status | list ufw rules |
 
