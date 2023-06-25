@@ -11,6 +11,8 @@ Just follow next steps
 
 ## Quickstart: Create an Ubuntu Linux virtual machine using a Bicep file
 
+Edit size from Standard_D2as_v4 to Standard_B2ms
+
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-bicep?tabs=CLI
 
 ### Modifications, since the template was not made for redeploy when resources existed.
@@ -192,6 +194,16 @@ df -h
 ```
 
 ### Restart Linux VM and verify disk
+
+```bash
+
+bash deploy.sh
+
+az resource list --resource-group Rg-iac-linux-fu-0982 --query [].name
+
+
+
+```
 
 1. Add some data to both disk
 2. Restart VM
