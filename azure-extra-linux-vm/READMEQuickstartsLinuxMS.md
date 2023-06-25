@@ -112,7 +112,11 @@ ssh user@serverip
 
 ## Attach an new data disk
 
-1. Use the portal to attach a data disk to a Linux VM
+Ref the disk is alreadu attached in the bicpe file
+
+![SDA, B, C](https://github.com/spawnmarvel/azure-automation/blob/main/images/sda_b_c.jpg)
+
+Or deploy a VM with just OS and then use the portal to attach a data disk to a Linux VM
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu
 
 ### Find the disk
