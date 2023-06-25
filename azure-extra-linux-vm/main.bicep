@@ -1,5 +1,5 @@
 @description('The name of you Virtual Machine.')
-param vmName string = 'simpleLinuxVM01'
+param vmName string = 'simpleLinuxVM0174'
 
 @description('Username for the Virtual Machine.')
 param adminUsername string
