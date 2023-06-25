@@ -227,6 +227,9 @@ ssh user@ipaddress
 
 ```
 
+https://www.reddit.com/r/linuxquestions/comments/qbkpyj/i_have_3_disks_but_the_names_sda_sdb_sdc_changed/
+
+
 1. Add some data to both disk
 2. Restart VM
 3. Verify data
