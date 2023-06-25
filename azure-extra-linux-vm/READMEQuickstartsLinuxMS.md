@@ -79,6 +79,22 @@ subnet: {
           }
 
 ```
+### Add a data disk
+
+``` bash
+  // 2. Add a data disk start
+ dataDisks:[
+        {
+          diskSizeGB:8
+          lun:0
+          createOption:'Empty'
+          name:'${vmName}-dataDiskLun0'
+        }
+      ]
+      // It must be mounted after
+      // https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu
+     // 2. Add a datadisk end
+```
 
 ## Login,  view outputs from deployments in main
 
