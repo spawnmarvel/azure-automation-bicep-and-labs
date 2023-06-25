@@ -112,7 +112,7 @@ ssh user@serverip
 
 ## Attach an new data disk
 
-Ref the disk is alreadu attached in the bicpe file
+Ref the disk is already attached in the bicep file
 
 ![SDA, B, C](https://github.com/spawnmarvel/azure-automation/blob/main/images/sda_b_c.jpg)
 
