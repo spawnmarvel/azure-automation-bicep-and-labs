@@ -193,7 +193,11 @@ df -h
 
 ### Restart Linux VM and verify disk
 
-Add some data to the disk and restart the vm
+1. Add some data to both disk
+2. Restart VM
+3. Verify data
+4. Press redeploy VM
+5. Verify data
 
 ## Tutorial: Create and Manage Linux VMs with the Azure CLI
 
