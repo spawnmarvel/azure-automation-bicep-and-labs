@@ -191,6 +191,10 @@ df -h
 
 ```
 
+### Restart Linux VM and verify disk
+
+Add some data to the disk and restart the vm
+
 ## Tutorial: Create and Manage Linux VMs with the Azure CLI
 
 
