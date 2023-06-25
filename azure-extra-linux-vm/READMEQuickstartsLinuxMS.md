@@ -79,22 +79,6 @@ subnet: {
           }
 
 ```
-### Add a data disk
-
-``` bash
-  // 2. Add a data disk start
- dataDisks:[
-        {
-          diskSizeGB:8
-          lun:0
-          createOption:'Empty'
-          name:'${vmName}-dataDiskLun0'
-        }
-      ]
-     // 2. Add a datadisk end
-```
-
-* Place in existing vnet in a different rg
 
 ## Login,  view outputs from deployments in main
 
@@ -117,7 +101,7 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-porta
 
 ### Find the disk
 
-We attached it above with Bicep, now find the disk, prepare it, mount and verify it.
+Now find the disk, prepare it, mount and verify it.
 
 ``` bash
 # 1 Find the disk
