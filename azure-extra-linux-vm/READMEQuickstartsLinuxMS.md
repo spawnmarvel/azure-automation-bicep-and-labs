@@ -243,9 +243,22 @@ Instead, the storage should be addressed by some unique and permanent property, 
 https://access.redhat.com/discussions/6004221
 
 
-1. Add some a file/folder to OS and data disk
+1. Add some a file/folder to OS and data disk: folder1/file1, datadrive/folder2/file2
 2. Restart VM
 3. Verify data
+
+```bash
+cd folder1/
+/folder1$ ls
+file1
+cd /datadrive/
+/datadrive$ ls 
+folder2
+/datadrive$ cd folder2/
+/datadrive/folder2$ ls
+file2
+```
+
 4. Press redeploy VM
 5. Verify data
 
