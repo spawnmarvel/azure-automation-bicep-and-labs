@@ -226,8 +226,12 @@ az vm start --resource-group --name
 ssh user@ipaddress
 
 ```
+Linux drive letter 
 
-https://www.reddit.com/r/linuxquestions/comments/qbkpyj/i_have_3_disks_but_the_names_sda_sdb_sdc_changed/
+Applications and users should not care what SCSI device letter a particular storage gets, because those sdX letters can change and are expected to change.
+Instead, the storage should be addressed by some unique and permanent property, such as the LUN WWID or filesystem UUID.
+
+https://access.redhat.com/discussions/6004221
 
 
 1. Add some data to both disk
