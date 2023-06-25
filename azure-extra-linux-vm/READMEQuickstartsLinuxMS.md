@@ -105,19 +105,6 @@ subnet: {
 ![Output ](https://github.com/spawnmarvel/azure-automation/blob/main/images/linux_output.jpg)
 
 
-## VSC Terminal Shell Integration
-
-By default, the shell integration script should automatically activate on supported shells launched from VS Code.
-
-https://code.visualstudio.com/docs/terminal/shell-integration
-
-## Bash it, Git BASH
-
-Git for Windows provides a BASH emulation used to run Git from the command line. *NIX users should feel right at home, as the BASH emulation behaves just like the "git" command in LINUX and UNIX environments.
-
-https://gitforwindows.org/
-
-
 ```bash
 ssh user@serverip
 ```

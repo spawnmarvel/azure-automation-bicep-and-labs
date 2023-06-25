@@ -1,5 +1,34 @@
 # Azure Linux 
 
+## Install Azure CLI on Windows
+
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+
+
+
+## VSC Terminal Shell Integration
+
+By default, the shell integration script should automatically activate on supported shells launched from VS Code.
+
+https://code.visualstudio.com/docs/terminal/shell-integration
+
+## Bash it, Git BASH
+
+Git for Windows provides a BASH emulation used to run Git from the command line. *NIX users should feel right at home, as the BASH emulation behaves just like the "git" command in LINUX and UNIX environments.
+
+https://gitforwindows.org/
+
+## Azure CLI
+
+```bash
+
+az --version
+
+az upgrade
+
+````
+
+
 ## List of Basic SSH Commands
 
 | SSH cmds  | Description | Example
