@@ -79,7 +79,7 @@ subnet: {
           }
 
 ```
-### Add a data disk
+### Add a data disk, this was alreadu in the bicep just added name:'${vmName}-dataDiskLun0'
 
 ``` bash
   // 2. Add a data disk start
