@@ -192,16 +192,38 @@ pwd
 df -h
 
 ```
+NOTE: Later removing a data disk without editing fstab could cause the VM to fail to boot. Most distributions provide either the nofail and/or nobootwait fstab options. These options allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
+
+The nofail option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in Cannot SSH to Linux VM due to FSTAB errors
+
 
 ### Restart Linux VM and verify disk
 
 ```bash
 
-bash deploy.sh
+lsblk
 
-az resource list --resource-group Rg-iac-linux-fu-0982 --query [].name
+lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     0:0:0:1      16G
+└─sdb1               16G /mnt
+sdc     1:0:0:0       8G
+└─sdc1                8G /datadrive
 
+```
+
+0. Restart VM after mount
+
+```bash
+az vm stop --resource-group --name
+
+az vm start --resource-group --name 
+
+ssh user@ipaddress
 
 ```
 

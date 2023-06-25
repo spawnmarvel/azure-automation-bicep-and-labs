@@ -1,5 +1,5 @@
 @description('The name of you Virtual Machine.')
-param vmName string = 'simpleLinuxVM0174'
+param vmName string
 
 @description('Username for the Virtual Machine.')
 param adminUsername string
@@ -30,7 +30,7 @@ param ubuntuOSVersion string = 'Ubuntu-2004'
 param location string = resourceGroup().location
 
 @description('The size of the VM')
-param vmSize string = 'Standard_D2as_v4'
+param vmSize string = 'Standard_B2ms'
 
 @description('Name of the VNET')
 param virtualNetworkName string = 'vNet'
