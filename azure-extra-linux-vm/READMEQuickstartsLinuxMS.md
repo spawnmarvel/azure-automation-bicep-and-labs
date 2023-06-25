@@ -225,6 +225,15 @@ az vm start --resource-group --name
 
 ssh user@ipaddress
 
+sda     0:0:0:0      30G
+├─sda1             29.9G /
+├─sda14               4M
+└─sda15             106M /boot/efi
+sdb     0:0:0:1      16G
+└─sdb1               16G /mnt
+sdc     1:0:0:0       8G
+└─sdc1                8G /datadrive
+
 ```
 Linux drive letter 
 
@@ -234,7 +243,7 @@ Instead, the storage should be addressed by some unique and permanent property, 
 https://access.redhat.com/discussions/6004221
 
 
-1. Add some data to both disk
+1. Add some a file/folder to OS and data disk
 2. Restart VM
 3. Verify data
 4. Press redeploy VM
