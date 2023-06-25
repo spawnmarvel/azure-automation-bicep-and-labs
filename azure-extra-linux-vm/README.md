@@ -24,7 +24,7 @@ https://gitforwindows.org/
 
 az --version
 
-az upgrade
+az upgrade --yes
 
 ````
 
