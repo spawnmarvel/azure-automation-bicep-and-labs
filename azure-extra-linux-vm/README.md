@@ -102,6 +102,7 @@ az upgrade --yes
 | wget      | Download files from internet |
 | du        | Get file size |
 | curl      | Download or upload data using protocols such as FTP, SFTP, HTTP and HTTPS |
+| sudo apt update| use the apt package management tools to update your local package index |
 | sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
 | apt list --installed| Get installed packages |
 | sudo | which is an acronym for superuser do or substitute user do, is a command that runs an elevated prompt without a need to change your identity. |
@@ -118,6 +119,7 @@ az upgrade --yes
 | which     | Identify and report the location of the provided executable |
 | useradd and usermod | Add new user or change existing users data |
 | passwd | Create or update passwords for existing users|
+| git --version | Git is likely already installed in your Ubuntu 22.04 server.| # else: sudo apt update, sudo apt install git, git --version
 
 ### https://www.digitalocean.com/community/tutorials/linux-commands
 
