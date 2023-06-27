@@ -18,6 +18,10 @@ Git for Windows provides a BASH emulation used to run Git from the command line.
 
 https://gitforwindows.org/
 
+## Bash quick reference
+
+https://github.com/spawnmarvel/quickguides/blob/main/bash/bash.quickref.pdf
+
 ## Azure CLI
 
 ```bash
