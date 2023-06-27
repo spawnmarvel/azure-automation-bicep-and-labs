@@ -20,7 +20,26 @@ https://gitforwindows.org/
 
 ## Bash quick reference
 
+Page1
+
+![Quick 1 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/quick1.jpg)
+
+Page 2
+![Quick 2 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/quick2.jpg)
+
 https://github.com/spawnmarvel/quickguides/blob/main/bash/bash.quickref.pdf
+
+References
+
+Linux Shell Scripting Tutorial - A Beginner's handbook
+http://www.cyberciti.biz/nixcraft/linux/docs/uniqlinuxfeat
+ures/lsst/
+BASH Programming Introduction, Mike G
+http://www.tldp.org/HOWTO/Bash-Prog-Intro-HOWTO.html
+Advanced BASH Scripting Guide, Mendel Cooper
+http://tldp.org/LDP/abs/html/
+
+
 
 ## Azure CLI
 
