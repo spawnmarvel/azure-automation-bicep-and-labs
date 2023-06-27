@@ -22,10 +22,10 @@ https://gitforwindows.org/
 
 Page1
 
-![Quick 1 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/quick1.jpg)
+![Quick 1 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/page1.jpg)
 
 Page 2
-![Quick 2 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/quick2.jpg)
+![Quick 2 ](https://github.com/spawnmarvel/azure-automation/blob/main/images/page2.jpg)
 
 https://github.com/spawnmarvel/quickguides/blob/main/bash/bash.quickref.pdf
 
