@@ -34,6 +34,7 @@ az upgrade --yes
 | SSH cmds  | Description | Example
 |---------- |------------ | ------------------------------
 | help      | help pwd    | help pwd
+| whatis    | Find what a command is used for  |
 | ls        | Show directory contents (list the names of files) | -a, list all + hidden, -l list all + size
 | cd        | Change dir  | cd ./folder
 | mkdir     | Make dir    |  mkdir folder
@@ -42,12 +43,36 @@ az upgrade --yes
 | cat       | Show content of file |  cat keyvault.txt
 | pwd       | Show current dir |
 | cp        | Copy file/folder use if for backup | source destination
-| mv        | Move file/folder | source destination
-| grep      | Search for a phrase in file/lines |
+| mv        | Move/rename file | source destination
+| grep      | Search for a string within an output |
 | find      | Search files and dirs |
 | nano      | Text editor |
 | history   | Show last 50 cmds |
 | clear     | Clear terminal |
+| echo      | Print |
+| man       | Access manual pages for all Linux commands |
+| uname     | command to get basic information about the OS |
+| whoami    | Get the active username |
+| head      | return specified num of lines from top |
+| tail      | return specified num of lines from bottom |
+| diff      | find diff between two files |
+| cmp       | check if two files are identical |
+| comm      | combines diff and cmp |
+| sort      | sort content of file while outputting  |
+| export    | export env var |
+| zip       | |
+| unzip     | |
+| ssh       | Secure Shell command | ssh user@ipaddress
+| service   | start stop service |
+| ps        | display active proc |
+| top       | View active processes live with their system usage |
+| kill and killall | Kill active processes by process ID or name | 
+| df        | Display disk filesystem information |
+| mount     | Mount file systems |
+| chmod     | Command to change file permissions |
+| chown     | Command for granting ownership of files or folders|
+| ifconfig  | Display network interfaces and IP addresses  |
+| traceroute | Trace all the network hops to reach the destination |
 | tar       | Create and unpack compressed archives |
 | wget      | Download files from internet |
 | du        | Get file size |
@@ -66,6 +91,10 @@ az upgrade --yes
 | sudo ufw enable | By default, when UFW is enabled, it blocks external access to all ports on the server |
 | sudo ufw | Use iptables or ufw to open ports | sudo ufw allow 1022/tcp<br/>sudo ufw allow 'Nginx HTTPS'
 | sudo ufw status | list ufw rules |
+| iptables | Base firewall for all other firewall utilities to interface with |
+| apt, pacman, yum, rpm | Package managers depending on the distro |
+| whereis  | Locate the binary, source, and manual pages for a command |
+
 
 ## Script
 
