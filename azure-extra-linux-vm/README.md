@@ -60,7 +60,7 @@ az upgrade --yes
 | whatis    | Find what a command is used for  | whatis ls
 | ls        | Show directory contents (list the names of files) | -a (list all + hidden), -l (list all + size)
 | cd        | Change dir  | cd ./folder
-| cd /      | Get to root directory
+| cd /      | Get to root directory  | (bin  boot  dev  etc  home  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var)
 | mkdir     | Make dir    |  mkdir folder1
 | touch     | New file    | touch file.txt
 | rm        | Remove a file | rm file1
