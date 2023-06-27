@@ -68,7 +68,7 @@ What now.....
 
    * Unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
 
-##### View Extra-linux-vm and all things Linux and Bash
+#### 6.1 View Extra-linux-vm and all things Linux and Bash
 
 This became a big repos, I need Linux, hahaha
 
