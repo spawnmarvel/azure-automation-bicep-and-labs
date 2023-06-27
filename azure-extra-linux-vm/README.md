@@ -80,7 +80,7 @@ az upgrade --yes
 | sort      | sort content of file while outputting  |
 | history   | Show last 50 cmds |
 | clear     | Clear terminal |
-| echo      | Print |
+| echo      | Print | var="Hodor", echo $var
 | man       | Access manual pages for all Linux commands |
 | uname     | command to get basic information about the OS |
 | whoami    | Get the active username |
