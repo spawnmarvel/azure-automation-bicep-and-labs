@@ -96,7 +96,7 @@ az upgrade --yes
 | useradd and usermod | Add new user or change existing users data |
 | passwd | Create or update passwords for existing users|
 
-# https://www.digitalocean.com/community/tutorials/linux-commands
+### https://www.digitalocean.com/community/tutorials/linux-commands
 
 ## Script
 
