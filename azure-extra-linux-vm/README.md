@@ -64,7 +64,7 @@ az upgrade --yes
 | touch     | New file    | touch file.txt
 | rm        | Remove a file | rm file1
 | rmdir     | Remove a directory | rmdir folder1
-| cat       | Show content of file |  cat data.conf, content=$(cat data.conf)
+| cat       | Show content of file (redirect to var, content=$(cat data.conf)) |  cat data.conf
 | pwd       | Show current dir |
 | cp        | Copy file/folder use if for backup | source destination
 | mv        | Move/rename file | source destination
