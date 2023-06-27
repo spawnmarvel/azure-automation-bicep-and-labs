@@ -68,7 +68,9 @@ What now.....
 
    * Unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
 
-# View Extra-linux-vm and all things Linux and Bash
+##### View Extra-linux-vm and all things Linux and Bash
+
+This became a big repos, I need Linux, hahaha
 
 https://github.com/spawnmarvel/azure-automation/tree/main/azure-extra-linux-vm
 
