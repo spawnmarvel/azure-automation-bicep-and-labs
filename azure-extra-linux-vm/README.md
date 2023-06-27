@@ -60,6 +60,7 @@ az upgrade --yes
 | whatis    | Find what a command is used for  | whatis ls
 | ls        | Show directory contents (list the names of files) | -a (list all + hidden), -l (list all + size)
 | cd        | Change dir  | cd ./folder
+| cd /      | Get to root directory
 | mkdir     | Make dir    |  mkdir folder1
 | touch     | New file    | touch file.txt
 | rm        | Remove a file | rm file1
@@ -70,7 +71,7 @@ az upgrade --yes
 | cp -r     | Copy folder, In order to copy a directory on Linux, you have to execute the “cp” command with the “-R” option for recursive and specify the source and destination directories to be copied.  | cp -r folder1 folder2
 | mv        | Move file, the difference is that cp will keep the old file(s) while mv won't, source destination | mv data.conf backup/
 | grep      | Search for a string within an output | cat data.conf 'pipe' grep "uid"
-| find      | Search files and dirs |
+| find      | Search files and dirs | find . -name data.conf
 | nano      | Text editor |
 | head      | return specified num of lines from top |
 | tail      | return specified num of lines from bottom |
