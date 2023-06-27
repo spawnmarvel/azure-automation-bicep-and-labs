@@ -47,18 +47,20 @@ az upgrade --yes
 | grep      | Search for a string within an output |
 | find      | Search files and dirs |
 | nano      | Text editor |
+| head      | return specified num of lines from top |
+| tail      | return specified num of lines from bottom |
+| less      | Display the contents of a file one page at a time |
+| more      | Loads the entire file at once |
+| diff      | find diff between two files |
+| cmp       | check if two files are identical |
+| comm      | combines diff and cmp |
+| sort      | sort content of file while outputting  |
 | history   | Show last 50 cmds |
 | clear     | Clear terminal |
 | echo      | Print |
 | man       | Access manual pages for all Linux commands |
 | uname     | command to get basic information about the OS |
 | whoami    | Get the active username |
-| head      | return specified num of lines from top |
-| tail      | return specified num of lines from bottom |
-| diff      | find diff between two files |
-| cmp       | check if two files are identical |
-| comm      | combines diff and cmp |
-| sort      | sort content of file while outputting  |
 | export    | export env var |
 | zip       | |
 | unzip     | |
@@ -76,11 +78,7 @@ az upgrade --yes
 | tar       | Create and unpack compressed archives |
 | wget      | Download files from internet |
 | du        | Get file size |
-| less      | Display the contents of a file one page at a time |
-| more      | Loads the entire file at once |
 | curl      | Download or upload data using protocols such as FTP, SFTP, HTTP and HTTPS |
-| top       | Monitor running processes and the resources (such as memory) they are currently using |
-| which     | Identify and report the location of the provided executable |
 | sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
 | apt list --installed| Get installed packages |
 | sudo | which is an acronym for superuser do or substitute user do, is a command that runs an elevated prompt without a need to change your identity. |
@@ -94,7 +92,11 @@ az upgrade --yes
 | iptables | Base firewall for all other firewall utilities to interface with |
 | apt, pacman, yum, rpm | Package managers depending on the distro |
 | whereis  | Locate the binary, source, and manual pages for a command |
+| which     | Identify and report the location of the provided executable |
+| useradd and usermod | Add new user or change existing users data |
+| passwd | Create or update passwords for existing users|
 
+# https://www.digitalocean.com/community/tutorials/linux-commands
 
 ## Script
 
