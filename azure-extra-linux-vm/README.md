@@ -49,7 +49,7 @@ az --version
 
 az upgrade --yes
 
-````
+```
 
 
 ## List of Basic SSH Commands Linux (ubuntu 20.04)
