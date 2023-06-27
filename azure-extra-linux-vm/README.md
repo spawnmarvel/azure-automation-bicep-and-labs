@@ -52,12 +52,12 @@ az upgrade --yes
 ````
 
 
-## List of Basic SSH Commands
+## List of Basic SSH Commands Linux (ubuntu 20.04)
 
 | SSH cmds  | Description | Example
 |---------- |------------ | ------------------------------
 | help      | help pwd    | help pwd
-| whatis    | Find what a command is used for  |
+| whatis    | Find what a command is used for  | whatis ls
 | ls        | Show directory contents (list the names of files) | -a, list all + hidden, -l list all + size
 | cd        | Change dir  | cd ./folder
 | mkdir     | Make dir    |  mkdir folder
