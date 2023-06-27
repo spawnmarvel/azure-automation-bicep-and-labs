@@ -24,7 +24,7 @@ param dnsLabelPrefix string = toLower('${vmName}-${uniqueString(resourceGroup().
   'Ubuntu-2004'
   'Ubuntu-2204'
 ])
-param ubuntuOSVersion string = 'Ubuntu-2004'
+param ubuntuOSVersion string = 'Ubuntu-2204'
 
 @description('Location for all resources.')
 param location string = resourceGroup().location
