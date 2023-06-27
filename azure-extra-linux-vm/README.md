@@ -60,9 +60,9 @@ az upgrade --yes
 | whatis    | Find what a command is used for  | whatis ls
 | ls        | Show directory contents (list the names of files) | -a, list all + hidden, -l list all + size
 | cd        | Change dir  | cd ./folder
-| mkdir     | Make dir    |  mkdir folder
+| mkdir     | Make dir    |  mkdir folder1
 | touch     | New file    | touch file.txt
-| rm        | Remove a file | rmi-f, force
+| rm        | Remove a file | rm file1
 | rmdir     | Remove a directory | 
 | cat       | Show content of file |  cat keyvault.txt
 | pwd       | Show current dir |
