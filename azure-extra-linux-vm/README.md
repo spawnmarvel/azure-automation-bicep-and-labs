@@ -67,7 +67,7 @@ az upgrade --yes
 | cat       | Show content of file (redirect to var, content=$(cat data.conf)) |  cat data.conf
 | pwd       | Show current dir: example - > | /home/user
 | cp        | Copy file use if for backup, source destination | cp data.conf data.conf_bck
-| cp -r     | Copy folder  | cp -r folder1 folder2
+| cp -r     | Copy folder, In order to copy a directory on Linux, you have to execute the “cp” command with the “-R” option for recursive and specify the source and destination directories to be copied.  | cp -r folder1 folder2
 | mv        | Move/rename file | source destination
 | grep      | Search for a string within an output |
 | find      | Search files and dirs |
