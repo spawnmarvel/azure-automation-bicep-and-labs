@@ -69,7 +69,7 @@ az upgrade --yes
 | cp        | Copy file use if for backup, source destination | cp data.conf data.conf_bck
 | cp -r     | Copy folder, In order to copy a directory on Linux, you have to execute the “cp” command with the “-R” option for recursive and specify the source and destination directories to be copied.  | cp -r folder1 folder2
 | mv        | Move file, the difference is that cp will keep the old file(s) while mv won't, source destination | mv data.conf backup/
-| grep      | Search for a string within an output | cat data.conf | grep "uid"
+| grep      | Search for a string within an output | "cat data.conf | grep "uid""
 | find      | Search files and dirs |
 | nano      | Text editor |
 | head      | return specified num of lines from top |
