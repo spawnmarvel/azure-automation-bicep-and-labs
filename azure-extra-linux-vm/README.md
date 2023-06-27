@@ -63,8 +63,8 @@ az upgrade --yes
 | mkdir     | Make dir    |  mkdir folder1
 | touch     | New file    | touch file.txt
 | rm        | Remove a file | rm file1
-| rmdir     | Remove a directory | 
-| cat       | Show content of file |  cat keyvault.txt
+| rmdir     | Remove a directory | rmdir folder1
+| cat       | Show content of file |  cat data.conf, content=$(cat data.conf)
 | pwd       | Show current dir |
 | cp        | Copy file/folder use if for backup | source destination
 | mv        | Move/rename file | source destination
