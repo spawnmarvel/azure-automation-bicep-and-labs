@@ -58,7 +58,7 @@ az upgrade --yes
 |---------- |------------ | ------------------------------
 | help      | help pwd    | help pwd
 | whatis    | Find what a command is used for  | whatis ls
-| ls        | Show directory contents (list the names of files) | -a, list all + hidden, -l list all + size
+| ls        | Show directory contents (list the names of files) | -a (list all + hidden), -l (list all + size)
 | cd        | Change dir  | cd ./folder
 | mkdir     | Make dir    |  mkdir folder1
 | touch     | New file    | touch file.txt
