@@ -70,6 +70,8 @@ What now.....
 
 # View Extra-linux-vm and all things Linux and Bash
 
+https://github.com/spawnmarvel/azure-automation/tree/main/azure-extra-linux-vm
+
 
 ## Azure PowerShell Documentation
 
@@ -184,13 +186,15 @@ Azure Logic Apps is a cloud platform where you can create and run automated work
 
 #### 7. Auto manage
 
-#### 8 Powershell-cmd reference
-
 ### Extra-functions-githuib-actions
 
 ### Extra-linux-vm
 
 This became a big repos, I need Linux, hahaha
+
+https://github.com/spawnmarvel/azure-automation/tree/main/azure-extra-linux-vm
+
+#### 8 Powershell-cmd reference
 
 Store all-things-powershell here
 https://github.com/spawnmarvel/powershell-cmd
