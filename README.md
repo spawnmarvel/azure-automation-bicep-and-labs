@@ -70,7 +70,7 @@ What now.....
 
 #### 6.1 View Extra-linux-vm and all things Linux and Bash
 
-This became a big repos, I need Linux, hahaha
+This became a big repos, I need Linux, hahaha :joy: :joy: :joy:
 
 https://github.com/spawnmarvel/azure-automation/tree/main/azure-extra-linux-vm
 
