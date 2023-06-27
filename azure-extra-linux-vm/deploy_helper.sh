@@ -16,7 +16,7 @@ az vm list-ip-addresses --resource-group $rgName --name $vmName --output table
 # n and p
 uName=""
 newPass="" 
-# You must iterate this or change it before running below
+# You must iterate newPass this or change it before running below
 az vm user update --resource-group $rgName --name $vmName --username $uName --password $newPass
 # enter it
 ssh user@ipaddress
