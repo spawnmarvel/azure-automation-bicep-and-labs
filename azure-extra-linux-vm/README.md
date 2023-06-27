@@ -63,6 +63,7 @@ az upgrade --yes
 | mkdir     | Make dir    |  mkdir folder
 | touch     | New file    | touch file.txt
 | rm        | Remove a file | rmi-f, force
+| rmdir     | Remove a directory | 
 | cat       | Show content of file |  cat keyvault.txt
 | pwd       | Show current dir |
 | cp        | Copy file/folder use if for backup | source destination

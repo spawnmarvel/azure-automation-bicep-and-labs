@@ -1,0 +1,21 @@
+az login --tenant
+bash deploy.sh
+
+
+rgName=''
+vmName=''
+
+echo $rgName
+az resource list --resource-group $rgName
+az resource list --resource-group $rgName --query [].name
+
+# Get IP address
+az vm list-ip-addresses --resource-group $rgName --name $vmName --output table
+
+uName=""
+newPass=""
+
+az vm user update --resource-group $rgName --name $vmName --username $uName --password $newPass
+
+ssh user@ipaddress
+
