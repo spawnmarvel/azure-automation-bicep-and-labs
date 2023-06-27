@@ -72,9 +72,9 @@ az upgrade --yes
 | mv        | Move file, the difference is that cp will keep the old file(s) while mv won't, source destination | mv data.conf backup/
 | grep      | Search for a string within an output | cat data.conf 'pipe' grep "uid"
 | find      | Search files and dirs | find . -name data.conf
-| nano      | Text editor |
-| head      | return specified num of lines from top |
-| tail      | return specified num of lines from bottom |
+| nano      | Text editor | nano data.conf
+| head      | return specified num of lines from top | head -n 2 data.conf
+| tail      | return specified num of lines from bottom, -f follow | tail -f data.conf
 | less      | Display the contents of a file one page at a time |
 | more      | Loads the entire file at once |
 | diff      | find diff between two files |
