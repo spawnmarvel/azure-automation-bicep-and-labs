@@ -75,9 +75,9 @@ az upgrade --yes
 | nano      | Text editor | nano data.conf
 | head      | return specified num of lines from top | head -n 2 data.conf
 | tail      | return specified num of lines from bottom, -f follow | tail -f data.conf
-| less      | Display the contents of a file one page at a time |
-| more      | Loads the entire file at once |
-| diff      | find diff between two files |
+| less      | Display the contents of a file one page at a time, exit with q | less data.conf
+| more      | Loads the entire file at once, enter for more | more data.conf
+| diff      | find diff between two files | diff data.conf data.conf_bck, cmp data.conf data.conf_identical
 | cmp       | check if two files are identical |
 | comm      | combines diff and cmp |
 | sort      | sort content of file while outputting  |
