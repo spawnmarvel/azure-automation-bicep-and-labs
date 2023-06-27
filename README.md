@@ -68,6 +68,7 @@ What now.....
 
    * Unlike most of the Azure training and labs, relatively-little day-to-day work takes place within the web console.
 
+# View Extra-linux-vm and all things Linux and Bash
 
 
 ## Azure PowerShell Documentation
@@ -185,10 +186,16 @@ Azure Logic Apps is a cloud platform where you can create and run automated work
 
 #### 8 Powershell-cmd reference
 
+### Extra-functions-githuib-actions
+
+### Extra-linux-vm
+
+This became a big repos, I need Linux, hahaha
+
 Store all-things-powershell here
 https://github.com/spawnmarvel/powershell-cmd
 
-## Do above 1-7 after that work with the important parts again
+## Do above 1-to-Extra after that work with the important parts again
 
 ### Compute, Storage, Network, Security, Monitor
 
