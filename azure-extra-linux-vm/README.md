@@ -65,7 +65,7 @@ az upgrade --yes
 | rm        | Remove a file | rm file1
 | rmdir     | Remove a directory | rmdir folder1
 | cat       | Show content of file (redirect to var, content=$(cat data.conf)) |  cat data.conf
-| pwd       | Show current dir: example | /home/user
+| pwd       | Show current dir: example - > | /home/user
 | cp        | Copy file/folder use if for backup | source destination
 | mv        | Move/rename file | source destination
 | grep      | Search for a string within an output |
