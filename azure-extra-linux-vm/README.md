@@ -91,14 +91,14 @@ az upgrade --yes
 | whoami    | Get the active username |
 | export    | The export command is specially used when exporting environment variables in runtime | export dbCon="MySql:1245", echo $dbCon
 | tar       | The tar command in Linux is used to create and extract archived files, -cvf compress, -xvf extract | tar -cvf compFolder.tar folder <br/> tar -xvf compFolder.ta
-| zip       | |
-| unzip     | |
+| zip       | apt install zip |
+| unzip     | apt install zip |
 | ssh       | Secure Shell command | ssh user@ipaddress
 | service   | start stop service | service ssh stop
 | ps        | display active proc |
 | top       | View active processes live with their system usage |
 | kill and killall | Kill active processes by process ID or name | 
-| df        | Display disk filesystem information |
+| df        | Display disk filesystem information,  -h parameter to make the data human-readable. | df -h
 | mount     | Mount file systems |
 | chmod     | Command to change file permissions |
 | chown     | Command for granting ownership of files or folders|
