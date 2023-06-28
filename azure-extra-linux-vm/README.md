@@ -64,7 +64,8 @@ az upgrade --yes
 | mkdir     | Make dir    |  mkdir folder1
 | touch     | New file    | touch file.txt
 | rm        | Remove a file | rm file1
-| rmdir     | Remove a directory | rmdir folder1
+| rmdir     | Remove a directory, if empty | rmdir folder1
+| rm -r     | To remove a directory and all its contents, including any subdirectories and files | rm -r folder
 | cat       | Show content of file (redirect to var, content=$(cat data.conf)) |  cat data.conf
 | pwd       | Show current dir: example - > | /home/user
 | cp        | Copy file use if for backup, source destination | cp data.conf data.conf_bck
@@ -88,11 +89,12 @@ az upgrade --yes
 | uname     | command to get basic information about the OS | uname -a
 | hostnamectl | find os name and version | Operating System: Ubuntu 22.04.2 LTS, Kernel: Linux 5.15.0-1040-azur
 | whoami    | Get the active username |
-| export    | The easiest way to set environment variables in Bash is to use the “export” | export dbCon="MySql:1245", echo $dbCon
+| export    | The export command is specially used when exporting environment variables in runtime | export dbCon="MySql:1245", echo $dbCon
+| tar       | The tar command in Linux is used to create and extract archived files, -cvf compress, -xvf extract | tar -cvf compFolder.tar folder <br/> tar -xvf compFolder.ta
 | zip       | |
 | unzip     | |
 | ssh       | Secure Shell command | ssh user@ipaddress
-| service   | start stop service |
+| service   | start stop service | service ssh stop
 | ps        | display active proc |
 | top       | View active processes live with their system usage |
 | kill and killall | Kill active processes by process ID or name | 
