@@ -79,8 +79,8 @@ az upgrade --yes
 | more      | Loads the entire file at once, enter for more | more data.conf
 | diff      | find diff between two files | diff data.conf data.conf_bck
 | cmp       | check if two files are identical | cmp data.conf data.conf_identical
-| comm      | combines diff and cmp |
-| sort      | sort content of file while outputting  |
+| comm      | combines diff and cmp | comm data.conf data.conf_bck
+| sort      | sort (lines) content of file while outputting  |  cat names.txt Xavier,Jim, Anna, Bob <br/> sort names.txt, Anna, Bob, Jim, Xavier
 | history   | Show last 50 cmds |
 | clear     | Clear terminal |
 | echo      | Print | var="Hodor", echo $var

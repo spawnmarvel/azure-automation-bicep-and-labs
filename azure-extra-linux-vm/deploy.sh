@@ -1,8 +1,15 @@
 #!/bin/bash
 
 
+
+logInformation() {
+    logFile='deploylog.txt'
+    echo $1 >> $logFile
+}
+
 now=$(date)
 echo $now
+logInformation $now
 
 simpleVmName="simpleLinuxVM-$RANDOM"
 resourceGroup='Rg-iac-linux-fu-0982'
@@ -16,6 +23,10 @@ adminP=${myArray[1]}
 
 echo $adminU
 echo $simpleVmName
+
+logInformation $resourceGroup
+logInformation $adminU
+logInformation $simpleVmName
 
 # https://github.com/Azure/azure-cli/issues/25710
 # az config set bicep.use_binary_from_path=False
