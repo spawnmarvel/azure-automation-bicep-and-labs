@@ -84,8 +84,9 @@ az upgrade --yes
 | history   | Show last 50 cmds |
 | clear     | Clear terminal |
 | echo      | Print | var="Hodor", echo $var
-| man       | Access manual pages for all Linux commands |
-| uname     | command to get basic information about the OS |
+| man       | Access manual pages for all Linux commands | man ls
+| uname     | command to get basic information about the OS | uname -a
+| hostnamectl | find os name and version | Operating System: Ubuntu 22.04.2 LTS, Kernel: Linux 5.15.0-1040-azur
 | whoami    | Get the active username |
 | export    | export env var |
 | zip       | |
