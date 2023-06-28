@@ -88,7 +88,7 @@ az upgrade --yes
 | uname     | command to get basic information about the OS | uname -a
 | hostnamectl | find os name and version | Operating System: Ubuntu 22.04.2 LTS, Kernel: Linux 5.15.0-1040-azur
 | whoami    | Get the active username |
-| export    | export env var |
+| export    | The easiest way to set environment variables in Bash is to use the “export” | export dbCon="MySql:1245", echo $dbCon
 | zip       | |
 | unzip     | |
 | ssh       | Secure Shell command | ssh user@ipaddress
