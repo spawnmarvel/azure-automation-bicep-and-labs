@@ -105,7 +105,7 @@ az upgrade --yes
 | ifconfig  | Display network interfaces and IP addresses  | sudo apt install net-tools, eth0:inet private ipaddress
 | traceroute | Trace all the network hops to reach the destination, sudo apt install traceroute | traceroute www.google.com
 | wget      | Download files from internet, GNU Wget is a command-line utility for downloading files from the web. With Wget, you can download files using HTTP, HTTPS, and FTP protocols. | wget https://cdn.zabbix.com/zabbix/binaries/stable/6.0/6.0.3/zabbix_agent-6.0.3-linux-4.12-ppc64le-static.tar.gz
-| du        | Get file size |
+| du        | Get file size, -h human readble | du -h zabbix_agent-6.0.3-linux-4.12-ppc64le-static.tar.gz
 | curl      | Download or upload data using protocols such as FTP, SFTP, HTTP and HTTPS. wget --version, sudo apt install wget | 
 | sudo apt update| use the apt package management tools to update your local package index |
 | sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
