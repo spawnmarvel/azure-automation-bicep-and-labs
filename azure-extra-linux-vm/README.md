@@ -111,7 +111,7 @@ az upgrade --yes
 | sudo apt update| use the apt package management tools to update your local package index |
 | sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
 | apt list --installed| Get installed packages |
-| reboot | sudo shutdown -r now |
+| reboot |  | sudo shutdown -r now
 | sudo | which is an acronym for superuser do or substitute user do, is a command that runs an elevated prompt without a need to change your identity. |
 | sudo -i     | A simple way to switch to an interactive session as a root user is the following |
 | su     | on the other hand, is an acronym for switch user or substitute user. You are basically switching to a particular user and you need the password for the user you are switching to. |
