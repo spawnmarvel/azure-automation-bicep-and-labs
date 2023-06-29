@@ -103,7 +103,7 @@ az upgrade --yes
 | chmod     | Command to change file permissions, get permission ls - l, -rw-rw-r-- | chmod +x file, -rwxrwxr-x
 | chown     | Command for granting ownership of files or folders, command allows you to change the user and/or group ownership of a given file, directory, or symbolic link. <br/> get permission and owner, ls -l| chown user-or-userid file1
 | ifconfig  | Display network interfaces and IP addresses  | sudo apt install net-tools, eth0:inet private ipaddress
-| traceroute | Trace all the network hops to reach the destination |
+| traceroute | Trace all the network hops to reach the destination, sudo apt install traceroute | traceroute www.google.com
 | tar       | Create and unpack compressed archives |
 | wget      | Download files from internet |
 | du        | Get file size |
