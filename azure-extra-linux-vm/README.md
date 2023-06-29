@@ -100,7 +100,7 @@ az upgrade --yes
 | kill and killall | Kill active processes by process ID or name | 
 | df        | Display disk filesystem information,  -h parameter to make the data human-readable. | df -h
 | mount     | Mount file systems | https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMEQuickstartsLinuxMS.md
-| chmod     | Command to change file permissions |
+| chmod     | Command to change file permissions, get permission ls - l, -rw-rw-r-- | chmod +x file, -rwxrwxr-x
 | chown     | Command for granting ownership of files or folders|
 | ifconfig  | Display network interfaces and IP addresses  |
 | traceroute | Trace all the network hops to reach the destination |
