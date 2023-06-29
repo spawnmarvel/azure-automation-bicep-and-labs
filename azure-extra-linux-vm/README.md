@@ -112,16 +112,16 @@ az upgrade --yes
 | apt list --installed| Get installed packages |
 | reboot |  | sudo shutdown -r now
 | sudo | which is an acronym for superuser do or substitute user do, is a command that runs an elevated prompt without a need to change your identity. |
-| sudo -i     | A simple way to switch to an interactive session as a root user is the following |
+| sudo -i     | A simple way to switch to an interactive session as a root user is the following | root$vmName
 | su     | on the other hand, is an acronym for switch user or substitute user. You are basically switching to a particular user and you need the password for the user you are switching to. |
 | su - | you are switching to root and you need the root password. |
 | su - bryant | switch to the bryant user account including bryant's path and environment variables, use the (-) switch |
 | sudo ufw enable | By default, when UFW is enabled, it blocks external access to all ports on the server |
 | sudo ufw | Use iptables or ufw to open ports | sudo ufw allow 1022/tcp<br/>sudo ufw allow 'Nginx HTTPS'
 | sudo ufw status | list ufw rules |
-| iptables | Base firewall for all other firewall utilities to interface with |
+| iptables | Base firewall for all other firewall utilities to interface with. List: | sudo iptables -L
 | apt, pacman, yum, rpm | Package managers depending on the distro |
-| whereis  | Locate the binary, source, and manual pages for a command |
+| whereis  | Locate the binary, source, and manual pages for a command | whereis wget,  whereis traceroute
 | which     | Identify and report the location of the provided executable |
 | useradd and usermod | Add new user or change existing users data |
 | passwd | Create or update passwords for existing users|
