@@ -99,7 +99,7 @@ az upgrade --yes
 | top       | View active processes live with their system usage |
 | kill and killall | Kill active processes by process ID or name | 
 | df        | Display disk filesystem information,  -h parameter to make the data human-readable. | df -h
-| mount     | Mount file systems |
+| mount     | Mount file systems | https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMEQuickstartsLinuxMS.md
 | chmod     | Command to change file permissions |
 | chown     | Command for granting ownership of files or folders|
 | ifconfig  | Display network interfaces and IP addresses  |
