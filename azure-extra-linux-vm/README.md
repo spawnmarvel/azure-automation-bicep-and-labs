@@ -102,7 +102,7 @@ az upgrade --yes
 | mount     | Mount file systems | https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMEQuickstartsLinuxMS.md
 | chmod     | Command to change file permissions, get permission ls - l, -rw-rw-r-- | chmod +x file, -rwxrwxr-x
 | chown     | Command for granting ownership of files or folders, command allows you to change the user and/or group ownership of a given file, directory, or symbolic link. <br/> get permission and owner, ls -l| chown user-or-userid file1
-| ifconfig  | Display network interfaces and IP addresses  | sudo apt install net-tools, ethO:inet private ipaddress
+| ifconfig  | Display network interfaces and IP addresses  | sudo apt install net-tools, eth0:inet private ipaddress
 | traceroute | Trace all the network hops to reach the destination |
 | tar       | Create and unpack compressed archives |
 | wget      | Download files from internet |
@@ -111,6 +111,7 @@ az upgrade --yes
 | sudo apt update| use the apt package management tools to update your local package index |
 | sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
 | apt list --installed| Get installed packages |
+| reboot | sudo shutdown -r now |
 | sudo | which is an acronym for superuser do or substitute user do, is a command that runs an elevated prompt without a need to change your identity. |
 | sudo -i     | A simple way to switch to an interactive session as a root user is the following |
 | su     | on the other hand, is an acronym for switch user or substitute user. You are basically switching to a particular user and you need the password for the user you are switching to. |
@@ -126,6 +127,7 @@ az upgrade --yes
 | useradd and usermod | Add new user or change existing users data |
 | passwd | Create or update passwords for existing users|
 | git --version | Git is likely already installed in your Ubuntu 22.04 server.| # else: sudo apt update, sudo apt install git, git --version
+
 
 ### https://www.digitalocean.com/community/tutorials/linux-commands
 
