@@ -58,6 +58,13 @@ az upgrade --yes
 |---------- |------------ | ------------------------------
 | help      | help pwd    | help pwd
 | whatis    | Find what a command is used for  | whatis ls
+| sudo apt update| use the apt package management tools to update your local package index |
+| sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
+| apt list --installed| Get installed packages |
+| apt, pacman, yum, rpm | Package managers depending on the distro |
+| whereis   | Locate the binary, source, and manual pages for a command | whereis wget,  whereis traceroute
+| which     | Identify and report the location of the provided executable | which wget, which traceroute
+| reboot    |  | sudo shutdown -r now
 | ls        | Show directory contents (list the names of files) | -a (list all + hidden), -l (list all + size)
 | cd        | Change dir  | cd ./folder
 | cd /      | Get to root directory  | (bin  boot  dev  etc  home  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var)
@@ -107,10 +114,6 @@ az upgrade --yes
 | wget      | Download files from internet, GNU Wget is a command-line utility for downloading files from the web. With Wget, you can download files using HTTP, HTTPS, and FTP protocols. <br/> wget --version, sudo apt install wget | wget https://cdn.zabbix.com/zabbix/binaries/stable/6.0/6.0.3/zabbix_agent-6.0.3-linux-4.12-ppc64le-static.tar.gz
 | du        | Get file size, -h human readble | du -h zabbix_agent-6.0.3-linux-4.12-ppc64le-static.tar.gz
 | curl      | Download or upload data using protocols such as FTP, SFTP, HTTP and HTTPS. |  curl www.google.com
-| sudo apt update| use the apt package management tools to update your local package index |
-| sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
-| apt list --installed| Get installed packages |
-| reboot |  | sudo shutdown -r now
 | sudo | which is an acronym for superuser do or substitute user do, is a command that runs an elevated prompt without a need to change your identity. |
 | sudo -i     | A simple way to switch to an interactive session as a root user is the following | root$vmName
 | su     | on the other hand, is an acronym for switch user or substitute user. You are basically switching to a particular user and you need the password for the user you are switching to. |
@@ -119,11 +122,8 @@ az upgrade --yes
 | sudo ufw | Use iptables or ufw to open ports | sudo ufw allow 1022/tcp<br/>sudo ufw allow 'Nginx HTTPS'
 | sudo ufw status | list ufw rules |
 | iptables | Base firewall for all other firewall utilities to interface with. List: | sudo iptables -L
-| apt, pacman, yum, rpm | Package managers depending on the distro |
-| whereis  | Locate the binary, source, and manual pages for a command | whereis wget,  whereis traceroute
-| which     | Identify and report the location of the provided executable | which wget, which traceroute
 | useradd and usermod | Add new user or change existing users data <br/> When executed without any option, useradd creates a new user account using the default settings specified in the /etc/default/useradd file. -M, --no-create-home | sudo useradd -m soloman <br/> /home/soloman
-| passwd   | To be able to log in as the newly created user, you need to set the user password. The command adds an entry to the /etc/passwd, /etc/shadow, /etc/group and /etc/gshadow files. | sudo passwd username
+| passwd   | To be able to log in as the newly created user, you need to set the user password. The command adds an entry to the /etc/passwd, /etc/shadow, /etc/group and /etc/gshadow files. | sudo passwd soloman
 | passwd | Create or update passwords for existing users|
 | git --version | Git is likely already installed in your Ubuntu 22.04 server.| # else: sudo apt update, sudo apt install git, git --version
 
