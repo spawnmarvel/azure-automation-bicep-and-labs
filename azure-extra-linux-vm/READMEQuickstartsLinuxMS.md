@@ -413,3 +413,20 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-v
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
 
+
+* OS disks and temporary disks
+* Data disks
+* Standard and Premium disks
+* Disk performance
+* Attaching and preparing data disks
+* Disk snapshots
+
+
+Default disks
+
+When an Azure virtual machine is created, two disks are automatically attached to the virtual machine.
+
+*  Operating system disk, Operating system disks can be sized up to 2 TB
+* * disk is labeled /dev/sda by default. 
+* Temporary disk - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. If VM is moved, data stored is removed.
+* * disks are labeled /dev/sdb and have a mountpoint of /mnt
