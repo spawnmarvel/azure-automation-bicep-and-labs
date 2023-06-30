@@ -425,8 +425,25 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-d
 Default disks
 
 When an Azure virtual machine is created, two disks are automatically attached to the virtual machine.
-
 *  Operating system disk, Operating system disks can be sized up to 2 TB
 * * disk is labeled /dev/sda by default. 
 * Temporary disk - Temporary disks use a solid-state drive that is located on the same Azure host as the VM. Temp disks are highly performant and may be used for operations such as temporary data processing. If VM is moved, data stored is removed.
 * * disks are labeled /dev/sdb and have a mountpoint of /mnt
+
+Azure data disks
+* To install applications and store data, additional data disks can be added. 
+
+VM disk types
+* Standard disks - backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
+* Standard disks - backed by HDDs, and delivers cost-effective storage while still being performant. Standard disks are ideal for a cost effective dev and test workload.
+
+NOTE: VM sizes with an S in the size name, typically support Premium Storage. For example, DS-series, DSv2-series, GS-series, and FS-series VMs support premium storage
+
+
+Create and attach disks
+
+```bash
+
+az group create --name myResourceGroupDisk --location uksouth
+
+```
