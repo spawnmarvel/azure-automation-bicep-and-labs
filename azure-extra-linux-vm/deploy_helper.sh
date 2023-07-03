@@ -3,8 +3,8 @@ az login --tenant
 #Deploy
 bash deploy.sh
 #vars
-rgName=''
-vmName=''
+rgName=""
+vmName=""
 #
 echo $rgName
 # list all
