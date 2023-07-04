@@ -59,7 +59,7 @@ az upgrade --yes
 | help      | help pwd    | help pwd
 | whatis    | Find what a command is used for  | whatis ls
 | sudo apt update| use the apt package management tools to update your local package index |
-| sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date <br/> Both apt and apt-get handle dependency resolution, however apt is far superior. | https://aws.amazon.com/compare/the-difference-between-apt-and-apt-get/#:~:text=The%20difference%20between%20apt%20and%20apt%2Dget%20is%20not%20just,management%20tools%20for%20user%20convenience.
+| sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date <br/> apt is the command that is being recommended by the Linux distributions. | https://itsfoss.com/apt-vs-apt-get-difference/
 | apt list --installed| Get installed packages |
 | apt (pacman, yum, rpm) | Package managers depending on the distro |
 | whereis   | Locate the binary, source, and manual pages for a command | whereis wget,  whereis traceroute
