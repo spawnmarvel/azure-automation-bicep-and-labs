@@ -61,7 +61,7 @@ az upgrade --yes
 | sudo apt update| use the apt package management tools to update your local package index |
 | sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date |
 | apt list --installed| Get installed packages |
-| apt, pacman, yum, rpm | Package managers depending on the distro |
+| apt (pacman, yum, rpm) | Package managers depending on the distro |
 | whereis   | Locate the binary, source, and manual pages for a command | whereis wget,  whereis traceroute
 | which     | Identify and report the location of the provided executable | which wget, which traceroute
 | reboot    |  | sudo shutdown -r now
