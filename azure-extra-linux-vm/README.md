@@ -62,6 +62,8 @@ az upgrade --yes
 | sudo apt update && sudo apt upgrade -y | Make sure all current packages are up to date <br/> apt is the command that is being recommended by the Linux distributions. | https://itsfoss.com/apt-vs-apt-get-difference/
 | apt list --installed| Get installed packages |
 | apt (pacman, yum, rpm) | Package managers depending on the distro |
+| sudo apt install, remove, purge zip | When using the “remove” option, Ubuntu can leave files behind while uninstalling a package. To work around this apt offers another option, the “purge” option. | sudo apt remove zip
+| sudo apt autoremove | If you want to clean up your Ubuntu system by uninstalling unused packages, then apt offers an option called “autoremove“.   | Use 'sudo apt autoremove' to remove it.
 | whereis   | Locate the binary, source, and manual pages for a command | whereis wget,  whereis traceroute
 | which     | Identify and report the location of the provided executable | which wget, which traceroute
 | reboot    |  | sudo shutdown -r now
@@ -99,8 +101,8 @@ az upgrade --yes
 | whoami    | Get the active username |
 | export    | The export command is specially used when exporting environment variables in runtime | export dbCon="MySql:1245", echo $dbCon
 | tar       | The tar command in Linux is used to create and extract archived files, -cvf compress, -xvf extract | tar -cvf compFolder.tar folder <br/> tar -xvf compFolder.ta
-| zip       | apt install zip |
-| unzip     | apt install zip |
+| zip       | sudo apt install zip | zip -r folder.zip folder1
+| unzip     | sudo apt install unzip | unzip folder.zip, unzip folder.zip -d destinationfolder
 | ssh       | Secure Shell command | ssh user@ipaddress
 | service   | start stop service | service ssh stop
 | ps        | display active proc |
