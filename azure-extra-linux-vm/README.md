@@ -114,6 +114,8 @@ az upgrade --yes
 | chown     | Command for granting ownership of files or folders, command allows you to change the user and/or group ownership of a given file, directory, or symbolic link. <br/> get permission and owner, ls -l| chown user-or-userid file1
 | ifconfig  | Display network interfaces and IP addresses  | sudo apt install net-tools, eth0:inet private ipaddress
 | traceroute | Trace all the network hops to reach the destination, sudo apt install traceroute | traceroute www.google.com
+| telnet    | Check connection | telnet ip-address port
+| nc        | The nc (or netcat) utility is used for just about anything under the sun involving TCP, UDP, or UNIX-domain sockets. | nc -zvw10 ip-address 3306
 | wget      | Download files from internet, GNU Wget is a command-line utility for downloading files from the web. With Wget, you can download files using HTTP, HTTPS, and FTP protocols. <br/> wget --version, sudo apt install wget | wget https://cdn.zabbix.com/zabbix/binaries/stable/6.0/6.0.3/zabbix_agent-6.0.3-linux-4.12-ppc64le-static.tar.gz
 | du        | Get file size, -h human readble | du -h zabbix_agent-6.0.3-linux-4.12-ppc64le-static.tar.gz
 | curl      | Download or upload data using protocols such as FTP, SFTP, HTTP and HTTPS. |  curl www.google.com
