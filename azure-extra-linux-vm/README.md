@@ -134,7 +134,7 @@ az upgrade --yes
 | mariadb client| app server | sudo apt install mariadb-client
 | mariadb       | db server | sudo apt install mariadb-server mariadb-client<br/>sudo systemctl enable --now mariadb <br/>systemctl status mariadb <br/>sudo mysql_secure_installation
 | mysql/mariadb | https://linux.how2shout.com/how-to-install-wordpress-on-ubuntu-22-04-lts-server/ | mysql -u USERNAME -h localhost-IP -p db_mydatabase (enter password) <br> sudo mysql -u root -p
-| IPV6, IPV4    | /etc/mysql/mariadb.cnf | [mysqld] bind-address = ::, [mysqld] bind-address = 0.0.0.0
+| IPV6, IPV4    | allow remote, /etc/mysql/mariadb.cnf | [mysqld] bind-address = ::, [mysqld] bind-address = 0.0.0.0
 
 
 
