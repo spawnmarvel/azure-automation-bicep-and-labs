@@ -131,6 +131,9 @@ az upgrade --yes
 | passwd   | To be able to log in as the newly created user, you need to set the user password. The command adds an entry to the /etc/passwd, /etc/shadow, /etc/group and /etc/gshadow files. | sudo passwd soloman
 | passwd | Create or update passwords for existing users|
 | git --version | Git is likely already installed in your Ubuntu 22.04 server.| # else: sudo apt update, sudo apt install git, git --version
+| mariadb client| app server | sudo apt install mariadb-client
+| mariadb       | db server | sudo apt install mariadb-server mariadb-client<br/> •	sudo systemctl enable --now mariadb <br/>systemctl status mariadb <br/>sudo mysql_secure_installation
+| mysql/mariadb | https://linux.how2shout.com/how-to-install-wordpress-on-ubuntu-22-04-lts-server/ | mysql -u USERNAME -h localhost-IP -p db_mydatabase (enter password)
 
 
 ### https://www.digitalocean.com/community/tutorials/linux-commands
