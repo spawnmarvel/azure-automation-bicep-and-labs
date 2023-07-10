@@ -411,8 +411,6 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-v
 
 ## Tutorial - Manage Azure disks with the Azure CLI
 
-https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
-
 
 * OS disks and temporary disks
 * Data disks
@@ -447,3 +445,5 @@ Create and attach disks
 az group create --name myResourceGroupDisk --location uksouth
 
 ```
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
