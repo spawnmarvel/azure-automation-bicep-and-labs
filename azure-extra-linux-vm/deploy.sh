@@ -35,3 +35,4 @@ az group create --location $location --name $resourceGroup --tags $tags
 az deployment group create --name mainDep --resource-group $resourceGroup --template-file main.bicep --parameters vmName="$simpleVmName" adminUsername="$adminU" # --what-if
 
 
+
