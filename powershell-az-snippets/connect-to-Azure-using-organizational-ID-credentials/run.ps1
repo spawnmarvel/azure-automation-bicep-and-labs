@@ -33,11 +33,20 @@ $credential.GetNetworkCredential().Password
 # Use this !!!!!!
 # https://learn.microsoft.com/en-us/powershell/module/az.accounts/connect-azaccount?view=azps-9.7.1
 
+# Permission model changed to Azure role-based access control, recommended. 
+# Key vault secrets officer
+
+# on the VM
 $Credential = Get-Credential # add user@domain.com and password in the prompt
+# connect to azure
 Connect-AzAccount -Credential $Credential
 
 # RBACK must be set for correct access
 Get-AzKeyVault -VaultName NAME -ResourceGroupName RG -SubscriptionId ID
+
+Get-AzKeyVaultSecret -VaultName $vaultName
+
+
 
 
 
