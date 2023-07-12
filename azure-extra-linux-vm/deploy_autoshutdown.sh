@@ -4,7 +4,8 @@ resourceGroup="Rg-iac-linux-fu-0982"
 vmLocal=$(az vm list --resource-group $resourceGroup --query [].name)
 echo $vmLocal
 echo "vmLocal returns ]simpleLinuxVM-13392 and  in git bash"
-echo "vmLocal returns [ "simpleLinuxVM-28678" ]  in azure portal bash"
+echo "vmLocal returns [ "simpleLinuxVM-13392" ]  in azure portal bash"
+# https://github.com/git-for-windows/git/issues/4497
 
 # az deployment group create --name main_autoshutdown --resource-group $resourceGroup --template-file main_autoshutdown.bicep --parameters vmName="$simpleVmName" emailRecipient="kleivane80@gmail.com" # --what-if
 # az deployment group create --name main_autoshutdown --resource-group $resourceGroup --template-file main_autoshutdown.bicep --parameters vmName="$VmLocal" emailRecipient="kleivane80@gmail.com" # --what-if
