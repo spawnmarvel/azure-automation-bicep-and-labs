@@ -80,6 +80,8 @@ az ssh vm -n vmName -g resourceGroupName
 
 # You can now run sudo as username@domain.com
 
+sudo mysql -u root -p
+
 ```
 
 Upgrade AZ CLI
