@@ -78,6 +78,8 @@ az account set --subscription "SUBSSCRIPTION-NAME-VIEW-VM"
 
 az ssh vm -n vmName -g resourceGroupName
 
+# You can now run sudo as username@domain.com
+
 ```
 
 Upgrade AZ CLI
