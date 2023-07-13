@@ -80,6 +80,7 @@ az ssh vm -n vmName -g resourceGroupName
 
 ```
 
+Upgrade AZ CLI
 ```bash
 
 az --version
