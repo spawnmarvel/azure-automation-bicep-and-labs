@@ -46,6 +46,40 @@ How to install the Azure CLI
 
 https://learn.microsoft.com/en-us/cli/azure/install-azure-cli
 
+## Azure Linux joined to domain login with account
+
+https://learn.microsoft.com/en-us/cli/azure/install-azure-cli-windows?tabs=azure-cli
+
+Powershell (using az cli)
+
+```bash
+az --version
+
+```
+
+Log in to a Linux virtual machine in Azure by using Azure AD and OpenSSH
+
+https://learn.microsoft.com/en-us/azure/active-directory/devices/howto-vm-sign-in-azure-ad-linux#configure-role-assignments-for-the-vm
+
+
+Add IAM on the VM
+* IAM->Virtual Machine Administrator Login, Reader, Desktop Virtualization Power On Off Contributor
+* For username@domain.com
+
+```bash
+
+az extension add --name ssh
+az extension show --name ssh
+
+# login as username@domain.com
+az login --tenant  TENANT-ID
+
+az account set --subscription "SUBSSCRIPTION-NAME-VIEW-VM"
+
+az ssh vm -n vmName -g resourceGroupName
+
+```
+
 ```bash
 
 az --version
