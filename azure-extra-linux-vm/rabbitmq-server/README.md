@@ -81,6 +81,12 @@ Visit http://IP-ADDRESS:15672/
 
 ![RabbitMQ management](https://github.com/spawnmarvel/azure-automation/blob/main/images/rabbitmqmanagement.jpg)
 
+Delete default user
+```bash
+sudo rabbitmqctl delete_user guest
+sudo rabbitmqctl list_users
+```
+
 
 
 
