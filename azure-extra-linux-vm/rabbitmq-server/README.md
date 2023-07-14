@@ -167,7 +167,14 @@ RabbitMQ packages or nodes will not create any configuration files. Users and de
 |Debian and Ubuntu |  /etc/rabbitmq/ | /etc/rabbitmq/rabbitmq.conf, /etc/rabbitmq/advanced.config
 
 Environment variables can be used to override the location of the configuration file:
+# overrides primary config file location
+RABBITMQ_CONFIG_FILE=/path/to/a/custom/location/rabbitmq.conf
 
+# overrides advanced config file location
+RABBITMQ_ADVANCED_CONFIG_FILE=/path/to/a/custom/location/advanced.config
+
+# overrides environment variable file location
+RABBITMQ_CONF_ENV_FILE=/path/to/a/custom/location/rabbitmq-env.conf
 
 ```bash
 # Make file
