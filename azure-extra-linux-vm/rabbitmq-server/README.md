@@ -88,5 +88,30 @@ sudo rabbitmqctl list_users
 ```
 
 
+Create RabbitMQ Virtual Host, RabbitMQ manages user permissions on a virtual host level.
+
+```bash
+sudo rabbitmqctl add_vhost segment01
+sudo rabbitmqctl list_vhosts
+```
+
+Set specific user permission for a user on the new vhost
+```bash
+sudo rabbitmqctl set_permissions -p <virtual_host> <user_name> <permissions>
+# Example full permission
+sudo rabbitmqctl set_permissions -p segment01 newuser ".*" ".*" ".*"
+```
+Args
+* -p is used to define the virtual host.
+* The first permission argument “.*” grants configuration permissions on all virtual host entities. It allows you to declare exchanges, queues, etc.
+* The second permission argument “.*” grants write permissions on all virtual host entities. It allows you to create bindings, publish messages etc.
+* The third permission argument “.*” grants read permissions. It allows you to read queues, consume messages, etc.
+
+```bash
+sudo rabbitmqctl list_permissions
+```
+
+
+
 
 
