@@ -183,7 +183,7 @@ az upgrade --yes
 
 ### https://www.digitalocean.com/community/tutorials/linux-commands
 
-## Script
+## Script, permission and run it
 
 1. touch myScript.sh
 
@@ -287,6 +287,7 @@ sudo shutdown -r now
 printenv
 MY_VAR=GOT
 ```
+https://tecadmin.net/setting-up-environment-variables-on-ubuntu/
 
  
 ## Linux disks and path/folder information
