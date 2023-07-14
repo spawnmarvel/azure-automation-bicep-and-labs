@@ -196,14 +196,12 @@ Jul 14 08:21:40 simpleLinuxVM-XXXXX systemd[1]: Started RabbitMQ broker.
 If rabbitmq-env.conf doesn't exist, it can be created manually in the location specified by the RABBITMQ_CONF_ENV_FILE variable
 
 Environment variables can be used to override the location of the configuration file:
-# overrides primary config file location
-RABBITMQ_CONFIG_FILE=/path/to/a/custom/location/rabbitmq.conf
-
-# overrides advanced config file location
-RABBITMQ_ADVANCED_CONFIG_FILE=/path/to/a/custom/location/advanced.config
-
-# overrides environment variable file location
-RABBITMQ_CONF_ENV_FILE=/path/to/a/custom/location/rabbitmq-env.conf
+* overrides primary config file location
+* RABBITMQ_CONFIG_FILE=/path/to/a/custom/location/rabbitmq.conf
+* overrides advanced config file location
+* RABBITMQ_ADVANCED_CONFIG_FILE=/path/to/a/custom/location/advanced.config
+* overrides environment variable file location
+* RABBITMQ_CONF_ENV_FILE=/path/to/a/custom/location/rabbitmq-env.conf
 
 
 
