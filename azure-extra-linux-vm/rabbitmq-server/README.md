@@ -169,6 +169,18 @@ RabbitMQ packages or nodes will not create any configuration files. Users and de
 Environment variables can be used to override the location of the configuration file:
 
 
+```bash
+# Make file
+sudo nano /etc/rabbitmq/advanced.config
+# append [].
+
+# Make file
+cd /etc/rabbitmq/
+sudo touch rabbitmq.conf
+ls
+```
+
+
 
 https://www.rabbitmq.com/configure.html#env-variable-interpolation
 
