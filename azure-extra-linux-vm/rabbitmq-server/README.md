@@ -114,7 +114,7 @@ Args
 sudo rabbitmqctl list_permissions
 ```
 
-Log
+Get log and bin / exe
 ```bash
 # Locate the binary, source, and manual pages for a command
 whereis rabbitmq-server
