@@ -137,5 +137,24 @@ Jul 14 07:53:35 simpleLinuxVM-XXXXXXXX rabbitmq-server[4595]:   Config file(s): 
 Jul 14 07:53:37 simpleLinuxVM-XXXXXXXX rabbitmq-server[4595]:   Starting broker... completed with 3 plugins.
 ```
 
+Tail
+
+```bash
+ sudo tail -f /var/log/rabbitmq/rabbit@simpleLinuxVM-XXXXX.log
+```
+
+```log
+2023-07-14 07:53:37.639980+00:00 [info] <0.544.0> Resetting node maintenance status
+2023-07-14 07:53:37.651443+00:00 [info] <0.603.0> Management plugin: HTTP (non-TLS) listener started on port 15672
+2023-07-14 07:53:37.651598+00:00 [info] <0.631.0> Statistics database started.
+2023-07-14 07:53:37.651682+00:00 [info] <0.630.0> Starting worker pool 'management_worker_pool' with 3 processes in it
+2023-07-14 07:53:37.652008+00:00 [info] <0.544.0> Ready to start client connection listeners
+2023-07-14 07:53:37.653575+00:00 [info] <0.655.0> started TCP listener on [::]:5672
+2023-07-14 07:53:37.720077+00:00 [info] <0.544.0> Server startup complete; 3 plugins started.
+2023-07-14 07:53:37.720077+00:00 [info] <0.544.0>  * rabbitmq_management
+2023-07-14 07:53:37.720077+00:00 [info] <0.544.0>  * rabbitmq_web_dispatch
+2023-07-14 07:53:37.720077+00:00 [info] <0.544.0>  * rabbitmq_management_agent
+```
+
 
 
