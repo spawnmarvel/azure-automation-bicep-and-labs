@@ -54,3 +54,4 @@ sudo systemctl enable rabbitmq-server
 # Restart server and verify start up
 sudo shutdown -r now
 ```
+![RabbitMQ install](https://github.com/spawnmarvel/azure-automation/blob/main/images/rabbitmqinstall.jpg)
