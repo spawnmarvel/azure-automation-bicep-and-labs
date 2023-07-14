@@ -287,6 +287,8 @@ sudo shutdown -r now
 printenv
 MY_VAR=GOT
 ```
+
+![Var env](https://github.com/spawnmarvel/azure-automation/blob/main/images/varenv.jpg)
 https://tecadmin.net/setting-up-environment-variables-on-ubuntu/
 
  
