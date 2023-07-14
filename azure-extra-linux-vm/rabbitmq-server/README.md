@@ -53,8 +53,11 @@ sudo systemctl enable rabbitmq-server
 
 # Restart server and verify start up
 sudo shutdown -r now
+
+# And when it is up again, test restart
+sudo systemctl restart rabbitmq-server
 ```
-![RabbitMQ install](https://github.com/spawnmarvel/azure-automation/blob/main/images/rabbitmqinstall.jpg)
+![RabbitMQ install](https://github.com/spawnmarvel/azure-automation/blob/main/images/rabbitmqinstall1.jpg)
 
 ## Enable RabbitMQ Management Console
 
@@ -111,7 +114,28 @@ Args
 sudo rabbitmqctl list_permissions
 ```
 
+Log
+```bash
+# Locate the binary, source, and manual pages for a command
+whereis rabbitmq-server
+rabbitmq-server: /usr/sbin/rabbitmq-server /usr/share/man/man8/rabbitmq-server.8.gz
 
+# Identify and report the location of the provided executable
+ which rabbitmq-server
+/usr/sbin/rabbitmq-server
+
+# View path for log
+```bash
+sudo systemctl status rabbitmq-server
+
+```
+Path
+```log
+Jul 14 07:53:35 simpleLinuxVM-XXXXXXXX rabbitmq-server[4595]:   Logs: /var/log/rabbitmq/rabbit@simpleLinuxVM-26446.log
+Jul 14 07:53:35 simpleLinuxVM-XXXXXXXX rabbitmq-server[4595]:         <stdout>
+Jul 14 07:53:35 simpleLinuxVM-XXXXXXXX rabbitmq-server[4595]:   Config file(s): (none)
+Jul 14 07:53:37 simpleLinuxVM-XXXXXXXX rabbitmq-server[4595]:   Starting broker... completed with 3 plugins.
+```
 
 
 
