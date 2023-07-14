@@ -166,16 +166,6 @@ RabbitMQ packages or nodes will not create any configuration files. Users and de
 | ------- | ------------------------------------ | --------------------------------
 |Debian and Ubuntu |  /etc/rabbitmq/ | /etc/rabbitmq/rabbitmq.conf, /etc/rabbitmq/advanced.config
 
-Environment variables can be used to override the location of the configuration file:
-# overrides primary config file location
-RABBITMQ_CONFIG_FILE=/path/to/a/custom/location/rabbitmq.conf
-
-# overrides advanced config file location
-RABBITMQ_ADVANCED_CONFIG_FILE=/path/to/a/custom/location/advanced.config
-
-# overrides environment variable file location
-RABBITMQ_CONF_ENV_FILE=/path/to/a/custom/location/rabbitmq-env.conf
-
 ```bash
 # Make file
 sudo nano /etc/rabbitmq/advanced.config
@@ -186,6 +176,34 @@ cd /etc/rabbitmq/
 sudo touch rabbitmq.conf
 ls
 ```
+
+```bash
+
+sudo systemctl restart rabbitmq-server
+```
+
+rabbitmq.conf and advanced.config changes take effect after a node restart.
+
+```log
+Jul 14 08:21:37 simpleLinuxVM-XXXXX rabbitmq-server[643]:   Logs: /var/log/rabbitmq/rabbit@simpleLinuxVM-26446.log
+Jul 14 08:21:37 simpleLinuxVM-XXXXX rabbitmq-server[643]:         <stdout>
+Jul 14 08:21:37 simpleLinuxVM-XXXXX rabbitmq-server[643]:   Config file(s): /etc/rabbitmq/advanced.config
+Jul 14 08:21:37 simpleLinuxVM-XXXXX rabbitmq-server[643]:                   /etc/rabbitmq/rabbitmq.conf
+Jul 14 08:21:40 simpleLinuxVM-XXXXX rabbitmq-server[643]:   Starting broker... completed with 3 plugins.
+Jul 14 08:21:40 simpleLinuxVM-XXXXX systemd[1]: Started RabbitMQ broker.
+```
+
+If rabbitmq-env.conf doesn't exist, it can be created manually in the location specified by the RABBITMQ_CONF_ENV_FILE variable
+
+Environment variables can be used to override the location of the configuration file:
+# overrides primary config file location
+RABBITMQ_CONFIG_FILE=/path/to/a/custom/location/rabbitmq.conf
+
+# overrides advanced config file location
+RABBITMQ_ADVANCED_CONFIG_FILE=/path/to/a/custom/location/advanced.config
+
+# overrides environment variable file location
+RABBITMQ_CONF_ENV_FILE=/path/to/a/custom/location/rabbitmq-env.conf
 
 
 
