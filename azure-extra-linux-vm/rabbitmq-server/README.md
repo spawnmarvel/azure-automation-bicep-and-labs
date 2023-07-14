@@ -156,5 +156,19 @@ Tail
 2023-07-14 07:53:37.720077+00:00 [info] <0.544.0>  * rabbitmq_management_agent
 ```
 
+## Config files
 
+Default configuration file location is distribution-specific. 
+
+RabbitMQ packages or nodes will not create any configuration files. Users and deployment tool should use the following locations when creating the files:
+
+|Platform | Default Configuration File Directory | Example Configuration File Paths
+| ------- | ------------------------------------ | --------------------------------
+|Debian and Ubuntu |  /etc/rabbitmq/ | /etc/rabbitmq/rabbitmq.conf, /etc/rabbitmq/advanced.config
+
+Environment variables can be used to override the location of the configuration file:
+
+
+
+https://www.rabbitmq.com/configure.html#env-variable-interpolation
 
