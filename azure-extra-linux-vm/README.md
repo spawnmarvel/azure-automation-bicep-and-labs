@@ -257,6 +257,37 @@ The internal field separator
 * By default, the IFS variable is set to three characters: newline, space, and the tab. If you echo $IFS, you won't see anything because those characters
 
 http://www.compciv.org/topics/bash/variables-and-substitution/
+
+
+## Setting Up Environment Variables on Ubuntu
+
+```bash
+# To view all the environment variables
+printenv
+# or
+env
+
+# Setting Environment Variables Temporarily
+export MY_VAR="GOT"
+printenv MY_VAR
+
+# Setting Environment Variables Permanently
+# For system-wide environment variables, edit the /etc/environment file.
+sudo nano /etc/environment
+MY_VAR="GOT"
+# Save and exit the file. For the changes to take effect, either reboot the system or run:
+source /etc/environment
+
+# Verify it
+printenv
+MY_VAR=GOT
+
+# Do a reboot and to be sure and verify it
+sudo shutdown -r now
+printenv
+MY_VAR=GOT
+```
+
  
 ## Linux disks and path/folder information
 | The "thing mentioned"     | Description | Example
