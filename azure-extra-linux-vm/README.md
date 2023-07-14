@@ -288,7 +288,7 @@ printenv
 MY_VAR=GOT
 ```
 
-![Var env](https://github.com/spawnmarvel/azure-automation/blob/main/images/varenv.jpg)
+![Env var](https://github.com/spawnmarvel/azure-automation/blob/main/images/envvar.jpg)
 https://tecadmin.net/setting-up-environment-variables-on-ubuntu/
 
  
