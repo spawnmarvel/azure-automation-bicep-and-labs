@@ -2,7 +2,7 @@
 
 https://www.cherryservers.com/blog/how-to-install-and-start-using-rabbitmq-on-ubuntu-22-04
 
-## Steps
+## Install
 
 Step 1: Install RabbitMQ Server
 First things first, let’s install the prerequisites:
@@ -55,3 +55,32 @@ sudo systemctl enable rabbitmq-server
 sudo shutdown -r now
 ```
 ![RabbitMQ install](https://github.com/spawnmarvel/azure-automation/blob/main/images/rabbitmqinstall.jpg)
+
+## Enable RabbitMQ Management Console
+
+```bash
+sudo rabbitmq-plugins list
+rabbitmq-plugins enable rabbitmq_management
+```
+
+Create a user since default user is default to localhost
+
+```bash
+# Only root or rabbitmq can run rabbitmqctl
+sudo rabbitmqctl add_user username amazing-password
+sudo rabbitmqctl list_users
+sudo rabbitmqctl set_user_tags newuser administrator
+sudo rabbitmqctl set_permissions -p / newuser ".*" ".*" ".*"
+sudo rabbitmqctl list_permissions
+
+```
+
+Open port 15672 inbound to server
+
+Visit http://IP-ADDRESS:15672/
+
+![RabbitMQ management](https://github.com/spawnmarvel/azure-automation/blob/main/images/rabbitmqmanagement.jpg)
+
+
+
+
