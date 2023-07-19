@@ -426,6 +426,8 @@ Let's view the outpu of each log file
 
 ```bash
 cat cronoutput.log
+
+tail -f cronoutput.log
 ```
 
 ```log
@@ -439,6 +441,8 @@ cat cronoutput.log
 
 ```bash
 cat app.log
+
+tail -f app.log
 ```
 
 ```log
