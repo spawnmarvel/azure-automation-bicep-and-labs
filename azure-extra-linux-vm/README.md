@@ -184,7 +184,7 @@ az upgrade --yes
 
 ### https://www.digitalocean.com/community/tutorials/linux-commands
 
-## Script, permission and run it
+## Script bash, permission and run it
 
 1. touch myScript.sh
 
@@ -345,6 +345,62 @@ https://learn.microsoft.com/en-us/cli/azure/azure-cli-learn-bash
 
 https://learn.microsoft.com/en-us/cli/azure/deployment?view=azure-cli-latest#az-deployment-create
 
+
+## Python with cron
+
+```bash
+sudo apt install cron
+sudo systemctl enable cron
+Synchronizing state of cron.service with SysV service script with /lib/systemd/systemd-sysv-install.
+Executing: /lib/systemd/systemd-sysv-install enable cron
+```
+* Cron jobs are recorded and managed in a special file known as a crontab. Each user profile on the system can have their own crontab where they can schedule jobs, which is stored under /var/spool/cron/crontabs/.
+* To schedule a job, open up your crontab for editing and add a task written in the form of a cron expression. The syntax for cron expressions can be broken down into two elements: the schedule and the command to run.
+* https://www.digitalocean.com/community/tutorials/how-to-use-cron-to-automate-tasks-ubuntu-1804
+
+script
+```python
+import time
+from datetime import datetime as dt
+import logging
+import os
+import signal
+import sys
+
+logging.basicConfig(filename='app.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s', level=logging.INFO)
+logging.info('Starting...')
+CUR = dt.now()
+print(str(CUR), " Starting Cron job")
+MAIN_PID = None
+
+def handler(signum, frame):
+    msg = "signal "+ str(signum)
+    logging.info(msg)
+    exit(1)
+
+signal.signal(signal.SIGINT, handler)
+
+def test_loop():
+    rool= True
+    count=0
+    while (rool):
+        count = count +1
+        cur_tmp = dt.now()
+        logging.info("Python count is " + str(cur_tmp))
+        time.sleep(10)
+        if count > 2:
+            rool=False
+
+
+if __name__ == "__main__":
+    MAIN_PID = os.getpid()
+    logging.info(str(MAIN_PID))
+    test_loop()
+    logging.info("Stopping....")
+    cur_tmp = dt.now()
+    print(str(cur_tmp), " Ending Cron job")
+    exit(main())
+```
 
 ## MS Tutorials for Linux TODO
 
