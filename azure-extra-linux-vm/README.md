@@ -349,7 +349,7 @@ https://learn.microsoft.com/en-us/cli/azure/deployment?view=azure-cli-latest#az-
 
 ## Python with cron
 
-Install cron
+Install cron and make it roll :large_blue_circle:
 ```bash
 sudo apt install cron
 sudo systemctl enable cron
