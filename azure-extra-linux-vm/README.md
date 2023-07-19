@@ -178,6 +178,7 @@ az upgrade --yes
 | mariadb       | db server | sudo apt install mariadb-server mariadb-client<br/>sudo systemctl enable --now mariadb <br/>systemctl status mariadb <br/>sudo mysql_secure_installation
 | mysql/mariadb | https://linux.how2shout.com/how-to-install-wordpress-on-ubuntu-22-04-lts-server/ | mysql -u USERNAME -h localhost-IP -p db_mydatabase (enter password) <br> sudo mysql -u root -p
 | IPV6, IPV4    | allow remote, /etc/mysql/mariadb.cnf | [mysqld] bind-address = ::, [mysqld] bind-address = 0.0.0.0
+| crontab       | -e, edit, -l display, -v last time edited (must install it) | crontab -e
 
 
 
@@ -348,6 +349,7 @@ https://learn.microsoft.com/en-us/cli/azure/deployment?view=azure-cli-latest#az-
 
 ## Python with cron
 
+Install cron
 ```bash
 sudo apt install cron
 sudo systemctl enable cron
@@ -368,9 +370,9 @@ import signal
 import sys
 
 logging.basicConfig(filename='app.log', filemode='a', format='%(name)s - %(levelname)s - %(message)s', level=logging.INFO)
-logging.info('Starting...')
+logging.info('Starting...') # all logging will be logged to app.log
 CUR = dt.now()
-print(str(CUR), " Starting Cron job")
+print(str(CUR), " Starting Cron job") # this will be logged to cron log
 MAIN_PID = None
 
 def handler(signum, frame):
@@ -398,9 +400,52 @@ if __name__ == "__main__":
     test_loop()
     logging.info("Stopping....")
     cur_tmp = dt.now()
-    print(str(cur_tmp), " Ending Cron job")
+    print(str(cur_tmp), " Ending Cron job") # this will be logged to cron log
     exit(main())
 ```
+
+Script
+* /home/imsdal/run_loop.py
+* Run the script with python3 run_loop.py
+* cron log, >> /home/imsdal/cronoutput.log
+
+
+Set up as cron jobb
+
+```bash
+crontab -e
+# This will ask you which editor choose from. I used nano since it is my favorite editor, 1 = nano.
+# Choose 1-4 [1]: 1
+* * * * * python3 /home/imsdal/run_loop.py >> /home/imsdal/cronoutput.log
+crontab: installing new crontab
+# So the first 5 stars you can mention the minute, hour, day and month etc. with command to be executed. 
+# Let’s create a cronjob that run every minute with out python script.
+```
+
+Let's view the outpu of each log file
+
+```bash
+cat cronoutput.log
+```
+
+```log
+2023-07-19 23:08:01.284403  Starting Cron job
+2023-07-19 23:08:31.315305  Ending Cron job
+```
+
+```bash
+cat app.log
+```
+
+```log
+root - INFO - Starting...
+root - INFO - 7642
+root - INFO - Python count is 2023-07-19 23:08:01.284480
+root - INFO - Python count is 2023-07-19 23:08:11.294639
+root - INFO - Python count is 2023-07-19 23:08:21.304883
+root - INFO - Stopping....
+```
+
 
 ## MS Tutorials for Linux TODO
 
