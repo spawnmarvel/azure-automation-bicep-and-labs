@@ -148,6 +148,7 @@ az upgrade --yes
 | ssh       | Secure Shell command | ssh user@ipaddress
 | service   | start stop service | service ssh stop
 | ps        | display active proc |
+| ps -aux    | display all active proc | ps -aux 'pipe' less
 | top       | View active processes live with their system usage |
 | kill and killall | Kill active processes by process ID or name | 
 | df        | Display disk filesystem information,  -h parameter to make the data human-readable. | df -h
