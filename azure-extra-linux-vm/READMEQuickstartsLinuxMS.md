@@ -560,6 +560,10 @@ Go back to the disk and create VM
 
 ![NEW VM ](https://github.com/spawnmarvel/azure-automation/blob/main/images/NEWVM.jpg)
 
+Error
+
+![ERROR ](https://github.com/spawnmarvel/azure-automation/blob/main/images/error.jpg)
+
 
 Reattach data disk
 All data disks need to be reattached to the virtual machine (datadrives etc)
