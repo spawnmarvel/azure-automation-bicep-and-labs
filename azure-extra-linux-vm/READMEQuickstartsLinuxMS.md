@@ -542,7 +542,7 @@ az disk create --resource-group $rgName --name mySnapshotDisk --source osDisk-ba
 
 ```
 
- ![disk ](https://github.com/spawnmarvel/azure-automation/blob/main/images/disk.jpg)
+![disk ](https://github.com/spawnmarvel/azure-automation/blob/main/images/disk.jpg)
 
 
 Restore virtual machine from snapshot
@@ -551,9 +551,18 @@ Restore virtual machine from snapshot
 az resource list --resource-group $rgName --query [].name
 [...]
 "osDisk-backup01",
-
+"mySnapshotDisk",
 ```
 
+Go to portal and Public IP address-> Dissocitate
+
+Go back to the disk and create VM
+
+![NEW VM ](https://github.com/spawnmarvel/azure-automation/blob/main/images/NEWVM.jpg)
+
+
+Reattach data disk
+All data disks need to be reattached to the virtual machine (datadrives etc)
 
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
