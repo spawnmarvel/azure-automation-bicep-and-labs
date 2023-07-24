@@ -564,6 +564,18 @@ Error
 
 ![ERROR ](https://github.com/spawnmarvel/azure-automation/blob/main/images/error.jpg)
 
+from the Bicep file which the initial VM was deployd
+
+```json
+var securityProfileJson = {
+  uefiSettings: {
+    secureBootEnabled: true
+    vTpmEnabled: true
+  }
+  securityType: securityType
+}
+```
+There is always something....maybe better to take a backup and restore from that.
 
 Reattach data disk
 All data disks need to be reattached to the virtual machine (datadrives etc)
