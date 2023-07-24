@@ -576,6 +576,8 @@ Tutorial - Manage Azure disks with the Azure CLI, https://learn.microsoft.com/en
 
 Tutorial - How to use cloud-init to customize a Linux virtual machine in Azure on first boot, https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment
 
+All:
+
 https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMEQuickstartsLinuxMS.md
 
 ## Bash for Beginners TODO
