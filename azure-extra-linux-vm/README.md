@@ -1,4 +1,4 @@
-# Azure Linux 
+# Azure Linux Ubuntu
 
 ## Install Azure CLI on Windows
 
