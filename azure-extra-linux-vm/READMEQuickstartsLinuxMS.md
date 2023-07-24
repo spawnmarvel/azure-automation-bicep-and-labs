@@ -486,5 +486,27 @@ Take a disk snapshot
 * VM can be restored using a snapshot.
 * When a VM has more than one disk, a snapshot is taken of each disk independently of the others. To take application consistent backups, consider stopping the VM before you take disk snapshots. Alternatively, use the Azure Backup service, which enables you to perform automated backups while the VM is running.
 
+Create snapshot
+
+```bash
+rgName="Rg-iac-linux-fu-0982"
+myVm="simpleLinuxVM-17692"
+az vm show -g $rgName -n $myVm
+
+osdiskid=$(az vm show -g $rgName -n $myVm --query "storageProfile.osDisk.managedDisk.id" -o tsv)
+echo $osdiskid
+
+```
+
+(
+  Install nginx so we have a reference
+
+  https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04#step-6-getting-familiar-with-important-nginx-files-and-directories
+
+  Add NSG inbound HTTP
+)
+
+Now that you have the ID, use az snapshot create to create a snapshot of the disk.
+
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
 
