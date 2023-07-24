@@ -440,11 +440,48 @@ NOTE: VM sizes with an S in the size name, typically support Premium Storage. Fo
 
 Create and attach disks
 
-```bash
+Attach disk at VM creation
 
+```bash
 az group create --name myResourceGroupDisk --location uksouth
 
+az vm create \
+  --resource-group myResourceGroupDisk \
+  --name myVM \
+  --image UbuntuLTS \
+  --size Standard_DS2_v2 \
+  --admin-username azureuser \
+  --generate-ssh-keys \
+  --data-disk-sizes-gb 128 128
 ```
+Attach disk to existing VM
+
+```bash
+az vm disk attach \
+    --resource-group myResourceGroupDisk \
+    --vm-name myVM \
+    --name myDataDisk \
+    --size-gb 128 \
+    --sku Premium_LRS \
+    --new
+```
+Prepare data disks (mount, datadrive, fstab, restart)
+
+Look above "Quickstart: Create an Ubuntu Linux virtual machine using a Bicep file"
+
+```bash
+ssh
+parted
+mkfs.xfs
+partprobe
+mkdir datadrive && mount
+blkid
+nano /etc/fstab
+
+```
+
+Partition the disk with parted.
+
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
 
