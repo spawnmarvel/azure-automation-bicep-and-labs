@@ -522,6 +522,9 @@ az snapshot create --resource-group $rgName --source "$osdiskid" --name osDisk-b
 ```
 Do the rest in the Portal.
 
+Create snap
+
+ ![snap ](https://github.com/spawnmarvel/azure-automation/blob/main/images/snap.jpg)
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
 
