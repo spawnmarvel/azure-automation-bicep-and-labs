@@ -339,6 +339,12 @@ usermod -aG sudo username
 # change to user
 su - username
 
+# apt install
+apt install zip
+E: Could not open lock file /var/lib/dpkg/lock-frontend - open (13: Permission denied)
+E: Unable to acquire the dpkg frontend lock (/var/lib/dpkg/lock-frontend), are you root?
+sudo apt install zip
+
 ```
 * Step 4 — Setting Up a Basic Firewall
 * Step 5 — Enabling External Access for Your Regular User
