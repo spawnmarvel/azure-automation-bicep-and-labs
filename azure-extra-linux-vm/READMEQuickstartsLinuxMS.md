@@ -583,3 +583,9 @@ All data disks need to be reattached to the virtual machine (datadrives etc)
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
 
+
+
+## Tutorial - How to use cloud-init to customize a Linux virtual machine in Azure on first boot
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment
+
