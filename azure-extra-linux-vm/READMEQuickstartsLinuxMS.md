@@ -489,8 +489,8 @@ Take a disk snapshot
 Create snapshot
 
 ```bash
-rgName="Rg-iac-linux-fu-0982"
-myVm="simpleLinuxVM-17692"
+rgName="Rg-iac-linux-fu-xxxxx"
+myVm="simpleLinuxVM-xxxxxx"
 az vm show -g $rgName -n $myVm
 
 osdiskid=$(az vm show -g $rgName -n $myVm --query "storageProfile.osDisk.managedDisk.id" -o tsv)
@@ -522,9 +522,39 @@ az snapshot create --resource-group $rgName --source "$osdiskid" --name osDisk-b
 ```
 Do the rest in the Portal.
 
-Create snap
+Create snap, osDisk-backup01
 
  ![snap ](https://github.com/spawnmarvel/azure-automation/blob/main/images/snap.jpg)
+
+
+
+Delete the vm
+
+```bash
+az vm delete --resource-group $rgName --name $myVm
+
+```
+
+Create disk from snapshot
+
+```bash
+az disk create --resource-group $rgName --name mySnapshotDisk --source osDisk-backup01
+
+```
+
+ ![disk ](https://github.com/spawnmarvel/azure-automation/blob/main/images/disk.jpg)
+
+
+Restore virtual machine from snapshot
+
+```bash
+az resource list --resource-group $rgName --query [].name
+[...]
+"osDisk-backup01",
+
+```
+
+
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
 
