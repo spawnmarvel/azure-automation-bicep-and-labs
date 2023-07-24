@@ -504,8 +504,10 @@ echo $osdiskid
 
   https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-20-04#step-6-getting-familiar-with-important-nginx-files-and-directories
 
-  Add NSG inbound HTTP
-  
+  Add NSG inbound HTTP, sudo systemctl enable nginx, restart server and verify it.
+
+  ![nginx ](https://github.com/spawnmarvel/azure-automation/blob/main/images/nginx.jpg)
+
 )
 
 Now that you have the ID, use az snapshot create to create a snapshot of the disk.
