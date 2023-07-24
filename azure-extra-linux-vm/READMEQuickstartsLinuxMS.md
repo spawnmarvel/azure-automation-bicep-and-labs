@@ -512,5 +512,16 @@ echo $osdiskid
 
 Now that you have the ID, use az snapshot create to create a snapshot of the disk.
 
+```bash
+az snapshot create --resource-group $rgName --source "$osdiskid" --name osDisk-backup
+# hm.... not correct, maybe some bash or windows stuff
+(BadRequest) The source blob uri file:///C:/Program Files/Git/subscriptions/
+# if echo it looks correct
+ echo $osdiskid
+/subscriptions/
+```
+Do the rest in the Portal.
+
+
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
 
