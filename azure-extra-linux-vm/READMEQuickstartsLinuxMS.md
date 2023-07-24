@@ -480,8 +480,11 @@ nano /etc/fstab
 
 ```
 
-Partition the disk with parted.
+Take a disk snapshot
 
+* Azure creates a read only, point-in-time copy of the disk. Azure VM snapshots are useful to quickly save the state of a VM before you make configuration changes.
+* VM can be restored using a snapshot.
+* When a VM has more than one disk, a snapshot is taken of each disk independently of the others. To take application consistent backups, consider stopping the VM before you take disk snapshots. Alternatively, use the Azure Backup service, which enables you to perform automated backups while the VM is running.
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
 
