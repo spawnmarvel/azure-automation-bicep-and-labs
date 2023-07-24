@@ -386,6 +386,12 @@ OpenSSH                    ALLOW       Anywhere
 OpenSSH (v6)               ALLOW       Anywhere (v6)
 
 ```
+As the firewall is currently blocking all connections except for SSH, if you install and configure additional services, you will need to adjust the firewall settings to allow traffic in.
+
+You can learn some common UFW operations in our https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands
+
+
+
 * Step 5 — Enabling External Access for Your Regular User
 
 
