@@ -391,9 +391,21 @@ As the firewall is currently blocking all connections except for SSH, if you ins
 You can learn some common UFW operations in our https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands
 
 
-
 * Step 5 — Enabling External Access for Your Regular User
 
+```bash
+# Now that we have a regular user for daily use, we need to make sure we can SSH into the account directly.
+
+# 1. If you logged in to your root account using a password, then password authentication is enabled for SSH. 
+
+ssh username@ip-address
+
+# Remember, if you need to run a command with administrative privileges, type sudo before it like this:
+sudo command_to_run
+
+# 2. If you logged in to your root account using SSH keys, then password authentication is disabled for SSH. You will need to add a copy of your local public key to the new user’s ~/.ssh/authorized_keys file to log in successfully.
+
+```
 
 https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-20-04
 
