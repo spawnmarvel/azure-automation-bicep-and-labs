@@ -566,7 +566,15 @@ root - INFO - Python count is 2023-07-19 23:11:01.683514
 ```
 
 
-## MS Tutorials for Linux TODO
+## MS Tutorials for Linux
+
+Quickstart: Create an Ubuntu Linux virtual machine using a Bicep file, https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-bicep?tabs=CLI
+
+Tutorial: Create and Manage Linux VMs with the Azure CLI, https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm
+
+Tutorial - Manage Azure disks with the Azure CLI, https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-disks
+
+Tutorial - How to use cloud-init to customize a Linux virtual machine in Azure on first boot, https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment
 
 https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMEQuickstartsLinuxMS.md
 
