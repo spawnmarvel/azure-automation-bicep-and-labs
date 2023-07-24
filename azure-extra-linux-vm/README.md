@@ -347,6 +347,38 @@ sudo apt install zip
 
 ```
 * Step 4 — Setting Up a Basic Firewall
+
+(
+    Note: ufw by default is initially disabled. 
+    ref https://ubuntu.com/server/docs/security-firewall#:~:text=ufw%20%2D%20Uncomplicated%20Firewall,by%20default%20is%20initially%20disabled
+)
+
+```bash
+# Applications can register their profiles with UFW upon installation. These profiles allow UFW to manage these applications by name.
+sudo ufw app list
+Available applications:
+  OpenSSH
+
+# We need to make sure that the firewall allows SSH connections so that we can log back in next time. We can allow these connections by typing:
+sudo ufw allow OpenSSH
+Rules updated
+Rules updated (v6)
+
+# Afterwards, we can enable the firewall by typing:
+sudo ufw enable
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+
+#
+sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+OpenSSH                    ALLOW       Anywhere
+OpenSSH (v6)               ALLOW       Anywhere (v6)
+
+```
 * Step 5 — Enabling External Access for Your Regular User
 
 
