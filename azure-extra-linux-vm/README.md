@@ -302,11 +302,44 @@ https://tecadmin.net/setting-up-environment-variables-on-ubuntu/
 |/dec/sdc | Data disk(s) | Attach disk at VM creation or Attach disk to existing VM, Prepare data disks, Mount and /etc/fstab
 |Linux drive letter | Applications and users should not care what SCSI device letter a particular storage gets, because those sdX letters can change and are expected to change. Instead, the storage should be addressed by some unique and permanent property, such as the LUN WWID or filesystem UUID.| https://access.redhat.com/discussions/6004221
 
-## Initial Server Setup with Ubuntu 20.04 TODO
+## Initial Server Setup with Ubuntu 20.04
 
 * Step 1 — Logging in as root
+
+The root user is the administrative user in a Linux environment that has very broad privileges.
+
+The next step is setting up a new user account with reduced privileges for day-to-day use.
+
+Once you are logged in as root, you’ll be able to add the new user account. In the future, we’ll log in with this new account instead of root.
+
 * Step 2 — Creating a New User
+
+```bash
+# become root
+sudo -i
+adduser username
+# or
+sudo adduser username
+# list user
+getent passwd username
+
+```
 * Step 3 — Granting Administrative Privileges
+
+To avoid having to log out of our normal user and log back in as the root account, we can set up what is known as superuser or root privileges for our normal account. 
+
+This will allow our normal user to run commands with administrative privileges by putting the word sudo before the command.
+
+```bash
+# become root
+sudo -i
+usermod -aG sudo username
+# Now, when logged in as your regular user, you can type sudo before commands to run them with superuser privileges.
+
+# change to user
+su - username
+
+```
 * Step 4 — Setting Up a Basic Firewall
 * Step 5 — Enabling External Access for Your Regular User
 
