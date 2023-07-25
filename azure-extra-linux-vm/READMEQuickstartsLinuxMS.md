@@ -598,7 +598,7 @@ Cloud-init is a widely used approach to customize a Linux VM as it boots for the
 
 Cloud-init also works across distributions. For example, you don't use apt-get install or yum install to install a package. Instead you can define a list of packages to install. Cloud-init automatically uses the native package management tool for the distro you select.
 
-### cloud-init support for virtual machines in Azure
+### (cloud-init support for virtual machines in Azure)
 
 ![Cloud init ](https://github.com/spawnmarvel/azure-automation/blob/main/images/cloudinit.jpg)
 
@@ -606,7 +606,18 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init
 
 
 
+(Examples of cloud-init :https://cloudinit.readthedocs.io/en/latest/reference/examples.html)
+
+
+Continue and create cloud-init.txt
+
+
+
 
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment
 
+
+## DO How To Use Cloud-Config For Your Initial Server Setup
+
+https://www.digitalocean.com/community/tutorials/how-to-use-cloud-config-for-your-initial-server-setup
