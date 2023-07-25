@@ -602,7 +602,7 @@ Cloud-init also works across distributions. For example, you don't use apt-get i
 
 ![Cloud init ](https://github.com/spawnmarvel/azure-automation/blob/main/images/cloudinit.jpg)
 
-https://learn.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init
+cloud-init support https://learn.microsoft.com/en-us/azure/virtual-machines/linux/using-cloud-init
 
 
 
