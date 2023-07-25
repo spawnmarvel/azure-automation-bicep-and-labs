@@ -609,14 +609,35 @@ cloud-init support https://learn.microsoft.com/en-us/azure/virtual-machines/linu
 (Examples of cloud-init :https://cloudinit.readthedocs.io/en/latest/reference/examples.html)
 
 
-Continue and create cloud-init.txt, cloud-init.yaml
+Continue and create cloud-init.yaml, view also the-cloud-init folder
+
+```yaml
+#cloud-config
+package_update: true
+package_upgrade: true
+# pre update and upgrade our instance on its first boot https://docs.fuga.cloud/how-to-use-cloud-init
+
+packages:
+  - nginx
+write_files:
+  - owner: www-data:www-data
+    path: /etc/nginx/sites-available/default
+    content: |
+      server {
+        listen 80;
+        listen 127.0.0.1;
+      }
+runcmd:
+  - service nginx restart
+  
+```
 
 ```bash
-az group create --name Rg-test-cloud-init-002 --location uksouth
+az group create --name Rg-test-cloud-init-004 --location uksouth
 
-az vm create --resource-group Rg-test-cloud-init-002 --name myAutomatedVM --image UbuntuLTS --admin-username azureuser --generate-ssh-keys --custom-data cloud-init.yaml
+az vm create --resource-group Rg-test-cloud-init-004 --name myAutomatedVM --image UbuntuLTS --admin-username azureuser --generate-ssh-keys --custom-data cloud-init.yaml
 
-az vm open-port --port 80 --resource-group Rg-test-cloud-init-002 --name myAutomatedVM
+az vm open-port --port 80 --resource-group Rg-test-cloud-init-004 --name myAutomatedVM
 ```
 
 It takes a few minutes for the VM to be created, the packages to install, and the app to start. 

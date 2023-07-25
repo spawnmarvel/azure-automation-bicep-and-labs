@@ -1,5 +1,8 @@
 #cloud-config
+package_update: true
 package_upgrade: true
+# pre update and upgrade our instance on its first boot https://docs.fuga.cloud/how-to-use-cloud-init
+
 packages:
   - nginx
 write_files:
@@ -8,14 +11,7 @@ write_files:
     content: |
       server {
         listen 80;
-        location / {
-          proxy_pass http://localhost:3000;
-          proxy_http_version 1.1;
-          proxy_set_header Upgrade $http_upgrade;
-          proxy_set_header Connection keep-alive;
-          proxy_set_header Host $host;
-          proxy_cache_bypass $http_upgrade;
-        }
+        listen 127.0.0.1;
       }
 runcmd:
   - service nginx restart
