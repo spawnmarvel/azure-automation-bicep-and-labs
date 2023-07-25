@@ -681,6 +681,35 @@ az keyvault certificate create --vault-name $keyvault_name --name mycert01x01 --
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment
 
 
+Prepare certificate for use with VM
+* To use the certificate during the VM create process, obtain the ID of your certificate with az keyvault secret list-versions. The VM needs the certificate in a certain format to inject it on boot, so convert the certificate with az vm secret format. The following example assigns the output of these commands to variables for ease of use in the next steps:
+
+```bash
+secret=$(az keyvault secret list-versions --vault-name $keyvault_name --name mycert01x01 --query "[?attributes.enabled].id" --output tsv)
+
+vm_secret=$(az vm secret format --secret "$secret" --output json)
+```
+
+Create secure VM
+
+```bash
+az vm create --resource-group Rg-test-cloud-init-005 --name myVMWithCerts --image UbuntuLTS --admin-username azureuser --generate-ssh-keys --custom-data cloud-init-secured.yaml --secrets "$vm_secret"
+```
+
+Open 443
+
+```bash
+az vm open-port \
+    --resource-group Rg-test-cloud-init-005 \
+    --name myVMWithCerts \
+    --port 443
+```
+
+https://<publicIpAddress> in the address bar. 
+
+![self signed ](https://github.com/spawnmarvel/azure-automation/blob/main/images/selfsigned.jpg)
+
+
 ## Digital Ocean How To Use Cloud-Config For Your Initial Server Setup
 
 https://www.digitalocean.com/community/tutorials/how-to-use-cloud-config-for-your-initial-server-setup
