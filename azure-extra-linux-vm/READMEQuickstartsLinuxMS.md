@@ -714,6 +714,11 @@ CLIGetDefaultPolicy
 ![self signed ](https://github.com/spawnmarvel/azure-automation/blob/main/images/selfsigneddefault.jpg)
 
 
-## Digital Ocean How To Use Cloud-Config For Your Initial Server Setup
+## Tutorial: Create a custom image of an Azure VM with the Azure CLI
 
-https://www.digitalocean.com/community/tutorials/how-to-use-cloud-config-for-your-initial-server-setup
+https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images
+
+
+Next Tutorial: Create and manage Azure virtual networks for Linux virtual machines with the Azure CLI
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-virtual-network
