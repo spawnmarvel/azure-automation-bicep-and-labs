@@ -648,6 +648,36 @@ http://<publicIpAddress> in the address bar.
 
 ![Nginx ](https://github.com/spawnmarvel/azure-automation/blob/main/images/nginx2.jpg)
 
+
+### Inject certificates from Key Vault
+
+* Create an Azure Key Vault
+* Generate or upload a certificate to the Key Vault
+* Create a secret from the certificate to inject in to a VM
+* Create a VM and inject the certificate
+
+Create an Azure Key Vault
+
+```bash
+
+keyvault_name=mykeyvault01x0178qa
+
+az group create --name Rg-test-cloud-init-005 --location uksouth
+
+az keyvault create --resource-group Rg-test-cloud-init-005  --name $keyvault_name --enabled-for-deployment
+
+```
+
+Generate certificate and store in Key Vault
+* For production use, you should import a valid certificate signed by trusted provider with az keyvault certificate import. 
+* For this tutorial, the following example shows how you can generate a self-signed certificate with az keyvault certificate create that uses the default certificate policy:
+
+```bash
+az keyvault certificate create --vault-name $keyvault_name --name mycert01x01 --policy "$(az keyvault certificate get-default-policy --output json)"
+```
+
+![certificate ](https://github.com/spawnmarvel/azure-automation/blob/main/images/certificate.jpg)
+
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment
 
 
