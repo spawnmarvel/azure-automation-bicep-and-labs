@@ -709,6 +709,10 @@ https://<publicIpAddress> in the address bar.
 
 ![self signed ](https://github.com/spawnmarvel/azure-automation/blob/main/images/selfsigned.jpg)
 
+CLIGetDefaultPolicy
+
+![self signed ](https://github.com/spawnmarvel/azure-automation/blob/main/images/selfsigneddefault.jpg)
+
 
 ## Digital Ocean How To Use Cloud-Config For Your Initial Server Setup
 
