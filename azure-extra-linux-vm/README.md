@@ -618,6 +618,8 @@ https://github.com/spawnmarvel/azure-automation/tree/main/azure-extra-linux-vm/b
 | /usr -   | This is unfortunately named, most often it does not contain user files in the sense of a home folder. This is meant for user installed software and utilities, however that is not to say you can't add personal directories in there. Inside this directory are sub-directories for /usr/bin, /usr/local, etc.
 | /var -  | Variable directory, it's used for system logging, user tracking, caches, etc. Basically anything that is subject to change all the time.
 
+ref https://linuxjourney.com/lesson/filesystem-hierarchy
+
 https://linuxjourney.com/
 
 
