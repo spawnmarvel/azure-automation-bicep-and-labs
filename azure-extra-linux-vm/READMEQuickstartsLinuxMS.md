@@ -612,21 +612,22 @@ cloud-init support https://learn.microsoft.com/en-us/azure/virtual-machines/linu
 Continue and create cloud-init.txt, cloud-init.yaml
 
 ```bash
-az group create --name Rg-test-cloud-init-001 --location uksouth
+az group create --name Rg-test-cloud-init-002 --location uksouth
 
-az vm create --resource-group Rg-test-cloud-init-001 --name myAutomatedVM --image UbuntuLTS --admin-username azureuser --generate-ssh-keys --custom-data cloud-init.yaml
+az vm create --resource-group Rg-test-cloud-init-002 --name myAutomatedVM --image UbuntuLTS --admin-username azureuser --generate-ssh-keys --custom-data cloud-init.yaml
 
-az vm open-port --port 80 --resource-group Rg-test-cloud-init-001 --name myAutomatedVM
+az vm open-port --port 80 --resource-group Rg-test-cloud-init-002 --name myAutomatedVM
 ```
 
 It takes a few minutes for the VM to be created, the packages to install, and the app to start. 
 
 There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app. 
 
+14:14->
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment
 
 
-## DO How To Use Cloud-Config For Your Initial Server Setup
+## Digital Ocean How To Use Cloud-Config For Your Initial Server Setup
 
 https://www.digitalocean.com/community/tutorials/how-to-use-cloud-config-for-your-initial-server-setup
