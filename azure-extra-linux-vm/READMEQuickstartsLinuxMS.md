@@ -644,7 +644,9 @@ It takes a few minutes for the VM to be created, the packages to install, and th
 
 There are background tasks that continue to run after the Azure CLI returns you to the prompt. It may be another couple of minutes before you can access the app. 
 
-14:14->
+http://<publicIpAddress> in the address bar.
+
+![Nginx ](https://github.com/spawnmarvel/azure-automation/blob/main/images/nginx2.jpg)
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-automate-vm-deployment
 
