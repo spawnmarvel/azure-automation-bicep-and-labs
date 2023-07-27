@@ -219,6 +219,8 @@ az upgrade --yes
 
 ## Script bash, permission and run it
 
+![Vicuna ](https://github.com/spawnmarvel/azure-automation/blob/main/images/vicunajpg)
+
 1. touch myScript.sh
 
 2. nano myScript.sh
