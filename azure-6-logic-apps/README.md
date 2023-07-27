@@ -1,6 +1,7 @@
 ## Logic app
 
 
+
 ## Done it with Python Function and HTTP connector for logic app
 
 https://follow-e-lo.com/
@@ -87,6 +88,10 @@ https://techcommunity.microsoft.com/t5/azure-integration-services-blog/logic-app
 
 
 ### Consumption vs Standard
+
+Hosting options- Which is right for you?
+
+
 
 ![Learn logic app guide ](https://github.com/spawnmarvel/azure-automation/blob/main/images/logicappcreate2.jpg)
 
