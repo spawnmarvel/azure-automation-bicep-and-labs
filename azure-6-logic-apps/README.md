@@ -66,3 +66,26 @@ https://techcommunity.microsoft.com/t5/azure-integration-services-blog/logic-app
 
 ![Learn logic app guide ](https://github.com/spawnmarvel/azure-automation/blob/main/images/logicappcreate2.jpg)
 
+## Connect to Azure Service Bus from workflows in Azure Logic Apps
+
+Applies to: Azure Logic Apps (Consumption + Standard)
+
+* [...]
+* Manage messages in queues and topic subscriptions, for example, get, get deferred, complete, defer, abandon, and dead-letter.
+
+Connector technical reference
+
+The Service Bus connector has different versions, based on logic app workflow type and host environment.
+* Consumption, [...]
+* Consumption, [...]
+* Standard, Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only)
+
+[...]
+Large message support
+
+Large message support is available only for Standard workflows when you use the Service Bus built-in connector operations. For example, you can receive and large messages using the built-in triggers and actions respectively.
+
+For the Service Bus managed connector, the maximum message size is limited to 1 MB, even when you use a premium tier Service Bus namespace, ref https://learn.microsoft.com/en-us/azure/connectors/connectors-create-api-servicebus?tabs=consumption
+
+Service Bus Messaging, premium tier: up to 100MB, Standard tier up to 256 kb ref https://learn.microsoft.com/en-us/azure/service-bus-messaging/service-bus-premium-messaging
+
