@@ -50,9 +50,11 @@ Decision criteria
 
 https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption%2Cazure-portal
 
+### Statefull vs Stateless
+
 Statefull
 * Store state to storage account
-* Message size higher 64kb
+* Message size higher then 64kb
 
 Stateless
 * Not store state to storage account, runs in memory
