@@ -68,6 +68,11 @@ ref https://linuxjourney.com/lesson/filesystem-hierarchy
 
 https://linuxjourney.com/
 
+Unix philosphy
+
+![Unix ](https://github.com/spawnmarvel/azure-automation/blob/main/images/unix.jpg)
+ref https://bash.cyberciti.biz/guide/Unix_philosophy
+
 ## Azure CLI
 How to install the Azure CLI
 
