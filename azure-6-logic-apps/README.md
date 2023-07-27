@@ -19,7 +19,7 @@ How Azure Logic Apps works
 * Workflows are built from different types of tasks. 
 * Azure Logic Apps uses the terms trigger, action, and control action for these concepts. These operations are the building blocks of Azure Logic Apps.
 
-![Learn logic app ](https://github.com/spawnmarvel/azure-automation/tree/main/eventhub/images/learnlogicapp.jpg)
+![Learn logic app ](https://github.com/spawnmarvel/azure-automation/blob/main/images/learnlogicapp.jpg)
 
 A trigger is an event that occurs when a specific set of conditions is satisfied. Triggers activate automatically when conditions are met. For example, when a timer expires or data becomes available.
 
@@ -46,7 +46,7 @@ Decision criteria
 
 Guidance summary
 
-![Learn logic app guide ](https://github.com/spawnmarvel/azure-automation/tree/main/eventhub/images/logicappguide.jpg)
+![Learn logic app guide ](https://github.com/spawnmarvel/azure-automation/blob/main/images/logicappguide.jpg)
 
 https://learn.microsoft.com/en-us/training/modules/intro-to-logic-apps/1-introduction
 
