@@ -62,6 +62,10 @@ Stateless
 * Limited trigger options available
 * 100 messages is ok
 * 500 messages is not ok, error, unable to process for each, limit exceeded maximum 100 and actual 500
+* Sync mode
+* Why use it?
+* * Performance advantages, since not storing state
+* * 
 
 
 Guidance summary
