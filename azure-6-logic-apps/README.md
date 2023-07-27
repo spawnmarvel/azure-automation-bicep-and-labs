@@ -44,6 +44,24 @@ Decision criteria
 | Conditionals | Azure Logic Apps provides control constructs like Boolean expressions, switch statements, and loops so your apps can make decisions based on your data. | There are two reasons you might prefer not to. First, it's often easier to write conditional logic in code rather than using the workflow designer. Second, embedded business rules aren't easily sharable with your other apps. 
 | Connectors | Is whether there are prebuilt connectors for all the services you need to access.| If so, then you're ready to go. 
 
+
+### Limits and configuration reference for Azure Logic Apps
+
+
+https://learn.microsoft.com/en-us/azure/logic-apps/logic-apps-limits-and-config?tabs=consumption%2Cazure-portal
+
+Statefull
+* Store state to storage account
+* Message size higher 64kb
+
+Stateless
+* Not store state to storage account, runs in memory
+* Message size up to 64kb
+* Limited trigger options available
+* 100 messages is ok
+* 500 messages is not ok, error, unable to process for each, limit exceeded maximum 100 and actual 500
+
+
 Guidance summary
 
 ![Learn logic app guide ](https://github.com/spawnmarvel/azure-automation/blob/main/images/logicappguide.jpg)
