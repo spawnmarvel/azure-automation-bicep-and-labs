@@ -8,6 +8,8 @@ Hosting options- Which is right for you?
 
 Can we pick how we host?
 
+![Tenant ](https://github.com/spawnmarvel/azure-automation/blob/main/images/singletenant.jpg)
+
 ## Done it with Python Function and HTTP connector for logic app
 
 https://follow-e-lo.com/
