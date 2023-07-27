@@ -60,3 +60,9 @@ The chart below represents the total time take to process a batch of 40k and 100
               
 
 https://techcommunity.microsoft.com/t5/azure-integration-services-blog/logic-apps-standard-performance-benchmark-burst-workloads/ba-p/3317930
+
+
+### Consumption vs Standard
+
+![Learn logic app guide ](https://github.com/spawnmarvel/azure-automation/blob/main/images/logicappcreate2.jpg)
+
