@@ -443,7 +443,7 @@ This comprehensive learning path reviews deployment and management of Linux on A
 Discover how to migrate and extend your Linux-based workloads on Azure with improved scalability, security, and privacy.
 
 ```bash
-az login --tenant 6dae3ddb-0cf5-4fa6-a49c-c32ae6589d1f
+az login --tenant TENANT-ID-HERE
 
 ```
 
