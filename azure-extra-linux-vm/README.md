@@ -247,15 +247,12 @@ bash myScript.sh
 # Get permission
 ls -l
 # -rw-r--r-- no execute, add it
-chmod +x myScript.sh
+sudo chmod +x myScript.sh
 # Get permission
 ls -l
 # -rwxr-xr-r- 
 # Run it 3
 ./myScript.sh
-
-# Sudo
-sudo ./myScript.sh
 
 # When we write functions and shell scripts, in which arguments are passed in to be processed, 
 # the arguments will be passed int numerically-named variables, e.g. $1, $2, $3
