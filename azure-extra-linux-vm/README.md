@@ -264,15 +264,21 @@ myScript.sh oil gas
 ```
 myScript.sh
 ```bash
+  GNU nano 6.2                                                                                                          myScript.sh
 #!/bin/bash
 
 echo "Input1: $1";
 echo "Input2: $2"
 result="Combined: $1 and $2"
 echo "$result"
-echo "cat to var contains:" 
-rv=$(cat numbers.txt)       
+echo "cat to var contains:"
+rv=$(cat numbers.txt)
 echo "$rv"
+echo "check sub str in str"
+str="Oil is here"
+check_it="Oil"
+if [[ "$str" =~ .*"$check_it".* ]]; then
+   echo "It is here"
 ```
 
 Example
