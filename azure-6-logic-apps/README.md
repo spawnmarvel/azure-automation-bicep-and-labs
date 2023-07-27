@@ -56,7 +56,7 @@ Execution Elapsed Time
 
 The chart below represents the total time take to process a batch of 40k and 100k messages, respectively, when using a WS1, WS2 and WS3 app service plan:
 
-![Benchmark ](https://github.com/spawnmarvel/azure-automation/main/images/benchmark.jpg)
+![Benchmark ](https://github.com/spawnmarvel/azure-automation/blob/main/images/benchmark.jpg)
               
 
 https://techcommunity.microsoft.com/t5/azure-integration-services-blog/logic-apps-standard-performance-benchmark-burst-workloads/ba-p/3317930
