@@ -1,6 +1,12 @@
 ## Logic app
 
+Serverless, event driven, trigger, (email, schedule, message), based on graphical workflow.
 
+Citizen developer that want to create some functionality.
+
+Hosting options- Which is right for you?
+
+Can we pick how we host?
 
 ## Done it with Python Function and HTTP connector for logic app
 
@@ -88,9 +94,6 @@ https://techcommunity.microsoft.com/t5/azure-integration-services-blog/logic-app
 
 
 ### Consumption vs Standard
-
-Hosting options- Which is right for you?
-
 
 
 ![Learn logic app guide ](https://github.com/spawnmarvel/azure-automation/blob/main/images/logicappcreate2.jpg)
