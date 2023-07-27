@@ -219,7 +219,6 @@ az upgrade --yes
 
 ## Script bash, permission and run it
 
-![Vicuna ](https://github.com/spawnmarvel/azure-automation/blob/main/images/vicunajpg)
 
 1. touch myScript.sh
 
@@ -263,6 +262,7 @@ myScript.sh Hello World 42
 # The variable reference, $0, will expand to the current script's name, e.g. my_script.sh
 
 ```
+![Vicuna ](https://github.com/spawnmarvel/azure-automation/blob/main/images/vicuna.jpg)
 
 
 ## Bash variables and command substitution
