@@ -262,6 +262,9 @@ myScript.sh Hello World 42
 # The variable reference, $0, will expand to the current script's name, e.g. my_script.sh
 
 ```
+
+Vicuna
+
 ![Vicuna ](https://github.com/spawnmarvel/azure-automation/blob/main/images/vicuna.jpg)
 
 
