@@ -223,6 +223,8 @@ az upgrade --yes
 
 2. nano myScript.sh
 
+3. which bash, /bin/bash
+
 ```bash
 
 #!/bin/bash
