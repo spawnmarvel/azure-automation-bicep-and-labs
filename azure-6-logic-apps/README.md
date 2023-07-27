@@ -116,7 +116,9 @@ Service Bus Messaging, premium tier: up to 100MB, Standard tier up to 256 kb ref
 
 
 
-### General known issues and limitations
+### Service Bus connectors 
+
+General known issues and limitations
 
 * Infinite loops
 * * Use caution when you select both a trigger and action that have the same connector type and use them to work with the same entity, such as a queue or topic subscription.
