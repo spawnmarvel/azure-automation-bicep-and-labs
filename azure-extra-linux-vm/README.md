@@ -257,15 +257,25 @@ ls -l
 
 # When we write functions and shell scripts, in which arguments are passed in to be processed, 
 # the arguments will be passed int numerically-named variables, e.g. $1, $2, $3
-myScript.sh Hello World 42
+myScript.sh oil gas
 
 # The variable reference, $0, will expand to the current script's name, e.g. my_script.sh
 
 ```
+myScript.sh
+```bash
+#!/bin/bash
 
-Vicuna
+echo "Input1: $1";
+echo "Input2: $2"
+result="Combined: $1 and $2"
+echo "$result"
+echo "cat to var contains:" 
+rv=$(cat numbers.txt)       
+echo "$rv"
+```
 
-![Vicuna ](https://github.com/spawnmarvel/azure-automation/blob/main/images/vicuna.jpg)
+Example
 
 
 ## Bash variables and command substitution
