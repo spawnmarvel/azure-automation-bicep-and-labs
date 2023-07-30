@@ -302,25 +302,94 @@ varName=someValue
 # Variables
 var_a=Hello # (notice no space)
 var_b="Hello World"
-
+n=10
+inp="/Home/sales/data.txt"
+NOW=$(date)
 # Referencing the value of a variable
+
+# # not advisable unless you know what the variable contains
+echo $var_a 
+# use
 echo "$var_a"
 echo "$var_b"
-
-# Failure to dereference
-echo '$var_a'
-$var_a
-
-echo "${var_a}"
-Hello
-
+echo "$n"
+echo "$inp"
+echo $NOW
 
 ```
 
 Valid variable names
 * Should start with either an alphabetical letter or an underscore
 * hey, x9, THESQL_STRING, _secret
+* Variables names are case-sensitive, just like filenames.
 
+https://bash.cyberciti.biz/guide/Rules_for_Naming_variable_name
+
+```bash
+vech=
+echo "$vech"
+
+vech=test
+echo "$vech"
+test
+
+# Generating Output With printf command
+# printf does not provide a new line. 
+# You need to provide format string using % directives and escapes to format numeric and string arguments in a 
+# way that is mostly similar to the C printf() function
+
+# Format control string syntax is as follows:
+printf "%w.pL\n" $varName
+# w - Minimum field width.
+# p - Display number of digits after the decimal point (precision).
+# L - a conversion character. , s - String, d - Integer, e - Exponential, f - Floating point
+
+vech="Car"
+printf "%s\n" $vech
+Car
+
+printf "%s10.5\n" $vech
+Car10.5
+
+no=10
+printf "%d\n" $no
+10
+
+big=5355765
+printf "%e\n" $big
+5.355765e+06
+
+sales=25.123
+printf "%.f\n" $sales
+25
+printf "%.2f\n" $sales
+25.12
+
+```
+
+Default shell variables value
+
+```bash
+
+echo $shellvar
+
+echo ${shellvar:-DefaultValueHere}
+DefaultValueHere
+
+# if $ name is not set use default
+echo ${shellvar=Terminator 2}
+Terminator 2
+
+# if $ unset, set name to default 
+echo ${shellvar:=Terminator 2}
+
+echo $shellvar
+
+# The := syntax
+# If the variable is an empty, you can assign a default value. The syntax is:
+${var:=defaultValue}
+
+```
 
 The internal field separator
 * The global variable IFS is what Bash uses to split a string of expanded into separate words
