@@ -185,7 +185,7 @@ az upgrade --yes
 | kill and killall | Kill active processes by process ID or name | 
 | df        | Display disk filesystem information,  -h parameter to make the data human-readable. | df -h
 | mount     | Mount file systems | https://github.com/spawnmarvel/azure-automation/blob/main/azure-extra-linux-vm/READMEQuickstartsLinuxMS.md
-| chmod     | Command to change file permissions, get permission ls - l, -rw-rw-r-- | chmod +x file, -rwxrwxr-x
+| chmod     | Command to change file permissions, get permission ls - l, -rw-rw-r-- | chmod +x file, -rwxrwxr-x or chmod 0755 file
 | chown     | Command for granting ownership of files or folders, command allows you to change the user and/or group ownership of a given file, directory, or symbolic link. <br/> get permission and owner, ls -l| chown user-or-userid file1
 | ifconfig  | Display network interfaces and IP addresses  | sudo apt install net-tools, eth0:inet private ipaddress
 | traceroute | Trace all the network hops to reach the destination, sudo apt install traceroute | traceroute www.google.com
