@@ -266,9 +266,14 @@ myScript.sh
 ```bash
   GNU nano 6.2                                                                                                          myScript.sh
 #!/bin/bash
+### Turn on debug mode ###
+set -x
 
 echo "Input1: $1";
 echo "Input2: $2"
+### Turn OFF debug mode ###
+set +x
+# Add more commands without debug mode
 result="Combined: $1 and $2"
 echo "$result"
 echo "cat to var contains:"
