@@ -212,6 +212,8 @@ az upgrade --yes
 | IPV6, IPV4    | allow remote, /etc/mysql/mariadb.cnf | [mysqld] bind-address = ::, [mysqld] bind-address = 0.0.0.0
 | crontab       | -e, edit, -l display, -v last time edited (must install it) | crontab -e
 | env           | see all system vaiables |
+| echo "$PATH"  | print path for a system variable | echo "$HOME"
+| printf "$PATH\n" | The printf command is just like echo command and is available under various versions of UNIX operating systems. It is a good idea to use printf if portability is a major concern for you. | printf "$HOME\n"
 
 
 
