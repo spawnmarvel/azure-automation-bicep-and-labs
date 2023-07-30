@@ -211,6 +211,7 @@ az upgrade --yes
 | mysql/mariadb | https://linux.how2shout.com/how-to-install-wordpress-on-ubuntu-22-04-lts-server/ | mysql -u USERNAME -h localhost-IP -p db_mydatabase (enter password) <br> sudo mysql -u root -p
 | IPV6, IPV4    | allow remote, /etc/mysql/mariadb.cnf | [mysqld] bind-address = ::, [mysqld] bind-address = 0.0.0.0
 | crontab       | -e, edit, -l display, -v last time edited (must install it) | crontab -e
+| env           | see all system vaiables |
 
 
 
@@ -266,8 +267,7 @@ myScript.sh
 ```bash
   GNU nano 6.2                                                                                                          myScript.sh
 #!/bin/bash
-### Turn on debug mode ###
-set -x
+
 
 echo "Input1: $1";
 echo "Input2: $2"
