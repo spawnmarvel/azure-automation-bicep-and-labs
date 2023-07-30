@@ -293,18 +293,27 @@ Example
 
 ## Bash variables and command substitution
 
+https://bash.cyberciti.biz/guide/Assign_values_to_shell_variables
+
 ```bash
+
+varName=someValue
+
 # Variables
-var_a="Hello World" # (notice no space)
+var_a=Hello # (notice no space)
+var_b="Hello World"
 
 # Referencing the value of a variable
-echo $var_a
+echo "$var_a"
+echo "$var_b"
 
 # Failure to dereference
 echo '$var_a'
 $var_a
-echo "$var_a"
-Hello World
+
+echo "${var_a}"
+Hello
+
 
 ```
 
