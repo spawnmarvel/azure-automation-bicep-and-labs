@@ -291,7 +291,9 @@ if [[ "$str" =~ .*"$check_it".* ]]; then
 Example
 
 
-## Bash variables and command substitution
+## Linux Bash Shell Scripting Tutorial Wiki
+ 
+ Bash variables and command substitution
 
 https://bash.cyberciti.biz/guide/Assign_values_to_shell_variables
 
