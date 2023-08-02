@@ -438,6 +438,12 @@ https://bash.cyberciti.biz/guide/Quoting
 Export
 
 ```bash
+export backup="/nas10/mysql"
+echo "bck $backup"
+# list all vlocal vars
+export
+[...]
+declare -x backup="/nas10/mysql"
 ```
 
 ## Setting Up Environment Variables on Ubuntu
