@@ -366,6 +366,7 @@ printf "%.2f\n" $sales
 25.12
 
 ```
+https://bash.cyberciti.biz/guide/Echo_Command
 
 Default shell variables value
 
@@ -397,6 +398,45 @@ The internal field separator
 
 http://www.compciv.org/topics/bash/variables-and-substitution/
 
+Quoting
+
+```bash
+echo "$PATH"
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+echo /etc/*.conf
+/etc/adduser.conf /etc/ca-certificates.conf /etc/debconf.conf /etc/deluser.conf [...]
+
+echo "Path: $PATH"
+Path: /usr/local/sbin: [...]
+
+echo 'Path: $PATH'
+Path: $PATH
+
+```
+The Backslash
+
+```bash
+# The backslash ( \ ) alters the special meaning of the ' and " i.e. it will escape or cancel the special meaning of the next character.
+\b     backspace
+\e     an escape character
+\n     new line
+\r     carriage return
+\t     horizontal tab
+\v     vertical tab
+\\     backslash
+\'     single quote
+echo "Pizza bill \$22.5"
+echo "CIFS path must be \\\\NT-Server-Name\\ShareName"
+echo -e "Sr.no\t DVD (price) "
+
+```
+https://bash.cyberciti.biz/guide/Quoting
+
+Export
+
+```bash
+```
 
 ## Setting Up Environment Variables on Ubuntu
 
