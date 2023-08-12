@@ -68,7 +68,7 @@ ref https://linuxjourney.com/lesson/filesystem-hierarchy
 
 https://linuxjourney.com/
 
-![File system ](https://github.com/spawnmarvel/azure-automation/blob/main/images/linuxfilesys.jpg)
+![File system ](https://github.com/spawnmarvel/azure-automation/blob/main/images/linuxfilesys2.jpg)
 
 Unix philosphy
 
