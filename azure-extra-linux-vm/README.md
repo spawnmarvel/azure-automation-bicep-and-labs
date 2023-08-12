@@ -480,6 +480,44 @@ MY_VAR=GOT
 ![Env var](https://github.com/spawnmarvel/azure-automation/blob/main/images/envvar1.jpg)
 https://tecadmin.net/setting-up-environment-variables-on-ubuntu/
 
+
+Getting User Input Via Keyboard and IFS
+
+```bash
+#!/bin/bash
+# Read txt
+read -p "Enter db name: " name
+read -s -p "Enter password: " my_password
+echo "Password: $my_passsord"
+echo "Db: $name. Do stuff."
+
+# Read nr
+read -p "Enter ID one: " n1
+read -p "Enter ID two: " n2
+read -p "Enter ID three: " n3
+echo "ID : $n1, $n2, $n3"
+
+# IFS, the IFS variable worked as token delimiter or separator.
+echo "IFS: $IFS .You will see a whitespace which is nothing but a space, a tab, and a newline (default). "
+
+nameservers="ns1.nixcraft.net ns2.nixcraft.net ns3.nixcraft.net"
+echo "$nameservers"
+read -r ns1 ns2 ns3 <<< "$nameservers"
+echo "DNS #1: $ns1"
+echo "DNS #2: $ns2"
+echo "DNS #3: $ns3"
+
+# Change IFS separator
+pwd="gitevivek:x:1002:1002::/home/gitevivek:/bin/sh"
+old="$IFS"
+echo "$IFS"
+# Set IFS to :
+IFS=:
+read -r login password uid gid info home shell <<< "$pwd"
+echo "$login, $password, $uid, $gid, $info, $home, $shell"
+
+```
+https://bash.cyberciti.biz/guide/Getting_User_Input_Via_Keyboard
  
 ## Linux disks and path/folder information
 | The "thing mentioned"     | Description | Example
