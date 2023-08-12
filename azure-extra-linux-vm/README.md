@@ -448,39 +448,6 @@ export
 declare -x backup="/nas10/mysql"
 ```
 
-## Setting Up Environment Variables on Ubuntu
-
-```bash
-# To view all the environment variables
-printenv
-# or
-env
-
-# Setting Environment Variables Temporarily
-export MY_VAR="GOT"
-printenv MY_VAR
-
-# Setting Environment Variables Permanently
-# For system-wide environment variables, edit the /etc/environment file.
-sudo nano /etc/environment
-MY_VAR="GOT"
-# Save and exit the file. For the changes to take effect, either reboot the system or run:
-source /etc/environment
-
-# Verify it
-printenv
-MY_VAR=GOT
-
-# Do a reboot and to be sure and verify it
-sudo shutdown -r now
-printenv
-MY_VAR=GOT
-```
-
-![Env var](https://github.com/spawnmarvel/azure-automation/blob/main/images/envvar1.jpg)
-https://tecadmin.net/setting-up-environment-variables-on-ubuntu/
-
-
 Getting User Input Via Keyboard and IFS
 
 ```bash
@@ -518,6 +485,41 @@ echo "$login, $password, $uid, $gid, $info, $home, $shell"
 
 ```
 https://bash.cyberciti.biz/guide/Getting_User_Input_Via_Keyboard
+
+
+
+## Setting Up Environment Variables on Ubuntu
+
+```bash
+# To view all the environment variables
+printenv
+# or
+env
+
+# Setting Environment Variables Temporarily
+export MY_VAR="GOT"
+printenv MY_VAR
+
+# Setting Environment Variables Permanently
+# For system-wide environment variables, edit the /etc/environment file.
+sudo nano /etc/environment
+MY_VAR="GOT"
+# Save and exit the file. For the changes to take effect, either reboot the system or run:
+source /etc/environment
+
+# Verify it
+printenv
+MY_VAR=GOT
+
+# Do a reboot and to be sure and verify it
+sudo shutdown -r now
+printenv
+MY_VAR=GOT
+```
+
+![Env var](https://github.com/spawnmarvel/azure-automation/blob/main/images/envvar1.jpg)
+https://tecadmin.net/setting-up-environment-variables-on-ubuntu/
+
  
 ## Linux disks and path/folder information
 | The "thing mentioned"     | Description | Example
