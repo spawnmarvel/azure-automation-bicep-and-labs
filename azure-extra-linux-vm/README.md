@@ -483,6 +483,13 @@ IFS=:
 read -r login password uid gid info home shell <<< "$pwd"
 echo "$login, $password, $uid, $gid, $info, $home, $shell"
 
+# Array -a
+# Set the IFS to split on whitespace
+IFS=$'\n'
+words="one two three"
+read -r -a words <<< "$words"
+echo "${words[@]}
+
 ```
 https://bash.cyberciti.biz/guide/Getting_User_Input_Via_Keyboard
 
