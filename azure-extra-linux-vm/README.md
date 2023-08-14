@@ -494,7 +494,6 @@ echo "${words[@]}
 https://bash.cyberciti.biz/guide/Getting_User_Input_Via_Keyboard
 
 
-
 ## Setting Up Environment Variables on Ubuntu
 
 ```bash
