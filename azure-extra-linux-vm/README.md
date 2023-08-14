@@ -294,10 +294,8 @@ Example
 
 
 ## Linux Bash Shell Scripting Tutorial Wiki
- 
- Bash variables and command substitution
 
-https://bash.cyberciti.biz/guide/Assign_values_to_shell_variables
+Bash variables and command substitution
 
 ```bash
 
@@ -327,7 +325,6 @@ Valid variable names
 * hey, x9, THESQL_STRING, _secret
 * Variables names are case-sensitive, just like filenames.
 
-https://bash.cyberciti.biz/guide/Rules_for_Naming_variable_name
 
 ```bash
 vech=
@@ -370,7 +367,6 @@ printf "%.2f\n" $sales
 25.12
 
 ```
-https://bash.cyberciti.biz/guide/Echo_Command
 
 Default shell variables value
 
@@ -400,7 +396,6 @@ The internal field separator
 * The global variable IFS is what Bash uses to split a string of expanded into separate words
 * By default, the IFS variable is set to three characters: newline, space, and the tab. If you echo $IFS, you won't see anything because those characters
 
-http://www.compciv.org/topics/bash/variables-and-substitution/
 
 Quoting
 
@@ -435,7 +430,6 @@ echo "CIFS path must be \\\\NT-Server-Name\\ShareName"
 echo -e "Sr.no\t DVD (price) "
 
 ```
-https://bash.cyberciti.biz/guide/Quoting
 
 Export
 
@@ -490,8 +484,15 @@ words="one two three"
 read -r -a words <<< "$words"
 echo "${words[@]}
 
+# Make array
+
+arr=("one" "two" "three")
+echo "${arr[1]}"
+
+
 ```
-https://bash.cyberciti.biz/guide/Getting_User_Input_Via_Keyboard
+
+https://bash.cyberciti.biz/guide/Main_Page
 
 
 ## Setting Up Environment Variables on Ubuntu
