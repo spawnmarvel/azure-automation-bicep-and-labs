@@ -482,16 +482,30 @@ echo "$login, $password, $uid, $gid, $info, $home, $shell"
 IFS=$'\n'
 words="one two three"
 read -r -a words <<< "$words"
-echo "${words[@]}
+echo "${words[@]}"
 
 # Make array
-
 arr=("one" "two" "three")
 echo "${arr[1]}"
 
 
 ```
+Perform arithmetic operations
+```bash
+#!/bin/bash
+# Create an integer variable
+declare -i sale=100
+declare -i bonus=12
+total=$(( sale + bonus))
+echo "Total sum int = $total"
 
+# input
+# input
+read -p "Enter two numbers: " x y
+ans=$(( x + y ))
+echo "$x + $y = $ans"
+
+```
 https://bash.cyberciti.biz/guide/Main_Page
 
 
