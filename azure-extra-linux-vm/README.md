@@ -144,7 +144,7 @@ az upgrade --yes
 | which     | Identify and report the location of the provided executable | which wget, which traceroute
 | reboot    |  | sudo shutdown -r now
 | ls        | Show directory contents (list the names of files) | -a (list all + hidden), -l (list all + size)
-| lsblk     | Show disks | lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
+| lsblk     | Show disks, The ones with the TYPE disk are the physically attached disks on your computer. | lsblk -o NAME,HCTL,SIZE,MOUNTPOINT | grep -i "sd"
 | cd        | Change dir  | cd ./folder
 | cd /      | Get to root directory  | (bin  boot  dev  etc  home  lib  lib32  lib64  libx32  lost+found  media  mnt  opt  proc  root  run  sbin  snap  srv  sys  tmp  usr  var)
 | mkdir     | Make dir    |  mkdir folder1
