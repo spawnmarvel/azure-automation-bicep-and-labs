@@ -30,7 +30,6 @@ Step 1 — Enabling mod_ssl
 # an Apache module that provides support for SSL encryption.
 # Enable mod_ssl with the a2enmod command:
 
-
 sudo a2enmod ssl
 
 # Activate module
@@ -42,6 +41,11 @@ sudo service apache2 status
 sudo systemctl enable apache2
 
 ```
+Open port 80 NSG to test apache
+
+![Apache home ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apache.jpg)
+
+
 Step 2 – Creating the SSL Certificate
 
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04
