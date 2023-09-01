@@ -134,5 +134,7 @@ Allow HTTP 443 NSG
 
 ![Apache document ROOT SSL ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apachessl.jpg)
 
+Step 4 — Redirecting HTTP to HTTPS
+
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04
 
