@@ -130,10 +130,12 @@ Syntax OK
 sudo systemctl reload apache2
 
 ```
-Allow HTTP 443 NSG
+Open port 443 NSG to test apache
 
 ![Apache document ROOT SSL ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apachessl.jpg)
 
+
+Restart server and test for same result, = ok, yea.
 Step 4 — Redirecting HTTP to HTTPS
 
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04
