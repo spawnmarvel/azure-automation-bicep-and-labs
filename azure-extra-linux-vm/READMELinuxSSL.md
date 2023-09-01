@@ -48,5 +48,15 @@ Open port 80 NSG to test apache
 
 Step 2 – Creating the SSL Certificate
 
+* openssl: This is the command line tool for creating and managing OpenSSL certificates, keys, and other files.
+* req -x509: This specifies that we want to use X.509 certificate signing request (CSR) management. X.509 is a public key infrastructure standard that SSL and TLS adhere to for key and certificate management.
+* -nodes: This tells OpenSSL to skip the option to secure our certificate with a passphrase. We need Apache to be able to read the file, without user intervention, when the server starts up. A passphrase would prevent this from happening, since we would have to enter it after every restart.
+* -days 365: This option sets the length of time that the certificate will be considered valid. We set it for one year here. Many modern browsers will reject any certificates that are valid for longer than one year.
+* -newkey rsa:2048: This specifies that we want to generate a new certificate and a new key at the same time. We did not create the key that is required to sign the certificate in a previous step, so we need to create it along with the certificate. The rsa:2048 portion tells it to make an RSA key that is 2048 bits long.
+* -keyout: This line tells OpenSSL where to place the generated private key file that we are creating.
+* -out: This tells OpenSSL where to place the certificate that we are creating.
+
+```bash
+```
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04
 
