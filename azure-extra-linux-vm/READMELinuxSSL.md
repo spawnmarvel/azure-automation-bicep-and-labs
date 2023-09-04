@@ -328,3 +328,16 @@ Noo, did not work, ug...I did edit in wordpress settings WordPress Address (URL)
 Use the snapshot and create a disk:
 
 ![Wpdisk](https://github.com/spawnmarvel/azure-automation/blob/main/images/wpdisk.jpg)
+
+Stop VM, swap the disk
+
+```bash
+# login ssh
+cd /etc/apache2/
+ls
+apache2.conf  conf-available  conf-enabled  envvars  magic  mods-available  mods-enabled  ports.conf  sites-available  sites-enabled
+# ssl folder
+```
+And the page is on http
+
+![Swap](https://github.com/spawnmarvel/azure-automation/blob/main/images/swap.jpg)
