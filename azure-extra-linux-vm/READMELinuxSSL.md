@@ -124,19 +124,10 @@ Using this CA:
 https://github.com/spawnmarvel/quickguides/blob/main/securityPKI-CA/README.md
 
 
-
-Use the snapshot and create a disk:
-
-![Wpdisk](https://github.com/spawnmarvel/azure-automation/blob/main/images/wpdisk.jpg)
-
-Stop VM, swap the disk
-
-![Swap](https://github.com/spawnmarvel/azure-automation/blob/main/images/swap.jpg)
-
 Check this
 
 https://www.liberiangeek.net/2014/10/install-wordpress-self-signed-ssl-apache2-ubuntu-14-04/
 
 https://thejeshgn.com/2012/09/12/securing-your-wordpress-site-with-self-ssl/
 
-Plugin lets encrypt
+
