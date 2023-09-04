@@ -146,3 +146,96 @@ https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl
 Using this CA:
 
 https://github.com/spawnmarvel/quickguides/blob/main/securityPKI-CA/README.md
+
+```bash
+sudo apt update
+sudo apt upgrade -y
+
+sudo apt install apache2
+sudo systemctl enable apache2
+systemctl status apache2
+
+# NSG HTTP
+# Page OK, Apache2 Default Page
+
+sudo apt install -y php php-{common,mysql,xml,xmlrpc,curl,gd,imagick,cli,dev,imap,mbstring,opcache,soap,zip,intl}
+
+php -v
+# PHP 8.1.2-1ubuntu2.14 (cli) (built: Aug 18 2023 11:41:11) (NTS)
+
+sudo apt install mariadb-server mariadb-client
+sudo systemctl enable --now mariadb
+systemctl status mariadb
+
+# You already have your root account protected, so you can safely answer 'n'. n
+# Change the root password? [Y/n] n
+# Remove anonymous users? [Y/n] y
+# Disallow root login remotely? [Y/n] y
+# Remove test database and access to it? [Y/n] y
+# Reload privilege tables now? [Y/n] y
+
+# Cleaning up...
+# All done!  If you've completed all of the above steps, your MariaDB
+# installation should now be secure.
+
+CREATE USER 'XXXXXXXXXX'@'localhost' IDENTIFIED BY 'XXXXXXXXXX';
+
+CREATE DATABASE goodtech_wp;
+
+GRANT ALL PRIVILEGES ON goodtech_wp.* TO 'XXXXXXXXXXX'@'localhost';
+
+FLUSH PRIVILEGES;
+
+exit;
+
+wget https://wordpress.org/latest.zip
+sudo apt install unzip
+unzip latest.zip
+
+sudo mv wordpress/ /var/www/html/
+sudo chown www-data:www-data -R /var/www/html/wordpress/
+sudo chmod -R 755 /var/www/html/wordpress/
+
+# Optionally, you can create a configuration for WordPress to help in processing any files relating to WordPress and logging any errors that arise. For that, create a configuration file and paste the below content, editing where necessary.
+
+<VirtualHost *:80>
+
+ServerAdmin admin@simplelinuxvm-12860.com
+
+DocumentRoot /var/www/html/wordpress
+
+ServerName simplelinuxvm-12860-xyhcam5pdsxny.uksouth.cloudapp.azure.com
+
+ServerAlias www.simplelinuxvm-12860-xyhcam5pdsxny.uksouth.cloudapp.azure.com
+
+<Directory /var/www/html/wordpress/>
+
+Options FollowSymLinks
+
+AllowOverride All
+
+Require all granted
+
+</Directory>
+
+ErrorLog ${APACHE_LOG_DIR}/error.log
+
+CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+</VirtualHost>
+
+sudo a2ensite wordpress.conf
+
+sudo a2enmod rewrite
+
+sudo systemctl restart apache2
+
+# Use the below command to disable the Apache test page, restart Apache, and open the address again.
+
+sudo a2dissite 000-default.conf
+sudo systemctl restart apache2
+
+```
+
+Then you get wordpress setup
+![Wordpress](https://github.com/spawnmarvel/azure-automation/blob/main/images/wordpress.jpg)
