@@ -107,6 +107,8 @@ sudo a2ensite hostname.conf
 
 # Next, let’s test for configuration errors:
 sudo apache2ctl configtest
+
+sudo systemctl reload apache2
 ```
 Open port 443 NSG to test apache
 
@@ -116,6 +118,49 @@ Or you can use the tutorial from DO, if you do not have a CA
 
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04
 
+
+## Apache DocumentRoot
+
+The DocumentRoot is the top-level directory in the document tree visible from the web and this directive sets the directory in the configuration from which Apache2 or HTTPD looks for and serves web files from the requested URL to the document root.
+
+* DocumentRoot "/var/www/html"
+* then access to http://domain.com/index.html refers to /var/www/html/index.html. The DocumentRoot should be described without a trailing slash.
+
+https://www.tecmint.com/find-apache-documentroot-in-linux/
+
+Make a new app
+
+```bash
+
+sudo nano /etc/apache2/sites-available/appnew.conf
+
+<VirtualHost *:443>
+   ServerName hostname
+   DocumentRoot /var/www/hostname
+   DocumentRoot /var/www/html/appnew
+
+   SSLEngine on
+   SSLCertificateFile /etc/ssl/certs/server4_certificate.pem
+   SSLCertificateKeyFile /etc/ssl/private/private_key.pem   
+</VirtualHost>
+
+/var/www/html
+sudo mkdir appnew
+cd app
+
+<h1>it worked!2</h1>
+
+sudo a2ensite appnew.conf
+
+sudo apache2ctl configtest
+
+# AH00112: Warning: DocumentRoot [/var/www/hostname] does not exist
+# Syntax OK
+
+sudo systemctl reload apache2
+
+# Hm, and it shows, it worked!2
+```
 
 ## HTTPS for wordpress self signed
 
