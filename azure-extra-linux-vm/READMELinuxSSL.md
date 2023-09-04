@@ -323,4 +323,4 @@ apachectl configtest
 Syntax OK
 
 ```
-Noo, did not work, ug...
+Noo, did not work, ug...I did edit in wordpress settings WordPress Address (URL), http to https.
