@@ -273,3 +273,54 @@ openssl ca -config c:\testca\openssl2.cnf -in c:\testca\server4wp\req.pem -out c
 
 ```
 
+Lets create a snapshot of the VM before we start to work on.
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/snapshot-copy-managed-disk?tabs=portal
+
+A snapshot is a full, read-only copy of a virtual hard disk (VHD). You can use a snapshot as a point-in-time backup, or to help troubleshoot virtual machine (VM) issues. You can take a snapshot of both operating system (OS) or data disk VHDs.
+
+https://www.liberiangeek.net/2014/10/install-wordpress-self-signed-ssl-apache2-ubuntu-14-04/
+
+
+https://www.digicert.com/kb/csr-ssl-installation/apache-openssl.htm
+
+```bash
+# Make the files 
+ca_certificate.pem  private_key.pem  server4_certificate.pem
+
+# Create a directory to hold your certificates.
+sudo mkdir -p /etc/apache2/ssl
+
+# Copy to server
+cd /etc/apache2/ssl
+sudo nano ca_certificate.pem
+sudo nano private_key.pem
+sudo nano server4_certificate.pem
+
+# Check CN
+openssl x509 -noout -subject -in ca_certificate.pem
+subject=CN = SocratesIncCa
+
+openssl x509 -noout -subject -in server4_certificate.pem 
+subject=CN = simplelinuxvm-12860-xyhcam5pdsxny.uksouth.cloudapp.azure.com
+
+# BCK
+/etc/apache2/sites-available
+sudo cp default-ssl.conf default-ssl.conf.bck
+
+# After that, open Apache2 default SSL configuration file to include the location of the SSL certificate file and certificate key.
+/etc/apache2/sites-available
+sudo nano default-ssl.conf
+
+ServerName simplelinuxvm-12860-xyhcam5pdsxny.uksouth.cloudapp.azure.com
+SSLEngine on
+SSLCertificateFile /etc/apache2/ssl/server4_certificate.pem
+SSLCertificateKeyFile /etc/apache2/ssl/private_key.pem
+SSLCertificateChainFile /etc/apache2/ssl/ca_certificate.pem
+
+# Test apache config
+apachectl configtest
+Syntax OK
+
+```
+Noo, did not work, ug...
