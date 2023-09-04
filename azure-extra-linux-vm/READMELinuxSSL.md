@@ -131,8 +131,13 @@ https://www.tecmint.com/find-apache-documentroot-in-linux/
 
 ## Wordpress Install
 
+Take a snap of the drive before install
+
 It should just be to install it and then follow the small steps above for ssl
 
+Take a snap of the drive when HTTP is ok
+
+Start SSL stuff
 
 ## HTTPS for wordpress self signed
 
