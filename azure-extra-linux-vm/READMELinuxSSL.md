@@ -241,3 +241,7 @@ Then you get wordpress setup and can continue:
 
 ![Wordpress](https://github.com/spawnmarvel/azure-automation/blob/main/images/wordpress.jpg)
 
+Done
+
+![Wordpress main](https://github.com/spawnmarvel/azure-automation/blob/main/images/wordpressmain.jpg)
+
