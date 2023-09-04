@@ -237,5 +237,7 @@ sudo systemctl restart apache2
 
 ```
 
-Then you get wordpress setup
+Then you get wordpress setup and can continue:
+
 ![Wordpress](https://github.com/spawnmarvel/azure-automation/blob/main/images/wordpress.jpg)
+
