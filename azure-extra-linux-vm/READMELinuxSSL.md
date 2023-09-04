@@ -128,39 +128,11 @@ The DocumentRoot is the top-level directory in the document tree visible from th
 
 https://www.tecmint.com/find-apache-documentroot-in-linux/
 
-Make a new app
 
-```bash
+## Wordpress Install
 
-sudo nano /etc/apache2/sites-available/appnew.conf
+It should just be to install it and then follow the small steps above for ssl
 
-<VirtualHost *:443>
-   ServerName hostname
-   DocumentRoot /var/www/hostname
-   DocumentRoot /var/www/html/appnew
-
-   SSLEngine on
-   SSLCertificateFile /etc/ssl/certs/server4_certificate.pem
-   SSLCertificateKeyFile /etc/ssl/private/private_key.pem   
-</VirtualHost>
-
-/var/www/html
-sudo mkdir appnew
-cd app
-
-<h1>it worked!2</h1>
-
-sudo a2ensite appnew.conf
-
-sudo apache2ctl configtest
-
-# AH00112: Warning: DocumentRoot [/var/www/hostname] does not exist
-# Syntax OK
-
-sudo systemctl reload apache2
-
-# Hm, and it shows, it worked!2
-```
 
 ## HTTPS for wordpress self signed
 
