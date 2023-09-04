@@ -247,9 +247,9 @@ Done
 
 Using this CA:
 
-We can visit the site with
-
 https://github.com/spawnmarvel/quickguides/blob/main/securityPKI-CA/README.md
+
+We can visit the site using Azure DNS public
 
 http://simplelinuxvm-12860-xyhcam5pdsxny.uksouth.cloudapp.azure.com
 
