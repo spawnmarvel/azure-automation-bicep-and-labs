@@ -245,3 +245,31 @@ Done
 
 ![Wordpress main](https://github.com/spawnmarvel/azure-automation/blob/main/images/wordpressmain.jpg)
 
+Using this CA:
+
+We can visit the site with
+
+https://github.com/spawnmarvel/quickguides/blob/main/securityPKI-CA/README.md
+
+http://simplelinuxvm-12860-xyhcam5pdsxny.uksouth.cloudapp.azure.com
+
+![Dns](https://github.com/spawnmarvel/azure-automation/blob/main/images/dns.jpg)
+
+```bash
+hostname --fqdn
+simpleLinuxVM-12860.hak2yvxe5ckexjzdcfejrgcahc.zx.internal.cloudapp.net
+
+# On CA server
+# Generating RSA private key
+openssl genrsa -out c:\testca\server4wp\private_key.pem 2048
+# Generating request
+openssl req -new -key c:\testca\server4wp\private_key.pem -out c:\testca\server4wp\req.pem -outform PEM -subj /CN=simplelinuxvm-12860-xyhcam5pdsxny.uksouth.cloudapp.azure.com -nodes
+# Server and client extension using new config openssl2.cnf
+openssl ca -config c:\testca\openssl2.cnf -in c:\testca\server4wp\req.pem -out c:\testca\server4wp\server4_certificate.pem -notext -batch
+
+# The Subject's Distinguished Name is as follows
+# commonName            :ASN.1 12:'simplelinuxvm-12860-xyhcam5pdsxny.uksouth.cloudapp.azure.com'
+# Certificate is to be certified until Sep  3 09:14:55 2033 GMT (3652 days)
+
+```
+
