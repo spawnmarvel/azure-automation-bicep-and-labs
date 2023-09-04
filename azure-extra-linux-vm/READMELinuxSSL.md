@@ -324,3 +324,7 @@ Syntax OK
 
 ```
 Noo, did not work, ug...I did edit in wordpress settings WordPress Address (URL), http to https.
+
+Use the snapshot and create a disk:
+
+![Wpdisk](https://github.com/spawnmarvel/azure-automation/blob/main/images/wpdisk.jpg)
