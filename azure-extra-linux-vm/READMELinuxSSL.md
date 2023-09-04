@@ -140,3 +140,9 @@ Step 4 — Redirecting HTTP to HTTPS
 
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04
 
+
+## HTTPS for wordpress self signed
+
+Using this CA:
+
+https://github.com/spawnmarvel/quickguides/blob/main/securityPKI-CA/README.md
