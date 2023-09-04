@@ -341,3 +341,7 @@ apache2.conf  conf-available  conf-enabled  envvars  magic  mods-available  mods
 And the page is on http
 
 ![Swap](https://github.com/spawnmarvel/azure-automation/blob/main/images/swap.jpg)
+
+Check this
+
+https://www.liberiangeek.net/2014/10/install-wordpress-self-signed-ssl-apache2-ubuntu-14-04/
