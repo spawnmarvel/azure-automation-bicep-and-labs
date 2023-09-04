@@ -42,6 +42,7 @@ sudo systemctl enable apache2
 
 ```
 Open port 80 NSG to test apache
+Go to http://hostname.uksouth.cloudapp.azure.com/
 
 ![Apache home ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apache.jpg)
 
@@ -347,3 +348,5 @@ Check this
 https://www.liberiangeek.net/2014/10/install-wordpress-self-signed-ssl-apache2-ubuntu-14-04/
 
 https://thejeshgn.com/2012/09/12/securing-your-wordpress-site-with-self-ssl/
+
+Plugin lets encrypt

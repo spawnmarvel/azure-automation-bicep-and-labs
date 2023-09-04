@@ -12,7 +12,7 @@ echo $now
 logInformation $now
 
 simpleVmName="simpleLinuxVM-$RANDOM"
-resourceGroup='Rg-iac-linux-fu-0982'
+resourceGroup='Rg-iac-linux-fu-0989'
 location='uksouth'
 tags='Environment=Qa'
 
