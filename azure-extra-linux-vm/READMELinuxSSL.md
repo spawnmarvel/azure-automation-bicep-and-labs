@@ -46,6 +46,76 @@ Go to http://hostname.uksouth.cloudapp.azure.com/
 
 ![Apache home ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apache.jpg)
 
+Step 2 creating the SSL Certificate
+
+We will use our CA server
+
+https://github.com/spawnmarvel/quickguides/blob/main/securityPKI-CA/README.md
+
+```bash
+# Get FQDN
+hostname
+
+```
+Now create the certificate on the CA server
+
+```bash
+# cmd on CA server
+# Generating RSA private key
+openssl genrsa -out c:\testca\server2\private_key.pem 2048
+
+# Generating request
+openssl req -new -key c:\testca\server4\private_key.pem -out c:\testca\server4\req.pem -outform PEM -subj /CN=hostname -nodes
+
+# Server and client extension using new config openssl2.cnf
+openssl ca -config c:\testca\openssl2.cnf -in c:\testca\server4\req.pem -out c:\testca\server4\server4_certificate.pem -notext -batch
+
+# Using configuration from c:\testca\openssl2.cnf
+# Check that the request matches the signature
+# Signature ok
+# The Subject's Distinguished Name is as follows
+# commonName            :ASN.1 12:'hostname'
+# Certificate is to be certified until Sep  3 18:11:57 2033 GMT (3652 days)
+
+# CP files you created to appropriate subdirectories under /etc/ssl.
+/etc/ssl/certs
+sudo nano server4_certificate.pem
+cd 
+# save the key local and move it
+sudo nano private_key.pem
+sudo cp private_key.pem /etc/ssl/private/private_key.pem
+
+# Open a new file in the /etc/apache2/sites-available directory:
+hostname --fqdn
+sudo nano /etc/apache2/sites-available/hostname.conf
+
+<VirtualHost *:443>
+   ServerName hostname
+   DocumentRoot /var/www/hostname
+
+   SSLEngine on
+   SSLCertificateFile /etc/ssl/certs/server4_certificate.pem
+   SSLCertificateKeyFile /etc/ssl/private/private_key.pem
+</VirtualHost>
+
+# Now let’s create our DocumentRoot and put an HTML file in it just for testing purposes:
+sudo mkdir /var/www/hostname
+
+# Open a new index.html file with your text editor:
+/var/www/simpleLinuxVM-28885
+sudo nano index.html
+
+<h1>it worked!</h1>
+
+# Save and close the file Next, we need to enable the configuration file with the a2ensite tool:
+sudo a2ensite hostname.conf
+
+# Next, let’s test for configuration errors:
+sudo apache2ctl configtest
+```
+Open port 443 NSG to test apache
+
+![HTTPS](https://github.com/spawnmarvel/azure-automation/blob/main/images/itworked.jpg)
 
 Step 2 – Creating the SSL Certificate
 
