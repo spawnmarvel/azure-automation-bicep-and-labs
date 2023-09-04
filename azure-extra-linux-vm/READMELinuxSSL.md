@@ -72,7 +72,7 @@ openssl ca -config c:\testca\openssl2.cnf -in c:\testca\server4\req.pem -out c:\
 # commonName            :ASN.1 12:'hostname'
 # Certificate is to be certified until Sep  3 18:11:57 2033 GMT (3652 days)
 
-# CP files you created to appropriate subdirectories under /etc/ssl.
+# CP files you created to appropriate subdirectories under /etc/ssl on the host that will be using the certificate
 /etc/ssl/certs
 sudo nano server4_certificate.pem
 cd 
