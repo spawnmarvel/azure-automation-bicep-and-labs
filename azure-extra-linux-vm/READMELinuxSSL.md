@@ -97,6 +97,9 @@ sudo service apache2 reload
 
 Logic and configuration 
 * We have it named gci here but any name will work, as long as we point to it in the virtual hosts configuration file later.
+* The default file doesn’t come with a ServerName directive so we’ll have to add and define it by adding this line below the last directive:
+* ServerName DNS name found in Azure
+* This ensures people reach the right site instead of the default one when they type in gci.example.com.
 
 ![Aapache config ](https://github.com/spawnmarvel/azure-automation/blob/main/images/configapache.jpg)
 
