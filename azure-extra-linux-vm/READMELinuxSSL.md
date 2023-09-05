@@ -97,7 +97,7 @@ sudo service apache2 reload
 
 Logic and configuration
 
-![Aapache config ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apacheconfig.jpg)
+![Aapache config ](https://github.com/spawnmarvel/azure-automation/blob/main/images/configapache.jpg)
 
 https://ubuntu.com/tutorials/install-and-configure-apache#1-overview
 
