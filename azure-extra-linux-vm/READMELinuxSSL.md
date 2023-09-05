@@ -131,12 +131,12 @@ Let's take a snaphot of the OS drive before we do that, HTTP configuration.
 sudo apt update
 sudo apt upgrade -y
 
-sudo apt install apache2
-
+# List avaliable rules
 sudo ufw app list
-
+# Add rules
 sudo ufw allow OpenSSH
 sudo ufw allow "Apache Full"
+# Enable FW
 sudo ufw enable
 sudo ufw status
 
