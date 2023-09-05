@@ -8,7 +8,7 @@ https://itslinuxfoss.com/install-openssl-ubuntu-22-04/?utm_content=cmp-true
 
 Overview
 
-Install and Configure Apache
+1 Install and Configure Apache
 
 ```bash
 
@@ -18,15 +18,16 @@ sudo apt upgrade -y
 sudo apt install apache2
 # After letting the command run, all required packages are installed and we can test it out.
 # Type in our IP address for the web server.
+# Open HTTP if ufw is enabled and open NSG inbound HTTP
 
 ```
 ![Apache home ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apache.jpg)
 
-Creating Your Own Website
+2 Creating Your Own Website
 
-Setting up the VirtualHost Configuration File
+4 Setting up the VirtualHost Configuration File
 
-Activating VirtualHost file
+5 Activating VirtualHost file
 
 https://ubuntu.com/tutorials/install-and-configure-apache#1-overview
 
