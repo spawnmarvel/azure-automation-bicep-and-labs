@@ -37,7 +37,7 @@ sudo systemctl enable apache2
 
 ```
 Open port 80 NSG to test apache
-Go to http://hostname.uksouth.cloudapp.azure.com/
+Go to http://your_domain_or_ip.uksouth.cloudapp.azure.com/
 
 ![Apache home ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apache.jpg)
 
@@ -60,7 +60,7 @@ Now create the certificate on the CA server
 openssl genrsa -out c:\testca\server2\private_key.pem 2048
 
 # Generating request
-openssl req -new -key c:\testca\server4\private_key.pem -out c:\testca\server4\req.pem -outform PEM -subj /CN=hostname -nodes
+openssl req -new -key c:\testca\server4\private_key.pem -out c:\testca\server4\req.pem -outform PEM -subj /CN=your_domain_or_ip -nodes
 
 # Server and client extension using new config openssl2.cnf
 openssl ca -config c:\testca\openssl2.cnf -in c:\testca\server4\req.pem -out c:\testca\server4\server4_certificate.pem -notext -batch
@@ -69,7 +69,7 @@ openssl ca -config c:\testca\openssl2.cnf -in c:\testca\server4\req.pem -out c:\
 # Check that the request matches the signature
 # Signature ok
 # The Subject's Distinguished Name is as follows
-# commonName            :ASN.1 12:'hostname'
+# commonName            :ASN.1 12:'your_domain_or_ip'
 # Certificate is to be certified until Sep  3 18:11:57 2033 GMT (3652 days)
 
 # CP files you created to appropriate subdirectories under /etc/ssl on the host that will be using the certificate
@@ -81,12 +81,12 @@ sudo nano private_key.pem
 sudo cp private_key.pem /etc/ssl/private/private_key.pem
 
 # Open a new file in the /etc/apache2/sites-available directory:
-hostname --fqdn
-sudo nano /etc/apache2/sites-available/hostname.conf
+your_domain_or_ip --fqdn
+sudo nano /etc/apache2/sites-available/your_domain_or_ip.conf
 
 <VirtualHost *:443>
-   ServerName hostname
-   DocumentRoot /var/www/hostname
+   ServerName your_domain_or_ip
+   DocumentRoot /var/www/your_domain_or_ip
 
    SSLEngine on
    SSLCertificateFile /etc/ssl/certs/server4_certificate.pem
@@ -94,16 +94,16 @@ sudo nano /etc/apache2/sites-available/hostname.conf
 </VirtualHost>
 
 # Now let’s create our DocumentRoot and put an HTML file in it just for testing purposes:
-sudo mkdir /var/www/hostname
+sudo mkdir /var/www/your_domain_or_ip
 
 # Open a new index.html file with your text editor:
-/var/www/simpleLinuxVM-28885
+/var/www/your_domain_or_ip
 sudo nano index.html
 
 <h1>it worked!</h1>
 
 # Save and close the file Next, we need to enable the configuration file with the a2ensite tool:
-sudo a2ensite hostname.conf
+sudo a2ensite your_domain_or_ip.conf
 
 # Next, let’s test for configuration errors:
 sudo apache2ctl configtest
@@ -113,6 +113,22 @@ sudo systemctl reload apache2
 Open port 443 NSG to test apache
 
 ![HTTPS](https://github.com/spawnmarvel/azure-automation/blob/main/images/itworked.jpg)
+
+Redirect HTTP to HTTPS
+
+```bash
+# Open the same Apache configuration file we started in previous steps:
+sudo nano /etc/apache2/sites-available/your_domain_or_ip.conf
+# At the bottom, create another VirtualHost block to match requests on port 80.
+<VirtualHost *:80>
+	ServerName your_domain_or_ip
+	Redirect / https://your_domain_or_ip/
+</VirtualHost>
+
+# save and close
+sudo apachectl configtest
+sudo systemctl reload apache2
+```
 
 Or you can use the tutorial from DO, if you do not have a CA
 
