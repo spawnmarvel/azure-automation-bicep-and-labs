@@ -95,7 +95,8 @@ sudo service apache2 reload
 ```
 ![Apache app new ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apacheapp.jpg)
 
-Logic and configuration
+Logic and configuration 
+* We have it named gci here but any name will work, as long as we point to it in the virtual hosts configuration file later.
 
 ![Aapache config ](https://github.com/spawnmarvel/azure-automation/blob/main/images/configapache.jpg)
 
