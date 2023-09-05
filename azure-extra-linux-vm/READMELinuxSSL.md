@@ -92,6 +92,9 @@ Syntax OK
 # Load the new site
 sudo service apache2 reload
 
+# Enable at boot
+sudo systemctl enable apache2
+
 ```
 ![Apache app new ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apacheapp.jpg)
 
@@ -173,8 +176,9 @@ sudo service apache2 status
 sudo systemctl enable apache2
 
 ```
-Open port 80 NSG to test apache
-Go to http://your_domain_or_ip.uksouth.cloudapp.azure.com/
+Go to http://ip
+
+Go to http://your_domain.uksouth.cloudapp.azure.com/
 
 ![Apache home ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apache.jpg)
 
@@ -194,29 +198,59 @@ Now create the certificate on the CA server
 ```bash
 # cmd on CA server
 # Generating RSA private key
-openssl genrsa -out c:\testca\server2\private_key.pem 2048
+openssl genrsa -out c:\testca\server5\private_key.pem 2048
 
 # Generating request
-openssl req -new -key c:\testca\server4\private_key.pem -out c:\testca\server4\req.pem -outform PEM -subj /CN=your_domain_or_ip -nodes
+openssl req -new -key c:\testca\server5\private_key.pem -out c:\testca\server5\req.pem -outform PEM -subj /CN=hostname  -nodes
+
+# add config to v3_ca for SAN https://stackoverflow.com/questions/21488845/how-can-i-generate-a-self-signed-certificate-with-subjectaltname-using-openssl
 
 # Server and client extension using new config openssl2.cnf
-openssl ca -config c:\testca\openssl2.cnf -in c:\testca\server4\req.pem -out c:\testca\server4\server4_certificate.pem -notext -batch
+openssl ca -config c:\testca\openssl2.cnf -in c:\testca\server5\req.pem -out c:\testca\server5\server5_certificate.pem -notext -batch
 
 # Using configuration from c:\testca\openssl2.cnf
 # Check that the request matches the signature
 # Signature ok
 # The Subject's Distinguished Name is as follows
-# commonName            :ASN.1 12:'your_domain_or_ip'
+# commonName            :ASN.1 12:'hostname'
 # Certificate is to be certified until Sep  3 18:11:57 2033 GMT (3652 days)
+
+openssl x509 -noout -subject -in c:\testca\server5\server5_certificate.pem
+# subject=CN = hostname
+# TBD v3-ca
+# openssl x509 -noout -ext subjectAltName -in c:\testca\server5\server5_certificate.pem
 
 # CP files you created to appropriate subdirectories under /etc/ssl on the host that will be using the certificate
 /etc/ssl/certs
-sudo nano server4_certificate.pem
-cd 
+sudo nano server5_certificate.pem
+sudo cp server5_certificate.pem /etc/ssl/certs/server5_certificate.pem
+
 # save the key local and move it
 sudo nano private_key.pem
 sudo cp private_key.pem /etc/ssl/private/private_key.pem
 
+# Go the configs
+/etc/apache2/sites-available
+ls
+000-default.conf  default-ssl.conf  gci.conf
+# Cp the default ssl to a new
+cp default-ssl.conf ssl-gci.conf
+
+# Add the same content as in gci and the cert path
+ServerName DNS name found in Azure
+DocumentRoot /var/www/gci
+SSLCertificateFile      /etc/ssl/certs/server5_certificate.pem
+SSLCertificateKeyFile /etc/ssl/private/private_key.pem
+
+
+sudo a2ensite ssl-gci.conf
+sudo apache2ctl configtest
+
+sudo systemctl reload apache2
+
+# Open NSG HTTPS
+
+# old xxxxx
 # Open a new file in the /etc/apache2/sites-available directory:
 your_domain_or_ip --fqdn
 sudo nano /etc/apache2/sites-available/your_domain_or_ip.conf
