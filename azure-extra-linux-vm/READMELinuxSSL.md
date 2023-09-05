@@ -259,7 +259,7 @@ sudo cp ca_certificate.pem /etc/ssl/certs/ca_certificate.pem
 
 Done
 
-![Done ](https://github.com/spawnmarvel/azure-automation/blob/main/images/Done.jpg)
+![Done ](https://github.com/spawnmarvel/azure-automation/blob/main/images/done.jpg)
 
 Not needed below?
 ```bash
