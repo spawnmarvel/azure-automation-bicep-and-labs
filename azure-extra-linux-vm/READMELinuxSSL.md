@@ -250,6 +250,21 @@ sudo systemctl reload apache2
 
 # Open NSG HTTPS
 
+Error code: SEC_ERROR_UNKNOWN_ISSUER
+# Comy the ca certificate also
+sudo nano ca_certificate.pem
+sudo cp ca_certificate.pem /etc/ssl/certs/ca_certificate.pem
+
+```
+
+Done
+
+![Done ](https://github.com/spawnmarvel/azure-automation/blob/main/images/Done.jpg)
+
+Not needed below?
+```bash
+
+
 # old xxxxx
 # Open a new file in the /etc/apache2/sites-available directory:
 your_domain_or_ip --fqdn
