@@ -248,7 +248,6 @@ sudo apache2ctl configtest
 
 sudo systemctl reload apache2
 
-# Open NSG HTTPS
 
 Error code: SEC_ERROR_UNKNOWN_ISSUER
 # Comy the ca certificate also
@@ -256,6 +255,7 @@ sudo nano ca_certificate.pem
 sudo cp ca_certificate.pem /etc/ssl/certs/ca_certificate.pem
 
 ```
+Open NSG HTTPS
 
 Done
 
