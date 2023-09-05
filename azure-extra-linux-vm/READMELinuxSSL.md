@@ -95,6 +95,10 @@ sudo service apache2 reload
 ```
 ![Apache app new ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apacheapp.jpg)
 
+Logic and configuration
+
+![Aapache config ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apacheconfig.jpg)
+
 https://ubuntu.com/tutorials/install-and-configure-apache#1-overview
 
 
