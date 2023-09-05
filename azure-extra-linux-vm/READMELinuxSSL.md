@@ -101,6 +101,15 @@ Logic and configuration
 * ServerName DNS name found in Azure
 * This ensures people reach the right site instead of the default one when they type in gci.example.com.
 
+```bash
+# Our web folder and file
+/var/www/gci/index.html
+
+# gci.conf and the pointer to the file and URL in this case hostname.domain.com
+DocumentRoot /var/www/gci/
+ServerName DNS name found in Azure
+```
+
 http://public-ip
 
 http://hostname.azure.public.dnz.com
