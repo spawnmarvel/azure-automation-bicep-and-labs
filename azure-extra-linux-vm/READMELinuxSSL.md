@@ -43,10 +43,10 @@ sudo nano index.html
 
 <html>
 <head>
-  <title> Ubuntu rocks! </title>
+  <title> Ubuntu server! </title>
 </head>
 <body>
-  <p> I'm running this website on an Ubuntu Server server!
+  <p> Test ubuntu </p>
 </body>
 </html>
 
@@ -55,7 +55,45 @@ sudo nano index.html
 
 4 Setting up the VirtualHost Configuration File
 
+```bash
+# We start this step by going into the configuration files directory:
+cd /etc/apache2/sites-available/
+
+# Since Apache came with a default VirtualHost file, let’s use that as a base. 
+# (gci.conf is used here to match our subdomain name):
+sudo cp 000-default.conf gci.conf
+
+# Edit the file we just copied
+sudo nano gci.conf
+
+# We should have our email in ServerAdmin so users can reach you in case Apache experiences any error:
+ServerAdmin yourname@example.com
+
+# We also want the DocumentRoot directive to point to the directory our site files are hosted on:
+# Default DocumentRoot /var/www/html
+DocumentRoot /var/www/gci/
+
+# The default file doesn’t come with a ServerName directive so we’ll have to add and define it by adding this line below the last directive:
+ServerName DNS name found in Azure
+# This ensures people reach the right site instead of the default one when they type in gci.example.com.
+
+# Now that we’re done configuring our site, let’s save and activate it in the next step!
+```
+
 5 Activating VirtualHost file
+
+```bash
+# Now that we’re done configuring our site, let’s save and activate it in the next step!
+sudo a2ensite gci.conf
+# Next, let’s test for configuration errors:
+sudo apache2ctl configtest
+Syntax OK
+
+# Load the new site
+sudo service apache2 reload
+
+```
+![Apache app new ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apacheapp.jpg)
 
 https://ubuntu.com/tutorials/install-and-configure-apache#1-overview
 
