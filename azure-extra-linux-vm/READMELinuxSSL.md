@@ -2,6 +2,37 @@
 
 https://itslinuxfoss.com/install-openssl-ubuntu-22-04/?utm_content=cmp-true
 
+
+## Canonical Apache tutorial
+
+
+Overview
+
+Install and Configure Apache
+
+Creating Your Own Website
+
+Setting up the VirtualHost Configuration File
+
+Activating VirtualHost file
+
+https://ubuntu.com/tutorials/install-and-configure-apache#1-overview
+
+
+## Canonical Apache2 SSL
+
+https://wiki.ubuntu.com/Apache2_SSL?_ga=2.61205932.1848246698.1693898708-957078067.1693898708
+
+## Apache DocumentRoot
+
+The DocumentRoot is the top-level directory in the document tree visible from the web and this directive sets the directory in the configuration from which Apache2 or HTTPD looks for and serves web files from the requested URL to the document root.
+
+* DocumentRoot "/var/www/html"
+* then access to http://domain.com/index.html refers to /var/www/html/index.html. The DocumentRoot should be described without a trailing slash.
+
+https://www.tecmint.com/find-apache-documentroot-in-linux/
+
+
 ## How To Create a Self-Signed SSL Certificate for Apache in Ubuntu 20.04
 
 ```bash
@@ -133,16 +164,6 @@ sudo systemctl reload apache2
 Or you can use the tutorial from DO, if you do not have a CA
 
 https://www.digitalocean.com/community/tutorials/how-to-create-a-self-signed-ssl-certificate-for-apache-in-ubuntu-20-04
-
-
-## Apache DocumentRoot
-
-The DocumentRoot is the top-level directory in the document tree visible from the web and this directive sets the directory in the configuration from which Apache2 or HTTPD looks for and serves web files from the requested URL to the document root.
-
-* DocumentRoot "/var/www/html"
-* then access to http://domain.com/index.html refers to /var/www/html/index.html. The DocumentRoot should be described without a trailing slash.
-
-https://www.tecmint.com/find-apache-documentroot-in-linux/
 
 
 ## Wordpress Install
