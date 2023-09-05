@@ -101,7 +101,7 @@ Logic and configuration
 * ServerName DNS name found in Azure
 * This ensures people reach the right site instead of the default one when they type in gci.example.com.
 
-![Aapache config ](https://github.com/spawnmarvel/azure-automation/blob/main/images/configapache.jpg)
+![Apache config ](https://github.com/spawnmarvel/azure-automation/blob/main/images/configapache.jpg)
 
 https://ubuntu.com/tutorials/install-and-configure-apache#1-overview
 
@@ -120,7 +120,12 @@ The DocumentRoot is the top-level directory in the document tree visible from th
 https://www.tecmint.com/find-apache-documentroot-in-linux/
 
 
-## How To Create a Self-Signed SSL Certificate for Apache in Ubuntu 20.04
+## Canonical Apache tutorial SSL for /var/www/gci
+
+Now let's configure SSL for the above app.
+Let's take a snaphot of the OS drive before we do that, HTTP configuration.
+
+![Snapshot ](https://github.com/spawnmarvel/azure-automation/blob/main/images/snapshot.jpg)
 
 ```bash
 sudo apt update
