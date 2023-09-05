@@ -10,6 +10,17 @@ Overview
 
 Install and Configure Apache
 
+```bash
+
+sudo apt update -y
+sudo apt upgrade -y
+
+sudo apt install apache2
+# After letting the command run, all required packages are installed and we can test it out by typing in our IP address for the web server.
+
+```
+![Apache home ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apache.jpg)
+
 Creating Your Own Website
 
 Setting up the VirtualHost Configuration File
