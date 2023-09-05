@@ -6,9 +6,9 @@ https://itslinuxfoss.com/install-openssl-ubuntu-22-04/?utm_content=cmp-true
 ## Canonical Apache tutorial
 
 
-Overview
+1 Overview
 
-1 Install and Configure Apache
+2 Install and Configure Apache
 
 ```bash
 
@@ -23,7 +23,35 @@ sudo apt install apache2
 ```
 ![Apache home ](https://github.com/spawnmarvel/azure-automation/blob/main/images/apache.jpg)
 
-2 Creating Your Own Website
+3 Creating Your Own Website
+
+* By default, Apache comes with a basic site (the one that we saw in the previous step) enabled. 
+* We can modify its content in /var/www/html or settings by editing its Virtual Host file found in 
+* /etc/apache2/sites-enabled/000-default.conf.
+* We can modify how Apache handles incoming requests and have multiple sites running on the same server by editing its Virtual Hosts file.
+* Today, we’re going to leave the default Apache virtual host configuration pointing to www.example.com and set up our own at gci.example.com.
+
+```bash
+# Let’s start by creating a folder for our new website in /var/www/ by running
+sudo mkdir /var/www/gci/
+
+# We have it named gci here but any name will work, as long as we point to it in the virtual hosts configuration file later.
+
+# Lets have an HTML file in it
+cd /var/www/gci/
+sudo nano index.html
+
+<html>
+<head>
+  <title> Ubuntu rocks! </title>
+</head>
+<body>
+  <p> I'm running this website on an Ubuntu Server server!
+</body>
+</html>
+
+# Now let’s create a VirtualHost file so it’ll show up when we type in gci.example.com
+```
 
 4 Setting up the VirtualHost Configuration File
 
