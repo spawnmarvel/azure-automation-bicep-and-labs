@@ -229,6 +229,10 @@ sudo cp server5_certificate.pem /etc/ssl/certs/server5_certificate.pem
 sudo nano private_key.pem
 sudo cp private_key.pem /etc/ssl/private/private_key.pem
 
+# copy the root cert
+sudo nano ca_certificate.pem
+sudo cp ca_certificate.pem /etc/ssl/certs/ca_certificate.pem
+
 # Go the configs
 /etc/apache2/sites-available
 ls
@@ -241,6 +245,7 @@ ServerName DNS name found in Azure
 DocumentRoot /var/www/gci
 SSLCertificateFile      /etc/ssl/certs/server5_certificate.pem
 SSLCertificateKeyFile /etc/ssl/private/private_key.pem
+SSLCACertificateFile /etc/ssl/certs/ca_certificate.pem
 
 
 sudo a2ensite ssl-gci.conf
@@ -248,11 +253,9 @@ sudo apache2ctl configtest
 
 sudo systemctl reload apache2
 
-
-Error code: SEC_ERROR_UNKNOWN_ISSUER
-# Comy the ca certificate also
-sudo nano ca_certificate.pem
-sudo cp ca_certificate.pem /etc/ssl/certs/ca_certificate.pem
+cd etc/apache2/sites-enabled
+ls
+000-default.conf  gci.conf  ssl-gci.conf
 
 ```
 Open NSG HTTPS
