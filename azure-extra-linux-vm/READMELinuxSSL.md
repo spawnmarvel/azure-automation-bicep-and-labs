@@ -259,9 +259,10 @@ ls
 ```
 Open NSG HTTPS
 
-Done
+Done, you can now update all files in the \var\www\gci folder.
 
 ![Done ](https://github.com/spawnmarvel/azure-automation/blob/main/images/done.jpg)
+
 
 
 Or you can use the tutorial from DO, if you do not have a CA
@@ -279,16 +280,10 @@ Take a snap of the drive when HTTP is ok
 
 Start SSL stuff
 
-## HTTPS for wordpress self signed
+## HTTPS for wordpress
 
-Using this CA:
+* Self signed or really simple ssl plugin
 
-https://github.com/spawnmarvel/quickguides/blob/main/securityPKI-CA/README.md
-
-
-Check this
-
-https://www.liberiangeek.net/2014/10/install-wordpress-self-signed-ssl-apache2-ubuntu-14-04/
 
 
 
