@@ -283,7 +283,7 @@ Start SSL stuff
 ## HTTPS for wordpress
 
 * Self signed or really simple ssl plugin
-
+* Lets encrypt, https://www.digitalocean.com/community/tutorials/how-to-secure-apache-with-let-s-encrypt-on-ubuntu-18-04
 
 
 
