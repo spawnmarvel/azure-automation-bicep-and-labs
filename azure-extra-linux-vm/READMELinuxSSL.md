@@ -290,6 +290,6 @@ Check this
 
 https://www.liberiangeek.net/2014/10/install-wordpress-self-signed-ssl-apache2-ubuntu-14-04/
 
-https://thejeshgn.com/2012/09/12/securing-your-wordpress-site-with-self-ssl/
+
 
 
