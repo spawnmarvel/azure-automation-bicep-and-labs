@@ -1,7 +1,6 @@
 # Ubuntu SSL
 
-https://itslinuxfoss.com/install-openssl-ubuntu-22-04/?utm_content=cmp-true
-
+In most cases, OpenSSL is installed by default on all Linux distributions. It is required for basic web navigation and system updates, so a fresh Linux installation comes with it most of the time, and there is nothing to do.
 
 ## Canonical Apache tutorial
 
@@ -264,60 +263,6 @@ Done
 
 ![Done ](https://github.com/spawnmarvel/azure-automation/blob/main/images/done.jpg)
 
-Not needed below?
-```bash
-
-
-# old xxxxx
-# Open a new file in the /etc/apache2/sites-available directory:
-your_domain_or_ip --fqdn
-sudo nano /etc/apache2/sites-available/your_domain_or_ip.conf
-
-<VirtualHost *:443>
-   ServerName your_domain_or_ip
-   DocumentRoot /var/www/your_domain_or_ip
-
-   SSLEngine on
-   SSLCertificateFile /etc/ssl/certs/server4_certificate.pem
-   SSLCertificateKeyFile /etc/ssl/private/private_key.pem
-</VirtualHost>
-
-# Now let’s create our DocumentRoot and put an HTML file in it just for testing purposes:
-sudo mkdir /var/www/your_domain_or_ip
-
-# Open a new index.html file with your text editor:
-/var/www/your_domain_or_ip
-sudo nano index.html
-
-<h1>it worked!</h1>
-
-# Save and close the file Next, we need to enable the configuration file with the a2ensite tool:
-sudo a2ensite your_domain_or_ip.conf
-
-# Next, let’s test for configuration errors:
-sudo apache2ctl configtest
-
-sudo systemctl reload apache2
-```
-Open port 443 NSG to test apache
-
-![HTTPS](https://github.com/spawnmarvel/azure-automation/blob/main/images/itworked.jpg)
-
-Redirect HTTP to HTTPS
-
-```bash
-# Open the same Apache configuration file we started in previous steps:
-sudo nano /etc/apache2/sites-available/your_domain_or_ip.conf
-# At the bottom, create another VirtualHost block to match requests on port 80.
-<VirtualHost *:80>
-	ServerName your_domain_or_ip
-	Redirect / https://your_domain_or_ip/
-</VirtualHost>
-
-# save and close
-sudo apachectl configtest
-sudo systemctl reload apache2
-```
 
 Or you can use the tutorial from DO, if you do not have a CA
 
