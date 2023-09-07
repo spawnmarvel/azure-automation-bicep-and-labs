@@ -11,7 +11,7 @@ now=$(date)
 echo $now
 logInformation $now
 
-simpleVmName="simpleLinuxVM-$RANDOM"
+simpleVmName="Vm-$RANDOM"
 resourceGroup='Rg-iac-linux-fu-0990'
 location='uksouth'
 tags='Environment=Qa'

@@ -1,5 +1,5 @@
 # using resource vm 'Microsoft.Compute/virtualMachines@2021-03-01' existing in main_autoshutdown.bicep
-simpleVmName="simpleLinuxVM-13392"
+simpleVmName="Vm-13392"
 resourceGroup="Rg-iac-linux-fu-0990"
 vmLocal=$(az vm list --resource-group $resourceGroup --query [].name)
 echo $vmLocal
