@@ -1,3 +1,10 @@
+// Deploy a ubuntu vm with no data disk
+// All resources are deployed in the same resource group
+// NSG, VM, OS disk, NIC and Public IP address
+// The vnet and subnet lives in a different resource group, we just attach the nic to the subnet
+// https://medium.com/codex/deploy-an-apache-webserver-on-ubuntu-vm-using-bicep-2a47bdfbe9be
+// add your script to own gist
+
 @description('The name of you Virtual Machine.')
 param vmName string
 
@@ -32,11 +39,15 @@ param location string = resourceGroup().location
 @description('The size of the VM')
 param vmSize string = 'Standard_B2s'
 
+// The resource group name of the vnet
 @description('Name of the VNET')
-param virtualNetworkName string = 'vNet'
-
+param resourceGroupVnetName string
+// We alter this to paramter used in deploy.sh (Using exisiting vnet and subnet)
+@description('Name of the VNET')
+param virtualNetworkName string
+// We alter this to paramter used in deploy.sh (Using exisiting vnet and subnet)
 @description('Name of the subnet in the virtual network')
-param subnetName string = 'Subnet'
+param subnetName string
 
 @description('Name of the Network Security Group')
 param networkSecurityGroupName string = 'SecGroupNet'
@@ -79,8 +90,6 @@ var imageReference = {
 var publicIPAddressName = '${vmName}PublicIP'
 var networkInterfaceName = '${vmName}NetInt'
 var osDiskType = 'Premium_LRS'
-var subnetAddressPrefix = '10.1.0.0/24'
-var addressPrefix = '10.1.0.0/16'
 var linuxConfiguration = {
   disablePasswordAuthentication: true
   ssh: {
@@ -105,6 +114,17 @@ var extensionVersion = '1.0'
 var maaTenantName = 'GuestAttestation'
 var maaEndpoint = substring('emptystring', 0, 0)
 
+// Existing vnet
+resource vnet_ref 'Microsoft.Network/virtualNetworks@2021-05-01' existing ={
+  name:virtualNetworkName
+  scope:resourceGroup(resourceGroupVnetName)
+}
+// Existing subnet
+resource subnet_ref 'Microsoft.Network/virtualNetworks/subnets@2021-05-01' existing={
+  name:subnetName
+  parent:vnet_ref
+}
+
 resource networkInterface 'Microsoft.Network/networkInterfaces@2021-05-01' = {
   name: networkInterfaceName
   location: location
@@ -114,13 +134,15 @@ resource networkInterface 'Microsoft.Network/networkInterfaces@2021-05-01' = {
         name: 'ipconfig1'
         properties: {
           subnet: {
-             // 1.2 And had to update reference subnet id on the NetworkInterface
-            id: resourceId('Microsoft.Network/VirtualNetworks/subnets', virtualNetworkName, subnetName)
+            // existing subnet id
+            id:subnet_ref.id
           }
           privateIPAllocationMethod: 'Dynamic'
+          
           publicIPAddress: {
             id: publicIPAddress.id
           }
+      
         }
       }
     ]
@@ -149,33 +171,6 @@ resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2021-05-0
         }
       }
     ]
-  }
-}
-
-resource virtualNetwork 'Microsoft.Network/virtualNetworks@2021-05-01' = {
-  name: virtualNetworkName
-  location: location
-  tags:tags
-  properties: {
-    addressSpace: {
-      addressPrefixes: [
-        addressPrefix
-      ]
-    }
-    // 1. It is instead recommended to create all the subnets in the array property inside of the vnet, like you are doing with the first subnet in the above code sample:
-    // 1. https://github.com/Azure/bicep/issues/4653
-    subnets: [
-      {
-        name: subnetName
-        properties: {
-          addressPrefix: subnetAddressPrefix
-          privateEndpointNetworkPolicies: 'Enabled'
-          privateLinkServiceNetworkPolicies: 'Enabled'
-        }
-      }
-
-    ]
-    // 1. End
   }
 }
 

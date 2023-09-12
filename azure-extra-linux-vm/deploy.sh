@@ -20,8 +20,9 @@ fileName='keyvault.txt'
 readarray myArray < $fileName
 adminU=${myArray[0]}
 adminP=${myArray[1]}
-vnet='vnet01'
-subnet='default01'
+rgVnetName='Rg-vnet-uks-central'
+vnet='vnet-uks-central'
+subnet='vms02'
 
 echo $adminU
 echo $simpleVmName
@@ -34,12 +35,16 @@ logInformation $simpleVmName
 # az config set bicep.use_binary_from_path=False
 
 az group create --location $location --name $resourceGroup --tags $tags
-# Deploy all in on rg
-# az deployment group create --name mainDep --resource-group $resourceGroup --template-file main_1_NoDataDisk.bicep --parameters vmName="$simpleVmName" adminUsername="$adminU" # --what-if
 
-# Deploy to existing vnet
-az deployment group create --name mainDep --resource-group $resourceGroup --template-file main_1_2_NoDDExistVnet.bicep \
- --parameters vmName="$simpleVmName" adminUsername="$adminU" virtualNetworkName="$vnet" subnetName="$subnet" # --what-if
+# Deploy all in on rg with data disk
+# az deployment group create --name mainDep --resource-group $resourceGroup --template-file main_deploy_vm.bicep --parameters vmName="$simpleVmName" adminUsername="$adminU" # --what-if
+
+# Deploy all in on rg with no data disk
+# az deployment group create --name mainDep --resource-group $resourceGroup --template-file main_deploy_vm_no_extra_disk.bicep --parameters vmName="$simpleVmName" adminUsername="$adminU" # --what-if
+
+# Deploy to existing vnet but in a self contained resource group
+az deployment group create --name mainDep --resource-group $resourceGroup --template-file main_deploy_vm_no_extra_disk_to_outside_vnet.bicep \
+ --parameters vmName="$simpleVmName" adminUsername="$adminU" resourceGroupVnetName="$rgVnetName" virtualNetworkName="$vnet" subnetName="$subnet" #--what-if
 
 
 

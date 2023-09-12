@@ -1,3 +1,6 @@
+// Deploy a ubuntu vm with no data disk
+// All resources are deployed in the same resource group
+
 @description('The name of you Virtual Machine.')
 param vmName string
 
@@ -212,18 +215,6 @@ resource vm 'Microsoft.Compute/virtualMachines@2021-11-01' = {
         }
       }
       imageReference: imageReference[ubuntuOSVersion]
-      // 2. Add a data disk start
-      dataDisks:[
-        {
-          diskSizeGB:8
-          lun:0
-          createOption:'Empty'
-          name:'${vmName}-dataDiskLun0'
-          // It must be mounted after
-          // https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal?tabs=ubuntu
-        }
-      ]
-      // 2. Add a datadisk end
     }
     
     networkProfile: {
