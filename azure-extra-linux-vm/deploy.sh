@@ -22,7 +22,7 @@ adminU=${myArray[0]}
 adminP=${myArray[1]}
 rgVnetName='Rg-vnet-uks-central'
 vnet='vnet-uks-central'
-subnet='vms02'
+subnet='Vms03'
 
 echo $adminU
 echo $simpleVmName
