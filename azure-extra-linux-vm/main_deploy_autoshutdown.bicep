@@ -5,7 +5,7 @@ param location string = resourceGroup().location
 param vmName string
 
 @description('Time of the shutdown')
-param shutdownTime string = '23:30'
+param shutdownTime string = '23:45'
 
 @description('Email recipient')
 param emailRecipient string
