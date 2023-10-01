@@ -40,12 +40,12 @@ sudo mysql -e "quit;"
 
 # now import the schema
 
-# extra mysql
-
+# show stuff and verify
 # mysql show character set like '%utf8%
 # mysql use zabbix;
 # mysql show variables like "character_set_database";
 # mysql SELECT SCHEMA_NAME 'database', default_character_set_name 'charset', DEFAULT_COLLATION_NAME 'collation' FROM information_schema.SCHEMATA;
 
+# delete for queick test script again
 # DROP DATABASE zabbix;
 # DROP USER 'johndee'@'localhost';

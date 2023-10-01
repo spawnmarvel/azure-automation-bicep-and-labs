@@ -19,8 +19,8 @@ EOF
 echo "Mariadb successfully created!"
 
 # remove
-sudo apt remove --purge mariadb* -y
-sudo apt autoremove -y
-sudo apt autoclean -y
+# sudo apt remove --purge mariadb* -y
+# sudo apt autoremove -y
+# sudo apt autoclean -y
 	
     
