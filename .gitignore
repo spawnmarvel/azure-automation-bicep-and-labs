@@ -130,3 +130,6 @@ dmypy.json
 
 # log
 *.txt
+
+# json
+*.json
