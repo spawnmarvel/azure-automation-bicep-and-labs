@@ -17,5 +17,5 @@ sudo apt install zabbix-server-mysql zabbix-frontend-php zabbix-apache-conf zabb
 # remove
 # sudo apt purge zabbix-server-mysql zabbix-frontend-php  zabbix-apache-conf zabbix-sql-scripts zabbix-agent -y
 
-echo 'Install Zabbix server, frontend, agent successfully'
+echo "Install Zabbix server, frontend, agent successfully"
 
