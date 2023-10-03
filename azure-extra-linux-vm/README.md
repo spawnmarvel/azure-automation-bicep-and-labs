@@ -216,6 +216,7 @@ az upgrade --yes
 | env           | see all system vaiables |
 | echo "$PATH"  | print path for a system variable | echo "$HOME"
 | printf "$PATH\n" | The printf command is just like echo command and is available under various versions of UNIX operating systems. It is a good idea to use printf if portability is a major concern for you. | printf "$HOME\n"
+| sed | SED command in UNIX stands for stream editor and it can perform lots of functions on file like searching, find and replace, insertion or deletion.  | sed -i 's/VAR1=TEST11/VAR1=TEST111/g' test_update.txt
 
 
 
