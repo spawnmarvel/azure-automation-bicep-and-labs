@@ -81,8 +81,7 @@ The top level of the filesystem is the root directory, symbolized by a forward s
 * /boot, which contains your system boot files
 * /media, which contains files related to temporary media 
 
-***There are several other directories in the root directory, but you will not need to access
-them during this course.***
+***There are several other directories in the root directory, but you will not need to access them during this course.***
 
 Linux Terminal Overview =
 
