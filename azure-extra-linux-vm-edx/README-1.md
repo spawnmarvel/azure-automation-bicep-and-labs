@@ -61,7 +61,14 @@ and for being open source.
 * Red Hat Enterprise Linux, an IBM subsidiary, is focused completely on enterprise customers.
 * And SUSE Linux Enterprise supports many architectures, such as ARM for Raspberry Pi.
 
-Overview of Linux Architecture =    TODO
+Overview of Linux Architecture =
+
+* The Linux system comprises five distinct layers.
+* UI
+* Application
+* Operating system
+* Kernel
+* Hardware
 
 Linux Terminal Overview =
 
@@ -84,6 +91,18 @@ Cheat Sheet: Introduction to Linux =
 Practice Quiz: Introduction to Linux =
 
 Graded Quiz: Introduction to Linux =
+
+* true, Debian is stable, reliable, and fully open source.
+* which layer conaines sys daemons and shelles,  Application
+* which layer assigns software to users, helps detect errors, Operating system
+* whiche layer memory management, process management, device driver management, system calls and security, Kernel
+* standard directory, bin
+* GUI-based text editor, gedit
+* go to home, ~
+* Packages are, Archive files
+* convert package files between deb and RPM formats, alien
+* advantage of PackageKit is that, It automatically checks for updates at configurable intervals.
+
 
 ## Final Project and Final Exam
 
