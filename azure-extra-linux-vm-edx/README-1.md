@@ -61,7 +61,7 @@ and for being open source.
 * Red Hat Enterprise Linux, an IBM subsidiary, is focused completely on enterprise customers.
 * And SUSE Linux Enterprise supports many architectures, such as ARM for Raspberry Pi.
 
-Overview of Linux Architecture = 
+Overview of Linux Architecture =    TODO
 
 Linux Terminal Overview =
 
