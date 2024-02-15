@@ -53,6 +53,14 @@ Introducing Linux and Unix = done
 
 Linux Distributions = 
 
+* Linux distros can be differentiated by their user interfaces,
+their shell applications, and how the operating system is supported and built.
+* The design of a Linux distro is catered toward a specific audience.
+* Debian is highly regarded in the server space for its stability, reliability,
+and for being open source.
+* Red Hat Enterprise Linux, an IBM subsidiary, is focused completely on enterprise customers.
+* And SUSE Linux Enterprise supports many architectures, such as ARM for Raspberry Pi.
+
 Overview of Linux Architecture = 
 
 Linux Terminal Overview =
