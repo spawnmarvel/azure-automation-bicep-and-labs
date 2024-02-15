@@ -46,31 +46,36 @@ Check your grades in the course at any time by clicking on the "Progress" tab. 7
 
 Introducing Linux and Unix = done
 
-Linux Distributions
+* Unix is a family of operating systems dating from the 1960s.
+* Linux was originally developed in the 1980s as a free, open-source alternative to Unix.
+* Linux is multi-user, portable, and supports multitasking.
+* And Linux is widely used today in mobile devices, supercomputers, data centers, and cloud servers.
 
-Overview of Linux Architecture
+Linux Distributions = 
 
-Linux Terminal Overview
+Overview of Linux Architecture = 
 
-Reading: Browsing Directories with the Linux Terminal
+Linux Terminal Overview =
 
-Reading: Linux Terminal Tips - Tab completion, command history
+Reading: Browsing Directories with the Linux Terminal =
 
-Hands-on Lab: Getting Started with the Linux Terminal
+Reading: Linux Terminal Tips - Tab completion, command history =
 
-Creating and Editing Text Files
+Hands-on Lab: Getting Started with the Linux Terminal =
 
-Hands-on Lab: Installing and working with text editors
+Creating and Editing Text Files =
 
-Installing Software and Updates
+Hands-on Lab: Installing and working with text editors =
 
-Summary & Highlights
+Installing Software and Updates =
 
-Cheat Sheet: Introduction to Linux
+Summary & Highlights =
 
-Practice Quiz: Introduction to Linux
+Cheat Sheet: Introduction to Linux =
 
-Graded Quiz: Introduction to Linux
+Practice Quiz: Introduction to Linux =
+
+Graded Quiz: Introduction to Linux =
 
 ## Module 2: Introduction to Linux Commands
 
