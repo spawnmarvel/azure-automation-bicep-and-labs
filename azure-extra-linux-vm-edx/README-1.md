@@ -64,11 +64,25 @@ and for being open source.
 Overview of Linux Architecture =
 
 * The Linux system comprises five distinct layers.
-* UI
-* Application
-* Operating system
-* Kernel
-* Hardware
+* 1 UI, web browser
+* 2 Application, software, shell, apps
+* 3 Operating system, users, errros, file management
+* 4 Kernel, most vital, lowest level software, bridge between 3 and 5.
+* 5 Hardware, physical, CPU, RAM, Storage, screen, usb device
+
+The Linux filesystem is the collection of files on your machine. It includes the files
+needed to run the machine and applications as well as your own files containing your
+work.
+The top level of the filesystem is the root directory, symbolized by a forward slash (/).
+
+* One of the key directories is /bin, which contains user binary files.
+* /usr, which contains user programs
+* /home, which is your personal working directory
+* /boot, which contains your system boot files
+* /media, which contains files related to temporary media 
+
+***There are several other directories in the root directory, but you will not need to access
+them during this course.***
 
 Linux Terminal Overview =
 
