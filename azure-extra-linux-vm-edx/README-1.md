@@ -97,6 +97,28 @@ files on the system.
 
 Linux Terminal Overview =
 
+* The Linux shell is an OS-level application that interprets commands.
+* You interact with the Linux shell through a Linux terminal.
+
+```bash
+python myprogram.py
+```
+User->terminal->shell OS Kernel->Hardware and back <-
+
+* The path is the human-readable location of a directory or file in the Linux filesystem.
+* The “a slash b” structure indicates that the file
+or directory named "b" is located inside the directory named "a".
+
+* A single tilde symbol refers to the user’s home directory.
+* A single slash at the beginning of a path refers to the root directory.
+* Two periods refer to the parent of the current directory.
+* And a single period refers to the current directory.
+
+
+```bash
+```
+
+
 Reading: Browsing Directories with the Linux Terminal =
 
 Reading: Linux Terminal Tips - Tab completion, command history =
@@ -115,18 +137,7 @@ Cheat Sheet: Introduction to Linux =
 
 Practice Quiz: Introduction to Linux =
 
-Graded Quiz: Introduction to Linux =
-
-* true, Debian is stable, reliable, and fully open source.
-* which layer conaines sys daemons and shelles,  Application
-* which layer assigns software to users, helps detect errors, Operating system
-* whiche layer memory management, process management, device driver management, system calls and security, Kernel
-* standard directory, bin
-* GUI-based text editor, gedit
-* go to home, ~
-* Packages are, Archive files
-* convert package files between deb and RPM formats, alien
-* advantage of PackageKit is that, It automatically checks for updates at configurable intervals.
+Graded Quiz: Introduction to Linux = Done
 
 
 ## Final Project and Final Exam
