@@ -38,13 +38,13 @@ Graded Quizzes:
 Final Assignment:
 * One attempt - For ALL questions
 
-Check your grades in the course at any time by clicking on the "Progress" tab.
+Check your grades in the course at any time by clicking on the "Progress" tab. 70% pass.
 
 ## Module 1: Introduction to Linux
 
 ### Module Introduction & Learning Objectives
 
-Introducing Linux and Unix
+Introducing Linux and Unix = done
 
 Linux Distributions
 
