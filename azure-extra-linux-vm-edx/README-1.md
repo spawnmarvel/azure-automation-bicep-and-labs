@@ -83,6 +83,18 @@ The top level of the filesystem is the root directory, symbolized by a forward s
 
 ***There are several other directories in the root directory, but you will not need to access them during this course.***
 
+* A Linux system consists of five key layers.
+* The user interface is the layer that enables the user to interact with applications using
+control devices​.
+* Applications enable users to perform certain tasks within the system.
+* The operating system runs on top of the Linux kernel and is vital for system health and
+stability.
+* The kernel is the lowest-level software and enables applications to interact with your
+hardware.
+* Hardware includes all the physical or electronic components of your PC.
+* And the Linux filesystem is a tree-like structure consisting of all directories and
+files on the system.
+
 Linux Terminal Overview =
 
 Reading: Browsing Directories with the Linux Terminal =
