@@ -79,19 +79,19 @@ Graded Quiz: Introduction to Linux =
 
 ## Final Project and Final Exam
 
-Reading: Practice Project Overview
+Reading: Practice Project Overview =
 
-Hands-on Lab: Historical Weather Forecast Comparison to Actuals
+Hands-on Lab: Historical Weather Forecast Comparison to Actuals =
 
-Reading: Cheat Sheet: Linux Commands and Shell Scripting
+Reading: Cheat Sheet: Linux Commands and Shell Scripting =
 
-Reading: Final Project Overview
+Reading: Final Project Overview =
 
-Hands-On Lab: Peer-Graded Final Project
+Hands-On Lab: Peer-Graded Final Project =
 
-Peer-Graded Final Assignment
+Peer-Graded Final Assignment =
 
-Final Exam
+Final Exam =
 
 ## Course Wrap Up
 
