@@ -176,7 +176,27 @@ And you can use the cd command to navigate around your Linux filesystem.
 
 Reading: Browsing Directories with the Linux Terminal =
 
+```bash
+# print path
+pwd
+
+# list content of dir
+ls
+
+```
+
 Reading: Linux Terminal Tips - Tab completion, command history =
+
+```bash
+# Use tab completion to autocomplete commands
+cd /bi + tab = cd /bin
+
+cd Do + tab = nothing since tow dirs starts with Do
+cd Doc + tab = Documents
+
+# Use command history to quickly navigate previous commands
+# Up Arrow key
+```
 
 Hands-on Lab: Getting Started with the Linux Terminal =
 
