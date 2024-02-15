@@ -116,7 +116,62 @@ or directory named "b" is located inside the directory named "a".
 
 
 ```bash
+# cd change directory.
+cd bin
+
+# check all files in folder
+ls
+
+# navigate to home with tilda, altgr + tilda
+cd ~
+
+pwd
+/home/imsdal
+
+# change current working dir to parent dir
+cd ..
+
+pwd
+/home
+
+# navigate to a data drive
+# becomde root
+sudo -i
+sudo cd /datadrive
+ls
+buildkit  containers  engine-id  image  network  overlay2  plugins  runtimes  swarm  tmp  volumes
+
+# switch user
+su - imsdal
+
+# you can also navigate up and down in the tree
+cd /var/log/
+pwd
+/var/log
+
+# to navigate up to the var dir and then up to the root dir and then down to home/user
+cd ../../home/imsdal/
+pwd
+/home/imsdal
+
+# lets move up to home
+cd ..
+pwd
+/home
+
+# start opython application, make it
+sudo nano myprogram.py
+
+# run it
+python3 myprogram.py
+Hello World
+
 ```
+
+A Linux shell is an OS-level application that
+you can use to enter commands and view the output of those commands.
+You use a terminal to send commands to the shell.
+And you can use the cd command to navigate around your Linux filesystem.
 
 
 Reading: Browsing Directories with the Linux Terminal =
