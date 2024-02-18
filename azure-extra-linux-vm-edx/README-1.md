@@ -294,7 +294,81 @@ ctrl x
 ```
 Hands-on Lab: Installing and working with text editors =
 
+Use the sudo command to enable access to "super-user" system administration tools
 
+Use the apt system administration command to update and install two popular packages for text editing: nano and Vim
+
+Exercise 1 - Upgrading and installing packages
+
+```bash
+
+# 1.1 Updating your Linux sytem's package list index
+# Before installing or upgrading any packages on your Linux system, it's best practice to first update your package list index.
+sudo apt update -y
+
+# 1.2. Upgrading nano
+sudo apt upgrade nano -y
+
+# 1.3. Installing Vim
+sudo apt install vim
+
+
+```
+
+Exercise 2 - Creating and editing files with nano
+
+
+```bash
+# 2.1 Navigating to the project directory
+cd /home/project/
+
+# 2.2 Creating and editing a text file with nano
+sudo nano text.txt
+
+# 2.3 Verifying your new text file
+cat text.txt
+
+```
+
+Exercise 3 - Creating and editing files with Vim
+
+Recall that Vim has two basic modes: 
+* Insert mode, where you enter text, and 
+* Command mode, where you do everything else. 
+
+You can start Vim simply by entering
+```bash
+vim
+
+# help
+:help
+
+#quit
+:q
+
+# 3.2 Creating and editing a text file with Vim
+vim hello_world_2.txt
+
+# Once your Vim session has started, go ahead and press i to enter Insert mode.
+Hello World!
+
+# Just like in nano, press Enter to start a new line, and then type
+This is the second line.
+
+
+# When you're done typing text in the buffer, press the Escape key, Esc, to exit the Insert mode. This brings you to Command mode.
+
+```
+
+Practice Exercises
+
+```bash
+
+sudo nano test.txt
+
+# add a new line
+
+```
 Installing Software and Updates =
 
 Summary & Highlights =
