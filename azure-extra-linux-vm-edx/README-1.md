@@ -200,9 +200,100 @@ cd Doc + tab = Documents
 
 Hands-on Lab: Getting Started with the Linux Terminal =
 
+1. ls
+
+* /bin, system commands and binaries
+* /sbin, system administration binaries
+* /usr, user programs and data
+* /home, homd dir
+* /media, removable media device dirs
+
+```bash
+
+# Interact with the Linux terminal
+# Browse directories on a Linux filesystem using the ls command
+# Navigate directories using the cd command
+# Save time and effort by using tab completion and your command history
+
+# browsing dir
+ls
+
+# browsing other
+ls /bin
+
+```
+2.  cd
+
+* ~, home 
+* /, root dir
+* ., current dir
+* .. parent dir
+
+```bash
+cd /sbin
+
+# go home
+cd ~
+
+pwd
+/home/theia
+
+# parent
+cd ..
+/home
+# change to root
+cd /
+
+# Changing from your working directory back to your home directory
+cd /sbin
+
+cd ../home/theia/
+pwd
+/home/theia
+
+# Changing from your working directory to your project directory
+cd ../project/
+
+```
+
+Pracitice Exercise
+
+```bash
+# 1. List contents of root dir
+ls /
+
+# 2. Change directories to your default home directory.
+cd ~
+
+# 3. Verify your current working directory is /home/theia.
+pwd
+
+# 4. Use tab completion to change directories to
+cd /b
+
+# 5. Use your terminal's command history to change directories back to your home directory.
+Arrow up
+```
 Creating and Editing Text Files =
 
+*  Nano
+
+```bash
+# ctrl + letter
+
+sudo nano text.txt
+
+ctrl x
+# save
+y
+# search ctrl + w
+write search string
+
+# quit 
+ctrl x
+```
 Hands-on Lab: Installing and working with text editors =
+
 
 Installing Software and Updates =
 
