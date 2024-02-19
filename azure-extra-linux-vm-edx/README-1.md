@@ -371,6 +371,20 @@ sudo nano test.txt
 ```
 Installing Software and Updates =
 
+apt
+
+* You use the “sudo apt update” command to find available packages for your distro.
+* To install the packages, use the “sudo apt upgrade” command.
+* If you want to only install a specific package, you can use “sudo apt upgrade pkg name”
+
+yum
+
+* yum is a command-line tool for updating RPM-based systems.
+* To update all packages in your system, type "sudo yum update"
+* After you enter your password,
+* Yum fetches all available package updates.
+* And then it displays a summary of the updates and asks you to confirm the download.
+
 Summary & Highlights =
 
 Cheat Sheet: Introduction to Linux =
