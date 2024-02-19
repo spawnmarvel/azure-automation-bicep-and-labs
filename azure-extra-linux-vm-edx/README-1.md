@@ -385,6 +385,21 @@ yum
 * Yum fetches all available package updates.
 * And then it displays a summary of the updates and asks you to confirm the download.
 
+* Use the apt command with the install switch to install a package on a deb-based system.
+* And use the yum command with the install switch to install software on an RPM-based system.
+
+Python
+
+* pip(3) install
+* pip install pandas
+
+* deb and .rpm are distinct file types used by package managers in Linux operating systems
+* deb and RPM formats can be converted from one to the other
+* Update Manager and PackageKit are popular GUI-based package managers
+used in deb- and RPM-based distros, respectively
+* And apt and yum are popular command line package managers
+used in deb- and RPM-based distros, respectively.
+
 Summary & Highlights =
 
 Cheat Sheet: Introduction to Linux =
