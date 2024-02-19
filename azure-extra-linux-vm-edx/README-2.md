@@ -45,7 +45,7 @@ echo
 # Shell commands related to file compression and archiving applications include:
 tar
 zip
-inzip
+unzip
 
 # Networking applications include the following:
 hostname
@@ -56,7 +56,17 @@ wget
 
 ```
 
-Informational Commands =
+In this video, you learned that:
+* A shell is an interactive user interface for running commands, a scripting language, and
+an interactive language.
+* Shell commands are used for navigating and working with files and directories.
+* Shell commands can be used for file compression.
+* The curl and wget commands, respectively, can be used to display and download files from
+URLs.
+* The echo command prints string or variable values.
+* The cat and tail commands are used to display file contents.
+
+Informational Commands = TODO
 
 Reading: Getting Help for Linux Commands =
 
