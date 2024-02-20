@@ -147,7 +147,21 @@ man echo
 * Print and extract information about the date with the “date" command,
 * And read the manual for any command using “man”.
 
-Reading: Getting Help for Linux Commands =
+Reading: Getting Help for Linux Commands
+
+```bash
+# man command
+
+# list all commands
+man -k .
+
+# see the man page for a command
+man command_name
+
+
+man df
+
+```
 
 Hands-on Lab: Informational Commands =
 
