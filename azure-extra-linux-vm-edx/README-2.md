@@ -66,7 +66,86 @@ URLs.
 * The echo command prints string or variable values.
 * The cat and tail commands are used to display file contents.
 
-Informational Commands = TODO
+Informational Commands = 
+
+User information
+```bash
+
+# John Doe
+whoami
+
+# 501
+id -u
+
+#johndoe
+id -u -n
+
+# MINGW64_NT-10.0-19045 , OS
+uname
+
+# OS and version
+uname -S -R
+
+# more details
+uname -v
+
+# disk /home dir - human readble
+df -h ~
+
+# all files
+df -h
+
+# current running pro
+ps
+
+# all proc and time
+ps -e
+
+# system health , top 3
+top -n 3
+
+# print
+echo
+
+# Strictly speaking, you don't need to add quotes around a string with spaces for echo to work as expected,
+# but it's considered best practice to include quotes.
+# Using echo with a quoted string returns the quoted contents, “Learning Linux is fun!"
+
+echo "hello"
+
+# path
+echo $PATH
+
+# display dt
+date
+
+# Format controls are indicated with the % symbol.
+# In this case, “percent j” and “percent Y” output
+# the numerical day of the year and the year itself, respectively.
+date "+%j day of %Y"
+097 day of 2023
+
+# more format
+date "+It s%A, the %j day of %Y"
+
+# view the manual and parameters for command
+man
+
+man id
+
+man top
+
+man echo
+
+```
+
+* Get user information with the "whoami" and "id" commands,
+* Get operating system information using the “uname” command,
+* Check system disk usage using the "df" command,
+* Monitor processes and resource usage with “ps" and "top",
+* Print string or variable value using "echo",
+* Print and extract information about the date with the “date" command,
+* And read the manual for any command using “man”.
 
 Reading: Getting Help for Linux Commands =
 
