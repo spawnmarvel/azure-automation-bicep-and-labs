@@ -254,9 +254,61 @@ man ls
 man -k .
 ```
 
-File and Directory Navigation Commands =
+File and Directory Navigation Commands
 
-File and Directory Management Commands =
+```bash
+
+# list where you are
+ls
+
+# list dir
+ls Downloads
+
+# child files, date and premission
+ls -l
+
+# where are we
+pwd
+
+# change
+cd
+
+```
+
+The cd command enables you to change directories with either a relative or an absolute
+path.
+
+```bash
+
+pwd
+# /var/log
+
+# relative path
+cd ..
+
+pwd
+# /var
+
+# E.T home
+cd ~
+
+# absolute path
+cd /var/log/zabbix-agent/
+```
+Find, Lastly, the “find” command is a powerful tool that will return the path to every file
+
+```bash
+
+# find all kern.log in, . = here
+pwd
+# /var/log
+sudo find . -name "kern.log"
+./kern.log
+
+```
+
+
+File and Directory Management Commands = TODO
 
 Hands-on Lab:  Navigating and Managing Files and Directories =
 
