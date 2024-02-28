@@ -163,7 +163,96 @@ man df
 
 ```
 
-Hands-on Lab: Informational Commands =
+Hands-on Lab: Informational Commands
+
+Exercise 1 - Informational Commands
+
+```bash
+# 1.1. Display the name of the current user
+whoami
+
+# 1.2. Get basic information about the operating system
+uname
+
+# all system info
+uname -a
+
+Kernel name
+Network node hostname
+Kernel release date
+Kernel version
+Machine hardware name
+Hardware platform
+Operating system
+
+# 1.3. Obtain the user and group identity information
+id
+
+# 1.4 Get available disk space
+df
+df -h
+
+# 1.5. View currently running processes
+ps
+
+# display all of the processes running on the system
+ps -e
+
+# 1.6. Get information on the running processes and system resources
+# The output keeps refreshing until you press q or Ctrl + c.
+top
+
+# If you want to exit automatically after a specified number of repetitions
+top -n 10
+
+# sort my memeory
+top
+shift + m
+
+# 1.7. Display Messages
+echo "Hi"
+
+# These special characters help you better format your output:
+# \n	Start a new line
+# \t	Insert a tab
+echo -e "Hi \n a new line"
+echo -e "Hi \t a tab"
+
+# 1.8. Display date and time
+date
+# Wed Feb 28 19:56:41 UTC 2024
+
+# %d	Displays the day of the month (01 to 31)
+# %h	Displays the abbreviated month name (Jan to Dec)
+# %m	Displays the month of year (01 to 12)
+# %Y	Displays the four-digit year
+# %T	Displays the time in 24 hour format as HH:MM:SS
+# %H	Displays the hour
+
+date "+%D"
+# 02/28/24
+
+date "+%h"
+# Feb
+
+date "+%m"
+# 02
+
+date "+%Y"
+# 2024
+
+date "+%T"
+# 19:57:12
+
+date "+%H"
+# 19
+
+# 1.9. View the Reference Manual For a Command
+man ls
+
+# To see all available man pages with a brief description of each command, enter:
+man -k .
+```
 
 File and Directory Navigation Commands =
 
