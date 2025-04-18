@@ -51,8 +51,12 @@ Connect-AzAccount -TenantId The-tenant-id-we-copied-from-azure-ad
 Don use time with making and CustomScriptExtension in the template.bicep like:
 
 ```json
-resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/extensions@2021-11-01'= {}
 
+resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
+  parent: vm
+  name: 'customScriptInstallIis'
+  // ...
+  }
 ```
 1. Make clean templates for reusable
 2. Use custom script extension post install
