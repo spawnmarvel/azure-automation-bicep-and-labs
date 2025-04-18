@@ -1,0 +1,25 @@
+Create App Log Examiners security group
+
+Deploy and configure WS-VM1
+* Standard windows with rdp
+
+```ps1
+Install-WindowsFeature Web-Server -IncludeAllSubFeature -IncludeManagementTools
+
+ # when done
+cd C:\inetpub\wwwroot\
+Wget https://raw.githubusercontent.com/Azure-Samples/html-docs-hello-world/master/index.html -OutFile index.html
+
+```
+Deploy and configure LX-VM2
+
+* Standard linux, no ssh
+* After the VM deploys, open the VM properties page and choose Extensions + Applications under Settings.
+* Choose Add and select the Network Watcher Agent for Linux. Choose Next and then choose Review and Create. Choose Create.
+* Configure the AzureNetworkWatcherExtension and the OmsAgentForLinux extension so that they automatically upgrade.
+
+
+Deploy a web app with an SQL Database
+
+
+Deploy a Linux web app
