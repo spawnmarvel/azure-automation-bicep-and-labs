@@ -17,6 +17,7 @@ https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-
 * Good naming
 * Think carefully about the parameters your template uses.
 * Be mindful of the default values you use.
+* Deploy clean resources and add custom extensions after
 
 Read more:
 
