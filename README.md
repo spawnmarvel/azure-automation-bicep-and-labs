@@ -55,8 +55,20 @@ Don use time with making and CustomScriptExtension in the template.bicep like:
 resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
   parent: vm
   name: 'customScriptInstallIis'
-  // ...
+  location: location
+  properties: {
+    publisher: 'Microsoft.Compute'
+    type: 'CustomScriptExtension'
+    typeHandlerVersion: '1.10'
+    autoUpgradeMinorVersion: true
+    settings: {
+      fileUris: []  Add any file URIs if needed
+    }
+    protectedSettings: {
+      commandToExecute: 'powershell.exe -Command "Install-WindowsFeature Web-Server -IncludeAllSubFeature -IncludeManagementTools"'
+    }
   }
+}
 ```
 1. Make clean templates for reusable
 2. Use custom script extension post install
