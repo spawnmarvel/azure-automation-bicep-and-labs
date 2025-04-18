@@ -68,6 +68,9 @@ Set-AzVMCustomScriptExtension -ResourceGroupName $rg -VMName $winVm -Location $l
 
 
 ```
+Example from applied skills lab
+
+https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/applied_skills-labs/lab_env_01_deploy_configure_monitor/deploy_lab_resources.ps1
 
 ![ps1 vm extension eample](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/extension.jpg)
 
