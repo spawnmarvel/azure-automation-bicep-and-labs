@@ -69,11 +69,14 @@ resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/exte
     }
   }
 }
+
 ```
+Do this instead:
+
 1. Make clean templates for reusable
-2. Use custom script extension post install
+2. Use custom script extension post install and stored scripts
 3. Scripts are then reusable for custom script extension or as logged in user and run it
-4. Scripts are down loaded to vm's
+4. Scripts are downloaded to vm's also
 
 ```ps1
 # must check for windows
