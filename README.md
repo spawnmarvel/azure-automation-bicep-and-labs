@@ -54,7 +54,10 @@ Don use time with making and CustomScriptExtension like:
 resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/extensions@2021-11-01'= {}
 
 ```
-You can just use the Set-AzVMCustomScriptExtension
+You can just use the Set-AzVMCustomScriptExtension.
+
+The Custom Script Extension downloads and runs scripts on Azure virtual machines (VMs). Use this extension for post-deployment configuration, software installation, or any other configuration or management task.
+You can download scripts from Azure Storage or GitHub, or provide them to the Azure portal at extension runtime.
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
 
@@ -68,6 +71,8 @@ Set-AzVMCustomScriptExtension -ResourceGroupName $rg -VMName $winVm -Location $l
 
 
 ```
+
+
 Example from applied skills lab
 
 https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/applied_skills-labs/lab_env_01_deploy_configure_monitor/deploy_lab_resources.ps1
