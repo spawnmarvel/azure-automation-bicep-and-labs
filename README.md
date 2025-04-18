@@ -48,11 +48,26 @@ Connect-AzAccount -TenantId The-tenant-id-we-copied-from-azure-ad
 
 ```
 
-Don use time with making and CustomScriptExtension like:
+Don use time with making and CustomScriptExtension in the template.bicep like:
 
 ```json
 resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/extensions@2021-11-01'= {}
 
+```
+1. Make clean templates for reusable
+2. Use custom script extension post install
+3. Scripts are then reusable for custom script extension or as logged in user and run it
+4. Scripts are down loaded to vm's
+
+```ps1
+# must check for windows
+C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
+# or 
+C:\WindowsAzure\Logs\
+```
+
+```bash
+# must check for linux
 ```
 
 ## Custom Script Extension vs Run Command (remote ext) for VM Configuration
