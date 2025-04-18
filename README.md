@@ -65,11 +65,21 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-scrip
 
 ```ps1
 
+Set-AzVMCustomScriptExtension -ResourceGroupName <resourceGroupName> `
+    -VMName <vmName> `
+    -Location myLocation `
+    -FileUri <fileUrl> `
+    -Run 'myScript.ps1' `
+    -Name DemoScriptExtension
+
 # use raw file from github
 
-Set-AzVMCustomScriptExtension -ResourceGroupName $rg -VMName $winVm -Location $loc `
+Set-AzVMCustomScriptExtension -ResourceGroupName $rg `
+    -VMName $winVm `
+    -Location $loc `
     -FileUri "https://raw.githubusercontent.com/spawnmarvel/azure-administrator-grinding/refs/heads/main/applied-skills/lab_env_01_deploy_configure_monitor/custom_install_all_features_ws-vm1.ps1" `
-    -Run "custom_install_all_features_ws-vm1.ps1" -Name DemoScriptExtension
+    -Run "custom_install_all_features_ws-vm1.ps1" `
+    -Name DeployIisAndIndexHtml
 
 
 ```
@@ -83,6 +93,18 @@ https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/applied
 
 
 ### Use the Azure Custom Script Extension Version 2 with Linux virtual machines
+
+
+```bash
+
+az vm extension set \
+  --resource-group exttest \
+  --vm-name exttest \
+  --name customScript \
+  --publisher Microsoft.Azure.Extensions \
+  --protected-settings '{"fileUris": ["https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"],"commandToExecute": "./config-music.sh"}'
+
+```
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux
 
