@@ -50,7 +50,7 @@ Connect-AzAccount -TenantId The-tenant-id-we-copied-from-azure-ad
 
 Don use time with making and CustomScriptExtension in the template.bicep like:
 
-```json
+```bicep
 
 resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/extensions@2021-11-01' = {
   parent: vm
