@@ -62,7 +62,7 @@ resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/exte
     typeHandlerVersion: '1.10'
     autoUpgradeMinorVersion: true
     settings: {
-      fileUris: []  Add any file URIs if needed
+      fileUris: []  // Add any file URIs if needed
     }
     protectedSettings: {
       commandToExecute: 'powershell.exe -Command "Install-WindowsFeature Web-Server -IncludeAllSubFeature -IncludeManagementTools"'
