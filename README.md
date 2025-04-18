@@ -38,7 +38,35 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#ins
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
+## Note: Connect Az and CustomScriptExtension
 
+Connect with ps1
+
+```ps1
+
+Connect-AzAccount -TenantId The-tenant-id-we-copied-from-azure-ad
+
+```
+
+Don use time with making and CustomScriptExtension like:
+
+```json
+resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/extensions@2021-11-01'= {}
+
+```
+You can just use the Set-AzVMCustomScriptExtension
+```ps1
+
+Connect-AzAccount -TenantId The-tenant-id-we-copied-from-azure-ad
+
+# https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
+# use raw file
+Set-AzVMCustomScriptExtension -ResourceGroupName $rg -VMName $winVm -Location $loc `
+    -FileUri "https://raw.githubusercontent.com/spawnmarvel/azure-administrator-grinding/refs/heads/main/applied-skills/lab_env_01_deploy_configure_monitor/custom_install_all_features_ws-vm1.ps1" `
+    -Run "custom_install_all_features_ws-vm1.ps1" -Name DemoScriptExtension
+
+
+```
 ## Exercise 1 - Build your first Bicep template (check it)
 
 * Create and deploy Azure resources by using Bicep.
