@@ -1,6 +1,3 @@
-
-
-
 # Read credentials from key vault file
 # Read the JSON file
 $jsonContent = Get-Content -Path "./user.json" -Raw | ConvertFrom-Json
@@ -24,7 +21,7 @@ New-AzResourceGroup -Name $rg -Location $loc -Force
 # https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-bicep?tabs=PowerShell
 
 # Deploy and configure WS-VM1 add extra NSG for http
-New-AzResourceGroupDeployment -Name $deploymentId -ResourceGroupName $rg -TemplateFile ./WS-VM1.bicep -vmName $winVm -adminUsername "prime" -adminPassword $securePassword -Mode Complete # -WhatIf 
+New-AzResourceGroupDeployment -Name $deploymentId -ResourceGroupName $rg -TemplateFile ./WS-VM1.bicep -vmName $winVm -adminUsername $userName -adminPassword $securePassword -Mode Complete # -WhatIf 
 Write-Host "Vm deploy done"
 Write-Host "Use Set-AzVMCustomScriptExtension or Login to vm and install custom_install_all_features_ws-vm1.ps1"
 
