@@ -54,12 +54,30 @@ Don use time with making and CustomScriptExtension like:
 resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/extensions@2021-11-01'= {}
 
 ```
+
+## Custom Script Extension vs Run Command (remote ext) for VM Configuration
+
+Use case Custom Script Extension vs Run Command (remote ext)
+
+![Use case custom ext](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/compare_cust_ext.jpg)
+
+
+https://learn.microsoft.com/en-us/answers/questions/2149891/custom-script-extension-vs-run-command-for-vm-conf
+
 ### Custom Script Extension for Windows
 
 You can just use the Set-AzVMCustomScriptExtension.
 
 The Custom Script Extension downloads and runs scripts on Azure virtual machines (VMs). Use this extension for post-deployment configuration, software installation, or any other configuration or management task.
 You can download scripts from Azure Storage or GitHub, or provide them to the Azure portal at extension runtime.
+
+
+Tips for Choosing
+
+1. For initial setup or deploying consistent configurations across multiple VMs, use Custom Script Extension.
+2. For one-off fixes, diagnostics, or when you're troubleshooting an issue, use Run Command.
+3. If you're integrating with IaC (ARM templates, Terraform, etc.), prefer Custom Script Extension as it fits well with automation pipelines.
+4. For debugging a single VM without logging in, Run Command offers convenience without requiring prior setup.
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
 
@@ -84,7 +102,6 @@ Set-AzVMCustomScriptExtension -ResourceGroupName $rg `
 
 ```
 
-
 Example from applied skills lab
 
 https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/applied_skills-labs/lab_env_01_deploy_configure_monitor/deploy_lab_resources.ps1
@@ -93,7 +110,6 @@ https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/applied
 
 
 ### Use the Azure Custom Script Extension Version 2 with Linux virtual machines
-
 
 ```bash
 
