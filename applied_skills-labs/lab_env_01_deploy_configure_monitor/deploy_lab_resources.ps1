@@ -23,10 +23,7 @@ New-AzResourceGroup -Name $rg -Location $loc -Force
 # Quickstart: Create a Windows virtual machine using a Bicep file
 # https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-bicep?tabs=PowerShell
 
-# Deploy and configure WS-VM1
-# with custom script ext for iis
-# and extra http nsg rule
-# todo add one more custom script for edit inet pub index.html, something fixhe here wait with it, do the lab and get cert
+# Deploy and configure WS-VM1 add extra NSG for http
 New-AzResourceGroupDeployment -Name $deploymentId -ResourceGroupName $rg -TemplateFile ./WS-VM1.bicep -vmName $winVm -adminUsername "prime" -adminPassword $securePassword -Mode Complete # -WhatIf 
 Write-Host "Vm deploy done"
 Write-Host "Use Set-AzVMCustomScriptExtension or Login to vm and install custom_install_all_features_ws-vm1.ps1"
