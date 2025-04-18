@@ -68,6 +68,9 @@ Set-AzVMCustomScriptExtension -ResourceGroupName $rg -VMName $winVm -Location $l
 
 
 ```
+
+![ps1 vm extension eample](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/extension.jpg)
+
 ## Exercise 1 - Build your first Bicep template (check it)
 
 * Create and deploy Azure resources by using Bicep.
