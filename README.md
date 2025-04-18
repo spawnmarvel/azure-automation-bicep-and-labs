@@ -100,6 +100,11 @@ https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-template
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/
 
+## Exercise x - TODO or (check it)
+## Exercise x - TODO or (check it)
+## Exercise x - TODO or (check it)
+
+## Skip the stuff with piplines
 
 ## Labs for applied skills with tags azure administrator
 
