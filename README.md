@@ -95,7 +95,7 @@ https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-template
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/
 
 
-## Make bicep files for all environments in the labs for applied skills with tags azure administrator
+## Labs for applied skills with tags azure administrator
 
 * They are on github, this forces you to read, deploy bicep and learn
 * Use Azure to spin up resources with bicep
@@ -112,7 +112,7 @@ Stored in ./applied_skills
 https://github.com/MicrosoftLearning/AZ-104-MicrosoftAzureAdministrator
 
 
-## Make bicep files for all environments in the labs for az-104
+## Labs for az-104
 
 * They are on github, this forces you to read, deploy bicep and learn
 * Use Azure to spin up resources with bicep
