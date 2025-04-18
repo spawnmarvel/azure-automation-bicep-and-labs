@@ -38,7 +38,7 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#ins
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
-## Note: Connect Az and CustomScriptExtension
+## Note: Connect Az and CustomScriptExtension for Windows and Linux post installation
 
 Connect with ps1
 
@@ -54,6 +54,8 @@ Don use time with making and CustomScriptExtension like:
 resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/extensions@2021-11-01'= {}
 
 ```
+### Custom Script Extension for Windows
+
 You can just use the Set-AzVMCustomScriptExtension.
 
 The Custom Script Extension downloads and runs scripts on Azure virtual machines (VMs). Use this extension for post-deployment configuration, software installation, or any other configuration or management task.
@@ -78,6 +80,11 @@ Example from applied skills lab
 https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/applied_skills-labs/lab_env_01_deploy_configure_monitor/deploy_lab_resources.ps1
 
 ![ps1 vm extension eample](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/extension.jpg)
+
+
+### Use the Azure Custom Script Extension Version 2 with Linux virtual machines
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux
 
 ## Exercise 1 - Build your first Bicep template (check it)
 
