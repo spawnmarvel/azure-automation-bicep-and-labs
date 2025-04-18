@@ -54,7 +54,9 @@ Don use time with making and CustomScriptExtension like:
 resource customScriptExtensionInstallIis 'Microsoft.Compute/virtualMachines/extensions@2021-11-01'= {}
 
 ```
-You can just use the Set-AzVMCustomScriptExtension https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
+You can just use the Set-AzVMCustomScriptExtension
+
+https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-windows
 
 ```ps1
 
