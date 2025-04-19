@@ -1,3 +1,4 @@
+// https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 @description('The name of environment')
 @allowed([
   'dev'

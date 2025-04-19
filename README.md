@@ -216,8 +216,11 @@ The end tutorial is here https://learn.microsoft.com/en-us/training/modules/buil
 
 What is the key take away?
 
-```bicep
-```
+You've been asked to prepare infrastructure for three environments: dev, test, and production. You'll build this infrastructure by using infrastructure as code techniques so that you can reuse the same templates to deploy across all of your environments. You'll create separate sets of parameter values for each environment, while securely retrieving database credentials from Azure Key Vault.
+
+* Exercise - Add parameters and decorators
+* Exercise - Add a parameter file and secure parameters
+
 
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/
 
