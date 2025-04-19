@@ -185,9 +185,21 @@ https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-template
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/
 
-## Exercise x - TODO or (check it)
-## Exercise x - TODO or (check it)
-## Exercise x - TODO or (check it)
+## Exercise 5 - Exercise - Deploy multiple resources by using loops (check it)
+
+https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/5-exercise-loops?pivots=powershell
+
+## Exercise 6 - Exercise - Use variable and output loops (check it)
+
+https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
+
+## Exercise 8 intermediate - TODO or (check it)
+
+* Explain resource types and resource IDs
+* Deploy child and extension resources
+* Represent and use pre-existing resources in a Bicep template
+
+https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/
 
 ## Skip the stuff with piplines
 
