@@ -208,7 +208,7 @@ The end tutorial is here https://learn.microsoft.com/en-us/training/modules/buil
 
 ![Exercise 1](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_1.jpg)
 
-## Exercise 2 -  Part 1 fundamentals Build reusable Bicep templates by using parameters (SubscriptionIsOverQuotaForSku skip it)
+## Exercise 2 -  Part 1 fundamentals Build reusable Bicep templates by using parameters (ok)
 
 * Customize parameters and limit the values that can be used by each parameter
 * Understand the ways that parameters can be supplied to a Bicep template deployment
@@ -228,20 +228,20 @@ SubscriptionIsOverQuotaForSku - This
      | region has quota of 0 instances for your subscription. Try selecting different region or SKU.
   
 ```
-1. Check Current Usage
-   Review your current resource usage against the set quotas in the Azure portal under the "Usage + quotas" section.
-2. Request a Quota Increase = Na
-3. Select a Different SKU or Region
+The issues was a bad copy from the tutorial on main.bicep.
+I have a policy for allowed locations:
 
-Tried:
+["norwayeast","norwaywest","northeurope","westeurope","eastus","westus","uksouth","ukwest"]
 
-* Free (F1):, Basic (B1, B2, B3)
-* Standard (S):, General Purpose (GP)
-* WTF......
+```bicep
 
-```log
+@description('The Azure region into which the resources should be deployed.')
+param location string = 'eastus'
 
-Try deploy with out # -WhatIf
+ // changed to
+@description('The Azure region into which the resources should be deployed.')
+param location string = resourceGroup().location
+
 ```
 
 The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
