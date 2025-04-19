@@ -28,6 +28,7 @@ You can also look or export templates.
 
 VM | Automation -> Export template -> Bicep 
 
+
 ## When is Bicep the right tool?
 
 * Azure-native
@@ -41,6 +42,17 @@ https://learn.microsoft.com/en-us/training/modules/introduction-to-infrastructur
 ## Install Bicep tools
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#install-manually
+
+## Bicep functions to use
+
+```bicep
+// uniqueString
+param cosmosDBAccountName string = 'toyrnd-${uniqueString(resourceGroup().id)}'
+
+// location from rg
+param location string = resourceGroup().location
+
+```
 
 ## Note: Connect Az and CustomScriptExtension for Windows and Linux post installation
 
@@ -303,7 +315,7 @@ The end tutorial is here https://learn.microsoft.com/en-us/training/modules/buil
 ![Exercise ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_4.jpg)
 
 
-## Exercise x Part 2 intermediate - TODO or (check it)
+## Exercise 5 Part 2 intermediate - TODO or (check it)
 
 * Explain resource types and resource IDs
 * Deploy child and extension resources
