@@ -281,6 +281,11 @@ Suppose you're responsible for deploying and configuring the Azure infrastructur
 * Exercise - Deploy multiple resources by using loops
 * Exercise - Use variable and output loops
 
+For your toy company, you need to deploy virtual networks in each country/region where you're launching the teddy bear. Your developers have also asked you to give them the fully qualified domain names (FQDNs) of each of the regional Azure SQL logical servers you've deployed.
+
+
+
+The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
 
 ## Exercise 4 ???
 

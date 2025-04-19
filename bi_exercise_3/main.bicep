@@ -1,86 +1,65 @@
-@description('The name of environment')
-@allowed([
-  'dev'
-  'test'
-  'prod'
-])
-param environmentName string = 'dev'
-
-@description('The unique name of solution')
-@minLength(5)
-@maxLength(30)
-param solutionName string = 'toyhr${uniqueString(resourceGroup().id)}'
-
-@description('The num of app service plan instance')
-@minValue(1)
-@maxValue(5)
-param appServicePlanInstanceCount int = 1
-
-@description('The name of tier of the app service plan SKU')
-param appServicePlanSku object
+//@description('The region for deployment')
+//param location string = resourceGroup().location
 
 @description('The region for deployment')
-param location string = resourceGroup().location
-
-// Add new parameters
+param locations array = [
+  'westeurope'
+  'uksouth'
+]
 @secure()
-@description('The admin login uname for the sql server')
+@description('The admin login password for sql server')
 param sqlServerAdministratorLogin string
 
 @secure()
-@description('The admin login passw for the sql server')
-param sqlServerAdministratorPassword string
+@description('The administrator password for sql server')
+param sqlServerAdministratorLoginPassword  string
 
-@description('The name and tier of the sql db sku')
-param sqlDataBaseSku object
+@description('The IP address range for all virtual networks to use.')
+param virtualNetworkAddressPrefix string = '10.10.0.0/16'
 
-
-
-var appServicePlanName = '${environmentName}-${solutionName}-plan'
-var appServiceAppName = '${environmentName}-${solutionName}-app'
-
-// Add new variables
-var sqlServerName = '${environmentName}-${solutionName}-sql'
-var sqlDatabaseName = 'Employees'
-
-// app service plan
-resource appServicePlan 'Microsoft.Web/serverfarms@2022-09-01' = {
-  name:appServicePlanName
-  location:location
-  sku:{
-    name:appServicePlanSku.name
-    tier:appServicePlanSku.tier
-    capacity:appServicePlanInstanceCount
+@description('The name and IP address range for each subnet in the virtual networks.')
+param subnets array = [
+  {
+    name: 'frontend'
+    ipAddressRange: '10.10.5.0/24'
   }
-}
-
-// web app
-resource appServiceApp 'Microsoft.Web/sites@2022-09-01' = {
-  name:appServiceAppName
-  location:location
-  properties:{
-    serverFarmId:appServicePlan.id
-    httpsOnly:true
+  {
+    name: 'backend'
+    ipAddressRange: '10.10.10.0/24'
   }
-}
+]
 
-// Add SQL server and database resources
-
-resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
-  name:sqlServerName
-  location:location
+var subnetProperties = [for subnet in subnets: {
+  name: subnet.name
   properties: {
-    administratorLogin:sqlServerAdministratorLogin
-    administratorLoginPassword:sqlServerAdministratorPassword
+    addressPrefix: subnet.ipAddressRange
   }
-}
+}]
 
-resource sqlDatabase 'Microsoft.Sql/servers/databases@2022-05-01-preview' = {
-  parent:sqlServer
-  name:sqlDatabaseName
-  location:location
-  sku:{
-    name:sqlDataBaseSku.name
-    tier:sqlDataBaseSku.tier
+module databases 'modules/database.bicep' = [for location in locations: {
+  name: 'database-${location}'
+  params: {
+    location: location
+    sqlServerAdministratorLogin: sqlServerAdministratorLogin
+    sqlServerAdministratorLoginPassword: sqlServerAdministratorLoginPassword
   }
-}
+}]
+
+resource virtualNetworks 'Microsoft.Network/virtualNetworks@2024-05-01' = [for location in locations: {
+  name: 'teddybear-${location}'
+  location: location
+  properties:{
+    addressSpace:{
+      addressPrefixes:[
+        virtualNetworkAddressPrefix
+      ]
+    }
+    subnets: subnetProperties
+  }
+}]
+
+output serverInfo array = [for i in range(0, length(locations)): {
+  name: databases[i].outputs.serverName
+  location: databases[i].outputs.location
+  fullyQualifiedDomainName: databases[i].outputs.serverFullyQualifiedDomainName
+}]
