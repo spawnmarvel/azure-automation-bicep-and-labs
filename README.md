@@ -354,19 +354,27 @@ What is the key take away?
 
 ## Exercise 6 Part 2 intermediate - Structure your Bicep code for collaboration (todo)
 
+
+What is the key take away?
+
 Full exercise at https://learn.microsoft.com/en-us/training/paths/intermediate-bicep/
 
 ## Exercise none Part 2 intermediate Review Azure infrastructure changes by using Bicep and pull requests (later in the future)
 
 Full exercise at https://learn.microsoft.com/en-us/training/modules/review-azure-infrastructure-changes-using-bicep-pull-requests/
 
-## Introduction to deployment stacks
+## Use Bicep in a deployment pipeline (skip it)
 
-## Build your first deployment stack
+After that, you might be interested in adding your Bicep code to a deployment pipeline. Follow one of these two learning paths based on the tool that you want to use:
 
-## Manage resource lifecycles with deployment stacks
+* Option 1: Deploy Azure resources by using Bicep and Azure Pipelines
+* Option 2: Deploy Azure resources by using Bicep and GitHub Actions
 
-## Skip the stuff with piplines
+## Introduction to deployment stacks (short)
+
+## Build your first deployment stack (short)
+
+## Manage resource lifecycles with deployment stacks (short)
 
 ## Labs for applied skills with tags azure administrator
 
