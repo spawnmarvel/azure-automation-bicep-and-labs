@@ -32,47 +32,57 @@ Write-Log $deploymentId
 # deploy rg
 New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure = "IAC" } -Force
 
-New-AzOperationalInsightsWorkspace -ResourceGroupName $rgName -Name $existingLogAna -Location $location
-
+ # Create an Azure Log Analytics workspace to simulate your R&D team's already having created one in your organization. Use Azure PowerShell instead of Bicep.
 try {
-    # Create a Log Analytics workspace to simulate having one already created in your organization. Use Azure PowerShell instead of Bicep.
-    $check_la = Get-AzOperationalInsightsWorkspace -ResourceGroupName $rgName -Name $existingLogAna
-    if (null -eq $check_la) {
-        # create it
+    # Try to get the existing Log Analytics workspace
+    $check_la = $null
+    try {
+        $check_la = Get-AzOperationalInsightsWorkspace -ResourceGroupName $rgName -Name $existingLogAna -ErrorAction Stop
+    }
+    catch {
+        # Workspace not found or another error
+        Write-Host "Workspace '$existingLogAna' not found in resource group '$rgName'. It will be created."
+    }
+
+    if ($null -eq $check_la) {
+        # Create the workspace
         New-AzOperationalInsightsWorkspace -ResourceGroupName $rgName -Name $existingLogAna -Location $location
+        Write-Host "Workspace '$existingLogAna' created in resource group '$rgName'."
     }
     else {
-        <# Action when all if and elseif conditions are false #>
-        # pass, we have it
+        Write-Host "Workspace '$existingLogAna' already exists in resource group '$rgName'."
     }
-    
 }
 catch {
-    <#Do this if a terminating exception happens#>
-    Write-Log "Something threw an exception"
-    Write-Log $_
+    Write-Host "An unexpected error occurred:"
+    Write-Host $_
 }
 
+# Create an Azure storage account to simulate your R&D team's already having created one in your organization. Use Azure PowerShell instead of Bicep.
 try {
-    # Create an Azure storage account to simulate your R&D team's already having created one in your organization. Use Azure PowerShell instead of Bicep.
-    $check_st = Get-AzStorageAccount -ResourceGroupName $rgName -Name $existingStAccount
+    # Try to get the existing storage account
+    $check_st = $null
+    try {
+        $check_st = Get-AzStorageAccount -ResourceGroupName $rgName -Name $existingStAccount
+    }
+    catch {
+        # Workspace not found or another error
+        Write-Host "Workspace '$existingLogAna' not found in resource group '$rgName'. It will be created."
+    }
+
     if ($null -eq $check_st) {
-        # create it
+        # Create the st account
         New-AzStorageAccount -ResourceGroupName $rgName -Name $existingStAccount -Location $location -SkuName "Standard_LRS"
+        Write-Host "Workspace '$existingStAccount' created in resource group '$rgName'."
     }
     else {
-        <# Action when all if and elseif conditions are false #>
-        # pass, we have it
+        Write-Host "Workspace '$existingStAccount' already exists in resource group '$rgName'."
     }
-    
 }
 catch {
-    <#Do this if a terminating exception happens#>
-    Write-Log "Something threw an exception"
-    Write-Log $_
+    Write-Host "An unexpected error occurred:"
+    Write-Host $_
 }
-
-
 
 # Your R&D team wants you to log all successful requests to the storage account they created. 
 # You decide to use the Azure Storage integration with Azure Monitor logs to achieve this goal. 
@@ -81,11 +91,11 @@ catch {
 # Notice that both of these resources use the existing keyword. -TemplateFile main.bicep
 
 # deploy with main name and other resources
-# $deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -TemplateFile main.bicep -storageAccountName $existingStAccount #  -WhatIf
+$deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -TemplateFile main.bicep -storageAccountName $existingStAccount #  -WhatIf
 
-# Write-Log $deployResult.ProvisioningState
-# $end = "End deploy:" + ($deployResult.ProvisioningState)
-# Write-Log $end
+Write-Log $deployResult.ProvisioningState
+$end = "End deploy:" + ($deployResult.ProvisioningState)
+Write-Log $end
 
 
 
