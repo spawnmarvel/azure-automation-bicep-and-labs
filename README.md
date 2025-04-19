@@ -289,30 +289,21 @@ The end tutorial is here https://learn.microsoft.com/en-us/training/modules/buil
 
 ![Exercise 3](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_3.jpg)
 
-## Exercise 4 ???
+## Exercise 4 - Part 1 fundamentals Create composable Bicep files by using modules
+
+* Design and create reusable, well-structured Bicep modules
+* Create Bicep files that use multiple modules together
+
+What is the key take away?
+
+You've been tasked with adding a content delivery network, or CDN, to your company's website for the launch of a toy wombat. However, other teams in your company have told you they don't need a CDN. In this exercise, you'll create modules for the website and the CDN, and you'll add the modules to a template.
 
 The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
 
-## Exercise 5 -  Part 1 fundamentals Exercise - fundamentals Deploy multiple resources by using loops (check it)
-
-What is the key take away?
-
-```bicep
-```
-
-https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/5-exercise-loops?pivots=powershell
-
-## Exercise 6 -  Part 1 fundamentals Exercise - fundamentals Use variable and output loops (check it)
+![Exercise ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_4.jpg)
 
 
-What is the key take away?
-
-```bicep
-```
-
-https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
-
-## Exercise 8 Part 2 intermediate - TODO or (check it)
+## Exercise x Part 2 intermediate - TODO or (check it)
 
 * Explain resource types and resource IDs
 * Deploy child and extension resources

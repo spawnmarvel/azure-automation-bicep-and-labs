@@ -6,7 +6,7 @@
 // Normally, you would create resources in the same location as the resource group by using the resourceGroup().location property. 
 param location string = resourceGroup().location
 
-@description('The of the app service app')
+@description('The name of the app service app')
 param appServiceAppName string = 'toy-${uniqueString(resourceGroup().id)}'
 
 @description('The name of the app service plan SKU')
@@ -34,5 +34,5 @@ module cnd 'modules/cdn.bicep' = if(deployCDN) {
     originHostName:app.outputs.appServiceHostName 
   }
 }
-
+@description('The host name to use to access the website.')
 output webSiteHostName string = deployCDN ? cnd.outputs.endpointHostName: app.outputs.appServiceHostName
