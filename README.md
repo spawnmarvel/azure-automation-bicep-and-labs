@@ -160,7 +160,7 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-scrip
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
-## Exercise 1 - Build your first Bicep template (check it)
+## Exercise 1 - Part 1 fundamentals Build your first Bicep template (check it)
 
 * Create and deploy Azure resources by using Bicep.
 * Add flexibility to your templates by using parameters, variables, and expressions.
@@ -175,7 +175,7 @@ What is the key take away?
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/
 
 
-## Exercise 2 - Build reusable Bicep templates by using parameters (check it)
+## Exercise 2 -  Part 1 fundamentals Build reusable Bicep templates by using parameters (check it)
 
 * Customize parameters and limit the values that can be used by each parameter
 * Understand the ways that parameters can be supplied to a Bicep template deployment
@@ -189,7 +189,7 @@ What is the key take away?
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/
 
 
-## Exercise 3 - Build flexible Bicep templates by using conditions and loops (check it)
+## Exercise 3 -  Part 1 fundamentals Build flexible Bicep templates by using conditions and loops (check it)
 
 * Deploy resources conditionally within a Bicep template.
 * Deploy multiple instances of resources by using loops.
@@ -202,7 +202,7 @@ What is the key take away?
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/
 
-## Exercise 5 - Exercise - Deploy multiple resources by using loops (check it)
+## Exercise 5 -  Part 1 fundamentals Exercise - fundamentals Deploy multiple resources by using loops (check it)
 
 What is the key take away?
 
@@ -211,7 +211,7 @@ What is the key take away?
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/5-exercise-loops?pivots=powershell
 
-## Exercise 6 - Exercise - Use variable and output loops (check it)
+## Exercise 6 -  Part 1 fundamentals Exercise - fundamentals Use variable and output loops (check it)
 
 
 What is the key take away?
