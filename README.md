@@ -235,7 +235,7 @@ SubscriptionIsOverQuotaForSku - This
 Tried:
 
 ```log
-
+Try deploy with # -WhatIf
 ```
 
 The end tutorila is here https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
