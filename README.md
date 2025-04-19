@@ -265,6 +265,7 @@ You aren't prompted to enter the values for sqlServerAdministratorLogin and sqlS
 
 The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 
+![Exercise 2](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_2.jpg)
 
 ## Exercise 3 -  Part 1 fundamentals Build flexible Bicep templates by using conditions and loops (check it)
 
