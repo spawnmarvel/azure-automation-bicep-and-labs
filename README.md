@@ -164,6 +164,26 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-scrip
 
 ## Learn modules for Bicep
 
+
+Use the log function for a deployes
+
+```ps1
+
+# Function to append to the log file
+function Write-Log {
+    param(
+        [string]$Message
+    )
+    $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+    $logEntry = "$timestamp - $Message"
+    $logFile = "c:\temp\bicep_install_log.txt"
+    Add-Content -Path $logFile -Value $logEntry
+    # comment this out for only file log
+    Write-Host $logEntry
+}
+
+```
+
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
 ## Exercise 1 - Part 1 fundamentals Build your first Bicep template (ok)
