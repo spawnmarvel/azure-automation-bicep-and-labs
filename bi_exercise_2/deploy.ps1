@@ -29,7 +29,7 @@ Write-Log $deploymentId
 New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure="IAC"} -Force
 
 # deploy resources
-$deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -TemplateFile main.bicep -TemplateParameterFile main.parameters.json # -WhatIf
+$deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -TemplateFile main.bicep -TemplateParameterFile main.parameters.json -WhatIf
 
 Write-Log $deployResult.ProvisioningState
 $end = "End deploy:" + ($deployResult.ProvisioningState)

@@ -229,16 +229,22 @@ SubscriptionIsOverQuotaForSku - This
   
 ```
 1. Check Current Usage
+   Review your current resource usage against the set quotas in the Azure portal under the "Usage + quotas" section.
 2. Request a Quota Increase = Na
 3. Select a Different SKU or Region
 
 Tried:
 
+* Free (F1):, Basic (B1, B2, B3)
+* Standard (S):, General Purpose (GP)
+* WTF......
+
 ```log
-Try deploy with # -WhatIf
+
+Try deploy with out # -WhatIf
 ```
 
-The end tutorila is here https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
+The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 
 
 ## Exercise 3 -  Part 1 fundamentals Build flexible Bicep templates by using conditions and loops (check it)
