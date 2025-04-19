@@ -208,7 +208,7 @@ The end tutorial is here https://learn.microsoft.com/en-us/training/modules/buil
 
 ![Exercise 1](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_1.jpg)
 
-## Exercise 2 -  Part 1 fundamentals Build reusable Bicep templates by using parameters (SubscriptionIsOverQuotaForSku)
+## Exercise 2 -  Part 1 fundamentals Build reusable Bicep templates by using parameters (SubscriptionIsOverQuotaForSku skip it)
 
 * Customize parameters and limit the values that can be used by each parameter
 * Understand the ways that parameters can be supplied to a Bicep template deployment
@@ -255,10 +255,16 @@ The end tutorial is here https://learn.microsoft.com/en-us/training/modules/buil
 
 What is the key take away?
 
-```bicep
-```
+Suppose you're responsible for deploying and configuring the Azure infrastructure at a toy company. Your company is designing a new smart teddy bear toy. Some of the teddy bear's features are based on back-end server components and SQL databases that are hosted in Azure. For security reasons, within your production environments, you need to make sure that you've enabled auditing on your Azure SQL logical servers.
 
-https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/
+* Exercise - Deploy resources conditionally
+* Exercise - Deploy multiple resources by using loops
+* Exercise - Use variable and output loops
+
+
+## Exercise 4 ???
+
+The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
 
 ## Exercise 5 -  Part 1 fundamentals Exercise - fundamentals Deploy multiple resources by using loops (check it)
 
