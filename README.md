@@ -208,7 +208,7 @@ The end tutorial is here https://learn.microsoft.com/en-us/training/modules/buil
 
 ![Exercise 1](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_1.jpg)
 
-## Exercise 2 -  Part 1 fundamentals Build reusable Bicep templates by using parameters (check it)
+## Exercise 2 -  Part 1 fundamentals Build reusable Bicep templates by using parameters (SubscriptionIsOverQuotaForSku)
 
 * Customize parameters and limit the values that can be used by each parameter
 * Understand the ways that parameters can be supplied to a Bicep template deployment
@@ -221,8 +221,24 @@ You've been asked to prepare infrastructure for three environments: dev, test, a
 * Exercise - Add parameters and decorators
 * Exercise - Add a parameter file and secure parameters
 
+After deploy
 
-https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/
+```log
+SubscriptionIsOverQuotaForSku - This
+     | region has quota of 0 instances for your subscription. Try selecting different region or SKU.
+  
+```
+1. Check Current Usage
+2. Request a Quota Increase = Na
+3. Select a Different SKU or Region
+
+Tried:
+
+```log
+
+```
+
+The end tutorila is here https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 
 
 ## Exercise 3 -  Part 1 fundamentals Build flexible Bicep templates by using conditions and loops (check it)
