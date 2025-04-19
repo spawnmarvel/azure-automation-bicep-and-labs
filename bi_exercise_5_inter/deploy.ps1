@@ -18,7 +18,7 @@ Write-Log $st
 
 # rg and location
 $rgName = "Rg-iac-0080"
-$location  = "uk south"
+$location = "uk south"
 $existingLogAna = "ToyLogs"
 $existingStAccount = "toylogstsacount945"
 
@@ -30,28 +30,48 @@ Write-Log $deploymentId
 
 
 # deploy rg
-New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure="IAC"} -Force
+New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure = "IAC" } -Force
 
-# Create a Log Analytics workspace to simulate having one already created in your organization. Use Azure PowerShell instead of Bicep.
-$check_la = Get-AzOperationalInsightsWorkspace -ResourceGroupName $rgName -Name $existingLogAna
-if (null -eq $check_la) {
-    # create it
-    New-AzOperationalInsightsWorkspace -ResourceGroupName $rgName -Name $existingLogAna -Location $location
+New-AzOperationalInsightsWorkspace -ResourceGroupName $rgName -Name $existingLogAna -Location $location
+
+try {
+    # Create a Log Analytics workspace to simulate having one already created in your organization. Use Azure PowerShell instead of Bicep.
+    $check_la = Get-AzOperationalInsightsWorkspace -ResourceGroupName $rgName -Name $existingLogAna
+    if (null -eq $check_la) {
+        # create it
+        New-AzOperationalInsightsWorkspace -ResourceGroupName $rgName -Name $existingLogAna -Location $location
+    }
+    else {
+        <# Action when all if and elseif conditions are false #>
+        # pass, we have it
+    }
+    
 }
-else {
-    <# Action when all if and elseif conditions are false #>
-    # pass, we have it
+catch {
+    <#Do this if a terminating exception happens#>
+    Write-Log "Something threw an exception"
+    Write-Log $_
 }
-# Create an Azure storage account to simulate your R&D team's already having created one in your organization. Use Azure PowerShell instead of Bicep.
-$check_st = Get-AzStorageAccount -ResourceGroupName $rgName -Name $existingStAccount
-if ($null -eq $check_st) {
-    # create it
-    New-AzStorageAccount -ResourceGroupName $rgName -Name $existingStAccount -Location $location -SkuName "Standard_LRS"
+
+try {
+    # Create an Azure storage account to simulate your R&D team's already having created one in your organization. Use Azure PowerShell instead of Bicep.
+    $check_st = Get-AzStorageAccount -ResourceGroupName $rgName -Name $existingStAccount
+    if ($null -eq $check_st) {
+        # create it
+        New-AzStorageAccount -ResourceGroupName $rgName -Name $existingStAccount -Location $location -SkuName "Standard_LRS"
+    }
+    else {
+        <# Action when all if and elseif conditions are false #>
+        # pass, we have it
+    }
+    
 }
-else {
-    <# Action when all if and elseif conditions are false #>
-    # pass, we have it
+catch {
+    <#Do this if a terminating exception happens#>
+    Write-Log "Something threw an exception"
+    Write-Log $_
 }
+
 
 
 # Your R&D team wants you to log all successful requests to the storage account they created. 
@@ -61,11 +81,11 @@ else {
 # Notice that both of these resources use the existing keyword. -TemplateFile main.bicep
 
 # deploy with main name and other resources
-$deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -TemplateFile main.bicep -storageAccountName $existingStAccount #  -WhatIf
+# $deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -TemplateFile main.bicep -storageAccountName $existingStAccount #  -WhatIf
 
-Write-Log $deployResult.ProvisioningState
-$end = "End deploy:" + ($deployResult.ProvisioningState)
-Write-Log $end
+# Write-Log $deployResult.ProvisioningState
+# $end = "End deploy:" + ($deployResult.ProvisioningState)
+# Write-Log $end
 
 
 
