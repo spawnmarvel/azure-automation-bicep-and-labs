@@ -166,6 +166,12 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 * Add flexibility to your templates by using parameters, variables, and expressions.
 * Create and deploy a Bicep template that includes modules.
 
+
+What is the key take away?
+
+```bicep
+```
+
 https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/
 
 
@@ -174,6 +180,11 @@ https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/
 * Customize parameters and limit the values that can be used by each parameter
 * Understand the ways that parameters can be supplied to a Bicep template deployment
 * Work with secure parameters
+
+What is the key take away?
+
+```bicep
+```
 
 https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/
 
@@ -184,23 +195,53 @@ https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-template
 * Deploy multiple instances of resources by using loops.
 * Use output and variable loops.
 
+What is the key take away?
+
+```bicep
+```
+
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/
 
 ## Exercise 5 - Exercise - Deploy multiple resources by using loops (check it)
+
+What is the key take away?
+
+```bicep
+```
 
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/5-exercise-loops?pivots=powershell
 
 ## Exercise 6 - Exercise - Use variable and output loops (check it)
 
+
+What is the key take away?
+
+```bicep
+```
+
 https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
 
-## Exercise 8 intermediate - TODO or (check it)
+## Exercise 8 Part 2 intermediate - TODO or (check it)
 
 * Explain resource types and resource IDs
 * Deploy child and extension resources
 * Represent and use pre-existing resources in a Bicep template
 
+
+What is the key take away?
+
+```bicep
+```
+
 https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/
+
+## Exercise x Part 3 advanced
+
+## Introduction to deployment stacks
+
+## Build your first deployment stack
+
+## Manage resource lifecycles with deployment stacks
 
 ## Skip the stuff with piplines
 
