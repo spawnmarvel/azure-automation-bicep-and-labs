@@ -35,9 +35,6 @@ https://www.youtube.com/watch?v=_yvb6NVx61Y
 ## Install Bicep tools
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#install-manually
-## Learn modules for Bicep
-
-https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
 ## Note: Connect Az and CustomScriptExtension for Windows and Linux post installation
 
@@ -158,6 +155,10 @@ az vm extension set \
 ```
 
 https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-script-linux
+
+## Learn modules for Bicep
+
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
 ## Exercise 1 - Build your first Bicep template (check it)
 
