@@ -22,6 +22,13 @@ $location  = "uk south"
 $existingLogAna = "ToyLogs"
 $existingStAccount = "toylogstsacount945"
 
+
+# deployment id
+$tempId = Get-Date -UFormat %s
+$deploymentId = "DeplN-" + $tempId.ToString()
+Write-Log $deploymentId
+
+
 # deploy rg
 New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure="IAC"} -Force
 
@@ -54,7 +61,7 @@ else {
 # Notice that both of these resources use the existing keyword. -TemplateFile main.bicep
 
 # deploy with main name and other resources
-$deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile main.bicep -storageAccountName $existingStAccount #  -WhatIf
+$deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -TemplateFile main.bicep -storageAccountName $existingStAccount #  -WhatIf
 
 Write-Log $deployResult.ProvisioningState
 $end = "End deploy:" + ($deployResult.ProvisioningState)

@@ -34,7 +34,7 @@ New-AzResourceGroup -Name $rgName  -Location $location -Tag @{Infrastructure="IA
 # deploy resources
 # $deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -TemplateFile main.bicep #  -WhatIf
 # deploy with main name and other resources
-$deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -TemplateFile main.bicep #  -WhatIf
+$deployResult = New-AzResourceGroupDeployment -ResourceGroupName $rgName -Name $deploymentId -TemplateFile main.bicep #  -WhatIf
 
 Write-Log $deployResult.ProvisioningState
 $end = "End deploy:" + ($deployResult.ProvisioningState)
