@@ -315,7 +315,7 @@ The end tutorial is here https://learn.microsoft.com/en-us/training/modules/buil
 ![Exercise 4 ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_4.jpg)
 
 
-## Exercise 5 Part 2 intermediate - Deploy child and extension resources by using Bicep 
+## Exercise 5 Part 2 intermediate - Deploy child and extension resources by using Bicep  (ok)
 
 * Child and extension resources allow your Azure deployments to access the advanced functionality and power of the Azure platform. 
 * You can create these resource types in Bicep by using a clear and understandable template syntax.
@@ -345,11 +345,18 @@ End tutorial is here https://learn.microsoft.com/en-us/training/modules/child-ex
 
 ![Exercise 5 ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_5.jpg)
 
-## Exercise x Part 3 advanced - 
+## Exercise none Part 2 intermediate Manage changes to your Bicep code by using Git (already do that)
+
+
+Full exercise https://learn.microsoft.com/en-us/training/modules/manage-changes-bicep-code-git/
 
 What is the key take away?
 
+## Exercise 6 Part 2 intermediate - Structure your Bicep code for collaboration (todo)
 
+Full exercise at https://learn.microsoft.com/en-us/training/paths/intermediate-bicep/
+
+## Exercise none Part 2 intermediate Review Azure infrastructure changes by using Bicep and pull requests (later in the future)
 
 ## Introduction to deployment stacks
 
