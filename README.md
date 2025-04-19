@@ -358,6 +358,8 @@ Full exercise at https://learn.microsoft.com/en-us/training/paths/intermediate-b
 
 ## Exercise none Part 2 intermediate Review Azure infrastructure changes by using Bicep and pull requests (later in the future)
 
+Full exercise at https://learn.microsoft.com/en-us/training/modules/review-azure-infrastructure-changes-using-bicep-pull-requests/
+
 ## Introduction to deployment stacks
 
 ## Build your first deployment stack
