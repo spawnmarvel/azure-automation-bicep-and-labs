@@ -279,7 +279,7 @@ The end tutorial is here https://learn.microsoft.com/en-us/training/modules/buil
 
 ![Exercise 2](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_2.jpg)
 
-## Exercise 3 -  Part 1 fundamentals Build flexible Bicep templates by using conditions and loops (check it)
+## Exercise 3 -  Part 1 fundamentals Build flexible Bicep templates by using conditions and loops (ok)
 
 * Deploy resources conditionally within a Bicep template.
 * Deploy multiple instances of resources by using loops.
@@ -315,21 +315,41 @@ The end tutorial is here https://learn.microsoft.com/en-us/training/modules/buil
 ![Exercise ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_4.jpg)
 
 
-## Exercise 5 Part 2 intermediate - TODO or (check it)
+## Exercise 5 Part 2 intermediate - Deploy child and extension resources by using Bicep 
 
-* Explain resource types and resource IDs
-* Deploy child and extension resources
-* Represent and use pre-existing resources in a Bicep template
+* Child and extension resources allow your Azure deployments to access the advanced functionality and power of the Azure platform. 
+* You can create these resource types in Bicep by using a clear and understandable template syntax.
 
+***You can also use Bicep to refer to resources that were created outside the Bicep file itself. ***
 
 What is the key take away?
 
-```bicep
-```
+They want you to set up a new Azure Cosmos DB database for storing this valuable and highly sensitive product test data. They need you to log all database-access attempts so that they can feel confident that no competitors are accessing the data.
 
-https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/
+The team created a storage account to store all their product design documents, and they want you to help audit all attempts to access them.
 
-## Exercise x Part 3 advanced
+* Child resource definitions, through nested resources, the parent property, and by constructing multipart resource names.
+* Extension resource definitions, by using the scope property.
+* Existing resource references, by using the existing keyword.
+
+During the process, you'll:
+
+* Create a Log Analytics workspace.
+* Update your Bicep file to add diagnostic settings to your Cosmos DB account.
+* Create a storage account.
+* In your Bicep file, update the diagnostic settings for the storage account.
+* Deploy your template and verify the result.
+
+End tutorial is here https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/7-exercise-deploy-extension-existing-resources?pivots=powershell
+
+
+
+
+## Exercise x Part 3 advanced - 
+
+What is the key take away?
+
+
 
 ## Introduction to deployment stacks
 
