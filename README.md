@@ -312,7 +312,7 @@ You've been tasked with adding a content delivery network, or CDN, to your compa
 
 The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
 
-![Exercise ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_4.jpg)
+![Exercise 4 ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_4.jpg)
 
 
 ## Exercise 5 Part 2 intermediate - Deploy child and extension resources by using Bicep 
@@ -343,7 +343,7 @@ During the process, you'll:
 End tutorial is here https://learn.microsoft.com/en-us/training/modules/child-extension-bicep-templates/7-exercise-deploy-extension-existing-resources?pivots=powershell
 
 
-
+![Exercise 5 ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_5.jpg)
 
 ## Exercise x Part 3 advanced - 
 
