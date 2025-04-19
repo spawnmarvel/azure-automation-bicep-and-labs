@@ -252,6 +252,14 @@ The reason for this is that we need to: Add a key vault reference to a parameter
 
 The thing it does is:
 
+
+```ps1
+cmdlet New-AzResourceGroupDeployment at command pipeline position 1
+Supply values for the following parameters:
+(Type !? for Help.)
+sqlServerAdministratorLogin: *****
+sqlServerAdministratorPassword: *********
+```
 You aren't prompted to enter the values for sqlServerAdministratorLogin and sqlServerAdministratorPassword parameters when you execute the deployment this time. Azure retrieves the values from your key vault instead.
 
 
