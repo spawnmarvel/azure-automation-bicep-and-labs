@@ -244,6 +244,17 @@ param location string = resourceGroup().location
 
 ```
 
+I stopped at: Create a key vault and secrets
+
+Your toy company already has a key vault with the secrets it needs for its deployments. To simulate this scenario, you'll create a new key vault and add some secrets to use.
+
+The reason for this is that we need to: Add a key vault reference to a parameters file
+
+The thing it does is:
+
+You aren't prompted to enter the values for sqlServerAdministratorLogin and sqlServerAdministratorPassword parameters when you execute the deployment this time. Azure retrieves the values from your key vault instead.
+
+
 The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-reusable-bicep-templates-parameters/6-exercise-create-use-parameter-files?pivots=powershell
 
 
