@@ -1,4 +1,4 @@
-
+// https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=powershell
 param location string
 param appServiceAppName string
 

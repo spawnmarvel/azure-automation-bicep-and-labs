@@ -34,7 +34,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' = {
 // Properties for storage account
 // https://learn.microsoft.com/en-us/azure/templates/microsoft.storage/storageaccounts?pivots=deployment-language-bicep
 
-
+// Now that you have a complete module to deploy the App Service resources, you can refer to the module within the parent template.
 module appService 'modules/appService.bicep' = {
   name:'appService'
   params:{

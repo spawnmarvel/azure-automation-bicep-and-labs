@@ -28,9 +28,15 @@ You can also look or export templates.
 
 VM | Automation -> Export template -> Bicep 
 
-Understanding and Using Project BICEP - The NEW Azure Deployment Technology
+## When is Bicep the right tool?
 
-https://www.youtube.com/watch?v=_yvb6NVx61Y
+* Azure-native
+* Azure integration
+* Azure support
+* No state management
+* Easy transition from JSON
+
+https://learn.microsoft.com/en-us/training/modules/introduction-to-infrastructure-as-code-using-bicep/6-when-use-bicep
 
 ## Install Bicep tools
 
@@ -160,7 +166,7 @@ https://learn.microsoft.com/en-us/azure/virtual-machines/extensions/custom-scrip
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
-## Exercise 1 - Part 1 fundamentals Build your first Bicep template (check it)
+## Exercise 1 - Part 1 fundamentals Build your first Bicep template (ok)
 
 * Create and deploy Azure resources by using Bicep.
 * Add flexibility to your templates by using parameters, variables, and expressions.
@@ -169,11 +175,18 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
 What is the key take away?
 
-```bicep
-```
+You've been asked to deploy a new marketing website in preparation for the launch.
 
-https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/
+You'll host the website in Azure using Azure App Service. You'll incorporate a storage account for files, such as manuals and specifications, for the toy.
 
+* Exercise - Create a Bicep template that contains a storage account
+* Exercise - Add parameters and variables to your Bicep template
+* Exercise - Add parameters and variables to your Bicep template
+* Exercise - Refactor your template to use modules
+
+The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-first-bicep-template/8-exercise-refactor-template-modules?pivots=powershell
+
+![Exercise 1](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_1.jpg)
 
 ## Exercise 2 -  Part 1 fundamentals Build reusable Bicep templates by using parameters (check it)
 
