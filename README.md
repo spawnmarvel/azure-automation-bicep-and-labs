@@ -287,6 +287,8 @@ For your toy company, you need to deploy virtual networks in each country/region
 
 The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
 
+![Exercise 3](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_3.jpg)
+
 ## Exercise 4 ???
 
 The end tutorial is here https://learn.microsoft.com/en-us/training/modules/build-flexible-bicep-templates-conditions-loops/8-exercise-loops-variables-outputs?pivots=powershell
