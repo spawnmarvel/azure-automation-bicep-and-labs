@@ -354,14 +354,35 @@ What is the key take away?
 
 ## Exercise 6 Part 2 intermediate - Structure your Bicep code for collaboration (todo)
 
+* Select the appropriate parameters for a Bicep file.
+* Structure your Bicep code and parameters to support team collaboration.
+* Document your Bicep code by using comments and resource tags.
 
 What is the key take away?
+
+One of the benefits of deploying your infrastructure as code is that your templates are shareable, allowing you to collaborate on your Bicep code with other team members. It's important to make your Bicep code easy to read and easy to work with.
+
+Two members of the quality control team have been tasked to run a customer survey. To accomplish this, they need to deploy a new website and database. They're on a tight deadline, and they want to avoid building a whole new template if they don't have to. After you've spoken with them about their requirements, you remember that you already have a template that's close to what they need.
+
+The template is one of the first Bicep files you wrote, so you're worried that it might not be ready for them to use. The question is, how can you revise the template to ensure that it's correct, easy to understand, easy to read, and easy to modify?
 
 Full exercise at https://learn.microsoft.com/en-us/training/paths/intermediate-bicep/
 
 ## Exercise none Part 2 intermediate Review Azure infrastructure changes by using Bicep and pull requests (later in the future)
 
 Full exercise at https://learn.microsoft.com/en-us/training/modules/review-azure-infrastructure-changes-using-bicep-pull-requests/
+
+## Exercise 7 Part 2 intermediate - Preview Azure deployment changes by using what-if
+
+What is the key take away?
+
+Full exercise at 
+
+## Exercise 8 Part 2 intermediate -  Migrate Azure resources and JSON ARM templates to use Bicep
+
+What is the key take away?
+
+Full exercise at 
 
 ## Use Bicep in a deployment pipeline (skip it)
 

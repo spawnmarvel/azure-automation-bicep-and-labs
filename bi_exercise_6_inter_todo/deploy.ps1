@@ -17,7 +17,7 @@ $st = "Start deploy:" + (Get-Date)
 Write-Log $st
 
 # rg and location
-$rgName = "Rg-iac-0080"
+$rgName = "Rg-iac-0090"
 $location = "uk south"
 $existingLogAna = "ToyLogs"
 $existingStAccount = "toylogstsacount945"
