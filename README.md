@@ -427,7 +427,7 @@ Example good bicep file at https://github.com/spawnmarvel/azure-automation-bicep
 
 Full exercise at https://learn.microsoft.com/en-us/training/modules/review-azure-infrastructure-changes-using-bicep-pull-requests/
 
-## Exercise 7 Part 2 intermediate - Preview Azure deployment changes by using what-if (todo)
+## Exercise 7 Part 2 intermediate - Preview Azure deployment changes by using what-if (ok)
 
 What is the key take away?
 
@@ -460,11 +460,15 @@ Full exercise at https://learn.microsoft.com/en-us/training/modules/arm-template
 
 ![Exercise  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_7.jpg)
 
-## Exercise 8 Part 2 intermediate -  Migrate Azure resources and JSON ARM templates to use Bicep
+## Exercise 8 Part 2 intermediate -  Migrate Azure resources and JSON ARM templates to use Bicep (todo)
 
 What is the key take away?
 
 Full exercise at 
+
+## Exercise X Part 3 advanced
+
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
 
 ## Use Bicep in a deployment pipeline (skip it)
 
