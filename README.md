@@ -427,11 +427,38 @@ Example good bicep file at https://github.com/spawnmarvel/azure-automation-bicep
 
 Full exercise at https://learn.microsoft.com/en-us/training/modules/review-azure-infrastructure-changes-using-bicep-pull-requests/
 
-## Exercise 7 Part 2 intermediate - Preview Azure deployment changes by using what-if
+## Exercise 7 Part 2 intermediate - Preview Azure deployment changes by using what-if (todo)
 
 What is the key take away?
 
-Full exercise at 
+Incremental mode
+* The default deployment mode is incremental. In this mode, Resource Manager doesn't delete anything.
+
+Complete mode
+* You have to explicitly ask for your deployment to run in complete mode. When you use this mode, resources that exist in Azure but that aren't specified in the template are deleted.
+* Complete mode is available when you deploy to a resource group, not subscription, management group, or a tenant
+
+
+When should I use complete mode?
+
+* If all of your infrastructure is defined in templates, then using complete mode every time you deploy ensures that no errant resources are left afterward. 
+* In other words, it helps to avoid configuration drift in your environment.
+
+Types of changes that what-if detects
+
+* Create, 
+* Delete, 
+* Ignore, 
+* NoChange, 
+* Modify, 
+* Deploy, 
+
+List of what they are at https://learn.microsoft.com/en-us/training/modules/arm-template-whatif/3-what-if?pivots=bicepcli
+
+
+Full exercise at https://learn.microsoft.com/en-us/training/modules/arm-template-whatif/1-introduction
+
+![Exercise  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_7.jpg)
 
 ## Exercise 8 Part 2 intermediate -  Migrate Azure resources and JSON ARM templates to use Bicep
 
