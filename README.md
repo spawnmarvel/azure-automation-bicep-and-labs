@@ -28,6 +28,7 @@ You can also look or export templates.
 
 VM | Automation -> Export template -> Bicep 
 
+ Structure your Bicep code for collaboration https://learn.microsoft.com/en-us/training/modules/structure-bicep-code-collaboration/3-improve-parameters-names
 
 ## When is Bicep the right tool?
 
@@ -51,6 +52,31 @@ param cosmosDBAccountName string = 'toyrnd-${uniqueString(resourceGroup().id)}'
 
 // location from rg
 param location string = resourceGroup().location
+
+
+// Bicep provides several types of parameter decorators:
+// Be careful when you use the @allowed() parameter decorator to specify SKUs. 
+// Azure services often add new SKUs, and you don't want your template to unnecessarily prohibit their use.
+@allowed()
+
+// enforce the minimum and maximum values for numeric parameters
+@minValue()
+@maxValue()
+
+// enforce the length of string and array parameters
+@minLength()
+@maxLength()
+
+// Symbolic names are used only within the Bicep file and don't appear on your Azure resources.
+productManualStorageAccount
+
+// Resource names are the names of the resources that are created in Azure
+// For example, when you create an App Service app named myapp, the hostname you use to access the app will be myapp.azurewebsites.net. 
+// You can't rename resources after they're deployed.
+myapp
+
+// When creating outputs, try to use resource properties wherever you can.
+output hostname string = app.properties.defaultHostname
 
 ```
 
@@ -365,6 +391,10 @@ One of the benefits of deploying your infrastructure as code is that your templa
 Two members of the quality control team have been tasked to run a customer survey. To accomplish this, they need to deploy a new website and database. They're on a tight deadline, and they want to avoid building a whole new template if they don't have to. After you've spoken with them about their requirements, you remember that you already have a template that's close to what they need.
 
 The template is one of the first Bicep files you wrote, so you're worried that it might not be ready for them to use. The question is, how can you revise the template to ensure that it's correct, easy to understand, easy to read, and easy to modify?
+
+* 
+* 
+* 
 
 Full exercise at https://learn.microsoft.com/en-us/training/paths/intermediate-bicep/
 
