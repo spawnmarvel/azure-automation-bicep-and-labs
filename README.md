@@ -378,7 +378,7 @@ Full exercise https://learn.microsoft.com/en-us/training/modules/manage-changes-
 
 What is the key take away?
 
-## Exercise 6 Part 2 intermediate - Structure your Bicep code for collaboration (todo)
+## Exercise 6 Part 2 intermediate - Structure your Bicep code for collaboration (ok)
 
 * Select the appropriate parameters for a Bicep file.
 * Structure your Bicep code and parameters to support team collaboration.
@@ -391,12 +391,12 @@ One of the benefits of deploying your infrastructure as code is that your templa
 Two members of the quality control team have been tasked to run a customer survey. To accomplish this, they need to deploy a new website and database. They're on a tight deadline, and they want to avoid building a whole new template if they don't have to. After you've spoken with them about their requirements, you remember that you already have a template that's close to what they need.
 
 The template is one of the first Bicep files you wrote, so you're worried that it might not be ready for them to use. The question is, how can you revise the template to ensure that it's correct, easy to understand, easy to read, and easy to modify?
-
-* 
-* 
-* 
+ 
 
 Full exercise at https://learn.microsoft.com/en-us/training/paths/intermediate-bicep/
+
+Example good bicep file at https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/bi_exercise_6_inter_ok/main.bicep
+
 
 ## Exercise none Part 2 intermediate Review Azure infrastructure changes by using Bicep and pull requests (later in the future)
 
