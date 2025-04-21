@@ -47,12 +47,37 @@ https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/install#ins
 ## Bicep functions to use
 
 ```bicep
-// uniqueString
-param cosmosDBAccountName string = 'toyrnd-${uniqueString(resourceGroup().id)}'
 
-// location from rg
+@description('The location into which your Azure resources should be deployed.')
 param location string = resourceGroup().location
 
+@description('A unique suffix to add to resource names that need to be globally unique.')
+@maxLength(13)
+param resourceNameSuffix string = uniqueString(resourceGroup().id)
+
+@description('The administrator login username for the SQL server.')
+param sqlServerAdministratorLogin string
+
+@secure()
+@description('The administrator login password for the SQL server.')
+param sqlServerAdministratorLoginPassword string
+
+@description('The tags to apply to each resource.')
+param tags object = {
+  CostCenter: 'Marketing'
+  DataClassification: 'Public'
+  Owner: 'WebsiteTeam'
+  Environment: 'Production'
+}
+
+// Define the names for resources.
+var appServiceAppName = 'webSite${resourceNameSuffix}'
+var appServicePlanName = 'AppServicePLan'
+var sqlServerName = 'sqlserver${resourceNameSuffix}'
+var sqlDatabaseName = 'ToyCompanyWebsite'
+var managedIdentityName = 'WebSite'
+var applicationInsightsName = 'AppInsights'
+var storageAccountName = 'toywebsite${resourceNameSuffix}'
 
 // Bicep provides several types of parameter decorators:
 // Be careful when you use the @allowed() parameter decorator to specify SKUs. 
