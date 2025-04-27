@@ -464,7 +464,7 @@ Full exercise at https://learn.microsoft.com/en-us/training/modules/arm-template
 
 ![Exercise 7  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_7.jpg)
 
-## Exercise 8 Part 2 intermediate -  Migrate Azure resources and JSON ARM templates to use Bicep (50%)
+## Exercise 8 Part 2 intermediate -  Migrate Azure resources and JSON ARM templates to use Bicep (50%..)
 
 Your team might have already deployed Azure resources by using the Azure portal, JSON Azure Resource Manager templates (ARM templates).
 It's worth the investment to use Bicep for your Azure resources, but migrating your existing deployments to Bicep isn't accomplished with a click of a button. The process involves a recommended workflow that includes converting, migrating, refactoring, and testing.
