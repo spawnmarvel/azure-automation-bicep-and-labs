@@ -510,7 +510,7 @@ ARM template reference https://learn.microsoft.com/en-us/azure/templates/
 
 Azure Quickstart Templates https://learn.microsoft.com/en-us/samples/browse/?expanded=azure&products=azure-resource-manager
 
-![Exercise 8.1  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_8_todo1.jpg)
+![Exercise 8.1  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_8_todo_1.jpg)
 
 Full exercise at https://learn.microsoft.com/en-us/training/modules/migrate-azure-resources-bicep/
 
