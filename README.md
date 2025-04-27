@@ -512,6 +512,11 @@ Azure Quickstart Templates https://learn.microsoft.com/en-us/samples/browse/?exp
 
 ![Exercise 8.1  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_8_todo_1.jpg)
 
+Manually steps after creating the VM
+
+![Exercise 8.2  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_8_todo_2.jpg)
+
+
 Full exercise at https://learn.microsoft.com/en-us/training/modules/migrate-azure-resources-bicep/
 
 ## Exercise X Part 3 advanced
