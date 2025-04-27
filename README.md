@@ -512,7 +512,7 @@ Azure Quickstart Templates https://learn.microsoft.com/en-us/samples/browse/?exp
 
 ![Exercise 8.1  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_8_todo_1.jpg)
 
-Manually steps after creating the VM
+Manually steps after creating the VM, export the ARM template with parameters.
 
 ![Exercise 8.2  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_8_todo_2.jpg)
 
