@@ -10,6 +10,10 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-tool
 
+## Learn modules for Bicep
+
+https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
+
 
 ## Best practices for Bicep
 
