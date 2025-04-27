@@ -467,8 +467,11 @@ Full exercise at https://learn.microsoft.com/en-us/training/modules/arm-template
 ## Exercise 8 Part 2 intermediate -  Migrate Azure resources and JSON ARM templates to use Bicep (todo)
 
 What is the key take away?
+* Convert JSON ARM templates to Bicep.
+* Create Bicep definitions for your existing Azure resources.
+* Verify template conversions by using the what-if operation and documentation.
 
-Full exercise at 
+Full exercise at https://learn.microsoft.com/en-us/training/modules/migrate-azure-resources-bicep/
 
 ## Exercise X Part 3 advanced
 
