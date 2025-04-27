@@ -483,9 +483,34 @@ Convert phase
 * Capture a representation of your Azure resources.
 * If necessary, convert the JSON representation to Bicep by using the decompile command.
 
-```cmd
+```bash
+# The Bicep tooling includes the decompile command to convert templates. 
+# You can invoke the decompile command from either Azure CLI or the Bicep CLI.
 decompile
 ```
+
+If you have an existing JSON template that you're converting to Bicep, the first step is easy because you already have your source template. You'll learn how to decompile it to Bicep in this unit.
+
+There are two types of operations in Azure
+* For example, you use a control plane operation to create a virtual machine,
+* but you use a data plane operation to connect to the virtual machine by using Remote Desktop Protocol (RDP).
+
+You need to consider a few things when you export existing resources:
+* The exported resource definition is a snapshot of that resource's current state. It includes all changes made to the resource since its initial deployment.
+* The exported template might include some default resource properties that are normally omitted from a Bicep definition.
+* The exported template probably won't include all the parameters you'll need to make the template reusable.
+* Some resources can't be exported by using this approach, and you need to define them manually in your Bicep file.
+
+Migrate phase
+* Create a new empty Bicep file.
+* Copy each resource from your decompiled template.
+* Identify and re-create any missing resources.
+
+ARM template reference https://learn.microsoft.com/en-us/azure/templates/
+
+Azure Quickstart Templates https://learn.microsoft.com/en-us/samples/browse/?expanded=azure&products=azure-resource-manager
+
+![Exercise 8.1  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_8_todo1.jpg)
 
 Full exercise at https://learn.microsoft.com/en-us/training/modules/migrate-azure-resources-bicep/
 
