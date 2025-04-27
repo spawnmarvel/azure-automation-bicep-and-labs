@@ -464,7 +464,7 @@ Full exercise at https://learn.microsoft.com/en-us/training/modules/arm-template
 
 ![Exercise 7  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_7.jpg)
 
-## Exercise 8 Part 2 intermediate -  Migrate Azure resources and JSON ARM templates to use Bicep (ok)
+## Exercise 8 Part 2 intermediate -  Migrate Azure resources and JSON ARM templates to use Bicep (50%)
 
 Your team might have already deployed Azure resources by using the Azure portal, JSON Azure Resource Manager templates (ARM templates).
 It's worth the investment to use Bicep for your Azure resources, but migrating your existing deployments to Bicep isn't accomplished with a click of a button. The process involves a recommended workflow that includes converting, migrating, refactoring, and testing.
@@ -516,8 +516,20 @@ Manually steps after creating the VM, export the ARM template with parameters.
 
 ![Exercise 8.2  ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/x_images/exercise_8_todo_2.jpg)
 
+Inspect the decompiled Bicep file.
+
+Open the template.bicep file in Visual Studio Code and read through it. Notice that it's a valid Bicep file, but it has a few problems, including:
+* The symbolic names that are given to parameters and resources include underscores and aren't easy to understand.
+* The location property is hard-coded in all the resource definitions.
+* The template includes hard-coded values that should either be parameters or be set automatically by Azure.
+
+Create a new Bicep filem splitt VSC and copy each element into your new Bicep file and fix it.
+
+Next up, Refactor the Bicep file https://learn.microsoft.com/en-us/training/modules/migrate-azure-resources-bicep/4-refactor-bicep-file
 
 Full exercise at https://learn.microsoft.com/en-us/training/modules/migrate-azure-resources-bicep/
+
+
 
 ## Exercise X Part 3 advanced
 
