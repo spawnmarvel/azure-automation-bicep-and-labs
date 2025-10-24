@@ -77,7 +77,7 @@ We now have 2 folders and 100 files in Bck1.
 ![100 files](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/100files.png)
 
 
-## Robocopy
+## Robocopy 2 fileshare
 
 
 
@@ -124,3 +124,91 @@ robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccoun
 
 ```
 ![copy files](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/copyfiles.png)
+
+## Robocopy 2 vm
+
+Lets make a new folder and a new file in that folder.
+
+Copy the folder from storage account to vm
+
+```cmd
+robocopy \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost C:\BackupLocalhost /e /xf *
+
+```
+Log
+
+```log
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows
+-------------------------------------------------------------------------------
+
+  Started : Saturday, October 25, 2025 1:52:49 AM
+   Source = \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost\
+     Dest : C:\BackupLocalhost\
+
+    Files : *.*
+
+Exc Files : *
+
+  Options : *.* /S /E /DCOPY:DA /COPY:DAT /R:1000000 /W:30
+
+------------------------------------------------------------------------------
+
+                           0    \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost\
+                         100    \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost\Bck1\
+                           0    \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost\Bck2\
+          New Dir          1    \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost\bck3\
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         4         1         3         0         0         0
+   Files :       101         0       101         0         0         0
+   Bytes :     4.7 k         0     4.7 k         0         0         0
+   Times :   0:00:00   0:00:00                       0:00:00   0:00:00
+   Ended : Saturday, October 25, 2025 1:52:49 AM
+
+
+```
+
+Copy the file from storage account to vm
+
+```cmd
+robocopy \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost C:\BackupLocalhost /e /r:1 /w:5 /sec /secfix /timfix /log:"C:\robo_bck.log" /np
+```
+
+Log
+
+```log
+
+-------------------------------------------------------------------------------
+   ROBOCOPY     ::     Robust File Copy for Windows                              
+-------------------------------------------------------------------------------
+
+  Started : Saturday, October 25, 2025 1:54:06 AM
+   Source = \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost\
+     Dest : C:\BackupLocalhost\
+
+    Files : *.*
+	    
+  Options : *.* /S /E /DCOPY:DA /COPY:DATS /SECFIX /TIMFIX /NP /R:1 /W:5 
+
+------------------------------------------------------------------------------
+
+	                   0	\\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost\
+	                 100	\\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost\Bck1\
+	                   0	\\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost\Bck2\
+	                   1	\\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost\bck3\
+	    New File  		       0	file1.txt
+
+------------------------------------------------------------------------------
+
+               Total    Copied   Skipped  Mismatch    FAILED    Extras
+    Dirs :         4         0         4         0         0         0
+   Files :       101         1       100         0         0         0
+   Bytes :     4.7 k         0     4.7 k         0         0         0
+   Times :   0:00:01   0:00:01                       0:00:00   0:00:00
+   Ended : Saturday, October 25, 2025 1:54:08 AM
+
+
+```
