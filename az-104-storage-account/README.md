@@ -18,6 +18,11 @@ URL:
 * https://dmz07staccount.file.core.windows.net/dmz07staccountfileshare01
 
 
+https://learn.microsoft.com/en-us/azure/storage/files/create-classic-file-share?tabs=azure-portal
+
+https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows
+
+
 ## Robocopy
 
 ```cmd
