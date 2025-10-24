@@ -1,6 +1,22 @@
 # Az Storage Account
 
-## Fileshare
+## Storage account and Fileshare
+
+We use Rg-ukdmzwindows-0007 and create a fileshare for dmzwindows07.
+
+Storage account:
+* dmz07staccount
+
+File share name
+* dmz07staccountfileshare01
+* Access Tier Hot
+* Protocol
+* SMB
+* Quota 20 GB
+
+URL:
+* https://dmz07staccount.file.core.windows.net/dmz07staccountfileshare01
+
 
 ## Robocopy
 
