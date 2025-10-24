@@ -18,7 +18,7 @@ URL:
 * https://dmz07staccount.file.core.windows.net/dmz07staccountfileshare01
 
 
-Then we have it mounted
+Then we have it mounted using stroage account key.
 
 ![connect](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/connect1.png)
 
@@ -28,22 +28,62 @@ https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-w
 
 ## Access storage account
 
-The path is
+The path is:
 
 ```cmd
 \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01
 
 ```
 
-Access it
+Access it with URL and we are in.
 
 ![access it](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/accessit.png)
+
+It is empty now lets do some copy.
+
+Create a folder with some subfolders and add 100 txt files.
+
+```ps1
+# 1. Define the target path
+$targetPath = "C:\BackupLocalhost\Bck1" # Change this to your desired path!
+
+# 2. Ensure the directory exists
+if (-not (Test-Path -Path $targetPath -PathType Container)) {
+    Write-Host "Creating directory: $targetPath"
+    New-Item -Path $targetPath -ItemType Directory -Force | Out-Null
+}
+
+# 3. Loop from 1 to 100 to create the files
+foreach ($i in 1..100) {
+    # Construct the file name (e.g., file1.txt)
+    $fileName = "file$i.txt"
+    $fullPath = Join-Path -Path $targetPath -ChildPath $fileName
+
+    # Get the current date/time
+    $date = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
+
+    # Define the content
+    $content = "Filename: $fileName`r`nDate: $date" # `r`n is for a Windows-style newline
+
+    # Create the file and add the content
+    Set-Content -Path $fullPath -Value $content -Force
+}
+
+Write-Host "Successfully created 100 files in $targetPath."
+```
+
+We now have 2 foldders and 100 files in Bck1.
+
+![100 files](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/100files.png)
+
 
 ## Robocopy
 
 ```cmd
-# cmd Cp folders empty
+# cmd copy only folders not files
 robocopy D:\History D:\HistoryClean /e /xf *
+
+robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLoclhost
 ```
 
 ```cmd
