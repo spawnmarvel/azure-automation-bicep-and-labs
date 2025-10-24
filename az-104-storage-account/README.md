@@ -93,7 +93,7 @@ https://learn.microsoft.com/en-us/windows-server/administration/windows-commands
 Lets first just copy the folders excluding the files:
 
 ```cmd
-# cmd copy only folders not files
+REM copy only folders not files
 robocopy D:\History D:\HistoryClean /e /xf *
 
 robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost /e /xf *
@@ -117,7 +117,7 @@ https://learn.microsoft.com/en-us/windows-server/administration/windows-commands
 Lets copy all the files also.
 
 ```cmd
-# Cp Files, folders and sec
+REM copy all folders/files and sec
 robocopy \\WM01\f$\datacatalog e:\datacatalog /e /r:1 /w:5 /sec /secfix /timfix /log:"F:\robo_log.log" /np
 
 robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost /e /r:1 /w:5 /sec /secfix /timfix /log:"C:\robo_bck.log" /np
