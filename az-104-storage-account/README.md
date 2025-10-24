@@ -18,6 +18,10 @@ URL:
 * https://dmz07staccount.file.core.windows.net/dmz07staccountfileshare01
 
 
+Then we have it mounted
+
+![connect](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/connect1.png)
+
 https://learn.microsoft.com/en-us/azure/storage/files/create-classic-file-share?tabs=azure-portal
 
 https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows
