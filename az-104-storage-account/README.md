@@ -35,6 +35,10 @@ The path is
 
 ```
 
+Access it
+
+![access it](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/accessit.png)
+
 ## Robocopy
 
 ```cmd
