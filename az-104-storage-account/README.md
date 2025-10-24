@@ -26,6 +26,14 @@ https://learn.microsoft.com/en-us/azure/storage/files/create-classic-file-share?
 
 https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows
 
+## Access storage account
+
+The path is
+
+```cmd
+\\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01
+
+```
 
 ## Robocopy
 
