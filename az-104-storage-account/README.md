@@ -72,12 +72,18 @@ foreach ($i in 1..100) {
 Write-Host "Successfully created 100 files in $targetPath."
 ```
 
-We now have 2 foldders and 100 files in Bck1.
+We now have 2 folders and 100 files in Bck1.
 
 ![100 files](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/100files.png)
 
 
 ## Robocopy
+
+
+
+```cmd
+robocopy <source> <destination> [<file>[ ...]] [<options>]
+```
 
 * /e	Copies subdirectories. This option automatically includes empty directories.
 * /xf <filename>[ ...] Excludes files that match the specified names or paths. Wildcard characters (* and ?) are supported.
