@@ -125,7 +125,7 @@ robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccoun
 ```
 ![copy files](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/copyfiles.png)
 
-## Robocopy storage account 2 vm
+## Robocopy fileshare 2 vm
 
 Lets make a new folder and a new file in that folder.
 
