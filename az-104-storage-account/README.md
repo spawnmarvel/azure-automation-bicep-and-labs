@@ -79,12 +79,23 @@ We now have 2 foldders and 100 files in Bck1.
 
 ## Robocopy
 
+* /e	Copies subdirectories. This option automatically includes empty directories.
+* /xf <filename>[ ...] Excludes files that match the specified names or paths. Wildcard characters (* and ?) are supported.
+
+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy
+
+Lets first just copy the folders excluding the files:
+
 ```cmd
 # cmd copy only folders not files
 robocopy D:\History D:\HistoryClean /e /xf *
 
-robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLoclhost
+robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost /e /xf *
 ```
+
+We now got the 3 folders.
+
+![3 folders](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/3folders.png)
 
 ```cmd
 # Cp Files, folders and sec
