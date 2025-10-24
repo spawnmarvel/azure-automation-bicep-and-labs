@@ -77,7 +77,7 @@ We now have 2 folders and 100 files in Bck1.
 ![100 files](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/100files.png)
 
 
-## Robocopy 2 fileshare
+## Robocopy vm 2 fileshare
 
 
 
@@ -125,7 +125,7 @@ robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccoun
 ```
 ![copy files](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/copyfiles.png)
 
-## Robocopy 2 vm
+## Robocopy storage account 2 vm
 
 Lets make a new folder and a new file in that folder.
 
