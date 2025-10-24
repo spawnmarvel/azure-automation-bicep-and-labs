@@ -103,9 +103,24 @@ We now got the 3 folders.
 
 ![3 folders](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/3folders.png)
 
+
+* /e	Copies subdirectories. This option automatically includes empty directories.
+* /r:<n>	Specifies the number of retries on failed copies. The default value of n is 1,000,000 (one million retries).
+* /w:<n>	Specifies the wait time between retries, in seconds. The default value of n is 30 (wait time 30 seconds).
+* /sec	Copies files with security (equivalent to /copy:DATS).
+* /timfix	Fixes file times on all files, even skipped ones.
+* /log:<logfile>	Writes the status output to the log file (overwrites the existing log file).
+* /np	Specifies to not display the progress of the copying operation (the number of files or directories copied so far).
+
+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy
+
+Lets copy all the files also.
+
 ```cmd
 # Cp Files, folders and sec
 robocopy \\WM01\f$\datacatalog e:\datacatalog /e /r:1 /w:5 /sec /secfix /timfix /log:"F:\robo_log.log" /np
-robocopy e:\datacatalog \\WM01\f$\datacatalog /e /r:1 /w:5 /sec /secfix /timfix /log:"F:\robo_log.log" /np
+
+robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost /e /r:1 /w:5 /sec /secfix /timfix /log:"C:\robo_bck.log" /np
 
 ```
+![copy files](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/copyfiles.png)
