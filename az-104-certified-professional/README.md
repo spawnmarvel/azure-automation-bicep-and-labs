@@ -15,6 +15,7 @@ The core foundation of Azure. You must be comfortable with:
 ### 1. Networking (VNet Management) Tutorials
 
 Tutorial: Log network traffic to and from a virtual network using the Azure portal
+
 * https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-tutorial
 
 
@@ -30,10 +31,12 @@ The bread and butter of IaaS. You need to know how to:
 ### 2. Compute (Virtual Machines) Tutorials
 
 Create a snapshot of a virtual hard disk
+
 * https://learn.microsoft.com/en-us/azure/virtual-machines/snapshot-copy-managed-disk?tabs=portal
 
 Create a VM from a specialized disk using
-https://learn.microsoft.com/en-us/azure/virtual-machines/attach-os-disk?tabs=portal
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/attach-os-disk?tabs=portal
 
 ## 3. Identity and Governance
 
@@ -56,6 +59,7 @@ You must know how to manage cloud data effectively:
 ### 4. Storage Tutorials
 
 Az Storage Account with robocopy and fileshare
+
 * https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-storage-account
 
 ## 5. Monitoring and Backup
@@ -67,7 +71,8 @@ Knowing how to keep things running and recoverable:
 
 ### 5. Monitoring and Backup Tutorials
 
-Azure Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure porta
+Azure Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal
+
 *  https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview
 
 The video below covers the AZ-104 syllabus in a study-cram format, which helps reinforce the practical knowledge required for the exam.
