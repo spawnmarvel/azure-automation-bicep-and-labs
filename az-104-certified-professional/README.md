@@ -53,6 +53,14 @@ The bread and butter of IaaS. You need to know how to:
 
 ### 2. Compute (Virtual Machines) Tutorials
 
+Create a Linux virtual machine in the Azure portal
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu
+
+Create a Windows virtual machine in the Azure portal
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal
+
 Create a snapshot of a virtual hard disk
 
 * https://learn.microsoft.com/en-us/azure/virtual-machines/snapshot-copy-managed-disk?tabs=portal
