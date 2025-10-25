@@ -1,4 +1,4 @@
-# AZ-104 certified professional
+# AZ-104 certified professional must know
 
 As an AZ-104 certified professional, the most important hands-on knowledge revolves around the core daily operational tasks of an Azure Administrator, which often appear as scenario-based questions or lab items on the exam.
 The key practical areas you should be able to perform in the Azure Portal, PowerShell, and Azure CLI are:
