@@ -1,7 +1,30 @@
 # AZ-104 certified professional must know
 
 As an AZ-104 certified professional, the most important hands-on knowledge revolves around the core daily operational tasks of an Azure Administrator, which often appear as scenario-based questions or lab items on the exam.
-The key practical areas you should be able to perform in the Azure Portal, PowerShell, and Azure CLI are:
+The key practical areas you should be able to perform in the ***Azure Portal, PowerShell, and Azure CLI*** are:
+
+## Prerequisites
+
+You should always do the tutorials as two steps:
+
+1. Use the Portal
+2. Use Powershell or Azure CLI, you can even use the Azure Portal Powershell or Azure Cli
+
+Powershell connect ps1
+
+```ps1
+Connect-AzAccount -TenantId The-tenant-id-we-copied-from-azure-ad
+# Login and verify
+```
+
+Azure Cli (git bash or ps1)
+
+```bash
+az login
+# or
+az login --tenant The-tenant-id-we-copied-from-azure-ad
+```
+
 
 ## 1. Networking (VNet Management)
 
