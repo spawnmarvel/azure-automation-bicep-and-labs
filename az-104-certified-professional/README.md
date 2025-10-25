@@ -38,7 +38,7 @@ You must know how to manage cloud data effectively:
  * Azure File Shares: Setting up and configuring Azure Files, often for use with Azure File Sync.
 
 Az Storage Account with robocopy and fileshare
- https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-storage-account
+* https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-storage-account
 
 ## 5. Monitoring and Backup
 Knowing how to keep things running and recoverable:
