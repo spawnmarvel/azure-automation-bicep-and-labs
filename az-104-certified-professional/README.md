@@ -61,6 +61,14 @@ Create a VM from a specialized disk using
 
 * https://learn.microsoft.com/en-us/azure/virtual-machines/attach-os-disk?tabs=portal
 
+Use the portal to attach a data disk to a Linux VM
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal
+
+Attach a managed data disk to a Windows VM by using the Azure portal
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
+
 ## 3. Identity and Governance
 
 This is critical for security and compliance. Hands-on skills include:
