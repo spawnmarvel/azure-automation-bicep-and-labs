@@ -14,10 +14,33 @@ The core foundation of Azure. You must be comfortable with:
 
 ### 1. Networking (VNet Management) Tutorials
 
+Create an Azure Virtual Network
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/quickstart-create-virtual-network?tabs=portal
+
+Azure Virtual Network concepts and best practices
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/concepts-and-best-practices
+
+Create, change, or delete a network security group
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal
+
+Connect virtual networks with virtual network peering
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks?tabs=portal
+
+Private IP addresses
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/private-ip-addresses
+
+Public IP addresses
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses
+
 Tutorial: Log network traffic to and from a virtual network using the Azure portal
 
 * https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-tutorial
-
 
 
 ## 2. Compute (Virtual Machines)
