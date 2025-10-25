@@ -11,6 +11,11 @@ The core foundation of Azure. You must be comfortable with:
  * Private/Public IP Addresses: Allocating and configuring IP addresses.
  * Azure DNS: Configuring Azure DNS zones, including Private DNS for internal resolution.
 
+Tutorial: Log network traffic to and from a virtual network using the Azure portal
+* https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-tutorial
+
+
+
 ## 2. Compute (Virtual Machines)
 The bread and butter of IaaS. You need to know how to:
  * Deploy Virtual Machines (VMs): Using the portal, ARM templates, or CLI/PowerShell, and selecting appropriate sizes and images.
@@ -32,11 +37,17 @@ You must know how to manage cloud data effectively:
  * Blob Storage Tiers: Moving between hot, cool, and archive tiers for cost optimization.
  * Azure File Shares: Setting up and configuring Azure Files, often for use with Azure File Sync.
 
+Az Storage Account with robocopy and fileshare
+ https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-storage-account
+
 ## 5. Monitoring and Backup
 Knowing how to keep things running and recoverable:
  * Azure Monitor: Configuring and interpreting Metrics, Logs (Log Analytics), and Alerts based on defined criteria and routing them to an Action Group.
  * Azure Backup: Configuring a Recovery Services vault and setting up backup policies for Azure VMs.
  * Disaster Recovery: Understanding and configuring VM replication using Azure Site Recovery.
+
+Azure Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure porta
+*  https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview
 
 The video below covers the AZ-104 syllabus in a study-cram format, which helps reinforce the practical knowledge required for the exam.
 AZ-104 Administrator Associate Study Cram v2 - YouTube
