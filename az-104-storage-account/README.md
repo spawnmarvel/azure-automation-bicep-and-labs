@@ -79,7 +79,7 @@ We now have 2 folders and 100 files in Bck1.
 
 ## Robocopy vm 2 fileshare
 
-
+### Copy folders
 
 ```cmd
 robocopy <source> <destination> [<file>[ ...]] [<options>]
@@ -94,7 +94,7 @@ Lets first just copy the folders excluding the files:
 
 ```cmd
 REM copy only folders not files
-robocopy D:\History D:\HistoryClean /e /xf *
+REM robocopy D:\History D:\HistoryClean /e /xf *
 
 robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost /e /xf *
 ```
@@ -114,11 +114,13 @@ We now got the 3 folders.
 
 https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/robocopy
 
+
+### Copy folders and files
 Lets copy all the files also.
 
 ```cmd
 REM copy all folders/files and sec
-robocopy \\WM01\f$\datacatalog e:\datacatalog /e /r:1 /w:5 /sec /secfix /timfix /log:"F:\robo_log.log" /np
+REM robocopy \\WM01\f$\datacatalog e:\datacatalog /e /r:1 /w:5 /sec /secfix /timfix /log:"F:\robo_log.log" /np
 
 robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost /e /r:1 /w:5 /sec /secfix /timfix /log:"C:\robo_bck.log" /np
 
@@ -128,6 +130,8 @@ robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccoun
 ## Robocopy fileshare 2 vm
 
 Lets make a new folder and a new file in that folder.
+
+### Copy folders
 
 Copy the folder from storage account to vm
 
@@ -171,6 +175,8 @@ Exc Files : *
 
 ```
 
+### Copy folders and files
+
 Copy the file from storage account to vm
 
 ```cmd
@@ -212,3 +218,11 @@ Log
 
 
 ```
+## Storage account overview
+
+https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview
+
+
+## Azure Files documentation
+
+https://learn.microsoft.com/en-us/azure/storage/files/
