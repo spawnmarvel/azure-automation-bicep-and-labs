@@ -31,6 +31,28 @@ Skills at a glance
 
 https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications
 
+## Prerequisites
+
+You should always do the tutorials as two steps:
+
+1. Use the Portal
+2. Use Powershell or Azure CLI, you can even use the Azure Portal Powershell or Azure Cli
+
+Powershell connect ps1
+
+```ps1
+Connect-AzAccount -TenantId The-tenant-id-we-copied-from-azure-ad
+# Login and verify
+```
+
+Azure Cli (git bash or ps1)
+
+```bash
+az login
+# or
+az login --tenant The-tenant-id-we-copied-from-azure-ad
+```
+
 ## Manage Azure identities and governance (20–25%)
 
 ### Manage Microsoft Entra users and groups
