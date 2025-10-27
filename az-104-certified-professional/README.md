@@ -1,7 +1,35 @@
-# AZ-104 certified professional must know
+## AZ-104 certified professional must know
 
-As an AZ-104 certified professional, the most important hands-on knowledge revolves around the core daily operational tasks of an Azure Administrator, which often appear as scenario-based questions or lab items on the exam.
-The key practical areas you should be able to perform in the ***Azure Portal, PowerShell, and Azure CLI*** are:
+As an Azure administrator, you often serve as part of a larger team dedicated to implementing an organization's cloud infrastructure. You also coordinate with other roles to deliver Azure networking, security, database, application development, and DevOps solutions.
+
+https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/az-104
+
+You should be familiar with:
+
+* Operating systems
+* Networking
+* Servers
+* Virtualization
+
+In addition, you should have experience with:
+
+* PowerShell
+* Azure CLI
+* The Azure portal
+* Azure Resource Manager templates
+* Microsoft Entra ID
+
+Skills at a glance
+
+* Manage Azure identities and governance (20–25%)
+* Implement and manage storage (15–20%)
+* Deploy and manage Azure compute resources (20–25%)
+* Implement and manage virtual networking (15–20%)
+* Monitor and maintain Azure resources (10–15%)
+
+## Practice Assessments for Microsoft Certifications
+
+https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications
 
 ## Prerequisites
 
@@ -25,17 +53,155 @@ az login
 az login --tenant The-tenant-id-we-copied-from-azure-ad
 ```
 
+## Manage Azure identities and governance (20–25%)
 
-## 1. Networking (VNet Management)
+### Manage Microsoft Entra users and groups
 
-The core foundation of Azure. You must be comfortable with:
- * Virtual Networks (VNets) and Subnets: Creating, configuring, and connecting them.
- * Network Security Groups (NSGs): Creating and applying effective security rules (inbound/outbound) to control traffic to VMs.
- * VNet Peering: Configuring peering between two virtual networks for connectivity.
- * Private/Public IP Addresses: Allocating and configuring IP addresses.
- * Azure DNS: Configuring Azure DNS zones, including Private DNS for internal resolution.
+* Create users and groups
+* Manage user and group properties
+* Manage licenses in Microsoft Entra ID
+* Manage external users
+* Configure self-service password reset (SSPR)
 
-### 1. Networking (VNet Management) Tutorials
+### Manage access to Azure resources
+
+* Manage built-in Azure roles
+* Assign roles at different scopes
+* Interpret access assignments
+
+### Manage Azure subscriptions and governance
+
+* Implement and manage Azure Policy
+* Configure resource locks
+* Apply and manage tags on resources
+* Manage resource groups
+* Manage subscriptions
+* Manage costs by using alerts, budgets, and Azure Advisor recommendations
+* Configure management groups
+
+## Implement and manage storage (15–20%)
+
+### Configure access to storage
+
+* Configure Azure Storage firewalls and virtual networks
+* Create and use shared access signature (SAS) tokens
+* Configure stored access policies
+* Manage access keys
+* Configure identity-based access for Azure Files
+
+### Configure and manage storage accounts
+
+* Create and configure storage accounts
+* Configure Azure Storage redundancy
+* Configure object replication
+* Configure storage account encryption
+* Manage data by using Azure Storage Explorer and AzCopy
+
+### Configure Azure Files and Azure Blob Storage
+
+* Create and configure a file share in Azure Storage
+* Create and configure a container in Blob Storage
+* Configure storage tiers
+* Configure soft delete for blobs and containers
+* Configure snapshots and soft delete for Azure Files
+* Configure blob lifecycle management
+* Configure blob versioning
+
+### Implement and manage storage (15–20%) Tutorials
+
+Az Storage Account with robocopy and fileshare
+
+* https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-storage-account
+
+## Deploy and manage Azure compute resources (20–25%)
+
+### Automate deployment of resources by using Azure Resource Manager (ARM) templates or Bicep files
+
+* Interpret an Azure Resource Manager template or a Bicep file
+* Modify an existing Azure Resource Manager template
+* Modify an existing Bicep file
+* Deploy resources by using an Azure Resource Manager template or a Bicep file
+* Export a deployment as an Azure Resource Manager template or convert an Azure Resource Manager template to a Bicep file
+
+### Create and configure virtual machines
+
+* Create a virtual machine
+* Configure Azure Disk Encryption
+* Move a virtual machine to another resource group, subscription, or region
+* Manage virtual machine sizes
+* Manage virtual machine disks
+* Deploy virtual machines to availability zones and availability sets
+* Deploy and configure an Azure Virtual Machine Scale Sets
+
+### Provision and manage containers in the Azure portal
+
+* Create and manage an Azure container registry
+* Provision a container by using Azure Container Instances
+* Provision a container by using Azure Container Apps
+* Manage sizing and scaling for containers, including Azure Container Instances and Azure Container Apps
+
+### Create and configure Azure App Service
+
+* Provision an App Service plan
+* Configure scaling for an App Service plan
+* Create an App Service
+* Configure certificates and Transport Layer Security (TLS) for an App Service
+* Map an existing custom DNS name to an App Service
+* Configure backup for an App Service
+* Configure networking settings for an App Service
+* Configure deployment slots for an App Service
+
+### Deploy and manage Azure compute resources (20–25%) Tutorials
+
+Create a Linux virtual machine in the Azure portal
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu
+
+Create a Windows virtual machine in the Azure portal
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal
+
+Create a snapshot of a virtual hard disk
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/snapshot-copy-managed-disk?tabs=portal
+
+Create a VM from a specialized disk using
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/attach-os-disk?tabs=portal
+
+Use the portal to attach a data disk to a Linux VM
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal
+
+Attach a managed data disk to a Windows VM by using the Azure portal
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
+
+## Implement and manage virtual networking (15–20%)
+
+### Configure and manage virtual networks in Azure
+
+* Create and configure virtual networks and subnets
+* Create and configure virtual network peering
+* Configure public IP addresses
+* Configure user-defined network routes
+* Troubleshoot network connectivity
+
+### Configure secure access to virtual networks
+
+* Create and configure network security groups (NSGs) and application security groups
+* Evaluate effective security rules in NSGs
+* Implement Azure Bastion
+* Configure service endpoints for Azure platform as a service (PaaS)
+* Configure private endpoints for Azure PaaS
+
+## Configure name resolution and load balancing
+
+* Configure Azure DNS
+* Configure an internal or public load balancer
+* Troubleshoot load balancing
+
+### Implement and manage virtual networking (15–20%) Tutorials
 
 Create an Azure Virtual Network
 
@@ -65,80 +231,29 @@ Tutorial: Log network traffic to and from a virtual network using the Azure port
 
 * https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-tutorial
 
+## Monitor and maintain Azure resources (10–15%)
 
-## 2. Compute (Virtual Machines)
+### Monitor resources in Azure
 
-The bread and butter of IaaS. You need to know how to:
- * Deploy Virtual Machines (VMs): Using the portal, ARM templates, or CLI/PowerShell, and selecting appropriate sizes and images.
- * VM Availability: Configuring Availability Sets and understanding Availability Zones to ensure high availability.
- * VM Disks: Creating, attaching, detaching, and resizing managed disks (OS and data disks).
- * Scale Sets (VMSS): Deploying and configuring auto-scaling for groups of identical VMs.
+* Interpret metrics in Azure Monitor
+* Configure log settings in Azure Monitor
+* Query and analyze logs in Azure Monitor
+* Set up alert rules, action groups, and alert processing rules in Azure Monitor
+* Configure and interpret monitoring of virtual machines, storage accounts, and networks by using Azure Monitor Insights
+* Use Azure Network Watcher and Connection Monitor
 
-### 2. Compute (Virtual Machines) Tutorials
+### Implement backup and recovery
 
-Create a Linux virtual machine in the Azure portal
+* Create a Recovery Services vault
+* Create an Azure Backup vault
+* Create and configure a backup policy
+* Perform backup and restore operations by using Azure Backup
+* Configure Azure Site Recovery for Azure resources
+* Perform a failover to a secondary region by using Site Recovery
+* Configure and interpret reports and alerts for backups
 
-* https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu
-
-Create a Windows virtual machine in the Azure portal
-
-* https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal
-
-Create a snapshot of a virtual hard disk
-
-* https://learn.microsoft.com/en-us/azure/virtual-machines/snapshot-copy-managed-disk?tabs=portal
-
-Create a VM from a specialized disk using
-
-* https://learn.microsoft.com/en-us/azure/virtual-machines/attach-os-disk?tabs=portal
-
-Use the portal to attach a data disk to a Linux VM
-
-* https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal
-
-Attach a managed data disk to a Windows VM by using the Azure portal
-
-* https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
-
-## 3. Identity and Governance
-
-This is critical for security and compliance. Hands-on skills include:
- * Microsoft Entra ID (Azure AD) Users and Groups: Creating, managing, and assigning licenses.
- * Role-Based Access Control (RBAC): Assigning built-in roles (Owner, Contributor, Reader) and understanding the concept of creating Custom RBAC Roles at the correct scope (subscription, resource group, resource).
- * Azure Policy: Creating, assigning, and troubleshooting policy definitions and initiatives to enforce organizational standards (e.g., only allow specific VM sizes in a region).
- * Resource Locks: Applying locks (Read-Only, Cannot-Delete) to critical resources or resource groups to prevent accidental changes.
-
-### 3. Identity and Governance Tutorials
-
-## 4. Storage
-
-You must know how to manage cloud data effectively:
- * Storage Accounts: Creating and configuring various types (e.g., general-purpose v2).
- * Access Management: Configuring Access Keys, generating Shared Access Signatures (SAS), and implementing Storage Account Firewalls and virtual networks to restrict access.
- * Blob Storage Tiers: Moving between hot, cool, and archive tiers for cost optimization.
- * Azure File Shares: Setting up and configuring Azure Files, often for use with Azure File Sync.
-
-### 4. Storage Tutorials
-
-Az Storage Account with robocopy and fileshare
-
-* https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-storage-account
-
-## 5. Monitoring and Backup
-
-Knowing how to keep things running and recoverable:
- * Azure Monitor: Configuring and interpreting Metrics, Logs (Log Analytics), and Alerts based on defined criteria and routing them to an Action Group.
- * Azure Backup: Configuring a Recovery Services vault and setting up backup policies for Azure VMs.
- * Disaster Recovery: Understanding and configuring VM replication using Azure Site Recovery.
-
-### 5. Monitoring and Backup Tutorials
+### Monitor and maintain Azure resources (10–15%) Tutorials
 
 Azure Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal
 
 *  https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview
-
-The video below covers the AZ-104 syllabus in a study-cram format, which helps reinforce the practical knowledge required for the exam.
-AZ-104 Administrator Associate Study Cram v2 - YouTube
-
-https://www.youtube.com/watch?v=0Knf9nub4-k
-
