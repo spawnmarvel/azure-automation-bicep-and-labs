@@ -27,6 +27,10 @@ Skills at a glance
 * Implement and manage virtual networking (15–20%)
 * Monitor and maintain Azure resources (10–15%)
 
+## Practice Assessments for Microsoft Certifications
+
+https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications
+
 ## Manage Azure identities and governance (20–25%)
 
 ### Manage Microsoft Entra users and groups
