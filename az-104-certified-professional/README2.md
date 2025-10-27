@@ -79,7 +79,7 @@ az login --tenant The-tenant-id-we-copied-from-azure-ad
 * Manage costs by using alerts, budgets, and Azure Advisor recommendations
 * Configure management groups
 
-### Implement and manage storage (15–20%)
+## Implement and manage storage (15–20%)
 
 ### Configure access to storage
 
