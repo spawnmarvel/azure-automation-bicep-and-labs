@@ -107,6 +107,12 @@ az login --tenant The-tenant-id-we-copied-from-azure-ad
 * Configure blob lifecycle management
 * Configure blob versioning
 
+### Implement and manage storage (15–20%) Tutorials
+
+Az Storage Account with robocopy and fileshare
+
+* https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-storage-account
+
 ## Deploy and manage Azure compute resources (20–25%)
 
 ### Automate deployment of resources by using Azure Resource Manager (ARM) templates or Bicep files
@@ -145,6 +151,32 @@ az login --tenant The-tenant-id-we-copied-from-azure-ad
 * Configure networking settings for an App Service
 * Configure deployment slots for an App Service
 
+### Deploy and manage Azure compute resources (20–25%) Tutorials
+
+Create a Linux virtual machine in the Azure portal
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/linux/quick-create-portal?tabs=ubuntu
+
+Create a Windows virtual machine in the Azure portal
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal
+
+Create a snapshot of a virtual hard disk
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/snapshot-copy-managed-disk?tabs=portal
+
+Create a VM from a specialized disk using
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/attach-os-disk?tabs=portal
+
+Use the portal to attach a data disk to a Linux VM
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/linux/attach-disk-portal
+
+Attach a managed data disk to a Windows VM by using the Azure portal
+
+* https://learn.microsoft.com/en-us/azure/virtual-machines/windows/attach-managed-disk-portal
+
 ## Implement and manage virtual networking (15–20%)
 
 ### Configure and manage virtual networks in Azure
@@ -169,6 +201,36 @@ az login --tenant The-tenant-id-we-copied-from-azure-ad
 * Configure an internal or public load balancer
 * Troubleshoot load balancing
 
+### Implement and manage virtual networking (15–20%) Tutorials
+
+Create an Azure Virtual Network
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/quickstart-create-virtual-network?tabs=portal
+
+Azure Virtual Network concepts and best practices
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/concepts-and-best-practices
+
+Create, change, or delete a network security group
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/manage-network-security-group?tabs=network-security-group-portal
+
+Connect virtual networks with virtual network peering
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/tutorial-connect-virtual-networks?tabs=portal
+
+Private IP addresses
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/private-ip-addresses
+
+Public IP addresses
+
+* https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses
+
+Tutorial: Log network traffic to and from a virtual network using the Azure portal
+
+* https://learn.microsoft.com/en-us/azure/network-watcher/vnet-flow-logs-tutorial
+
 ## Monitor and maintain Azure resources (10–15%)
 
 ### Monitor resources in Azure
@@ -189,3 +251,9 @@ az login --tenant The-tenant-id-we-copied-from-azure-ad
 * Configure Azure Site Recovery for Azure resources
 * Perform a failover to a secondary region by using Site Recovery
 * Configure and interpret reports and alerts for backups
+
+### Monitor and maintain Azure resources (10–15%) Tutorials
+
+Azure Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal
+
+*  https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview
