@@ -83,6 +83,12 @@ az login --tenant The-tenant-id-we-copied-from-azure-ad
 * Manage costs by using alerts, budgets, and Azure Advisor recommendations
 * Configure management groups
 
+### Manage Azure identities and governance (20–25%) Tutorials
+
+Microsoft Entra licensing
+
+* https://learn.microsoft.com/en-us/entra/fundamentals/licensing
+
 ## Implement and manage storage (15–20%)
 
 ### Configure access to storage
