@@ -31,6 +31,10 @@ Skills at a glance
 
 https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications
 
+## Exam Readiness Zone
+
+https://learn.microsoft.com/en-us/shows/exam-readiness-zone/?terms=az-104
+
 ## Prerequisites
 
 You should always do the tutorials as two steps:
