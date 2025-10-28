@@ -35,6 +35,10 @@ https://learn.microsoft.com/en-us/credentials/certifications/practice-assessment
 
 https://learn.microsoft.com/en-us/shows/exam-readiness-zone/?terms=az-104
 
+## Ms learn Az-104 path
+
+https://learn.microsoft.com/en-us/training/browse/?terms=az-104&source=learn&roles=administrator&products=azure&resource_type=learning%20path
+
 ## Tips use a script language and the portal
 
 You should always do the tutorials as two steps:
