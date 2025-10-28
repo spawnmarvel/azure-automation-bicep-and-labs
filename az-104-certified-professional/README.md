@@ -117,6 +117,10 @@ Az Storage Account with robocopy and fileshare
 
 * https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-storage-account
 
+Configure directory and file-level permissions for Azure file shares, Configure Windows ACLs (icalcs)
+
+* https://learn.microsoft.com/en-us/azure/storage/files/storage-files-identity-configure-file-level-permissions
+
 ## Deploy and manage Azure compute resources (20–25%)
 
 ### Automate deployment of resources by using Azure Resource Manager (ARM) templates or Bicep files
