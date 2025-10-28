@@ -35,7 +35,7 @@ https://learn.microsoft.com/en-us/credentials/certifications/practice-assessment
 
 https://learn.microsoft.com/en-us/shows/exam-readiness-zone/?terms=az-104
 
-## Prerequisites
+## Tips use a script language and the portal
 
 You should always do the tutorials as two steps:
 
