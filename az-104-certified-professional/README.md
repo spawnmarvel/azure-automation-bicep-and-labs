@@ -288,3 +288,16 @@ Tutorial: Log network traffic to and from a virtual network using the Azure port
 Azure Workbooks provide a flexible canvas for data analysis and the creation of rich visual reports within the Azure portal
 
 *  https://learn.microsoft.com/en-us/azure/azure-monitor/visualize/workbooks-overview
+
+Foundational Cloud Security Posture Management Free Plan.
+
+* Security recommendations
+* Asset inventory
+* Secure score
+* Data visualization and reporting with Azure Workbooks
+* Data exporting
+* Workflow automation
+* Tools for remediation
+* Microsoft Cloud Security Benchmark
+
+* https://learn.microsoft.com/en-us/azure/defender-for-cloud/concept-cloud-security-posture-management
