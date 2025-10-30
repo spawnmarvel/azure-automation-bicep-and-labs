@@ -225,6 +225,19 @@ Create an Azure Virtual Network
 
 * https://learn.microsoft.com/en-us/azure/virtual-network/quickstart-create-virtual-network?tabs=portal
 
+Introduction to Azure Virtual Networks 
+
+* https://learn.microsoft.com/en-us/training/modules/introduction-to-azure-virtual-networks/1-introduction
+
+```code
+When creating a VNet, it’s recommended that you use the address ranges enumerated in RFC 1918:
+
+10.0.0.0 – 10.255.255.255 (10/8 prefix)
+172.16.0.0 – 172.31.255.255 (172.16/12 prefix)
+192.168.0.0 – 192.168.255.255 (192.168/16 prefix)
+```
+
+
 Azure Virtual Network concepts and best practices
 
 * https://learn.microsoft.com/en-us/azure/virtual-network/concepts-and-best-practices
