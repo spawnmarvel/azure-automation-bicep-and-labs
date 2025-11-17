@@ -10,6 +10,11 @@ With that said, being open-minded will only improve your abilities. Use a differ
 
 https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-tool
 
+
+##  AZ-104 certified professional must know
+
+https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-certified-professional
+
 ## Learn modules for Bicep
 
 https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/learn-bicep
