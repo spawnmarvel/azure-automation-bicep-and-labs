@@ -115,6 +115,7 @@ The http trigger is create, it will trigger every time we vist the url. So we co
 
 ```ps1
 func new --name testGetDate --template "HTTP trigger" --authlevel "anonymous"
+# Select powershell as run time
 # The function "testGetDate" was created successfully from the "HTTP trigger" template.
 ```
 * function.json
@@ -160,7 +161,7 @@ func start
 # Ctrl+c for quit
 
 ```
-
+![function app started ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-functions/images/fun_start.png)
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?tabs=vs-code&pivots=flex-consumption-planan
 
