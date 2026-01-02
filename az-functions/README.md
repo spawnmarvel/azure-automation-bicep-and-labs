@@ -22,6 +22,17 @@ https://learn.microsoft.com/en-us/training/modules/develop-azure-functions/
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview
 
+## Azure Functions Core Tools func parameters
+
+All commands are stored here
+```bash
+
+func azure functionapp publish <APP_NAME>
+
+```
+
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-core-tools-reference?tabs=v2
+
 ## Powershell function
 
 Lets create apowershell function with the new plan that takes over for consumption, Flex consumption.
@@ -52,7 +63,7 @@ You can now deploy a code project to the function app resources you created in A
 
 1. Open just the terminal in VSC
 
-```ps1
+```bash
 # Check environment, after all prerequisites is installed.
 func --version
 4.0.4915
@@ -67,7 +78,7 @@ connect-AzAccount -TenantId XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 Create a local function project and choose powershell
 
-```ps1
+```bash
 mkdir funappgetresourcesapp01folder
 cd .\funappgetresourcesapp01folder
 
@@ -85,7 +96,7 @@ This folder contains various files for the project, including configuration file
 
 List function templates
 
-```ps1
+```bash
 func templates list -l powershell
 PowerShell Templates:
   Azure Blob Storage trigger
@@ -113,7 +124,7 @@ Lest create a http trigger for powershell https://learn.microsoft.com/en-us/azur
 
 The http trigger is create, it will trigger every time we vist the url. So we could set it up with logical app to run on a schedule and perform other task as well.
 
-```ps1
+```bash
 func new --name funappgetresourcesapp01 --template "HTTP trigger" --authlevel "anonymous"
 # Select powershell as run time
 # The function "funappgetresourcesapp01" was created successfully from the "HTTP trigger" template.
@@ -121,11 +132,11 @@ func new --name funappgetresourcesapp01 --template "HTTP trigger" --authlevel "a
 * function.json
 function.json is a configuration file that defines the input and output bindings for the function, including the trigger type.
 * 
-run.ps1 is the code
+run.bash is the code
 
-Run.ps1 default code
+Run.bash default code
 
-```ps1
+```bash
 using namespace System.Net
 
 # Input bindings are passed in via param block.
@@ -156,10 +167,26 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 
 Now start the function with the default template
 
-```ps1
+```bash
 func start
 # Ctrl+c for quit
 
+```
+
+Log
+
+```log
+Azure Functions Core Tools
+Core Tools Version:       4.0.4915 Commit hash: N/A  (64-bit)
+Function Runtime Version: 4.14.0.19631
+
+
+Functions:
+
+        funappgetresourcesapp01: [GET,POST] http://localhost:7071/api/funappgetresourcesapp01
+
+For detailed output, run func with --verbose flag.
+[2026-01-02T13:22:10.127Z] Worker process started and initialized.
 ```
 ![function app started ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-functions/images/fun_start.png)
 
@@ -183,10 +210,35 @@ Before you can deploy your function code to Azure, you need to create three reso
 So we now depoloy the local function to Azure using the same function name.
 
 
-```ps1
+Since we are using the new plan, we met some errors.
+This explains why your previous deployment attempts were returning 404. The standard func CLI command you were using was trying to talk to the Kudu (SCM) API, but Flex Consumption apps do not use Kudu for deployments. They use a new, faster deployment service.
+
+```bash
+pwd
+C:\giti2026\funappgetresourcesapp01folder
+
 # Assuming connect-AzAccount -TenantId XXXXXXX is success
-func azure functionapp publish funappgetresourcesapp01
+connect-AzAccount -TenantId
+az login --scope https://management.core.windows.net//.default
+
+# Check account
+az account show
+
+# Check Name
+az functionapp list --query "[].name"
+
+# Check storage account
+az functionapp config appsettings list --name funappgetresourcesapp01 --resource-group Rg-neazfunctions-0012 --query "[?name=='AzureWebJobsStorage'].value"
+
+# Publish it
+func azure functionapp publish funappgetresourcesapp01 --powershell --build remote
+
+func azure functionapp publish funappgetresourcesapp01 --powershell --build remote  --verbose
 ```
+
+
+This may take some time on the first run.
+
 
 
 
