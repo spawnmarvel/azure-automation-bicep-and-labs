@@ -131,7 +131,7 @@ Lest create a http trigger for powershell https://learn.microsoft.com/en-us/azur
 The http trigger is create, it will trigger every time we vist the url. So we could set it up with logical app to run on a schedule and perform other task as well.
 
 ```bash
-func new --name funappgetresourcesapp01 --template "HTTP trigger" --authlevel "anonymous"
+func new --name funappythonapp01 --template "HTTP trigger" --authlevel "anonymous"
 # Select python as run time
 # The function "funappgetresourcesapp01" was created successfully from the "HTTP trigger" template.
 ```
@@ -181,6 +181,8 @@ func start
 Log
 
 ```log
+Found Python version 3.10.10 (py).
+
 Azure Functions Core Tools
 Core Tools Version:       4.0.4915 Commit hash: N/A  (64-bit)
 Function Runtime Version: 4.14.0.19631
@@ -188,10 +190,7 @@ Function Runtime Version: 4.14.0.19631
 
 Functions:
 
-        funappgetresourcesapp01: [GET,POST] http://localhost:7071/api/funappgetresourcesapp01
-
-For detailed output, run func with --verbose flag.
-[2026-01-02T13:22:10.127Z] Worker process started and initialized.
+        funappythonapp01: [GET,POST] http://localhost:7071/api/funappythonapp01.
 ```
 ![function app started ](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-functions/images/fun_start.png)
 
@@ -219,7 +218,7 @@ This explains why your previous deployment attempts were returning 404. The stan
 
 ```bash
 pwd
-C:\giti2026\funappgetresourcesapp01folder
+C:\giti2026\funappythonappfolder>
 
 # Assuming connect-AzAccount -TenantId XXXXXXX is success
 connect-AzAccount -TenantId
