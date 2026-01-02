@@ -22,7 +22,7 @@ https://learn.microsoft.com/en-us/training/modules/develop-azure-functions/
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview
 
-### Powershell function
+## Powershell function
 
 Lets create apowershell function with the new plan that takes over for consumption, Flex consumption.
 
@@ -33,7 +33,7 @@ Lets use it to extract resource data for vm's and more using az powershell modul
 3. Create the function app and map it to the storage account
 
 * Storage v2, funappgetresources01
-* Function App with core powershell 7.4
+* Function App with core powershell 7.4, funappgetresourcesapp01
 
 
 ![fun app](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-functions/images/fun_app.png)
@@ -68,10 +68,10 @@ connect-AzAccount -TenantId XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 Create a local function project and choose powershell
 
 ```ps1
-mkdir functionappresources
-cd .\functionappresources\
+mkdir funappgetresourcesapp01folder
+cd .\funappgetresourcesapp01folder
 
-func init testGetDateProject
+func init funappgetresourcesapp01Project
 Use the up/down arrow keys to select a worker runtime:
 dotnet
 dotnet (isolated process)
@@ -114,9 +114,9 @@ Lest create a http trigger for powershell https://learn.microsoft.com/en-us/azur
 The http trigger is create, it will trigger every time we vist the url. So we could set it up with logical app to run on a schedule and perform other task as well.
 
 ```ps1
-func new --name testGetDate --template "HTTP trigger" --authlevel "anonymous"
+func new --name funappgetresourcesapp01 --template "HTTP trigger" --authlevel "anonymous"
 # Select powershell as run time
-# The function "testGetDate" was created successfully from the "HTTP trigger" template.
+# The function "funappgetresourcesapp01" was created successfully from the "HTTP trigger" template.
 ```
 * function.json
 function.json is a configuration file that defines the input and output bindings for the function, including the trigger type.
@@ -168,6 +168,17 @@ https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-functio
 Full docs
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v4%2Cpython-v2%2Cisolated-process%2Cquick-create&pivots=programming-language-powershell
+
+
+### Publish powershell function
+
+Lets say we happy with the current function, we can then publish it.
+
+Before you can deploy your function code to Azure, you need to create three resources:
+
+* A resource group, which is a logical container for related resources.
+* A storage account, which maintains the state and other information about your projects.
+* A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
 
 
