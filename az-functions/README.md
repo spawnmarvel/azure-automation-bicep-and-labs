@@ -39,21 +39,21 @@ The cmds and technology for deploy is a bit different then the consumption plan.
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale
 
-## Powershell function
+## Python function
 
 Lets create apowershell function with the new plan that takes over for consumption, Flex consumption.
 
 Lets use it to extract resource data for vm's and more using az powershell module.
 
-1. Create a resource group
+1. Create a resource group, Rg-neazfunctionsapps-0012
 2. Create a storage account (or do it in the function app create)
 3. Create the function app and map it to the storage account
 
-* Storage v2, funappgetresources01
-* Function App with core powershell 7.4, funappgetresourcesapp01
+* Storage v2, funappythonstoragea01
+* Function App with core powershell 7.4, funappythonapp01
 
 
-![fun app](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-functions/images/fun_app.png)
+![fun app](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-functions/images/fun_app2.png)
 
 ### Create function, test, publish and republish with VS Code Desktop
 
@@ -82,13 +82,13 @@ Major  Minor  Build  Revision
 connect-AzAccount -TenantId XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 # Authentication complete. You can return to the application. Feel free to close this browser tab.
 ```
-Create a local function project and choose powershell
+Create a local function project and choose python
 
 ```bash
-mkdir funappgetresourcesapp01folder
-cd .\funappgetresourcesapp01folder
+mkdir funappythonappfolder
+cd .\funappythonapp01folder
 
-func init funappgetresourcesapp01Project
+func init funappythonapp01Project
 Use the up/down arrow keys to select a worker runtime:
 dotnet
 dotnet (isolated process)
@@ -103,7 +103,7 @@ This folder contains various files for the project, including configuration file
 List function templates
 
 ```bash
-func templates list -l powershell
+func templates list -l python
 PowerShell Templates:
   Azure Blob Storage trigger
   Azure Cosmos DB trigger
@@ -132,42 +132,41 @@ The http trigger is create, it will trigger every time we vist the url. So we co
 
 ```bash
 func new --name funappgetresourcesapp01 --template "HTTP trigger" --authlevel "anonymous"
-# Select powershell as run time
+# Select python as run time
 # The function "funappgetresourcesapp01" was created successfully from the "HTTP trigger" template.
 ```
 * function.json
 function.json is a configuration file that defines the input and output bindings for the function, including the trigger type.
-* 
-run.bash is the code
+* __init__.py is the code
 
-Run.bash default code
+__init__.py default code
 
-```bash
-using namespace System.Net
+```py
+import logging
 
-# Input bindings are passed in via param block.
-param($Request, $TriggerMetadata)
+from azure.functions import HttpRequest, HttpResponse
 
-# Write to the Azure Functions log stream.
-Write-Host "PowerShell HTTP trigger function processed a request."
 
-# Interact with query parameters or the body of the request.
-$name = $Request.Query.Name
-if (-not $name) {
-    $name = $Request.Body.Name
-}
+def main(req: HttpRequest) -> HttpResponse:
+    logging.info('Python HTTP trigger function processed a request.')
 
-$body = "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
 
-if ($name) {
-    $body = "Hello, $name. This HTTP triggered function executed successfully."
-}
+    if name:
+        return HttpResponse(f"Hello, {name}. This HTTP triggered function executed successfully.")
+    else:
+        return HttpResponse(
+            "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response.",
+            status_code=200
+        )
 
-# Associate values to output bindings by calling 'Push-OutputBinding'.
-Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
-    StatusCode = [HttpStatusCode]::OK
-    Body = $body
-})
 
 ```
 
@@ -203,7 +202,7 @@ Full docs
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v4%2Cpython-v2%2Cisolated-process%2Cquick-create&pivots=programming-language-powershell
 
 
-### Publish powershell function
+### Publish Python function
 
 Lets say we happy with the current function, we can then publish it.
 
@@ -233,12 +232,13 @@ az account show
 az functionapp list --query "[].name"
 
 # Check storage account
-az functionapp config appsettings list --name funappgetresourcesapp01 --resource-group Rg-neazfunctions-0012 --query "[?name=='AzureWebJobsStorage'].value"
+az functionapp config appsettings list --name funappythonapp01 --resource-group Rg-neazfunctionsapps-0012 --query "[?name=='AzureWebJobsStorage'].value"
 
 # Publish it
-func azure functionapp publish funappgetresourcesapp01 --powershell --build remote
+func azure functionapp publish funappythonapp01 --python
+func azure functionapp publish funappythonapp01 --python --verbose
 
-func azure functionapp publish funappgetresourcesapp01 --powershell --build remote  --verbose
+
 ```
 
 
