@@ -40,9 +40,10 @@ Lets use it to extract resource data for vm's and more using az powershell modul
 
 ### Create function, test, publish and republish with VS Code Desktop
 
+* Install Azure Functions extension. You can also install the Azure Tools extension pack, which is recommended for working with Azure resources.
+* and some more
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v4%2Cpython-v2%2Cisolated-process%2Cquick-create&pivots=programming-language-powershell
-
 
 
 
