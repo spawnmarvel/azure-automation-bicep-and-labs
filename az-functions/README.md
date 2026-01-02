@@ -180,7 +180,13 @@ Before you can deploy your function code to Azure, you need to create three reso
 * A storage account, which maintains the state and other information about your projects.
 * A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources.
 
+So we now depoloy the local function to Azure using the same function name.
 
+
+```ps1
+# Assuming connect-AzAccount -TenantId XXXXXXX is success
+func azure functionapp publish funappgetresourcesapp01
+```
 
 
 
