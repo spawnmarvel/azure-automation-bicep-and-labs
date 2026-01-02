@@ -30,10 +30,20 @@ Lets use it to extract resource data for vm's and more using az powershell modul
 
 1. Create a resource group
 2. Create a storage account (or do it in the function app create)
-3. Create the function app
+3. Create the function app and map it to the storage account
 
 * Storage v2, funappgetresources01
 * Function App with core powershell 7.4
+
+
+![fun app](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-functions/images/fun_app.png)
+
+### Create function, test, publish and republish with VS Code Desktop
+
+
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-develop-vs-code?tabs=node-v4%2Cpython-v2%2Cisolated-process%2Cquick-create&pivots=programming-language-powershell
+
+
 
 
 
