@@ -30,6 +30,16 @@ Then we are connected
 
 ![connected](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-sql/images/connected.png)
 
+## Restore db for querys
+
+Load Sample Database
+
+https://www.sqlservertutorial.net/getting-started/load-sample-database/
+
+
+https://github.com/spawnmarvel/t-sql
+
+
 
 
 
