@@ -33,6 +33,12 @@ func azure functionapp publish <APP_NAME>
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-core-tools-reference?tabs=v2
 
+## Flex consumption plan
+
+The cmds and technology for deploy is a bit different then the consumption plan.
+
+https://learn.microsoft.com/en-us/azure/azure-functions/functions-scale
+
 ## Powershell function
 
 Lets create apowershell function with the new plan that takes over for consumption, Flex consumption.
@@ -209,8 +215,7 @@ Before you can deploy your function code to Azure, you need to create three reso
 
 So we now depoloy the local function to Azure using the same function name.
 
-
-Since we are using the new plan, we met some errors.
+Since we are using the new plan Flex Consumption, we met some errors.
 This explains why your previous deployment attempts were returning 404. The standard func CLI command you were using was trying to talk to the Kudu (SCM) API, but Flex Consumption apps do not use Kudu for deployments. They use a new, faster deployment service.
 
 ```bash
