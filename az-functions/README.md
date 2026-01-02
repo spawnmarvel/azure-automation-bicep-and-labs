@@ -22,4 +22,22 @@ https://learn.microsoft.com/en-us/training/modules/develop-azure-functions/
 
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-overview
 
+### Powershell function
+
+Lets create apowershell function with the new plan that takes over for consumption, Flex consumption.
+
+Lets use it to extract resource data for vm's and more using az powershell module.
+
+1. Create a resource group
+2. Create a storage account (or do it in the function app create)
+3. Create the function app
+
+* Storage v2, funappgetresources01
+* Function App with core powershell 7.4
+
+
+
+
+
+
 
