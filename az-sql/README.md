@@ -26,6 +26,10 @@ Remember to update networking with your new public ip, it changes.
 
 ![connect](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-sql/images/connect.png)
 
+Then we are connected
+
+![connected](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-sql/images/connected.png)
+
 
 
 
