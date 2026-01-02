@@ -50,6 +50,118 @@ You can now deploy a code project to the function app resources you created in A
 2. Verify locally
 3. Publish to Azure
 
+1. Open just the terminal in VSC
+
+```ps1
+# Check environment, after all prerequisites is installed.
+func --version
+4.0.4915
+
+(Get-Module -ListAvailable Az).Version
+Major  Minor  Build  Revision
+-----  -----  -----  --------
+9      1      1      -1
+
+connect-AzAccount -TenantId XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+# Authentication complete. You can return to the application. Feel free to close this browser tab.
+```
+Create a local function project and choose powershell
+
+```ps1
+mkdir functionappresources
+cd .\functionappresources\
+
+func init testGetDateProject
+Use the up/down arrow keys to select a worker runtime:
+dotnet
+dotnet (isolated process)
+node
+python
+powershell
+custom
+
+```
+This folder contains various files for the project, including configuration files named local.settings.json and host.json. Because local.settings.json can contain secrets downloaded from Azure, the file is excluded from source control by default in the .gitignore file.
+
+List function templates
+
+```ps1
+func templates list -l powershell
+PowerShell Templates:
+  Azure Blob Storage trigger
+  Azure Cosmos DB trigger
+  Durable Functions activity
+  Durable Functions HTTP starter
+  Durable Functions orchestrator
+  Azure Event Grid trigger
+  Azure Event Hub trigger
+  HTTP trigger
+  IoT Hub (Event Hub)
+  Kafka output
+  Kafka trigger
+  Azure Queue Storage trigger
+  RabbitMQ trigger
+  SendGrid
+  Azure Service Bus Queue trigger
+  Azure Service Bus Topic trigger
+  SignalR negotiate HTTP trigger
+  Timer trigger
+
+```
+
+Lest create a http trigger for powershell https://learn.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook-trigger?tabs=python-v2%2Cisolated-process%2Cnodejs-v4%2Cfunctionsv2&pivots=programming-language-powershell
+
+The http trigger is create, it will trigger every time we vist the url. So we could set it up with logical app to run on a schedule and perform other task as well.
+
+```ps1
+func new --name testGetDate --template "HTTP trigger" --authlevel "anonymous"
+# The function "testGetDate" was created successfully from the "HTTP trigger" template.
+```
+* function.json
+function.json is a configuration file that defines the input and output bindings for the function, including the trigger type.
+* 
+run.ps1 is the code
+
+Run.ps1 default code
+
+```ps1
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$name = $Request.Query.Name
+if (-not $name) {
+    $name = $Request.Body.Name
+}
+
+$body = "This HTTP triggered function executed successfully. Pass a name in the query string or in the request body for a personalized response."
+
+if ($name) {
+    $body = "Hello, $name. This HTTP triggered function executed successfully."
+}
+
+# Associate values to output bindings by calling 'Push-OutputBinding'.
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = [HttpStatusCode]::OK
+    Body = $body
+})
+
+```
+
+Now start the function with the default template
+
+```ps1
+func start
+# Ctrl+c for quit
+
+```
+
+
 https://learn.microsoft.com/en-us/azure/azure-functions/functions-create-function-app-portal?tabs=vs-code&pivots=flex-consumption-planan
 
 Full docs
