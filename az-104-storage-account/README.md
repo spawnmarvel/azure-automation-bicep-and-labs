@@ -124,10 +124,10 @@ REM robocopy \\WM01\f$\datacatalog e:\datacatalog /e /r:1 /w:5 /sec /secfix /tim
 
 robocopy C:\BackupLocalhost \\dmz07staccount.file.core.windows.net\dmz07staccountfileshare01\BackupLocalhost /e /r:1 /w:5 /sec /secfix /timfix /log:"C:\robo_bck.log" /np
 
-### In your case:
-# > "the ACL is on the storage account"  
-# - If you **don’t want Robocopy to overwrite or apply ACLs from the source**, 
-# you should **remove /sec and /secfix** from the command.- Just copy file contents and metadata (like timestamps) # with:
+REM In your case:
+REM "the ACL is on the storage account"  
+REM - If you **don’t want Robocopy to overwrite or apply ACLs from the source**, 
+REM you should **remove /sec and /secfix** from the command.- Just copy file contents and metadata (like timestamps) # with:
 
 robocopy src det /e /r:1 /w:5 /timfix /np
 
