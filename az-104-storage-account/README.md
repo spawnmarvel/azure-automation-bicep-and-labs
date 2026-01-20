@@ -129,7 +129,7 @@ REM "the ACL is on the storage account"
 REM - If you **don’t want Robocopy to overwrite or apply ACLs from the source**, 
 REM you should **remove /sec and /secfix** from the command.- Just copy file contents and metadata (like timestamps) # with:
 
-robocopy src det /e /r:1 /w:5 /timfix /np
+robocopy src dest /e /r:1 /w:5 /timfix /np
 
 ```
 ![copy files](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/copyfiles.png)
