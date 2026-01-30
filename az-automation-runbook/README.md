@@ -68,7 +68,7 @@ https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-id
 Start vmchaos09
 
 ```ps1
-# # Sign in to your Azure subscription
+# Sign in to your Azure subscription
 $t_id = "tenant-id"
 Connect-AzAccount -Tenant $t_id
 
@@ -78,24 +78,39 @@ $resourceGroup = "Rg-ukautomation-0001"
 $automationAccount = "jeklautomation"
 $userAssignedManagedIdentity = "jeklmanagedidentity"
 
+# get id
+$UAMI = (Get-AzAutomationAccount -ResourceGroupName $resourceGroup -Name $automationAccount).Identity.PrincipalId
+# se it
+$UAMI
+16xxxxxx-xxxx-xxxxxx-xxx-xxxxxxxx
+
+
 ```
 
+https://learn.microsoft.com/en-us/azure/automation/learn/powershell-runbook-managed-identity
 
-System-Assigned (The "Simple" Path)
-How it works: You turn it on directly inside the jeklautomation account. Azure creates an identity with the exact same name as your Automation account.
+1. System-Assigned (The "Simple" Path)
 
-Pros: It’s "set it and forget it." If you delete the Automation account, the identity vanishes too. No leftover "orphan" resources.
+- How it works: You turn it on directly inside the jeklautomation account. Azure creates an identity with the exact same name as your Automation account.
 
-Cons: It only lives on that one Automation account. If you create a second Automation account later for a different project, you have to set up permissions all over again for the new one.
+- Pros: It’s "set it and forget it." If you delete the Automation account, the identity vanishes too. No leftover "orphan" resources.
+
+- Cons: It only lives on that one Automation account. If you create a second Automation account later for a different project, you have to set up permissions all over again for the new one.
 
 2. User-Assigned (The "Enterprise" Path) — What you have now
-How it works: Your jeklmanagedidentity is a standalone resource. You "plug" it into your Automation account.
 
-Pros: Reusability. If you later decide to use a Logic App or a Function to handle other dev tasks, you can give them the same jeklmanagedidentity. You manage the "Dev Permissions" once, and assign that identity to whatever tools need it.
 
-Cons: You have to manually delete it if you ever stop using it, and the script requires that ClientId we talked about.
+ How it works: Your jeklmanagedidentity is a standalone resource. You "plug" it into your Automation account.
 
-https://learn.microsoft.com/en-us/azure/automation/learn/powershell-runbook-managed-identity
+- Pros: Reusability. If you later decide to use a Logic App or a Function to handle other dev tasks, you can give them the same jeklmanagedidentity. You manage the "Dev Permissions" once, and assign that identity to whatever tools need it.
+
+- Cons: You have to manually delete it if you ever stop using it, and the script requires that ClientId we talked about.
+
+
+Which should you choose?
+
+Recommendation: Since you've already created jeklmanagedidentity, stick with it. It’s better practice for "Infrastructure as Code" and keeps your permissions centralized under one "Dev Identity" rather than tying them strictly to the tool (Automation Account).
+
 
 ## Automation PowerShell runbook for linux updates
 
@@ -104,3 +119,42 @@ https://learn.microsoft.com/en-us/azure/automation/learn/powershell-runbook-mana
 - Run updates
 - Log to file on vm
 - Stop vm
+
+
+Managed Identities do not work on local machines. They only exist "inside" the Azure infrastructure.
+
+
+Step 1: Create the Runbook
+
+1. In the Azure Portal, go to your jeklautomation Automation Account.
+
+2. On the left menu, select Runbooks (under Process Automation).
+
+3. Click + Create a runbook.
+
+4. Name: Update-Dev-VMs-Weekly
+
+5. Runbook type: PowerShell
+
+6. Runtime version: 7.2 (the latest stable version).
+
+7. Click Create.
+
+![runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/runbook.png)
+
+Step 2: To use the Identity you created, you must run the code inside the Automation Account's Test Pane:
+
+1. Go to the Azure Portal.
+
+2. Navigate to your Automation Account jeklautomation > Runbooks.
+
+3. Open your Runbook and click Edit.
+
+4. Click on the Test pane button.
+
+5. Paste your code there and click Start.
+
+```ps1
+
+
+```
