@@ -145,28 +145,229 @@ The "Dry Run" Connection Script:
 
 5. Paste your code there and click Start.
 
+#### Connect and test
 ```ps1
-# 1. Identity Details
-$identityName = "jeklmanagedidentity"
-$resourceGroup = "Rg-ukautomation-0001" 
+# 1. Provide your specific IDs
+$ClientId = "xxxxxxxxxxxxxxxxxxxx"        # From jeklmanagedidentity
+$TenantId = "xxxxxxxxxxxxxxxxxxxxxxxx"    
+$SubscriptionId = "xxxxxxxxxxxxxxxxxxx"     # Your Subscription ID
 
-# 2. Get the Identity and its Subscription
-$UAMI = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $identityName
-$ClientId = $UAMI.ClientId
-# Extract SubscriptionId from the ID string of the identity
-$SubId = ($UAMI.Id).Split("/")[2] 
+Write-Output "Attempting connection for jeklmanagedidentity..."
 
-Write-Output "Connecting with Client ID: $ClientId on Subscription: $SubId"
+# 2. Connect with ALL parameters to avoid 'null' context
+# Adding -TenantId and -SubscriptionId here forces the session to bind correctly
+Connect-AzAccount -Identity `
+                  -AccountId $ClientId `
+                  -TenantId $TenantId `
+                  -SubscriptionId $SubscriptionId -ErrorAction Stop
 
-# 3. Connect AND Set Context
-Connect-AzAccount -Identity -AccountId $ClientId -SubscriptionId $SubId
+# 3. Explicitly set the context (The 'Double-Check')
+Set-AzContext -SubscriptionId $SubscriptionId
 
-# 4. Final verification
-$context = Get-AzContext
-if ($null -eq $context) {
-    Write-Error "Context is still null. Ensure the Identity has 'Reader' or 'Contributor' role on the Subscription."
+# 4. Verify we can see the VMs
+$vms = Get-AzVM
+if ($vms.Count -gt 0) {
+    Write-Output "SUCCESS: Found $($vms.Count) VMs."
 } else {
-    Write-Output "Context verified: $($context.Subscription.Name)"
+    Write-Warning "Connected, but no VMs found in this subscription. Check Resource Group permissions."
 }
 
+```
+result
+
+![test ps1](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/test_ps1.png)
+
+
+#### The Final Production Runbook for one vm
+
+```ps1
+# =================================================================================
+# 1. HARDCODED SETTINGS (Replace these with your actual IDs)
+# =================================================================================
+$ClientId       = "00000000-0000-0000-0000-000000000000" # From jeklmanagedidentity
+$TenantId       = "00000000-0000-0000-0000-000000000000" # From Default Directory Overview
+$SubscriptionId = "00000000-0000-0000-0000-000000000000" # Your Subscription ID
+$ResourceGroup  = "jekl-dev-rg"                          # The RG containing your VMs
+
+# =================================================================================
+# 2. DISCOVERY LOGGING (Per your request: Verifies IDs in the logs)
+# =================================================================================
+Write-Output "--- Discovery Log ---"
+$automationAccountName = "jeklautomation"
+try {
+    $aa = Get-AzAutomationAccount -ResourceGroupName $ResourceGroup -Name $automationAccountName
+    $UAMI_PrincipalId = $aa.Identity.UserAssignedIdentities.Values.PrincipalId
+    $uami = Get-AzUserAssignedIdentity | Where-Object { $_.PrincipalId -eq $UAMI_PrincipalId }
+
+    Write-Output "Detected ClientId: $($uami.ClientId)"
+    Write-Output "Detected TenantId: $((Get-AzContext).Tenant.Id)"
+} catch {
+    Write-Output "Discovery info: Identity lookup skipped or failed. Using hardcoded IDs."
+}
+Write-Output "--------------------"
+
+# =================================================================================
+# 3. AUTHENTICATION
+# =================================================================================
+Write-Output "Attempting connection for jeklmanagedidentity..."
+
+Connect-AzAccount -Identity `
+                  -AccountId $ClientId `
+                  -TenantId $TenantId `
+                  -SubscriptionId $SubscriptionId -ErrorAction Stop
+
+Set-AzContext -SubscriptionId $SubscriptionId
+
+# =================================================================================
+# 4. VM MAINTENANCE LOGIC
+# =================================================================================
+
+# We target VMs with the tag 'Patching: Weekly'
+$targetVMs = Get-AzVM -ResourceGroupName $ResourceGroup | Where-Object { $_.Tags['Patching'] -eq 'Weekly' }
+
+if ($null -eq $targetVMs -or $targetVMs.Count -eq 0) {
+    Write-Warning "No VMs found with tag 'Patching: Weekly'. Please check your VM tags."
+    return
+}
+
+Write-Output "SUCCESS: Found $($targetVMs.Count) VMs to process."
+
+# START PHASE (Parallel)
+foreach ($vm in $targetVMs) {
+    Write-Output "Starting VM: $($vm.Name)..."
+    Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -NoWait
+}
+
+Write-Output "Waiting 90 seconds for OS and VM Agents to initialize..."
+Start-Sleep -Seconds 90
+
+# UPDATE SCRIPT (Dated Logs)
+$BashScript = @"
+LOG_DATE=$(date +%Y-%m-%d)
+LOG_FILE="/var/log/apt-maintenance-\$LOG_DATE.log"
+echo "--- Maintenance Started: $(date) ---" > \$LOG_FILE
+sudo apt-get update -y >> \$LOG_FILE 2>&1
+sudo apt-get upgrade -y >> \$LOG_FILE 2>&1
+echo "--- Maintenance Finished: $(date) ---" >> \$LOG_FILE
+"@
+
+# EXECUTE PHASE
+foreach ($vm in $targetVMs) {
+    Write-Output "Executing updates on $($vm.Name)..."
+    try {
+        Invoke-AzVMRunCommand -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name `
+                              -CommandId 'RunShellScript' -ScriptString $BashScript -ErrorAction Stop
+        Write-Output "Update successful for $($vm.Name)."
+    }
+    catch {
+        Write-Error "Failed to update $($vm.Name): $($_.Exception.Message)"
+    }
+
+    # STOP PHASE (Deallocate)
+    Write-Output "Deallocating $($vm.Name) to stop billing..."
+    Stop-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force -NoWait
+}
+
+Write-Output "Monday Maintenance Sequence Complete."
+```
+
+#### The Final Production Runbookfor all vms with tag
+
+Why this handles "Many Resource Groups" perfectly:
+
+- Scope: By calling Get-AzVM without the -ResourceGroupName parameter, PowerShell asks Azure for a list of every VM in the subscription.
+
+- Filtering: It then looks at the Tags of every VM. Only the ones you’ve specifically marked for the dev team (Patching: Weekly) will be touched.
+
+- Dynamic Reference: When the script runs the Start or Stop commands, it uses $vm.ResourceGroupName. This means it automatically knows which "folder" each VM lives in, even if they are all in different ones.
+
+```ps1
+# =================================================================================
+# 1. HARDCODED SETTINGS
+# =================================================================================
+$ClientId       = "00000000-0000-0000-0000-000000000000" # From jeklmanagedidentity
+$TenantId       = "00000000-0000-0000-0000-000000000000" # From Default Directory Overview
+$SubscriptionId = "00000000-0000-0000-0000-000000000000" # Your Subscription ID
+
+# =================================================================================
+# 2. DISCOVERY LOGGING (Verifies IDs in the Runbook Output)
+# =================================================================================
+Write-Output "--- Discovery Log ---"
+try {
+    # We use Get-AzContext here because it's faster inside the Runbook environment
+    $currentContext = Get-AzContext
+    Write-Output "Executing in Tenant: $($currentContext.Tenant.Id)"
+    Write-Output "Executing in Subscription: $($currentContext.Subscription.Name)"
+} catch {
+    Write-Output "Context discovery failed. Proceeding with hardcoded IDs."
+}
+Write-Output "--------------------"
+
+# =================================================================================
+# 3. AUTHENTICATION
+# =================================================================================
+Write-Output "Connecting via jeklmanagedidentity..."
+
+Connect-AzAccount -Identity `
+                  -AccountId $ClientId `
+                  -TenantId $TenantId `
+                  -SubscriptionId $SubscriptionId -ErrorAction Stop
+
+Set-AzContext -SubscriptionId $SubscriptionId
+
+# =================================================================================
+# 4. GLOBAL VM DISCOVERY (Across ALL Resource Groups)
+# =================================================================================
+
+# Removing -ResourceGroupName allows Get-AzVM to scan the entire Subscription
+Write-Output "Scanning all Resource Groups for VMs with tag 'Patching: Weekly'..."
+$targetVMs = Get-AzVM | Where-Object { $_.Tags['Patching'] -eq 'Weekly' }
+
+if ($null -eq $targetVMs -or $targetVMs.Count -eq 0) {
+    Write-Warning "No VMs found with the required tag. Ensure VMs have Patching=Weekly."
+    return
+}
+
+Write-Output "SUCCESS: Found $($targetVMs.Count) VMs across your Resource Groups."
+
+# =================================================================================
+# 5. EXECUTION PHASE (Start -> Update -> Stop)
+# =================================================================================
+
+# Step A: Parallel Start
+foreach ($vm in $targetVMs) {
+    Write-Output "Starting VM: $($vm.Name) [RG: $($vm.ResourceGroupName)]"
+    Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -NoWait
+}
+
+Write-Output "Waiting 90 seconds for initialization..."
+Start-Sleep -Seconds 90
+
+# Step B: Update via Bash Script
+$BashScript = @"
+LOG_DATE=$(date +%Y-%m-%d)
+LOG_FILE="/var/log/apt-maintenance-\$LOG_DATE.log"
+echo "--- Maintenance Started: $(date) ---" > \$LOG_FILE
+sudo apt-get update -y >> \$LOG_FILE 2>&1
+sudo apt-get upgrade -y >> \$LOG_FILE 2>&1
+echo "--- Maintenance Finished: $(date) ---" >> \$LOG_FILE
+"@
+
+foreach ($vm in $targetVMs) {
+    Write-Output "Updating $($vm.Name)..."
+    try {
+        Invoke-AzVMRunCommand -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name `
+                              -CommandId 'RunShellScript' -ScriptString $BashScript -ErrorAction Stop
+        Write-Output "Success: $($vm.Name) updated."
+    }
+    catch {
+        Write-Error "Failed to update $($vm.Name): $($_.Exception.Message)"
+    }
+
+    # Step C: Deallocate
+    Write-Output "Deallocating $($vm.Name)..."
+    Stop-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force -NoWait
+}
+
+Write-Output "Maintenance Sequence Complete."
 ```
