@@ -32,7 +32,7 @@ Networking
 
 https://learn.microsoft.com/en-us/azure/automation/quickstarts/create-azure-automation-account-portal
 
-Create a user-assigned managed identity
+### Create a user-assigned managed identity
 
 - In the search box, enter Managed Identities. Under Services, select Managed Identities.
 
@@ -40,7 +40,7 @@ Create a user-assigned managed identity
 
 https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity
 
-Enable managed identities for your Automation account using the Azure portal
+### Enable managed identities for your Automation account using the Azure portal
 
 
 https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-identity
