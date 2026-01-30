@@ -46,6 +46,8 @@ https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resour
 - An Azure Automation account
 - A user-assigned managed identity.
 
+![system assignd was on](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/mi_on.png)
+
 https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-identity
 
 ## Tutorial: Create Automation PowerShell runbook using managed identity
