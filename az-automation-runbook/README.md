@@ -140,7 +140,7 @@ Step 1: Create the Runbook
 
 7. Click Create.
 
-![runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/runbook.png)
+![runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/RUNBOOK.png)
 
 Step 2: To use the Identity you created, you must run the code inside the Automation Account's Test Pane:
 
