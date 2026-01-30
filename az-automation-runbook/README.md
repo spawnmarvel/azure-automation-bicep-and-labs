@@ -63,14 +63,37 @@ Add user-assigned managed identity
 https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-identity
 
 
-
-
 ## Tutorial: Create Automation PowerShell runbook using managed identity
 
 Start vmchaos09
 
+```ps1
+# # Sign in to your Azure subscription
+$t_id = "tenant-id"
+Connect-AzAccount -Tenant $t_id
 
 
+$resourceGroup = "Rg-ukautomation-0001"
+# These values are used in this tutorial
+$automationAccount = "jeklautomation"
+$userAssignedManagedIdentity = "jeklmanagedidentity"
+
+```
+
+
+System-Assigned (The "Simple" Path)
+How it works: You turn it on directly inside the jeklautomation account. Azure creates an identity with the exact same name as your Automation account.
+
+Pros: It’s "set it and forget it." If you delete the Automation account, the identity vanishes too. No leftover "orphan" resources.
+
+Cons: It only lives on that one Automation account. If you create a second Automation account later for a different project, you have to set up permissions all over again for the new one.
+
+2. User-Assigned (The "Enterprise" Path) — What you have now
+How it works: Your jeklmanagedidentity is a standalone resource. You "plug" it into your Automation account.
+
+Pros: Reusability. If you later decide to use a Logic App or a Function to handle other dev tasks, you can give them the same jeklmanagedidentity. You manage the "Dev Permissions" once, and assign that identity to whatever tools need it.
+
+Cons: You have to manually delete it if you ever stop using it, and the script requires that ClientId we talked about.
 
 https://learn.microsoft.com/en-us/azure/automation/learn/powershell-runbook-managed-identity
 
