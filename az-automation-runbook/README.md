@@ -123,8 +123,6 @@ Step 1: Create the Runbook
 
 Check your RBAC
 
-(If it still says "SubscriptionId is null," it means the Identity cannot see the subscription.)
-
 1. Go to your Subscription (not just the RG).
 
 2. Access Control (IAM).
