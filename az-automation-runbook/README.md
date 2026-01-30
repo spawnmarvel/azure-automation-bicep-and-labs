@@ -14,6 +14,8 @@ https://learn.microsoft.com/en-us/azure/automation/automation-runbook-types?tabs
 
 One Automation account can manage resources across all regions and subscriptions for a given tenant. 
 
+![account](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/account.png)
+
 https://learn.microsoft.com/en-us/azure/automation/quickstarts/create-azure-automation-account-portal
 
 ## Tutorial: Create Automation PowerShell runbook using managed identity
