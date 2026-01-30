@@ -48,6 +48,8 @@ https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resour
 
 ![system assignd was on](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/mi_on.png)
 
+Your Automation account can now use the system-assigned identity, that is registered with Microsoft Entra ID and is represented by an object ID.
+
 https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-identity
 
 ## Tutorial: Create Automation PowerShell runbook using managed identity
