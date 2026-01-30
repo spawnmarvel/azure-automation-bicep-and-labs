@@ -50,7 +50,20 @@ https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resour
 
 Your Automation account can now use the system-assigned identity, that is registered with Microsoft Entra ID and is represented by an object ID.
 
+
+Add user-assigned managed identity
+
+- Select the User assigned tab, and then select + Add or Add user assigned managed identity to open the Add user assigned managed i... page.
+- Under User assigned managed identities, select your existing user-assigned managed identity and then select Add. You'll then be returned to the User assigned tab.
+
+
+![mi_add_user_assigned](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/mi_add_user_assigned.png)
+
+
 https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-identity
+
+
+
 
 ## Tutorial: Create Automation PowerShell runbook using managed identity
 
