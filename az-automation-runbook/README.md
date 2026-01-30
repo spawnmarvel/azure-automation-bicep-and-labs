@@ -131,7 +131,7 @@ Check your RBAC
 
 3. Ensure jeklmanagedidentity has at least Reader at the Subscription level, or Contributor at the Resource Group level.
 
-![add reader](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/add-reader.png)
+![add reader](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/add_reader.png)
 
 Step 2: To use the Identity you created, you must run the code inside the Automation Account's Test Pane:
 
