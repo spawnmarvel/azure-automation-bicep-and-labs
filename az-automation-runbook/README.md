@@ -65,27 +65,6 @@ https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-id
 
 ## Tutorial: Create Automation PowerShell runbook using managed identity
 
-Start vmchaos09
-
-```ps1
-# Sign in to your Azure subscription
-$t_id = "tenant-id"
-Connect-AzAccount -Tenant $t_id
-
-
-$resourceGroup = "Rg-ukautomation-0001"
-# These values are used in this tutorial
-$automationAccount = "jeklautomation"
-$userAssignedManagedIdentity = "jeklmanagedidentity"
-
-# get id
-$UAMI = (Get-AzAutomationAccount -ResourceGroupName $resourceGroup -Name $automationAccount).Identity.PrincipalId
-# se it
-$UAMI
-16xxxxxx-xxxx-xxxxxx-xxx-xxxxxxxx
-
-
-```
 
 https://learn.microsoft.com/en-us/azure/automation/learn/powershell-runbook-managed-identity
 
@@ -142,7 +121,21 @@ Step 1: Create the Runbook
 
 ![runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/RUNBOOK.png)
 
+Check your RBAC
+
+(If it still says "SubscriptionId is null," it means the Identity cannot see the subscription.)
+
+1. Go to your Subscription (not just the RG).
+
+2. Access Control (IAM).
+
+3. Ensure jeklmanagedidentity has at least Reader at the Subscription level, or Contributor at the Resource Group level.
+
+![add reader](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/add-reader.png)
+
 Step 2: To use the Identity you created, you must run the code inside the Automation Account's Test Pane:
+
+The "Dry Run" Connection Script:
 
 1. Go to the Azure Portal.
 
@@ -155,6 +148,27 @@ Step 2: To use the Identity you created, you must run the code inside the Automa
 5. Paste your code there and click Start.
 
 ```ps1
+# 1. Identity Details
+$identityName = "jeklmanagedidentity"
+$resourceGroup = "Rg-ukautomation-0001" 
 
+# 2. Get the Identity and its Subscription
+$UAMI = Get-AzUserAssignedIdentity -ResourceGroupName $resourceGroup -Name $identityName
+$ClientId = $UAMI.ClientId
+# Extract SubscriptionId from the ID string of the identity
+$SubId = ($UAMI.Id).Split("/")[2] 
+
+Write-Output "Connecting with Client ID: $ClientId on Subscription: $SubId"
+
+# 3. Connect AND Set Context
+Connect-AzAccount -Identity -AccountId $ClientId -SubscriptionId $SubId
+
+# 4. Final verification
+$context = Get-AzContext
+if ($null -eq $context) {
+    Write-Error "Context is still null. Ensure the Identity has 'Reader' or 'Contributor' role on the Subscription."
+} else {
+    Write-Output "Context verified: $($context.Subscription.Name)"
+}
 
 ```
