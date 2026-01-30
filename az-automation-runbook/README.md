@@ -42,6 +42,9 @@ https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resour
 
 ### Enable managed identities for your Automation account using the Azure portal
 
+- An Azure account with an active subscription
+- An Azure Automation account
+- A user-assigned managed identity.
 
 https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-identity
 
