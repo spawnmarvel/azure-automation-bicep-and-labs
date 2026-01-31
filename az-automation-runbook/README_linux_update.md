@@ -508,3 +508,13 @@ Since the script is now "set and forget," you should set up an alert so you are 
 - Set the Signal to "Job Status" or "Total Jobs" where the status is Failed.
 
 - Set the Action Group to your email or phone number.
+
+### Azure Automation Costs
+
+Azure provides the first 500 minutes of job execution time for free every month.
+
+- Your usage: 4 VMs × ~5 minutes per run = 20 minutes per week.
+
+- Monthly total: ~80 minutes per month.
+
+- Remaining Free Tier: You still have 420 minutes left over each month.
