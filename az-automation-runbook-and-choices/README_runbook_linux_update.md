@@ -27,7 +27,7 @@ Networking
 - Private Access – This option provides a private endpoint for the Automation account that uses a private IP address from your virtual network. 
 
 
-![account](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/account.png)
+![account](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/account.png)
 
 
 https://learn.microsoft.com/en-us/azure/automation/quickstarts/create-azure-automation-account-portal
@@ -36,7 +36,7 @@ https://learn.microsoft.com/en-us/azure/automation/quickstarts/create-azure-auto
 
 - In the search box, enter Managed Identities. Under Services, select Managed Identities.
 
-![managed identity](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/mi.png)
+![managed identity](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/mi.png)
 
 https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity
 
@@ -46,7 +46,7 @@ https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resour
 - An Azure Automation account
 - A user-assigned managed identity.
 
-![system assignd was on](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/mi_on.png)
+![system assignd was on](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/mi_on.png)
 
 Your Automation account can now use the system-assigned identity, that is registered with Microsoft Entra ID and is represented by an object ID.
 
@@ -57,7 +57,7 @@ Add user-assigned managed identity
 - Under User assigned managed identities, select your existing user-assigned managed identity and then select Add. You'll then be returned to the User assigned tab.
 
 
-![mi_add_user_assigned](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/mi_add_user_assigned.png)
+![mi_add_user_assigned](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/mi_add_user_assigned.png)
 
 
 https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-identity
@@ -119,7 +119,7 @@ Step 1: Create the Runbook
 
 7. Click Create.
 
-![runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/RUNBOOK.png)
+![runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/RUNBOOK.png)
 
 Check your RBAC
 
@@ -129,7 +129,7 @@ Check your RBAC
 
 3. Ensure jeklmanagedidentity has at least Reader at the Subscription level, or Contributor at the Resource Group level.
 
-![add reader](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/add_reader.png)
+![add reader](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/add_reader.png)
 
 Step 2: To use the Identity you created, you must run the code inside the Automation Account's Test Pane:
 
@@ -175,7 +175,7 @@ if ($vms.Count -gt 0) {
 ```
 result
 
-![test ps1](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/test_ps1.png)
+![test ps1](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/test_ps1.png)
 
 One Final Requirement:
 
@@ -320,17 +320,17 @@ Write-Output "Runbook execution finished."
 
 Test when VM is running success
 
-![test ps1 vm running](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/vm_running.png)
+![test ps1 vm running](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/vm_running.png)
 
 Test when VM is not running success
 
-![test ps1 vm not running](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/vm_stopped.png)
+![test ps1 vm not running](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/vm_stopped.png)
 
 #### The Final Production Runbookfor all vms with tag Patching:Weekly
 
 Create Runbook Update-VMs-Weekly-If-Tag-Patching-Weekly
 
-![tag patch](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/tag_patch.png)
+![tag patch](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/tag_patch.png)
 
 Why this handles "Many Resource Groups" perfectly:
 
@@ -468,7 +468,7 @@ Your script currently exists in a "Draft" state because you've been using the Te
 
 - Select Yes when asked to override the previous version.
 
-![publsihed](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/published.png)
+![publsihed](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/published.png)
 
 2. Link the Schedule
 
@@ -484,17 +484,17 @@ Your script currently exists in a "Draft" state because you've been using the Te
 
 - Important: Check that the Time Zone in your schedule matches your actual local time, as Azure often defaults to UTC.
 
-![schedule](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/schedule.png)
+![schedule](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/schedule.png)
 
 ### Trigger runbook
 
 You could edit or trigger it.
 
-![trigger runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/trigger_runbook.png)
+![trigger runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/trigger_runbook.png)
 
 Logs
 
-![trigger log](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/trigger_log.png)
+![trigger log](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/trigger_log.png)
 
 
 ### Alert TODO!
