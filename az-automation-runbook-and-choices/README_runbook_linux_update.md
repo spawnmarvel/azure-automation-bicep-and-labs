@@ -352,6 +352,11 @@ $ClientId       = "YOUR-CLIENT-ID"
 $TenantId       = "YOUR-TENANT-ID" 
 $SubscriptionId = "YOUR-SUB-ID" 
 
+##### script to copy
+
+$OverallStart = Get-Date
+Write-Output "--- JOB STARTED: $($OverallStart.ToString('yyyy-MM-dd HH:mm:ss')) ---"
+
 # =================================================================================
 # 2. AUTHENTICATION
 # =================================================================================
@@ -443,6 +448,11 @@ foreach ($vm in $vmsToUpdate) {
     Stop-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force -NoWait
 }
 
+$OverallEnd = Get-Date
+Write-Output "--- JOB FINISHED: $($OverallEnd.ToString('yyyy-MM-dd HH:mm:ss')) ---"
+$Duration = $OverallEnd - $OverallStart
+$TimeUsed = "{0:mm} minutes and {0:ss} seconds" -f $Duration
+
 Write-Output "Global Weekly Maintenance Sequence Complete."
 
 # =================================================================================
@@ -452,6 +462,7 @@ Write-Output "----------------------------------------------"
 Write-Output "FINAL MAINTENANCE SUMMARY"
 Write-Output "Total VMs Found: $($targetVMs.Count)"
 Write-Output "Total VMs Processed: $($vmsToUpdate.Count)"
+Write-Output "--- TOTAL TIME USED: $TimeUsed ---"
 Write-Output "----------------------------------------------"
 Write-Output "Global Weekly Maintenance Sequence Complete."
 ```
@@ -583,11 +594,15 @@ Fetched XX.X MB in 2s... (if updates were found).
 ssh
 
 ls *apt-main*
-apt-maintenance-2026-01-31.log
+# apt-maintenance-2026-01-31.log
 
 cat apt-maintenance-2026-01-31.log
+``` 
 
---- Maintenance Started: Sat Jan 31 01:20:23 UTC 2026 ---
+log
+
+```log
+Maintenance Started: Sat Jan 31 01:20:23 UTC 2026 ---
 Hit:1 http://azure.archive.ubuntu.com/ubuntu noble InRelease
 Hit:2 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease
 Hit:3 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease
@@ -604,10 +619,8 @@ The following upgrades have been deferred due to phasing:
   fwupd libdrm-common libdrm2 libfwupd2 python3-distupgrade
   ubuntu-release-upgrader-core
 0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
---- Maintenance Finished: Sat Jan 31 01:20:34 UTC 2026 ---
-
-````
-
+Maintenance Finished: Sat Jan 31 01:20:34 UTC 2026 
+```
 
 
 ### Alert TODO
