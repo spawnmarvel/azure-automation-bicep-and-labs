@@ -468,6 +468,8 @@ Your script currently exists in a "Draft" state because you've been using the Te
 
 - Select Yes when asked to override the previous version.
 
+![publsihed](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/published.png)
+
 2. Link the Schedule
 
 - Now that the "Official" version is published, you need to tell Azure when to run it.
