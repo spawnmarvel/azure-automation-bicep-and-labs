@@ -35,3 +35,5 @@ Choose Azure Automation because it allows you to combine Cost Optimization (Star
 
 ## Azure Update Manager
 
+![example manager](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/example_manager.png)
+
