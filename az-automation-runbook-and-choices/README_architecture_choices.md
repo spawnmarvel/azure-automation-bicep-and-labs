@@ -28,3 +28,10 @@ This table compares the primary tools used for managing infrastructure, patching
 ### Project Choice
 
 Choose Azure Automation because it allows you to combine Cost Optimization (Start/Stop logic) with Maintenance in a single script.
+
+## Azure Automation
+
+![example runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/example_runbook.png)
+
+## Azure Update Manager
+
