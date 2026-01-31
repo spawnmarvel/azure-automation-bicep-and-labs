@@ -220,6 +220,9 @@ Create a new runbook, Update-Dev-VMs-Weekly-test1-vm
 
 If the vm is running it should not be updated, because someone could be working on it.
 
+
+Script
+
 ```ps1
 # =================================================================================
 # 1. HARDCODED SETTINGS
@@ -325,6 +328,8 @@ Test when VM is not running success
 
 Create Runbook Update-VMs-Weekly-If-Tag-Patching-Weekly
 
+![tag patch](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/tag_patch.png)
+
 Why this handles "Many Resource Groups" perfectly:
 
 - Scope: By calling Get-AzVM without the -ResourceGroupName parameter, PowerShell asks Azure for a list of every VM in the subscription.
@@ -333,7 +338,8 @@ Why this handles "Many Resource Groups" perfectly:
 
 - Dynamic Reference: When the script runs the Start or Stop commands, it uses $vm.ResourceGroupName. This means it automatically knows which "folder" each VM lives in, even if they are all in different ones.
 
-![tag patch](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/tag_patch.png)
+
+Script
 
 ```ps1
 
