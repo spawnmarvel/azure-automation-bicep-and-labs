@@ -520,3 +520,42 @@ Azure provides the first 500 minutes of job execution time for free every month.
 - Monthly total: ~80 minutes per month.
 
 - Remaining Free Tier: You still have 420 minutes left over each month.
+
+
+### How reboot is handled
+
+Since we run runbook with startvm, update vm, make log on vm, deallocated vm, the next time you log on is a boot—but only if you "Deallocated" correctly.
+
+Script runs Stop-AzVM, it moves the VM into a Deallocated state. This means Azure physically unbinds your VM from the hardware rack it was running on.
+
+* When you (or the script) run Start-AzVM the following Monday:
+* (Whether you use your script, the PowerShell command, or simply click the Start button in the Azure Portal, the result is the same: A cold boot that applies your updates.)
+
+* Azure finds a fresh piece of hardware.
+
+* The VM goes through a full Hardware Boot sequence.
+
+* The Linux bootloader (GRUB) initializes and automatically picks the newest kernel found on the disk (the one your script just installed).
+
+Result: Your updates are applied perfectly. For Linux, a "Start" after "Deallocation" is as good as a "Reboot."
+
+
+### Executive Summary: Automated Infrastructure Maintenance
+
+Benefit Category,Impact of Automation
+
+💰 Cost Reduction,"Significant Savings. By automatically deallocating (shutting down) VMs immediately after patching, we eliminate wasted spend on idle resources. We only pay for the ~10 minutes required for the update rather than 24/7 uptime."
+
+🛡️ Security Posture,"Reduced Vulnerability Window. Security patches (Kernel and OS) are applied every Monday morning without fail, ensuring compliance with security best practices and reducing the risk of exploitation."
+
+⚙️ Operational Efficiency,"Focus on Strategy. IT staff no longer spend time manually logging into servers to run apt-upgrade. This saves hours of manual labor per month, allowing the team to focus on high-value projects."
+
+📉 Risk Mitigation,"Elimination of Human Error. The script follows an exact, repeatable logic. It removes the risk of typos, missed steps, or forgotten shutdowns that occur during manual maintenance."
+
+Technical Highlights
+
+* Cold-Boot Integrity: The script utilizes a "Stop-and-Start" cycle. This ensures that every Monday, the VMs perform a fresh hardware boot, which automatically clears temp files and loads the latest security kernel without manual intervention.
+
+* Centralized Control: All maintenance logs are stored in a single Azure Automation dashboard, providing a clear audit trail of exactly what was updated and when.
+
+* Scalability: The framework is designed to automatically detect and include new VMs based on simple "Tags," allowing our infrastructure to grow without increasing administrative overhead.
