@@ -24,3 +24,7 @@ This table compares the primary tools used for managing infrastructure, patching
 * **Azure Automation:** Get a high-level compliance dashboard without writing custom reporting logic.
 * **Azure Update Manager:** Perform non-patching tasks (cannot install apps, clear caches, or run custom CLI commands).
 * **Azure Functions:** Run long-running maintenance (like a 30-minute kernel upgrade) without the script being killed by timeouts.
+
+### Project Choice
+
+Choose Azure Automation because it allows you to combine Cost Optimization (Start/Stop logic) with Maintenance in a single script.
