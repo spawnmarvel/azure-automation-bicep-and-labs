@@ -509,6 +509,8 @@ Since the script is now "set and forget," you should set up an alert so you are 
 
 - Set the Action Group to your email or phone number.
 
+https://learn.microsoft.com/en-us/azure/automation/automation-alert-metric
+
 ### Azure Automation Costs
 
 Azure provides the first 500 minutes of job execution time for free every month.
