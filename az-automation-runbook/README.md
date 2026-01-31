@@ -313,6 +313,8 @@ Write-Output "Maintenance finished. Deallocating $TestVMName to stop billing..."
 Stop-AzVM -ResourceGroupName $TestRG -Name $TestVMName -Force -NoWait
 
 Write-Output "Runbook execution finished."
+
+
 ```
 
 
@@ -441,5 +443,15 @@ foreach ($vm in $vmsToUpdate) {
     Stop-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force -NoWait
 }
 
+Write-Output "Global Weekly Maintenance Sequence Complete."
+
+# =================================================================================
+# 7. FINAL SUMMARY
+# =================================================================================
+Write-Output "----------------------------------------------"
+Write-Output "FINAL MAINTENANCE SUMMARY"
+Write-Output "Total VMs Found: $($targetVMs.Count)"
+Write-Output "Total VMs Processed: $($vmsToUpdate.Count)"
+Write-Output "----------------------------------------------"
 Write-Output "Global Weekly Maintenance Sequence Complete."
 ```
