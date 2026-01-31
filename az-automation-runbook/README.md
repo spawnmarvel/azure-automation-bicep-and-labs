@@ -321,7 +321,9 @@ Test when VM is not running success
 
 ![test ps1 vm not running](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/vm_stopped.png)
 
-#### The Final Production Runbookfor all vms with tag
+#### The Final Production Runbookfor all vms with tag Patching:Weekly
+
+Create Runbook Update-VMs-Weekly-If-Tag-Patching-Weekly
 
 Why this handles "Many Resource Groups" perfectly:
 
