@@ -222,68 +222,94 @@ If the vm is running it should not be updated, because someone could be working 
 
 ```ps1
 # =================================================================================
-# 1. HARDCODED TEST SETTINGS
+# 1. HARDCODED SETTINGS
 # =================================================================================
 $ClientId       = "YOUR-CLIENT-ID" 
 $TenantId       = "YOUR-TENANT-ID" 
 $SubscriptionId = "YOUR-SUB-ID" 
 
-$TestVMName     = "jekl-test-linux-01" 
-$TestRG         = "jekl-dev-rg"
+# Target VM for testing
+$TestVMName     = "vmchaos09" 
+$TestRG         = "RG-UKCHAOS-0009"
 
 # =================================================================================
 # 2. AUTHENTICATION
 # =================================================================================
-Connect-AzAccount -Identity -AccountId $ClientId -TenantId $TenantId -SubscriptionId $SubscriptionId -ErrorAction Stop
-Set-AzContext -SubscriptionId $SubscriptionId
+Write-Output "Connecting to Azure via Managed Identity..."
+
+Connect-AzAccount -Identity `
+                  -AccountId $ClientId `
+                  -TenantId $TenantId `
+                  -SubscriptionId $SubscriptionId -ErrorAction Stop
+
+Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
 
 # =================================================================================
-# 3. SAFETY CHECK & EXECUTION
+# 3. POWER STATE VERIFICATION
 # =================================================================================
+Write-Output "Checking power state for $TestVMName..."
 
-# Get the current status of the VM
 $vmStatus = Get-AzVM -ResourceGroupName $TestRG -Name $TestVMName -Status
 $displayStatus = ($vmStatus.Statuses | Where-Object { $_.Code -like "PowerState/*" }).DisplayStatus
 
-Write-Output "Current status of $TestVMName is: $displayStatus"
+Write-Output "Current status: $displayStatus"
 
-# SAFETY GATE: Only proceed if the VM is Deallocated (Stopped and not billing)
+# Safety Gate: Skip if the VM is already running (someone might be using it)
 if ($displayStatus -ne "VM deallocated") {
-    Write-Warning "SKIPPING: Someone might be working on $TestVMName (Status: $displayStatus)."
-    return # Exit the script safely
+    Write-Warning "SKIPPING: Maintenance aborted because VM is not in a deallocated state."
+    return 
 }
 
-Write-Output "VM is confirmed OFF. Starting maintenance..."
+# =================================================================================
+# 4. START SEQUENCE
+# =================================================================================
+Write-Output "VM is idle. Booting $TestVMName for maintenance..."
 
-# STEP A: Start the VM
 Start-AzVM -ResourceGroupName $TestRG -Name $TestVMName -ErrorAction Stop
 
-# STEP B: Wait for Agent
-Write-Output "Waiting 90 seconds for VM agent to stabilize..."
+# Wait for the Azure Guest Agent to pulse (crucial for RunCommand)
+Write-Output "Waiting 90 seconds for Guest Agent to become Ready..."
 Start-Sleep -Seconds 90
 
-# STEP C: Run Maintenance
-$BashScript = @"
+# =================================================================================
+# 5. MAINTENANCE EXECUTION (BASH)
+# =================================================================================
+# Note: Using single-quote here-string to prevent PowerShell from parsing $ variables
+$BashScript = @'
 LOG_DATE=$(date +%Y-%m-%d)
-LOG_FILE="/var/log/apt-maintenance-\$LOG_DATE.log"
-echo "--- Maintenance Started: $(date) ---" > \$LOG_FILE
-sudo apt-get update -y >> \$LOG_FILE 2>&1
-sudo apt-get upgrade -y >> \$LOG_FILE 2>&1
-echo "--- Maintenance Finished: $(date) ---" >> \$LOG_FILE
-"@
+LOG_FILE="/var/log/apt-maintenance-$LOG_DATE.log"
+
+echo "--- Maintenance Started: $(date) ---" > $LOG_FILE
+sudo apt-get update -y >> $LOG_FILE 2>&1
+sudo apt-get upgrade -y >> $LOG_FILE 2>&1
+echo "--- Maintenance Finished: $(date) ---" >> $LOG_FILE
+
+# Output the last few lines of the log so they appear in the Runbook output
+tail -n 5 $LOG_FILE
+'@
+
+Write-Output "Executing apt-get update and upgrade..."
 
 try {
-    Invoke-AzVMRunCommand -ResourceGroupName $TestRG -VMName $TestVMName `
-                          -CommandId 'RunShellScript' -ScriptString $BashScript -ErrorAction Stop
-    Write-Output "SUCCESS: $TestVMName updated."
+    $result = Invoke-AzVMRunCommand -ResourceGroupName $TestRG -VMName $TestVMName `
+                                    -CommandId 'RunShellScript' -ScriptString $BashScript -ErrorAction Stop
+    
+    # Display the Bash output in the Automation Job logs
+    Write-Output "Bash Output: $($result.Value[0].Message)"
+    Write-Output "SUCCESS: Maintenance script completed on $TestVMName."
 }
 catch {
-    Write-Error "FAILURE: Update failed. Error: $($_.Exception.Message)"
+    Write-Error "FAILURE: Maintenance command failed on $TestVMName. Error: $($_.Exception.Message)"
 }
 
-# STEP D: Stop the VM
-Write-Output "Deallocating $TestVMName..."
+# =================================================================================
+# 6. SHUTDOWN & DEALLOCATE
+# =================================================================================
+Write-Output "Maintenance finished. Deallocating $TestVMName to stop billing..."
+
 Stop-AzVM -ResourceGroupName $TestRG -Name $TestVMName -Force -NoWait
+
+Write-Output "Runbook execution finished."
 ```
 
 
@@ -292,6 +318,8 @@ Test when VM is running success
 ![test ps1 vm running](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/vm_running.png)
 
 Test when VM is not running success
+
+![test ps1 vm not running](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/vm_stopped.png)
 
 #### The Final Production Runbookfor all vms with tag
 
