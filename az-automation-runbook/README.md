@@ -291,6 +291,8 @@ Test when VM is running success
 
 ![test ps1 vm running](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/vm_running.png)
 
+Test when VM is not running success
+
 #### The Final Production Runbookfor all vms with tag
 
 Why this handles "Many Resource Groups" perfectly:
@@ -300,6 +302,8 @@ Why this handles "Many Resource Groups" perfectly:
 - Filtering: It then looks at the Tags of every VM. Only the ones you’ve specifically marked for the dev team (Patching: Weekly) will be touched.
 
 - Dynamic Reference: When the script runs the Start or Stop commands, it uses $vm.ResourceGroupName. This means it automatically knows which "folder" each VM lives in, even if they are all in different ones.
+
+![tag patch](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/tag_patch.png)
 
 ```ps1
 
