@@ -485,3 +485,14 @@ Your script currently exists in a "Draft" state because you've been using the Te
 - Important: Check that the Time Zone in your schedule matches your actual local time, as Azure often defaults to UTC.
 
 ![schedule](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/schedule.png)
+
+Set up a "Failure" Alert (The Watchdog)
+Since the script is now "set and forget," you should set up an alert so you are notified if it fails to run (e.g., due to an Azure service outage or an expired credential).
+
+- Go to Monitor > Alerts in the Azure Portal.
+
+- Create a New Alert Rule.
+
+- Set the Signal to "Job Status" or "Total Jobs" where the status is Failed.
+
+- Set the Action Group to your email or phone number.
