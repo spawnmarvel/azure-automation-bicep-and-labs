@@ -119,7 +119,7 @@ Step 1: Create the Runbook
 
 7. Click Create.
 
-![runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/RUNBOOK.png)
+![runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/runbook.png)
 
 Check your RBAC
 
