@@ -497,7 +497,7 @@ Logs
 ![trigger log](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/trigger_log.png)
 
 
-### Alert TODO
+### Alert TODO!
 Set up a "Failure" Alert (The Watchdog)
 Since the script is now "set and forget," you should set up an alert so you are notified if it fails to run (e.g., due to an Azure service outage or an expired credential).
 
