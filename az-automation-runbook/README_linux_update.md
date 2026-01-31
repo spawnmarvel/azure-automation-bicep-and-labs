@@ -486,6 +486,17 @@ Your script currently exists in a "Draft" state because you've been using the Te
 
 ![schedule](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/schedule.png)
 
+### Trigger runbook
+
+You could edit or trigger it.
+
+![trigger runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/trigger_runbook.png)
+
+Logs
+
+![trigger log](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/trigger_log.png)
+
+
 Set up a "Failure" Alert (The Watchdog)
 Since the script is now "set and forget," you should set up an alert so you are notified if it fails to run (e.g., due to an Azure service outage or an expired credential).
 
