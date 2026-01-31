@@ -497,20 +497,6 @@ Logs
 ![trigger log](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/trigger_log.png)
 
 
-### Alert TODO!
-Set up a "Failure" Alert (The Watchdog)
-Since the script is now "set and forget," you should set up an alert so you are notified if it fails to run (e.g., due to an Azure service outage or an expired credential).
-
-- Go to Monitor > Alerts in the Azure Portal.
-
-- Create a New Alert Rule.
-
-- Set the Signal to "Job Status" or "Total Jobs" where the status is Failed.
-
-- Set the Action Group to your email or phone number.
-
-https://learn.microsoft.com/en-us/azure/automation/automation-alert-metric
-
 ### Azure Automation Costs
 
 Azure provides the first 500 minutes of job execution time for free every month.
@@ -559,3 +545,88 @@ Technical Highlights
 * Centralized Control: All maintenance logs are stored in a single Azure Automation dashboard, providing a clear audit trail of exactly what was updated and when.
 
 * Scalability: The framework is designed to automatically detect and include new VMs based on simple "Tags," allowing our infrastructure to grow without increasing administrative overhead.
+
+
+### Job status or health check
+
+1. The "Big Picture" (Job Status)
+
+- Go to your Automation Account > Jobs (under Process Automation).
+
+- Look for: A job with the status "Completed" at ~09:10 AM.
+
+- Warning Signs: If it says "Failed," click the job to see the specific error line. If it says "Suspended," it usually means a permission (RBAC) issue.
+
+![job done](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/job_done.png)
+
+
+2. The "Receipts" (Output Stream)
+Even if the job "Completed," you want to verify that the VMs actually updated.
+
+- Click on the "Completed" job from Step 1.
+
+- Click the Output tab at the top.
+
+- What to look for: Look for the text from your Bash script. You should see:
+
+``` log
+0 upgraded, 0 newly installed... (if already patched).
+Fetched XX.X MB in 2s... (if updates were found).
+"No reboot required" or "Rebooting now..."
+```
+
+![job output](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/job_output.png)
+
+3. Check script
+
+```bash
+ssh
+
+ls *apt-main*
+apt-maintenance-2026-01-31.log
+
+cat apt-maintenance-2026-01-31.log
+
+--- Maintenance Started: Sat Jan 31 01:20:23 UTC 2026 ---
+Hit:1 http://azure.archive.ubuntu.com/ubuntu noble InRelease
+Hit:2 http://azure.archive.ubuntu.com/ubuntu noble-updates InRelease
+Hit:3 http://azure.archive.ubuntu.com/ubuntu noble-backports InRelease
+Hit:4 http://azure.archive.ubuntu.com/ubuntu noble-security InRelease
+Hit:5 https://download.docker.com/linux/ubuntu noble InRelease
+Hit:6 https://repo.zabbix.com/zabbix-tools/debian-ubuntu noble InRelease
+Hit:7 https://repo.zabbix.com/zabbix/7.0/ubuntu noble InRelease
+Reading package lists...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Calculating upgrade...
+The following upgrades have been deferred due to phasing:
+  fwupd libdrm-common libdrm2 libfwupd2 python3-distupgrade
+  ubuntu-release-upgrader-core
+0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
+--- Maintenance Finished: Sat Jan 31 01:20:34 UTC 2026 ---
+
+````
+
+
+
+### Alert TODO
+Set up a "Failure" Alert (The Watchdog)
+Since the script is now "set and forget," you should set up an alert so you are notified if it fails to run (e.g., due to an Azure service outage or an expired credential).
+
+- Go to Monitor > Alerts in the Azure Portal.
+
+- Create a New Alert Rule.
+
+- Set the Signal to "Job Status" or "Total Jobs" where the status is Failed.
+
+- Set the Action Group to your email or phone number.
+
+https://learn.microsoft.com/en-us/azure/automation/automation-alert-metric
+
+
+### Automatic Module Updates TODO
+
+In Azure Automation, your Runbook is just the script (the "logic"). For that script to actually understand commands like Start-AzVM or Get-AzContext, it needs Modules (the "dictionary").
+
+Automatic Module Updates is a feature that ensures your Automation Account is always using the latest, most secure version of these "dictionaries" without you having to manually update them every month.

@@ -29,6 +29,16 @@ This table compares the primary tools used for managing infrastructure, patching
 
 Choose Azure Automation because it allows you to combine Cost Optimization (Start/Stop logic) with Maintenance in a single script.
 
+To answer your question directly: No, Azure Automation itself is not being retired.
+
+However, a specific feature inside it called "Update Management" was retired in August 2024. This is likely where the confusion comes from. Because you are using a custom Runbook and not that retired feature, you are in a safe, supported position.
+
+This project utilizes Azure Automation Runbooks with User-Assigned Managed Identities and the Az module, adhering to Microsoft's post-2024 security standards and avoiding retired legacy agents.
+
+The "Scream Test" in 2026
+
+You may see headlines about "Retirements" in October 2026. These mostly refer to Custom Resource Providers and some specific API versions. As long as you keep your Azure PowerShell modules updated in your Automation Account (which Azure can do automatically for you), your Runbook will continue to work for years to come.
+
 ## Azure Automation
 
 ![example runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/example_runbook.png)
