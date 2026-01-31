@@ -497,6 +497,11 @@ Your script currently exists in a "Draft" state because you've been using the Te
 
 ![schedule](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/schedule.png)
 
+View your schedule at the runbook.
+
+![view schedule](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/view_time.png)
+
+
 ### Trigger runbook
 
 You could edit or trigger it.
