@@ -455,3 +455,31 @@ Write-Output "Total VMs Processed: $($vmsToUpdate.Count)"
 Write-Output "----------------------------------------------"
 Write-Output "Global Weekly Maintenance Sequence Complete."
 ```
+
+1. Publish the Runbook
+
+Your script currently exists in a "Draft" state because you've been using the Test Pane. For the Schedule to execute the code, it must be published.
+
+- Close the Test Pane.
+
+- Click the Edit button (if not already in edit mode).
+
+- Click the Publish button at the top of the screen.
+
+- Select Yes when asked to override the previous version.
+
+2. Link the Schedule
+
+- Now that the "Official" version is published, you need to tell Azure when to run it.
+
+- On the Runbook's main menu, select Schedules.
+
+- Click + Add a schedule.
+
+- Choose Link a schedule to your runbook.
+
+- Select your Monday 09:00 AM schedule.
+
+- Important: Check that the Time Zone in your schedule matches your actual local time, as Azure often defaults to UTC.
+
+![schedule](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook/images/schedule.png)
