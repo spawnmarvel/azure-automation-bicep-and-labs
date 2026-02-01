@@ -344,7 +344,7 @@ Why this handles "Many Resource Groups" perfectly:
 Script
 
 ```ps1
-script_runbook1_patching_weekly_tag_linux.ps1
+s_runbook2_patching_many_weekly_tag_linux.ps1
 
 ```
 
@@ -602,11 +602,11 @@ Script
 
 ```ps1
 # the script with storage account and log on server
-script_runbook2_patching_weekly_tag_linux_log_blob.ps1
+s_runbook2.1_patching_many_weekly_tag_linux_log_blob.ps1
 
 # the script with no storage account just log on server
+s_runbook2_patching_many_weekly_tag_linux.ps1
 
-script_runbook2_patching_weekly_tag_linux.ps1
 ```
 
 
