@@ -135,24 +135,37 @@ Write-Output "Global Weekly Maintenance Sequence Complete."
 # =================================================================================
 # 8. Copy logs to storage account for easy access
 # =================================================================================
-# 1. Configuration
-$StorageAccountName = "yourstorageaccountname"
-$ContainerName = "vm-logs-linux-updates"
-$BlobName = "$VMName" + "_" + (Get-Date -Format "yyyy-MM-dd_HHmm") + ".log"
 
-# 2. Authenticate the Context using the Managed Identity (Crucial!)
-# This tells PowerShell: "Don't look for a password, use my Azure Identity"
-$Ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -UseConnectedAccount
+# Check if we actually have log content to avoid the "Null Array" error
+if ($null -ne $RunCommandResult.Value[0].Message) {
+    
+    $LogContent = $RunCommandResult.Value[0].Message
+    
+    # 1. Configuration
+    $StorageAccountName = "yourstorageaccountname"
+    $ContainerName = "vm-logs-linux-updates"
+    $BlobName = "${VMName}_" + (Get-Date -Format "yyyy-MM-dd_HHmm") + ".log"
 
-# 3. Process the Log Text
-# We take the output from the 'Invoke-AzVMRunCommand' variable
-$LogContent = $RunCommandResult.Value[0].Message 
+    # 2. Authenticate using Managed Identity
+    $Ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -UseConnectedAccount
 
-# Convert text to a stream so Azure can "upload" it as a file
-$Bytes = [System.Text.Encoding]::UTF8.GetBytes($LogContent)
-$MemoryStream = New-Object System.IO.MemoryStream($Bytes, 0, $Bytes.Length)
+    # 3. Create a temporary file to bypass the Stream parameter issues
+    # This is the most reliable way in Azure Automation Workers
+    $TempFilePath = [System.IO.Path]::GetTempFileName()
+    $LogContent | Out-File -FilePath $TempFilePath -Encoding utf8
 
-# 4. Upload to the Container
-Set-AzStorageBlobContent -Context $Ctx -Container $ContainerName -Blob $BlobName -Stream $MemoryStream -Force
+    # 4. Upload to the Container using the -File parameter
+    Set-AzStorageBlobContent -Context $Ctx `
+                             -Container $ContainerName `
+                             -Blob $BlobName `
+                             -File $TempFilePath `
+                             -Force
 
-Write-Output "Success: Log for $VMName uploaded to storage as $BlobName"
+    Write-Output "Success: Log for $VMName uploaded to storage as $BlobName"
+
+    # 5. Clean up the temp file from the automation sandbox
+    Remove-Item $TempFilePath
+}
+else {
+    Write-Warning "No output was captured from $VMName. Storage upload skipped."
+}
