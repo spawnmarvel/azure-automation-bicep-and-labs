@@ -523,6 +523,19 @@ Azure provides the first 500 minutes of job execution time for free every month.
 
 - Remaining Free Tier: You still have 420 minutes left over each month.
 
+Simplify cloud management with process automation
+
+A node is any machine whose configuration is managed by configuration management. 
+
+This could be an Azure virtual machine (VM), on-premises VM, physical host, or a VM in another public cloud.
+
+* Job runtime, each month 500 minutes, price after that $0.002/minute
+* Watchers, each month 744 hours, price after that $0.002/hour
+* Azure nodes N/A, price free
+* Non-Azure nodes 5 nodes, price after $6/node 
+
+https://azure.microsoft.com/en-us/pricing/details/automation/
+
 
 ### How reboot is handled
 
@@ -626,7 +639,23 @@ The following upgrades have been deferred due to phasing:
 0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
 Maintenance Finished: Sat Jan 31 01:20:34 UTC 2026 
 ```
+### Automatic Module Updates TODO
 
+In Azure Automation, your Runbook is just the script (the "logic"). For that script to actually understand commands like Start-AzVM or Get-AzContext, it needs Modules (the "dictionary").
+
+Automatic Module Updates is a feature that ensures your Automation Account is always using the latest, most secure version of these "dictionaries" without you having to manually update them every month.
+
+Currently, updating AZ modules is only available through the portal. Updates through PowerShell and ARM template will be available in the future. Only default Az modules will be updated when performing the following steps:
+
+1. Sign in to the Azure portal and navigate to your Automation account.
+2. Under Shared Resources, select Modules.
+3. Select Update Az modules.
+4. Select Module to Update. By default, it will show Az module.
+5. From the drop-down list, select Module Version and Runtype version
+6. Select Update to update the Az module to the version that you’ve selected. On the Modules page, you can view the list as shown below:
+
+
+https://learn.microsoft.com/en-us/azure/automation/automation-update-azure-modules
 
 ### Alert TODO
 Set up a "Failure" Alert (The Watchdog)
@@ -642,9 +671,3 @@ Since the script is now "set and forget," you should set up an alert so you are 
 
 https://learn.microsoft.com/en-us/azure/automation/automation-alert-metric
 
-
-### Automatic Module Updates TODO
-
-In Azure Automation, your Runbook is just the script (the "logic"). For that script to actually understand commands like Start-AzVM or Get-AzContext, it needs Modules (the "dictionary").
-
-Automatic Module Updates is a feature that ensures your Automation Account is always using the latest, most secure version of these "dictionaries" without you having to manually update them every month.
