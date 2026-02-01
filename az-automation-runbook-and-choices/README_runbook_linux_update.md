@@ -344,7 +344,7 @@ Why this handles "Many Resource Groups" perfectly:
 Script
 
 ```ps1
-runbook1_patching_weekly_tag_linux.ps1
+script_runbook1_patching_weekly_tag_linux.ps1
 
 ```
 
@@ -547,7 +547,7 @@ Bash script to continue generating its own local log file on the VM with the sam
 Script
 
 ```ps1
-runbook2_patching_weekly_tag_linux_log_blob.ps1
+script_runbook2_patching_weekly_tag_linux_log_blob.ps1
 ```
 
 
