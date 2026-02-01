@@ -539,7 +539,9 @@ Currently, updating AZ modules is only available through the portal. Updates thr
 https://learn.microsoft.com/en-us/azure/automation/automation-update-azure-modules
 
 
-### The Final Production Runbookfor all vms with tag Patching:Weekly and Azure Blob Storage logs
+### The Final Production Runbookfor all vms with tag Patching:Weekly and Azure Blob Storage logs TODO
+
+#### The script should be ok now, test it when you can
 
 Bash script to continue generating its own local log file on the VM with the same name (e.g., apt-maintenance-2026-01-31.log), but you want the PowerShell script to pick up that output and save it to your Storage Account with the new, searchable name (SERVERNAME_YYYY-MM-DD.log).
 
