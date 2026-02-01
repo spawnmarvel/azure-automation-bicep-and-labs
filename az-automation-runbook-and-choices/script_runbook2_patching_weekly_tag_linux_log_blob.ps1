@@ -137,7 +137,7 @@ Write-Output "Global Weekly Maintenance Sequence Complete."
 # =================================================================================
 # 1. Configuration
 $StorageAccountName = "yourstorageaccountname"
-$ContainerName = "vm-logs"
+$ContainerName = "vm-logs-linux-updates"
 $BlobName = "$VMName" + "_" + (Get-Date -Format "yyyy-MM-dd_HHmm") + ".log"
 
 # 2. Authenticate the Context using the Managed Identity (Crucial!)

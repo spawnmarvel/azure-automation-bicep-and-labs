@@ -543,6 +543,61 @@ https://learn.microsoft.com/en-us/azure/automation/automation-update-azure-modul
 
 Bash script to continue generating its own local log file on the VM with the same name (e.g., apt-maintenance-2026-01-31.log), but you want the PowerShell script to pick up that output and save it to your Storage Account with the new, searchable name (SERVERNAME_YYYY-MM-DD.log).
 
+Since you are creating a new log file every time the script runs (e.g., apt-maintenance-2026-02-02.log), these files will sit on your VM's disk forever. Even though they are small, it's "good housekeeping" to delete very old ones.
+
+We added bash script lines at the end of the script that deletes logs older than 30 days on the vm also, housekeeping.
+
+
+Create a storage account
+
+* jeklrunbookslogs
+* standard
+* blob storage or azure data lake storage gen2
+* lrs, next and choose hot
+
+(Since the script writes to it every week, Hot is more cost-effective than Cool for frequent writes).
+
+Once the account is created, go to Data storage > Containers and create a new container.
+
+Public access level: Keep it at Private (no anonymous access). Your Managed Identity will handle the "key" to the front door.
+
+
+![container](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/container.png)
+
+IAM
+
+Automation Account needs permission to talk to this new storage account.
+
+* Go to the Storage Account page.
+
+* Access Control (IAM) > Add role assignment.
+
+* Role: Storage Blob Data Contributor.
+
+* Assign access to: Managed Identity.
+
+* Select your Automation Account, not the managed identity
+
+If you want to be 100% sure everything is linked up correctly before Monday morning, you can run this tiny 2-line test in your Automation Account Test Pane:
+
+```ps1
+# 1. Wake up the Managed Identity
+# This is required at the start of every Runbook
+Connect-AzAccount -Identity
+
+# 2. Get the Storage Context (Now it will work!)
+$Ctx = New-AzStorageContext -StorageAccountName "yourstorageaccountname" -UseConnectedAccount
+
+# 3. Test the connection
+Get-AzStorageBlob -Context $Ctx -Container "vm-logs-linux-updates"
+
+```
+
+Create a new runbook for test the above script, test_scripts and run it test pane.
+
+If it runs without a red error message, your "Handshake" is perfect, and Monday morning will be a breeze.
+
+Then update the main script in the runbook
 Script
 
 ```ps1
