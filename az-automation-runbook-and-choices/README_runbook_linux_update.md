@@ -72,7 +72,7 @@ https://learn.microsoft.com/en-us/azure/automation/learn/powershell-runbook-mana
 
 1. System-Assigned (The "Simple" Path)
 
-- How it works: You turn it on directly inside the aspenautomation account. Azure creates an identity with the exact same name as your Automation account.
+- How it works: You turn it on directly inside the yourautomation account. Azure creates an identity with the exact same name as your Automation account.
 
 - Pros: It’s "set it and forget it." If you delete the Automation account, the identity vanishes too. No leftover "orphan" resources.
 
@@ -81,16 +81,16 @@ https://learn.microsoft.com/en-us/azure/automation/learn/powershell-runbook-mana
 2. User-Assigned (The "Enterprise" Path) — What you have now
 
 
- How it works: Your aspenmanagedidentity is a standalone resource. You "plug" it into your Automation account.
+ How it works: Your yourmanagedidentity is a standalone resource. You "plug" it into your Automation account.
 
-- Pros: Reusability. If you later decide to use a Logic App or a Function to handle other dev tasks, you can give them the same aspenmanagedidentity. You manage the "Dev Permissions" once, and assign that identity to whatever tools need it.
+- Pros: Reusability. If you later decide to use a Logic App or a Function to handle other dev tasks, you can give them the same yourmanagedidentity. You manage the "Dev Permissions" once, and assign that identity to whatever tools need it.
 
 - Cons: You have to manually delete it if you ever stop using it, and the script requires that ClientId we talked about.
 
 
 Which should you choose?
 
-Recommendation: Since you've already created aspenmanagedidentity, stick with it. It’s better practice for "Infrastructure as Code" and keeps your permissions centralized under one "Dev Identity" rather than tying them strictly to the tool (Automation Account).
+Recommendation: Since you've already created yourmanagedidentity, stick with it. It’s better practice for "Infrastructure as Code" and keeps your permissions centralized under one "Dev Identity" rather than tying them strictly to the tool (Automation Account).
 
 
 ## Automation PowerShell runbook for linux updates
@@ -107,7 +107,7 @@ Managed Identities do not work on local machines. They only exist "inside" the A
 
 Step 1: Create the Runbook
 
-1. In the Azure Portal, go to your aspenautomation Automation Account.
+1. In the Azure Portal, go to your yourautomation Automation Account.
 
 2. On the left menu, select Runbooks (under Process Automation).
 
@@ -129,7 +129,7 @@ Check your RBAC
 
 2. Access Control (IAM).
 
-3. Ensure aspenmanagedidentity has at least Reader at the Subscription level, or Contributor at the Resource Group level.
+3. Ensure yourmanagedidentity has at least Reader at the Subscription level, or Contributor at the Resource Group level.
 
 ![add reader](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/add_reader.png)
 
@@ -139,7 +139,7 @@ The "Dry Run" Connection Script:
 
 1. Go to the Azure Portal.
 
-2. Navigate to your Automation Account aspenautomation > Runbooks.
+2. Navigate to your Automation Account yourautomation > Runbooks.
 
 3. Open your Runbook and click Edit.
 
@@ -152,7 +152,7 @@ The "Dry Run" Connection Script:
 # =================================================================================
 # DESCRIPTION: 
 # This is a Diagnostic Connectivity Script to verify that the User-Assigned 
-# Managed Identity (aspenmanagedidentity) can authenticate and read the environment.
+# Managed Identity (yourmanagedidentity) can authenticate and read the environment.
 #
 # REQUIRED ROLES (Assign to the User-Assigned Identity via IAM):
 # 1. Reader or Virtual Machine Contributor (Assigned at the SUBSCRIPTION level).
@@ -161,7 +161,7 @@ The "Dry Run" Connection Script:
 # =================================================================================
 # 1. HARDCODED SETTINGS
 # =================================================================================
-$ClientId       = "xxxxxxxxxxxxxxxxxxxx"  # ID of 'aspenmanagedidentity'
+$ClientId       = "xxxxxxxxxxxxxxxxxxxx"  # ID of 'yourmanagedidentity'
 $TenantId       = "xxxxxxxxxxxxxxxxxxxx" 
 $SubscriptionId = "xxxxxxxxxxxxxxxxxxxx" 
 
@@ -171,7 +171,7 @@ $SubscriptionId = "xxxxxxxxxxxxxxxxxxxx"
 # 2. AUTHENTICATION (User-Assigned Identity Verification)
 # =================================================================================
 Write-Output "--- STARTING CONNECTIVITY TEST: Version 2.5 ---"
-Write-Output "Attempting connection for aspenmanagedidentity..."
+Write-Output "Attempting connection for yourmanagedidentity..."
 
 try {
     # Connect with ALL parameters to avoid 'null' context
@@ -220,7 +220,7 @@ result
 
 One Final Requirement:
 
-Your aspenmanagedidentity needs the Virtual Machine Contributor role.
+Your yourmanagedidentity needs the Virtual Machine Contributor role.
 
 Since your VMs are spread across many Resource Groups, the easiest way to handle permissions is to assign that role at the Subscription level. 
 
@@ -237,7 +237,7 @@ Then run this and set role
 
 ```ps1
 # 1. Configuration
-$uamiName = "aspenmanagedidentity"
+$uamiName = "yourmanagedidentity"
 $uamiResourceGroup = "YOUR_IDENTITY_RG" # The RG where the identity lives
 
 # 2. Get the Identity's Principal ID (Object ID)
