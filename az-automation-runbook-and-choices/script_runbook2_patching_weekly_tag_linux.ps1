@@ -118,4 +118,4 @@ Write-Output "Total VMs Processed: $($vmsToUpdate.Count)"
 Write-Output "--- TOTAL TIME USED: $TimeUsed ---"
 Write-Output "----------------------------------------------"
 Write-Output "Global Weekly Maintenance Sequence Complete."
-
+#
