@@ -5,6 +5,8 @@ $ClientId       = "YOUR-CLIENT-ID"
 $TenantId       = "YOUR-TENANT-ID" 
 $SubscriptionId = "YOUR-SUB-ID" 
 
+##### script to copy
+
 # Target VM for testing
 $TestVMName     = "vmchaos09" 
 $TestRG         = "RG-UKCHAOS-0009"
