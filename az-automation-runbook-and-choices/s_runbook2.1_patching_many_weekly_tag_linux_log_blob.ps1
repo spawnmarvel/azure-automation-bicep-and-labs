@@ -1,8 +1,7 @@
 # =================================================================================
 # 1. HARDCODED SETTINGS
 # =================================================================================
-$ClientId       = "YOUR-CLIENT-ID" 
-$TenantId       = "YOUR-TENANT-ID" 
+
 $SubscriptionId = "YOUR-SUB-ID" 
 $StorageAccountName = "yourstorageaccountname"  # <--- Added back!
 $ContainerName      = "vm-logs-linux-updates"   # <--- Added back!
@@ -13,16 +12,20 @@ $OverallStart = Get-Date
 Write-Output "--- JOB STARTED: $($OverallStart.ToString('yyyy-MM-dd HH:mm:ss')) ---"
 
 # =================================================================================
-# 2. AUTHENTICATION
+# 2. AUTHENTICATION (The "Subscription-First" Way)
 # =================================================================================
-Write-Output "Connecting to Azure via Managed Identity..."
+Write-Output "Connecting to Azure via System-Assigned Managed Identity..."
 
-Connect-AzAccount -Identity `
-                  -AccountId $ClientId `
-                  -TenantId $TenantId `
-                  -SubscriptionId $SubscriptionId -ErrorAction Stop
+# 1. Login
+$AzContext = Connect-AzAccount -Identity -ErrorAction Stop
 
-Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
+# 2. Explicitly force the script to look at your specific Subscription
+Write-Output "Setting context to Subscription: $SubscriptionId"
+Set-AzContext -SubscriptionId $SubscriptionId -TenantId $AzContext.Context.Tenant | Out-Null
+
+# 3. Double-check: Print the current subscription name to the log
+$CurrentSub = Get-AzContext
+Write-Output "Active Subscription: $($CurrentSub.Subscription.Name)"
 
 # =================================================================================
 # 3. GLOBAL DISCOVERY
