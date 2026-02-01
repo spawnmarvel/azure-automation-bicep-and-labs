@@ -4,6 +4,8 @@
 $ClientId       = "YOUR-CLIENT-ID" 
 $TenantId       = "YOUR-TENANT-ID" 
 $SubscriptionId = "YOUR-SUB-ID" 
+$StorageAccountName = "yourstorageaccountname"  # <--- Added back!
+$ContainerName      = "vm-logs-linux-updates"   # <--- Added back!
 
 ##### script to copy
 
@@ -48,7 +50,6 @@ foreach ($vm in $targetVMs) {
     
     if ($displayStatus -eq "VM deallocated") {
         Write-Output "Starting $($vm.Name)... (Waiting for 'Running' status)"
-        # Removing -NoWait ensures we don't send commands to a booting VM
         Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -ErrorAction Stop
         $vmsToUpdate += $vm
     } else {
@@ -61,7 +62,6 @@ if ($vmsToUpdate.Count -eq 0) {
     return
 }
 
-# Extra safety buffer to let Linux services (like the Agent) fully initialize
 Write-Output "VMs are 'Running'. Waiting 30 seconds for Guest Agent handshake..."
 Start-Sleep -Seconds 30
 
@@ -90,7 +90,6 @@ foreach ($vm in $vmsToUpdate) {
     Write-Output "Processing $VMName..."
     
     try {
-        # Execute Bash and capture output
         $RunResult = Invoke-AzVMRunCommand -ResourceGroupName $vm.ResourceGroupName `
                                            -VMName $VMName `
                                            -CommandId 'RunShellScript' `
@@ -101,6 +100,8 @@ foreach ($vm in $vmsToUpdate) {
         # 6. STORAGE UPLOAD (Inside Loop)
         if ($null -ne $LogContent -and $LogContent.Trim() -ne "") {
             Write-Output "Uploading log for $VMName to Storage..."
+            
+            # Use Connected Account (Managed Identity) to create context
             $Ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -UseConnectedAccount
             $BlobName = "${VMName}_" + (Get-Date -Format "yyyy-MM-dd_HHmm") + ".log"
             
@@ -117,7 +118,7 @@ foreach ($vm in $vmsToUpdate) {
     }
 
     # 7. SHUTDOWN (WITH WAIT)
-    Write-Output "Deallocating $VMName... (Waiting for 'Deallocated' status to save costs)"
+    Write-Output "Deallocating $VMName... (Waiting for 'Deallocated' status)"
     Stop-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $VMName -Force -ErrorAction SilentlyContinue
 }
 
