@@ -4,18 +4,15 @@
 $ClientId           = "YOUR-CLIENT-ID" 
 $TenantId           = "YOUR-TENANT-ID" 
 $SubscriptionId     = "YOUR-SUB-ID" 
-$ResourceGroupName  = "RG-UKCHAOS-0009"
-$TargetVMName       = "vmchaos09"
 $StorageAccountName = "jeklrunbooklogs"
 $ContainerName      = "vm-logs-linux-updates"
 
-##### Script version 1.3
+##### Script version 1.4
 
 # =================================================================================
 # 2. AUTHENTICATION (Consistent with Main Script)
 # =================================================================================
-$OverallStart = Get-Date
-Write-Output "--- STARTING MAINTENANCE: Version 1.3 ---"
+Write-Output "--- STARTING UPLOAD TEST: Version 1.4 ---"
 Write-Output "Authenticating via Managed Identity..."
 
 Connect-AzAccount -Identity `
@@ -26,76 +23,57 @@ Connect-AzAccount -Identity `
 Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
 
 # =================================================================================
-# 3. STATUS CHECK
+# 3. STORAGE CONTEXT & UPLOAD
 # =================================================================================
-Write-Output "Checking status for $TargetVMName in $ResourceGroupName..."
+Write-Output "Connecting to Storage Account: $StorageAccountName"
 
-try {
-    $vmStatus = Get-AzVM -Name $TargetVMName -ResourceGroupName $ResourceGroupName -Status -ErrorAction Stop
-    $displayStatus = ($vmStatus.Statuses | Where-Object { $_.Code -like "PowerState/*" }).DisplayStatus
-    Write-Output "Current Power Status: $displayStatus"
-}
-catch {
-    Write-Error "CRITICAL: Access denied or VM not found. Check variables for Version 1.3"
-    return
-}
+# Get the Storage Context using the authenticated account
+$Ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -UseConnectedAccount
 
-# =================================================================================
-# 4. START LOGIC
-# =================================================================================
-if ($displayStatus -eq "VM deallocated") {
-    Write-Output "Waking up VM..."
-    Start-AzVM -Name $TargetVMName -ResourceGroupName $ResourceGroupName -NoWait
-    Write-Output "Waiting 90s for Linux Guest Agent..."
-    Start-Sleep -Seconds 90
-} else {
-    Write-Output "VM is already $displayStatus. Proceeding..."
-}
+# Create dummy content for the test file
+$VMName    = "TestVM-01"
+$Timestamp = Get-Date -Format "yyyy-MM-dd_HHmm"
+$FileName  = "ManualTest_v1.4_$($VMName)_$($Timestamp).log"
 
-# =================================================================================
-# 5. EXECUTION & STORAGE UPLOAD
-# =================================================================================
-$BashScript = @"
-echo "--- Patching Log \$(date) ---"
-echo "Script Version: 1.3"
-sudo apt-get update -y
-sudo apt-get upgrade -y
-echo "--- Finish Log \$(date) ---"
+$DummyContent = @"
+=======================================
+STORAGE UPLOAD TEST
+Script Version: 1.4
+Date: $(Get-Date)
+ClientID: $ClientId
+Status: Testing storage upload logic only
+=======================================
+This is a single-file upload test. 
+If this file appears in the container, 
+the authentication and storage context are 100% correct.
 "@
 
-try {
-    Write-Output "Executing Update Command on $TargetVMName..."
-    $result = Invoke-AzVMRunCommand -ResourceGroupName $ResourceGroupName `
-                                    -VMName $TargetVMName `
-                                    -CommandId 'RunShellScript' `
-                                    -ScriptString $BashScript -ErrorAction Stop
-    
-    $LogContent = $result.Value[0].Message
+# Save the file to the temporary sandbox path on the Automation worker
+$TempPath = Join-Path $env:TEMP $FileName
+$DummyContent | Out-File -FilePath $TempPath -Encoding utf8
 
-    if ($null -ne $LogContent -and $LogContent.Trim() -ne "") {
-        $Ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -UseConnectedAccount
-        $FileName = "${TargetVMName}_$(Get-Date -Format 'yyyyMMdd_HHmm').log"
-        $TempPath = Join-Path $env:TEMP $FileName
-        
-        $LogContent | Out-File -FilePath $TempPath -Encoding utf8
-        
-        Set-AzStorageBlobContent -Context $Ctx -Container $ContainerName `
-                                 -Blob $FileName -File $TempPath -Force | Out-Null
-        
-        Write-Output "SUCCESS: Log file $FileName uploaded to Storage."
-        Remove-Item $TempPath
-    }
+# Upload the file to the Container
+Write-Output "Uploading $FileName to container $ContainerName..."
+
+try {
+    Set-AzStorageBlobContent -Context $Ctx `
+                             -Container $ContainerName `
+                             -Blob $FileName `
+                             -File $TempPath `
+                             -Force -ErrorAction Stop
+                             
+    Write-Output "SUCCESS: File '$FileName' uploaded successfully."
 }
 catch {
-    Write-Error "PROCESS FAILED: $($_.Exception.Message)"
+    Write-Error "UPLOAD FAILED: Check if Container Name '$ContainerName' exists and Identity has 'Storage Blob Data Contributor' role."
+    Write-Error "Error Detail: $($_.Exception.Message)"
+}
+finally {
+    # Clean up the temporary local file
+    if (Test-Path $TempPath) { 
+        Remove-Item $TempPath 
+        Write-Output "Local temp file removed."
+    }
 }
 
-# =================================================================================
-# 6. STOP & SUMMARY
-# =================================================================================
-Write-Output "Deallocating $TargetVMName..."
-Stop-AzVM -Name $TargetVMName -ResourceGroupName $ResourceGroupName -Force -NoWait
-
-$OverallEnd = Get-Date
-$TimeUsed = "{0:mm} minutes and {0:ss} seconds" -f ($OverallEnd - $OverallStart)
-Write-Output "--- MAINTENANCE COMPLETE: Version 1.3 (Total Time: $TimeUsed) ---"
+Write-Output "--- TEST COMPLETE: Version 1.4 ---"
