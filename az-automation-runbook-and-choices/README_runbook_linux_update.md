@@ -68,6 +68,8 @@ https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-id
 
 https://learn.microsoft.com/en-us/azure/automation/learn/powershell-runbook-managed-identity
 
+## User-Assigned (The "Enterprise" Path) — What you have now
+
 1. System-Assigned (The "Simple" Path)
 
 - How it works: You turn it on directly inside the aspenautomation account. Azure creates an identity with the exact same name as your Automation account.
