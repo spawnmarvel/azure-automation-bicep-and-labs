@@ -23,149 +23,113 @@ Connect-AzAccount -Identity `
 Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
 
 # =================================================================================
-# 3. GLOBAL DISCOVERY (Scanning Entire Subscription via Tags)
+# 3. GLOBAL DISCOVERY
 # =================================================================================
-Write-Output "Scanning all Resource Groups for VMs with tag 'Patching: Weekly'..."
+Write-Output "Scanning for VMs with tag 'Patching: Weekly'..."
 
-# Get-AzVM without -ResourceGroupName pulls every VM in the subscription
 $allVMs = Get-AzVM 
 $targetVMs = $allVMs | Where-Object { $_.Tags['Patching'] -eq 'Weekly' }
 
 if ($null -eq $targetVMs -or $targetVMs.Count -eq 0) {
-    Write-Warning "No VMs found with tag 'Patching: Weekly'. Execution aborted."
+    Write-Warning "No tagged VMs found. Execution aborted."
     return
 }
 
-Write-Output "SUCCESS: Found $($targetVMs.Count) tagged VMs across the subscription."
+Write-Output "SUCCESS: Found $($targetVMs.Count) VMs."
 
 # =================================================================================
-# 4. POWER STATE VERIFICATION & START (Parallel)
+# 4. POWER STATE VERIFICATION & START (WITH WAIT)
 # =================================================================================
 $vmsToUpdate = @()
 
 foreach ($vm in $targetVMs) {
-    # Get real-time status (requires the -Status flag)
     $statusInfo = Get-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Status
     $displayStatus = ($statusInfo.Statuses | Where-Object { $_.Code -like "PowerState/*" }).DisplayStatus
     
-    # SAFETY CHECK: Only start if Deallocated (Someone might be working if it's Running)
     if ($displayStatus -eq "VM deallocated") {
-        Write-Output "Starting $($vm.Name) in RG: $($vm.ResourceGroupName) [Current: $displayStatus]..."
-        Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -NoWait
+        Write-Output "Starting $($vm.Name)... (Waiting for 'Running' status)"
+        # Removing -NoWait ensures we don't send commands to a booting VM
+        Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -ErrorAction Stop
         $vmsToUpdate += $vm
     } else {
-        Write-Warning "SKIPPING $($vm.Name): Status is '$displayStatus'. Will not interrupt active session."
+        Write-Warning "SKIPPING $($vm.Name): Status is '$displayStatus'."
     }
 }
 
 if ($vmsToUpdate.Count -eq 0) {
-    Write-Output "No deallocated VMs found for patching. Execution finished."
+    Write-Output "No VMs were started. Execution finished."
     return
 }
 
-Write-Output "Waiting 90 seconds for Linux Agents to become Ready..."
-Start-Sleep -Seconds 90
+# Extra safety buffer to let Linux services (like the Agent) fully initialize
+Write-Output "VMs are 'Running'. Waiting 30 seconds for Guest Agent handshake..."
+Start-Sleep -Seconds 30
 
 # =================================================================================
 # 5. MAINTENANCE EXECUTION (BASH)
 # =================================================================================
-# Using single-quote here-string to ensure Bash variables are passed correctly
 $BashScript = @'
-# 1. Setup Naming and Timing
 LOG_DATE=$(date +%Y-%m-%d)
 LOG_FILE="/var/log/apt-maintenance-$LOG_DATE.log"
 START_TIME=$SECONDS
 
 echo "--- Maintenance Started: $(date) ---" > $LOG_FILE
-
-# 2. Run Updates (Logging everything to the file)
 sudo apt-get update -y >> $LOG_FILE 2>&1
 sudo apt-get upgrade -y >> $LOG_FILE 2>&1
 
-# 3. Calculate Duration
 DURATION=$((SECONDS - START_TIME))
-echo "--- Maintenance Finished: $(date) ---" >> $LOG_FILE
 echo "--- Total Time: $((DURATION / 60))m $((DURATION % 60))s ---" >> $LOG_FILE
-
-# 4. Housekeeping: Delete logs older than 30 days
-# This keeps the /var/log/ directory from getting cluttered
 sudo find /var/log/ -name "apt-maintenance-*.log" -mtime +30 -delete
 
-# 5. Output the FULL log for PowerShell to capture and upload to Storage
 cat $LOG_FILE
 '@
 
 foreach ($vm in $vmsToUpdate) {
-    Write-Output "Executing updates on $($vm.Name)..."
+    $VMName = $vm.Name
+    Write-Output "----------------------------------------------"
+    Write-Output "Processing $VMName..."
+    
     try {
-        $result = Invoke-AzVMRunCommand -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name `
-                                        -CommandId 'RunShellScript' -ScriptString $BashScript -ErrorAction Stop
+        # Execute Bash and capture output
+        $RunResult = Invoke-AzVMRunCommand -ResourceGroupName $vm.ResourceGroupName `
+                                           -VMName $VMName `
+                                           -CommandId 'RunShellScript' `
+                                           -ScriptString $BashScript -ErrorAction Stop
         
-        Write-Output "[$($vm.Name)] Bash Output: $($result.Value[0].Message)"
+        $LogContent = $RunResult.Value[0].Message
+        
+        # 6. STORAGE UPLOAD (Inside Loop)
+        if ($null -ne $LogContent -and $LogContent.Trim() -ne "") {
+            Write-Output "Uploading log for $VMName to Storage..."
+            $Ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -UseConnectedAccount
+            $BlobName = "${VMName}_" + (Get-Date -Format "yyyy-MM-dd_HHmm") + ".log"
+            
+            $TempPath = Join-Path $env:TEMP "${VMName}_temp.log"
+            $LogContent | Out-File -FilePath $TempPath -Encoding utf8
+
+            Set-AzStorageBlobContent -Context $Ctx -Container $ContainerName -Blob $BlobName -File $TempPath -Force | Out-Null
+            Remove-Item $TempPath
+            Write-Output "Success: Log stored as $BlobName"
+        }
     }
     catch {
-        Write-Error "FAILURE: Maintenance command failed on $($vm.Name). Error: $($_.Exception.Message)"
+        Write-Error "FAILURE: Update failed on $VMName. Error: $($_.Exception.Message)"
     }
 
-    # =================================================================================
-    # 6. SHUTDOWN & DEALLOCATE
-    # =================================================================================
-    Write-Output "Deallocating $($vm.Name) to save costs..."
-    Stop-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force -NoWait
+    # 7. SHUTDOWN (WITH WAIT)
+    Write-Output "Deallocating $VMName... (Waiting for 'Deallocated' status to save costs)"
+    Stop-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $VMName -Force -ErrorAction SilentlyContinue
 }
 
+# =================================================================================
+# 8. FINAL SUMMARY
+# =================================================================================
 $OverallEnd = Get-Date
-Write-Output "--- JOB FINISHED: $($OverallEnd.ToString('yyyy-MM-dd HH:mm:ss')) ---"
-$Duration = $OverallEnd - $OverallStart
-$TimeUsed = "{0:mm} minutes and {0:ss} seconds" -f $Duration
+$TimeUsed = "{0:mm} minutes and {0:ss} seconds" -f ($OverallEnd - $OverallStart)
 
-Write-Output "Global Weekly Maintenance Sequence Complete."
-
-# =================================================================================
-# 7. FINAL SUMMARY
-# =================================================================================
 Write-Output "----------------------------------------------"
 Write-Output "FINAL MAINTENANCE SUMMARY"
-Write-Output "Total VMs Found: $($targetVMs.Count)"
 Write-Output "Total VMs Processed: $($vmsToUpdate.Count)"
 Write-Output "--- TOTAL TIME USED: $TimeUsed ---"
 Write-Output "----------------------------------------------"
 Write-Output "Global Weekly Maintenance Sequence Complete."
-
-# =================================================================================
-# 8. Copy logs to storage account for easy access
-# =================================================================================
-
-# Check if we actually have log content to avoid the "Null Array" error
-if ($null -ne $RunCommandResult.Value[0].Message) {
-    
-    $LogContent = $RunCommandResult.Value[0].Message
-    
-    # 1. Configuration
-    $StorageAccountName = "yourstorageaccountname"
-    $ContainerName = "vm-logs-linux-updates"
-    $BlobName = "${VMName}_" + (Get-Date -Format "yyyy-MM-dd_HHmm") + ".log"
-
-    # 2. Authenticate using Managed Identity
-    $Ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -UseConnectedAccount
-
-    # 3. Create a temporary file to bypass the Stream parameter issues
-    # This is the most reliable way in Azure Automation Workers
-    $TempFilePath = [System.IO.Path]::GetTempFileName()
-    $LogContent | Out-File -FilePath $TempFilePath -Encoding utf8
-
-    # 4. Upload to the Container using the -File parameter
-    Set-AzStorageBlobContent -Context $Ctx `
-                             -Container $ContainerName `
-                             -Blob $BlobName `
-                             -File $TempFilePath `
-                             -Force
-
-    Write-Output "Success: Log for $VMName uploaded to storage as $BlobName"
-
-    # 5. Clean up the temp file from the automation sandbox
-    Remove-Item $TempFilePath
-}
-else {
-    Write-Warning "No output was captured from $VMName. Storage upload skipped."
-}
