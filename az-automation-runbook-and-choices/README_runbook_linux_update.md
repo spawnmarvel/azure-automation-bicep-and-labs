@@ -145,7 +145,7 @@ The "Dry Run" Connection Script:
 
 5. Paste your code there and click Start.
 
-#### Connect and test
+## Connect and test
 ```ps1
 # =================================================================================
 # DESCRIPTION: 
@@ -253,7 +253,7 @@ New-AzRoleAssignment -ObjectId $principalId -RoleDefinitionName "Virtual Machine
 Write-Host "SUCCESS: The Identity now has power over all VMs in the subscription." -ForegroundColor Green
 ```
 
-### The Final Production Runbook for one vm
+## The Final Production Runbook for one vm
 
 Create a new runbook, Update-Dev-VMs-Weekly-test1-vm
 
@@ -277,7 +277,7 @@ Test when VM is not running success
 
 ![test ps1 vm not running](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/vm_stopped.png)
 
-### The Final Production Runbook for all vms with tag Patching:Weekly
+## The Final Production Runbook for all vms with tag Patching:Weekly
 
 Create Runbook Update-VMs-Weekly-If-Tag-Patching-Weekly
 
