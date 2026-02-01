@@ -601,7 +601,12 @@ Then update the main script in the runbook
 Script
 
 ```ps1
+# the script with storage account and log on server
 script_runbook2_patching_weekly_tag_linux_log_blob.ps1
+
+# the script with no storage account just log on server
+
+script_runbook2_patching_weekly_tag_linux.ps1
 ```
 
 
