@@ -1,20 +1,28 @@
 # =================================================================================
+# DESCRIPTION: 
+# This script performs automated Linux patching using a User-Assigned Managed Identity.
+#
+# REQUIRED ROLES (Assign to the User-Assigned Identity via IAM):
+# 1. Virtual Machine Contributor (on the Resource Group or Subscription)
+# =================================================================================
+
+# =================================================================================
 # 1. HARDCODED SETTINGS
 # =================================================================================
-$ClientId       = "YOUR-CLIENT-ID" 
+$ClientId       = "YOUR-CLIENT-ID"  # ID of 'jeklmanagedidentity'
 $TenantId       = "YOUR-TENANT-ID" 
-$SubscriptionId = "YOUR-SUB-ID" 
+$SubscriptionId = "YOUR-SUBSCRIPTION-ID" 
 
-##### Script version 1.1
+##### Script version 2.3
 
 # Target VM for testing
 $TestVMName     = "vmchaos09" 
 $TestRG         = "RG-UKCHAOS-0009"
 
 # =================================================================================
-# 2. AUTHENTICATION
+# 2. AUTHENTICATION (User-Assigned Identity)
 # =================================================================================
-Write-Output "Connecting to Azure via Managed Identity..."
+Write-Output "Connecting to Azure via User-Assigned Managed Identity..."
 
 Connect-AzAccount -Identity `
                   -AccountId $ClientId `
@@ -33,7 +41,7 @@ $displayStatus = ($vmStatus.Statuses | Where-Object { $_.Code -like "PowerState/
 
 Write-Output "Current status: $displayStatus"
 
-# Safety Gate: Skip if the VM is already running (someone might be using it)
+# Safety Gate: Skip if the VM is already running
 if ($displayStatus -ne "VM deallocated") {
     Write-Warning "SKIPPING: Maintenance aborted because VM is not in a deallocated state."
     return 
@@ -53,7 +61,6 @@ Start-Sleep -Seconds 90
 # =================================================================================
 # 5. MAINTENANCE EXECUTION (BASH)
 # =================================================================================
-# Note: Using single-quote here-string to prevent PowerShell from parsing $ variables
 $BashScript = @'
 LOG_DATE=$(date +%Y-%m-%d)
 LOG_FILE="/var/log/apt-maintenance-$LOG_DATE.log"
@@ -63,7 +70,6 @@ sudo apt-get update -y >> $LOG_FILE 2>&1
 sudo apt-get upgrade -y >> $LOG_FILE 2>&1
 echo "--- Maintenance Finished: $(date) ---" >> $LOG_FILE
 
-# Output the last few lines of the log so they appear in the Runbook output
 tail -n 5 $LOG_FILE
 '@
 
@@ -73,7 +79,6 @@ try {
     $result = Invoke-AzVMRunCommand -ResourceGroupName $TestRG -VMName $TestVMName `
                                     -CommandId 'RunShellScript' -ScriptString $BashScript -ErrorAction Stop
     
-    # Display the Bash output in the Automation Job logs
     Write-Output "Bash Output: $($result.Value[0].Message)"
     Write-Output "SUCCESS: Maintenance script completed on $TestVMName."
 }
@@ -88,4 +93,4 @@ Write-Output "Maintenance finished. Deallocating $TestVMName to stop billing..."
 
 Stop-AzVM -ResourceGroupName $TestRG -Name $TestVMName -Force -NoWait
 
-Write-Output "Runbook execution finished."
+Write-Output "Runbook execution finished (Version 2.3)."

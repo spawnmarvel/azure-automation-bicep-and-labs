@@ -1,19 +1,29 @@
 # =================================================================================
+# DESCRIPTION: 
+# This script performs Global Weekly Patching across the entire subscription 
+# using a User-Assigned Managed Identity (jeklmanagedidentity).
+#
+# REQUIRED ROLES (Assign to the User-Assigned Identity via IAM):
+# 1. Virtual Machine Contributor (Assigned at the SUBSCRIPTION level to allow 
+#    scanning and managing VMs across all Resource Groups).
+# =================================================================================
+
+# =================================================================================
 # 1. HARDCODED SETTINGS
 # =================================================================================
-$ClientId       = "YOUR-CLIENT-ID" 
+$ClientId       = "YOUR-CLIENT-ID"   # ID of 'jeklmanagedidentity'
 $TenantId       = "YOUR-TENANT-ID" 
 $SubscriptionId = "YOUR-SUB-ID" 
 
-##### Script version 1.4
+##### Script version 2.4
 
 $OverallStart = Get-Date
 Write-Output "--- JOB STARTED: $($OverallStart.ToString('yyyy-MM-dd HH:mm:ss')) ---"
 
 # =================================================================================
-# 2. AUTHENTICATION
+# 2. AUTHENTICATION (User-Assigned Managed Identity)
 # =================================================================================
-Write-Output "Connecting to Azure via Managed Identity..."
+Write-Output "Connecting to Azure via User-Assigned Managed Identity..."
 
 Connect-AzAccount -Identity `
                   -AccountId $ClientId `
@@ -106,8 +116,6 @@ Write-Output "--- JOB FINISHED: $($OverallEnd.ToString('yyyy-MM-dd HH:mm:ss')) -
 $Duration = $OverallEnd - $OverallStart
 $TimeUsed = "{0:mm} minutes and {0:ss} seconds" -f $Duration
 
-Write-Output "Global Weekly Maintenance Sequence Complete."
-
 # =================================================================================
 # 7. FINAL SUMMARY
 # =================================================================================
@@ -118,4 +126,3 @@ Write-Output "Total VMs Processed: $($vmsToUpdate.Count)"
 Write-Output "--- TOTAL TIME USED: $TimeUsed ---"
 Write-Output "----------------------------------------------"
 Write-Output "Global Weekly Maintenance Sequence Complete."
-#

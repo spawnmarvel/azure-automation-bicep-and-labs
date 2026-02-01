@@ -224,96 +224,8 @@ If the vm is running it should not be updated, because someone could be working 
 Script
 
 ```ps1
-# =================================================================================
-# 1. HARDCODED SETTINGS
-# =================================================================================
-$ClientId       = "YOUR-CLIENT-ID" 
-$TenantId       = "YOUR-TENANT-ID" 
-$SubscriptionId = "YOUR-SUB-ID" 
 
-# Target VM for testing
-$TestVMName     = "vmchaos09" 
-$TestRG         = "RG-UKCHAOS-0009"
-
-# =================================================================================
-# 2. AUTHENTICATION
-# =================================================================================
-Write-Output "Connecting to Azure via Managed Identity..."
-
-Connect-AzAccount -Identity `
-                  -AccountId $ClientId `
-                  -TenantId $TenantId `
-                  -SubscriptionId $SubscriptionId -ErrorAction Stop
-
-Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
-
-# =================================================================================
-# 3. POWER STATE VERIFICATION
-# =================================================================================
-Write-Output "Checking power state for $TestVMName..."
-
-$vmStatus = Get-AzVM -ResourceGroupName $TestRG -Name $TestVMName -Status
-$displayStatus = ($vmStatus.Statuses | Where-Object { $_.Code -like "PowerState/*" }).DisplayStatus
-
-Write-Output "Current status: $displayStatus"
-
-# Safety Gate: Skip if the VM is already running (someone might be using it)
-if ($displayStatus -ne "VM deallocated") {
-    Write-Warning "SKIPPING: Maintenance aborted because VM is not in a deallocated state."
-    return 
-}
-
-# =================================================================================
-# 4. START SEQUENCE
-# =================================================================================
-Write-Output "VM is idle. Booting $TestVMName for maintenance..."
-
-Start-AzVM -ResourceGroupName $TestRG -Name $TestVMName -ErrorAction Stop
-
-# Wait for the Azure Guest Agent to pulse (crucial for RunCommand)
-Write-Output "Waiting 90 seconds for Guest Agent to become Ready..."
-Start-Sleep -Seconds 90
-
-# =================================================================================
-# 5. MAINTENANCE EXECUTION (BASH)
-# =================================================================================
-# Note: Using single-quote here-string to prevent PowerShell from parsing $ variables
-$BashScript = @'
-LOG_DATE=$(date +%Y-%m-%d)
-LOG_FILE="/var/log/apt-maintenance-$LOG_DATE.log"
-
-echo "--- Maintenance Started: $(date) ---" > $LOG_FILE
-sudo apt-get update -y >> $LOG_FILE 2>&1
-sudo apt-get upgrade -y >> $LOG_FILE 2>&1
-echo "--- Maintenance Finished: $(date) ---" >> $LOG_FILE
-
-# Output the last few lines of the log so they appear in the Runbook output
-tail -n 5 $LOG_FILE
-'@
-
-Write-Output "Executing apt-get update and upgrade..."
-
-try {
-    $result = Invoke-AzVMRunCommand -ResourceGroupName $TestRG -VMName $TestVMName `
-                                    -CommandId 'RunShellScript' -ScriptString $BashScript -ErrorAction Stop
-    
-    # Display the Bash output in the Automation Job logs
-    Write-Output "Bash Output: $($result.Value[0].Message)"
-    Write-Output "SUCCESS: Maintenance script completed on $TestVMName."
-}
-catch {
-    Write-Error "FAILURE: Maintenance command failed on $TestVMName. Error: $($_.Exception.Message)"
-}
-
-# =================================================================================
-# 6. SHUTDOWN & DEALLOCATE
-# =================================================================================
-Write-Output "Maintenance finished. Deallocating $TestVMName to stop billing..."
-
-Stop-AzVM -ResourceGroupName $TestRG -Name $TestVMName -Force -NoWait
-
-Write-Output "Runbook execution finished."
-
+s_runbook1_patching_vm_one_linux.ps1
 
 ```
 
@@ -344,7 +256,7 @@ Why this handles "Many Resource Groups" perfectly:
 Script
 
 ```ps1
-s_runbook2_patching_many_weekly_tag_linux.ps1
+s_runbook2_patching_vm_many_weekly_tag_linux.ps1
 
 ```
 
@@ -537,81 +449,6 @@ Currently, updating AZ modules is only available through the portal. Updates thr
 
 
 https://learn.microsoft.com/en-us/azure/automation/automation-update-azure-modules
-
-
-### The Final Production Runbookfor all vms with tag Patching:Weekly and Azure Blob Storage logs TODO
-
-#### The script should be ok now, test it when you can
-
-Bash script to continue generating its own local log file on the VM with the same name (e.g., apt-maintenance-2026-01-31.log), but you want the PowerShell script to pick up that output and save it to your Storage Account with the new, searchable name (SERVERNAME_YYYY-MM-DD.log).
-
-Since you are creating a new log file every time the script runs (e.g., apt-maintenance-2026-02-02.log), these files will sit on your VM's disk forever. Even though they are small, it's "good housekeeping" to delete very old ones.
-
-We added bash script lines at the end of the script that deletes logs older than 30 days on the vm also, housekeeping.
-
-
-Create a storage account
-
-* jeklrunbookslogs
-* standard
-* blob storage or azure data lake storage gen2
-* lrs, next and choose hot
-
-(Since the script writes to it every week, Hot is more cost-effective than Cool for frequent writes).
-
-Once the account is created, go to Data storage > Containers and create a new container.
-
-Public access level: Keep it at Private (no anonymous access). Your Managed Identity will handle the "key" to the front door.
-
-
-![container](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/container.png)
-
-IAM
-
-Automation Account needs permission to talk to this new storage account.
-
-* Go to the Storage Account page.
-
-* Access Control (IAM) > Add role assignment.
-
-* Role: Storage Blob Data Contributor.
-
-* Assign access to: Managed Identity.
-
-* Select your Automation Account, not the managed identity
-
-If you want to be 100% sure everything is linked up correctly before Monday morning, you can run this tiny 2-line test in your Automation Account Test Pane:
-
-```ps1
-# 1. Wake up the Managed Identity
-# This is required at the start of every Runbook
-Connect-AzAccount -Identity
-
-# 2. Get the Storage Context (Now it will work!)
-$Ctx = New-AzStorageContext -StorageAccountName "yourstorageaccountname" -UseConnectedAccount
-
-# 3. Test the connection
-Get-AzStorageBlob -Context $Ctx -Container "vm-logs-linux-updates"
-
-```
-
-Create a new runbook for test the above script, test_scripts and run it test pane.
-
-If it runs without a red error message, your "Handshake" is perfect, and Monday morning will be a breeze.
-
-Then update the main script in the runbook
-Script
-
-```ps1
-# the script with storage account and log on server
-s_runbook2.1_patching_many_weekly_tag_linux_log_blob.ps1
-
-# the script with no storage account just log on server
-s_runbook2_patching_many_weekly_tag_linux.ps1
-
-```
-
-
 
 
 
