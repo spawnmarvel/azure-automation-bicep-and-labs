@@ -348,7 +348,6 @@ script_runbook1_patching_weekly_tag_linux.ps1
 
 ```
 
-
 1. Publish the Runbook
 
 Your script currently exists in a "Draft" state because you've been using the Test Pane. For the Schedule to execute the code, it must be published.
@@ -549,6 +548,8 @@ Script
 ```ps1
 script_runbook2_patching_weekly_tag_linux_log_blob.ps1
 ```
+
+
 
 
 
