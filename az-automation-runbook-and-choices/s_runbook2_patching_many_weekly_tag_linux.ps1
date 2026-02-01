@@ -5,7 +5,7 @@ $ClientId       = "YOUR-CLIENT-ID"
 $TenantId       = "YOUR-TENANT-ID" 
 $SubscriptionId = "YOUR-SUB-ID" 
 
-##### script to copy
+##### script to copy v 1.0
 
 $OverallStart = Get-Date
 Write-Output "--- JOB STARTED: $($OverallStart.ToString('yyyy-MM-dd HH:mm:ss')) ---"

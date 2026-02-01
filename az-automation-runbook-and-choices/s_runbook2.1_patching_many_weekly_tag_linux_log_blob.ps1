@@ -6,7 +6,7 @@ $SubscriptionId = "YOUR-SUB-ID"
 $StorageAccountName = "yourstorageaccountname"  # <--- Added back!
 $ContainerName      = "vm-logs-linux-updates"   # <--- Added back!
 
-##### script to copy
+##### script to copy v 1.5
 
 $OverallStart = Get-Date
 Write-Output "--- JOB STARTED: $($OverallStart.ToString('yyyy-MM-dd HH:mm:ss')) ---"
