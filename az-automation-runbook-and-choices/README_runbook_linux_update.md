@@ -70,7 +70,7 @@ https://learn.microsoft.com/en-us/azure/automation/learn/powershell-runbook-mana
 
 1. System-Assigned (The "Simple" Path)
 
-- How it works: You turn it on directly inside the jeklautomation account. Azure creates an identity with the exact same name as your Automation account.
+- How it works: You turn it on directly inside the aspenautomation account. Azure creates an identity with the exact same name as your Automation account.
 
 - Pros: It’s "set it and forget it." If you delete the Automation account, the identity vanishes too. No leftover "orphan" resources.
 
@@ -79,16 +79,16 @@ https://learn.microsoft.com/en-us/azure/automation/learn/powershell-runbook-mana
 2. User-Assigned (The "Enterprise" Path) — What you have now
 
 
- How it works: Your jeklmanagedidentity is a standalone resource. You "plug" it into your Automation account.
+ How it works: Your aspenmanagedidentity is a standalone resource. You "plug" it into your Automation account.
 
-- Pros: Reusability. If you later decide to use a Logic App or a Function to handle other dev tasks, you can give them the same jeklmanagedidentity. You manage the "Dev Permissions" once, and assign that identity to whatever tools need it.
+- Pros: Reusability. If you later decide to use a Logic App or a Function to handle other dev tasks, you can give them the same aspenmanagedidentity. You manage the "Dev Permissions" once, and assign that identity to whatever tools need it.
 
 - Cons: You have to manually delete it if you ever stop using it, and the script requires that ClientId we talked about.
 
 
 Which should you choose?
 
-Recommendation: Since you've already created jeklmanagedidentity, stick with it. It’s better practice for "Infrastructure as Code" and keeps your permissions centralized under one "Dev Identity" rather than tying them strictly to the tool (Automation Account).
+Recommendation: Since you've already created aspenmanagedidentity, stick with it. It’s better practice for "Infrastructure as Code" and keeps your permissions centralized under one "Dev Identity" rather than tying them strictly to the tool (Automation Account).
 
 
 ## Automation PowerShell runbook for linux updates
@@ -105,7 +105,7 @@ Managed Identities do not work on local machines. They only exist "inside" the A
 
 Step 1: Create the Runbook
 
-1. In the Azure Portal, go to your jeklautomation Automation Account.
+1. In the Azure Portal, go to your aspenautomation Automation Account.
 
 2. On the left menu, select Runbooks (under Process Automation).
 
@@ -127,7 +127,7 @@ Check your RBAC
 
 2. Access Control (IAM).
 
-3. Ensure jeklmanagedidentity has at least Reader at the Subscription level, or Contributor at the Resource Group level.
+3. Ensure aspenmanagedidentity has at least Reader at the Subscription level, or Contributor at the Resource Group level.
 
 ![add reader](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/add_reader.png)
 
@@ -137,7 +137,7 @@ The "Dry Run" Connection Script:
 
 1. Go to the Azure Portal.
 
-2. Navigate to your Automation Account jeklautomation > Runbooks.
+2. Navigate to your Automation Account aspenautomation > Runbooks.
 
 3. Open your Runbook and click Edit.
 
@@ -147,30 +147,69 @@ The "Dry Run" Connection Script:
 
 #### Connect and test
 ```ps1
-# 1. Provide your specific IDs
-$ClientId = "xxxxxxxxxxxxxxxxxxxx"        # From jeklmanagedidentity
-$TenantId = "xxxxxxxxxxxxxxxxxxxxxxxx"    
-$SubscriptionId = "xxxxxxxxxxxxxxxxxxx"     # Your Subscription ID
+# =================================================================================
+# DESCRIPTION: 
+# This is a Diagnostic Connectivity Script to verify that the User-Assigned 
+# Managed Identity (aspenmanagedidentity) can authenticate and read the environment.
+#
+# REQUIRED ROLES (Assign to the User-Assigned Identity via IAM):
+# 1. Reader or Virtual Machine Contributor (Assigned at the SUBSCRIPTION level).
+# =================================================================================
 
-Write-Output "Attempting connection for jeklmanagedidentity..."
+# =================================================================================
+# 1. HARDCODED SETTINGS
+# =================================================================================
+$ClientId       = "xxxxxxxxxxxxxxxxxxxx"  # ID of 'aspenmanagedidentity'
+$TenantId       = "xxxxxxxxxxxxxxxxxxxx" 
+$SubscriptionId = "xxxxxxxxxxxxxxxxxxxx" 
 
-# 2. Connect with ALL parameters to avoid 'null' context
-# Adding -TenantId and -SubscriptionId here forces the session to bind correctly
-Connect-AzAccount -Identity `
-                  -AccountId $ClientId `
-                  -TenantId $TenantId `
-                  -SubscriptionId $SubscriptionId -ErrorAction Stop
+##### Script version 2.5
 
-# 3. Explicitly set the context (The 'Double-Check')
-Set-AzContext -SubscriptionId $SubscriptionId
+# =================================================================================
+# 2. AUTHENTICATION (User-Assigned Identity Verification)
+# =================================================================================
+Write-Output "--- STARTING CONNECTIVITY TEST: Version 2.5 ---"
+Write-Output "Attempting connection for aspenmanagedidentity..."
 
-# 4. Verify we can see the VMs
-$vms = Get-AzVM
-if ($vms.Count -gt 0) {
-    Write-Output "SUCCESS: Found $($vms.Count) VMs."
-} else {
-    Write-Warning "Connected, but no VMs found in this subscription. Check Resource Group permissions."
+try {
+    # Connect with ALL parameters to avoid 'null' context
+    Connect-AzAccount -Identity `
+                      -AccountId $ClientId `
+                      -TenantId $TenantId `
+                      -SubscriptionId $SubscriptionId -ErrorAction Stop
+
+    # Explicitly set the context (The 'Double-Check')
+    Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
+    
+    $CurrentContext = Get-AzContext
+    Write-Output "SUCCESS: Authenticated as $($CurrentContext.Account.Id)"
 }
+catch {
+    Write-Error "AUTHENTICATION FAILED: $($_.Exception.Message)"
+    return
+}
+
+# =================================================================================
+# 3. RESOURCE DISCOVERY VERIFICATION
+# =================================================================================
+Write-Output "Verifying resource visibility in Subscription: $SubscriptionId"
+
+try {
+    # Attempt to list VMs to prove RBAC roles are active
+    $vms = Get-AzVM -ErrorAction Stop
+    
+    if ($vms.Count -gt 0) {
+        Write-Output "SUCCESS: Found $($vms.Count) VMs."
+    } else {
+        Write-Warning "Connected, but no VMs found. Check if Identity has 'Reader' or 'VM Contributor' at the Subscription level."
+    }
+}
+catch {
+    Write-Error "DISCOVERY FAILED: Identity is logged in but lacks permissions to list VMs."
+    Write-Error "Error Detail: $($_.Exception.Message)"
+}
+
+Write-Output "--- CONNECTIVITY TEST COMPLETE ---"
 
 ```
 result
@@ -179,7 +218,7 @@ result
 
 One Final Requirement:
 
-Your jeklmanagedidentity needs the Virtual Machine Contributor role.
+Your aspenmanagedidentity needs the Virtual Machine Contributor role.
 
 Since your VMs are spread across many Resource Groups, the easiest way to handle permissions is to assign that role at the Subscription level. 
 
@@ -196,7 +235,7 @@ Then run this and set role
 
 ```ps1
 # 1. Configuration
-$uamiName = "jeklmanagedidentity"
+$uamiName = "aspenmanagedidentity"
 $uamiResourceGroup = "YOUR_IDENTITY_RG" # The RG where the identity lives
 
 # 2. Get the Identity's Principal ID (Object ID)

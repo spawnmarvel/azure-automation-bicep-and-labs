@@ -9,7 +9,7 @@
 # =================================================================================
 # 1. HARDCODED SETTINGS
 # =================================================================================
-$ClientId       = "YOUR-CLIENT-ID"  # ID of 'jeklmanagedidentity'
+$ClientId       = "YOUR-CLIENT-ID"  # ID of 'aspenmanagedidentity'
 $TenantId       = "YOUR-TENANT-ID" 
 $SubscriptionId = "YOUR-SUBSCRIPTION-ID" 
 
