@@ -117,8 +117,16 @@ if ($vms.Count -gt 0) {
     Write-Warning "Connected, but no VMs found. Check RBAC permissions."
 }
 
+```
+## One Final Requirement:
 
-## One Final Requirement:Assign the Virtual Machine Contributor role at the Subscription scope. Run this locally on your admin machine:PowerShell# 1. Configuration
+Assign the Virtual Machine Contributor role at the Subscription scope. 
+
+Run this locally on your admin machine:
+
+```ps1
+
+# 1. Configuration
 $uamiName = "name-managedidentity"
 $uamiRG = "YOUR_IDENTITY_RG"
 
@@ -127,7 +135,15 @@ $uami = Get-AzUserAssignedIdentity -ResourceGroupName $uamiRG -Name $uamiName
 
 # 3. Apply Role Assignment at Subscription scope
 New-AzRoleAssignment -ObjectId $uami.PrincipalId -RoleDefinitionName "Virtual Machine Contributor" -Scope "/subscriptions/$((Get-AzContext).Subscription.Id)"
-The Final Production Runbook for one vmSafety Gate: The script skips the update if the VM is already running to avoid interrupting active work.ScriptPowerShell# =================================================================================
+
+```
+
+## The Final Production Runbook for one vm
+
+Safety Gate: The script skips the update if the VM is already running to avoid interrupting active work.Script
+
+```ps1
+ =================================================================================
 # DESCRIPTION: Weekly Patching for ONE specific VM
 # =================================================================================
 $ClientId = "YOUR-ID"; $TenantId = "YOUR-ID"; $SubscriptionId = "YOUR-ID"
@@ -151,7 +167,20 @@ if ($status.DisplayStatus -eq "VM deallocated") {
 } else {
     Write-Warning "SKIPPING: VM is currently $($status.DisplayStatus)."
 }
-Testing results:The Final Production Runbook for all vms with tag Patching:WeeklyTarget VMs globally across the subscription using the tag Patching: Weekly.Why this handles "Many Resource Groups" perfectly:Global Scope: Scans the entire subscription for tagged VMs.Dynamic Targeting: Automatically identifies the correct Resource Group for each VM.ScriptPowerShell# =================================================================================
+```
+Testing results:
+
+## The Final Production Runbook for all vms with tag Patching:Weekly
+
+Target VMs globally across the subscription using the tag Patching: Weekly.
+
+Why this handles "Many Resource Groups" perfectly:
+
+* Global Scope: Scans the entire subscription for tagged VMs.* Dynamic Targeting: Automatically identifies the correct Resource Group for each VM.
+
+Script
+```ps1
+ =================================================================================
 # DESCRIPTION: Global Weekly Patching via Tags (Non-interactive)
 # =================================================================================
 $ClientId = "YOUR-ID"; $TenantId = "YOUR-ID"; $SubscriptionId = "YOUR-ID"
@@ -183,4 +212,66 @@ foreach ($vm in $targetVMs) {
     }
     Stop-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force -NoWait
 }
-1. Publish the RunbookThe runbook must move from "Draft" to "Published" to allow for scheduled execution.2. Link the ScheduleLink a schedule (e.g., Mondays at 09:00 AM). Verify the Time Zone.Trigger runbookYou can manually trigger, edit, or view job logs from the dashboard.Azure Automation CostsFirst 500 minutes of job execution are free every month.Usage: 4 VMs x ~5 mins = 20 mins/week (~80 mins/month).Result: Fully covered by the Free Tier.CategoryFree LimitPost-Limit PriceJob runtime500 min$0.002/minWatchers744 hours$0.002/hourNon-Azure nodes5 nodes$6/nodeOfficial Pricing DetailsHow reboot is handledThe Stop-AzVM (Deallocate) and Start-AzVM cycle performs a cold boot.Hardware is re-initialized.The Linux bootloader (GRUB) automatically picks the newest kernel installed during the maintenance window.Result: A cold boot ensures all updates apply correctly without manual intervention.Executive Summary: Automated Infrastructure MaintenanceBenefitImpact💰 Cost ReductionAutomated deallocation eliminates spend on idle resources.🛡️ SecurityWeekly patching ensures compliance and reduces vulnerability risks.⚙️ EfficiencySaves hours of manual labor, allowing the team to focus on high-value projects.📉 Risk MitigationRepeatable logic eliminates human error and manual typos.
+
+```
+1. Publish the RunbookThe runbook must move from "Draft" to "Published" to allow for scheduled execution.
+2. Link the ScheduleLink a schedule (e.g., Mondays at 09:00 AM). Verify the Time Zone.
+
+Trigger runbook
+
+You can manually trigger, edit, or view job logs from the dashboard.
+
+#### Azure Automation Costs
+
+First 500 minutes of job execution are free every month.
+
+* Usage: 4 VMs x ~5 mins = 20 mins/week (~80 mins/month).
+* Result: Fully covered by the Free Tier.
+
+Category Free LimitPost-Limit Price
+
+* Job runtime500 min$0.002/min
+* Watchers744 hours$0.002/hour
+* Non-Azure nodes5 nodes$6/node
+
+Official Pricing Details
+
+#### How reboot is handled
+
+The Stop-AzVM (Deallocate) and Start-AzVM cycle performs a cold boot.
+* Hardware is re-initialized.
+* The Linux bootloader (GRUB) automatically picks the newest kernel installed during the maintenance window.
+* Result: A cold boot ensures all updates apply correctly without manual intervention.
+
+#### Executive Summary: Automated Infrastructure Maintenance
+
+Benefit and Impact
+💰 Cost ReductionAutomated deallocation eliminates spend on idle resources.🛡️ SecurityWeekly patching ensures compliance and reduces vulnerability risks.
+⚙️ EfficiencySaves hours of manual labor, allowing the team to focus on high-value projects.
+📉 Risk MitigationRepeatable logic eliminates human error and manual typos.
+
+####
+
+Job status or health check
+The Big Picture: Check Jobs for "Completed" status.
+
+The Receipts: Check the Output tab for Bash logs.
+
+Manual Validation:
+
+```bash
+
+ssh <vm-ip>
+cat apt-maintenance-2026-02-02.log
+
+```
+
+#### Automatic Module Updates (TODO)
+
+Keep your Az modules current via Shared Resources > Modules > Update Az modules.
+
+Module Update Guide
+
+#### Alert (TODO)
+
+Set up a "Failure" Alert in Azure Monitor to notify the team via email if a job fails
