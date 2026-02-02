@@ -271,6 +271,11 @@ cat apt-maintenance-2026-02-02.log
 
 ```
 
+Or check in the portal
+
+![portal log](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/portal_log.png)
+
+
 #### Automatic Module Updates (TODO)
 
 Keep your Az modules current via Shared Resources > Modules > Update Az modules.
