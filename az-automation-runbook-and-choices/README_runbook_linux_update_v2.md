@@ -228,11 +228,11 @@ First 500 minutes of job execution are free every month.
 * Usage: 4 VMs x ~5 mins = 20 mins/week (~80 mins/month).
 * Result: Fully covered by the Free Tier.
 
-Category Free LimitPost-Limit Price
+Category Free Limit, Post-Limit Price
 
-* Job runtime500 min$0.002/min
-* Watchers744 hours$0.002/hour
-* Non-Azure nodes5 nodes$6/node
+* Job runtime 500 min, $0.002/min
+* Watchers 744 hours, $0.002/hour
+* Non-Azure nodes5, nodes$6/node
 
 Official Pricing Details
 
