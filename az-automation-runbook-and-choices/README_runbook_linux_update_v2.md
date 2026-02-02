@@ -246,6 +246,7 @@ The Stop-AzVM (Deallocate) and Start-AzVM cycle performs a cold boot.
 #### Executive Summary: Automated Infrastructure Maintenance
 
 Benefit and Impact
+
 💰 Cost ReductionAutomated deallocation eliminates spend on idle resources.
 
 🛡️ SecurityWeekly patching ensures compliance and reduces vulnerability risks.
