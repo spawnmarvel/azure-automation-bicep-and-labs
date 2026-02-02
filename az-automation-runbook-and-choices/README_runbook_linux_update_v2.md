@@ -4,44 +4,44 @@ Automation simplifies cloud operations in three key areas:
 
 - **Deploy and manage** – Deliver repeatable and consistent infrastructure as code.
 - **Response** – Create event-based automation to diagnose and resolve issues.
-- **Orchestrate** – Integrate Azure services with third-party products.
+- **Orchestrate** – Orchestrate and integrate your automation with other Azure or third-party services.
 
 ## Azure Automation runbook types
 [Learn more about Runbook types](https://learn.microsoft.com/en-us/azure/automation/automation-runbook-types?tabs=lps74%2Cpy10)
 
 ## Quickstart: Create an Automation account using the Azure portal
-One Automation account can manage resources across regions and subscriptions for a given tenant.
+One Automation account can manage resources across all regions and subscriptions for a given tenant. 
 
-- **System-assigned:** An identity tied to the lifecycle of the Automation account.
-- **User-assigned:** A standalone Azure resource managed separately.
+- **System-assigned:** A Microsoft Entra identity tied to the lifecycle of the Automation account.
+- **User-assigned:** A standalone Azure resource managed separately from the resources that use it.
 
-> **Note:** Managed identities can be enabled during creation or after the account is created. 
+> **Note:** You can choose to enable managed identities later, and the Automation account is created without one. 
 
 [Enable Managed Identity Guide](https://learn.microsoft.com/en-us/azure/automation/quickstarts/enable-managed-identity)
 
 ### Networking
-- **Public Access** – Default option providing a public endpoint via the internet.
-- **Private Access** – Provides a private endpoint using a private IP from your virtual network.
+- **Public Access** – Provides a public endpoint that can receive traffic over the internet (default). 
+- **Private Access** – Provides a private endpoint using a private IP address from your virtual network. 
 
 ![account](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/account.png)
 
 [Create an Automation Account Guide](https://learn.microsoft.com/en-us/azure/automation/quickstarts/create-azure-automation-account-portal)
 
 ### Create a user-assigned managed identity
-- Search for **Managed Identities** in the portal to create a standalone identity resource.
+- Search for **Managed Identities** in the Azure Portal and select it under Services to create your identity resource.
 
 ![managed identity](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/mi.png)
 
 [Identity Management Guide](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/manage-user-assigned-managed-identities-azure-portal?pivots=identity-mi-methods-azp#create-a-user-assigned-managed-identity)
 
 ### Enable managed identities for your Automation account using the Azure portal
-**Prerequisites:** An active subscription, an Automation account, and a user-assigned managed identity.
+**Prerequisites:** Active subscription, Automation account, and a user-assigned managed identity.
 
 ![system assignd was on](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/mi_on.png)
 
 **Add user-assigned managed identity:**
-- Select the **User assigned** tab and click **+ Add**.
-- Select your existing identity and click **Add**.
+- Navigate to the **User assigned** tab.
+- Click **+ Add**, select your identity, and click **Add**.
 
 ![mi_add_user_assigned](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/mi_add_user_assigned.png)
 
@@ -53,41 +53,42 @@ One Automation account can manage resources across regions and subscriptions for
 ## User-Assigned (The "Enterprise" Path) — What you have now
 
 ### 1. System-Assigned (The "Simple" Path)
-- **Mechanism:** Enabled directly inside the account. Identity name matches the account name.
-- **Pros:** Automatic lifecycle management; no "orphan" resources upon deletion.
+- **How it works:** Tied directly to the Automation account.
+- **Pros:** Automatic lifecycle management; no "orphan" resources.
 - **Cons:** Limited to a single Automation account.
 
 ### 2. User-Assigned (The "Enterprise" Path) — What you have now
-- **Mechanism:** A standalone resource (`name-managedidentity`) plugged into the account.
-- **Pros:** **Reusability.** Centralize permissions for multiple tools (Logic Apps, Functions) under one identity.
-- **Cons:** Manual cleanup required; script requires a `ClientId`.
+- **How it works:** A standalone resource (`name-managedidentity`) plugged into the account.
+- **Pros:** **Reusability.** Manage permissions once and assign the identity to any tool (Logic Apps, Functions) that needs it.
+- **Cons:** Requires manual deletion and `ClientId` reference in scripts.
 
-**Recommendation:** Stick with **User-Assigned**. It is best practice for Infrastructure as Code (IaC) and keeps permissions centralized.
+**Recommendation:** Stick with **User-Assigned**. It is better practice for Infrastructure as Code and centralized permission management.
 
 ## Automation PowerShell runbook for linux updates
-The automated weekly workflow handles:
-- Starting the VM (if deallocated).
-- Executing updates via Bash.
-- Logging output to the VM.
-- Deallocating the VM to save costs.
+Automated weekly maintenance workflow:
+- **Start VM** (if deallocated).
+- **Run updates** via Bash.
+- **Log to file** on the VM.
+- **Stop VM** to save costs.
 
-> **Important:** Managed Identities only function *within* Azure infrastructure and will not work on local machines.
+> **Important:** Managed Identities do not work on local machines; they only function within the Azure infrastructure.
 
 ### Step 1: Create the Runbook
-1. Go to your Automation Account > **Runbooks**.
-2. Click **+ Create a runbook**.
+1. Open your Automation Account.
+2. Select **Runbooks** > **+ Create a runbook**.
 3. Name: `Update-Dev-VMs-Weekly`, Type: **PowerShell**, Runtime: **7.2**.
 
 ![runbook](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/runbook.png)
 
 ### Check your RBAC
-Assign the **Virtual Machine Contributor** role to your identity at the **Subscription level** to ensure power over all VMs across multiple Resource Groups.
+Assign the **Virtual Machine Contributor** role to your identity.
+- **Subscription level:** Necessary if VMs are spread across multiple Resource Groups.
 
 ![add reader](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/add_reader.png)
 
 ### Step 2: To use the Identity you created, you must run the code inside the Automation Account's Test Pane:
 1. Navigate to Runbook > **Edit** > **Test pane**.
-2. Paste the diagnostic code to verify connectivity.
+2. Use the connection script below to verify authentication.
 
 ## Connect and test
 ```ps1
@@ -115,3 +116,71 @@ if ($vms.Count -gt 0) {
 } else {
     Write-Warning "Connected, but no VMs found. Check RBAC permissions."
 }
+
+
+## One Final Requirement:Assign the Virtual Machine Contributor role at the Subscription scope. Run this locally on your admin machine:PowerShell# 1. Configuration
+$uamiName = "name-managedidentity"
+$uamiRG = "YOUR_IDENTITY_RG"
+
+# 2. Get Identity Details
+$uami = Get-AzUserAssignedIdentity -ResourceGroupName $uamiRG -Name $uamiName
+
+# 3. Apply Role Assignment at Subscription scope
+New-AzRoleAssignment -ObjectId $uami.PrincipalId -RoleDefinitionName "Virtual Machine Contributor" -Scope "/subscriptions/$((Get-AzContext).Subscription.Id)"
+The Final Production Runbook for one vmSafety Gate: The script skips the update if the VM is already running to avoid interrupting active work.ScriptPowerShell# =================================================================================
+# DESCRIPTION: Weekly Patching for ONE specific VM
+# =================================================================================
+$ClientId = "YOUR-ID"; $TenantId = "YOUR-ID"; $SubscriptionId = "YOUR-ID"
+$VMName = "vmchaos09"; $RG = "RG-UKCHAOS-0009"
+
+Connect-AzAccount -Identity -AccountId $ClientId -TenantId $TenantId -SubscriptionId $SubscriptionId -ErrorAction Stop
+Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
+
+$status = (Get-AzVM -ResourceGroupName $RG -Name $VMName -Status).Statuses | Where-Object { $_.Code -like "PowerState/*" }
+
+if ($status.DisplayStatus -eq "VM deallocated") {
+    Write-Output "Starting $VMName..."
+    Start-AzVM -ResourceGroupName $RG -Name $VMName -ErrorAction Stop
+    Start-Sleep -Seconds 90 # Wait for Linux Agent
+    
+    $Bash = 'export DEBIAN_FRONTEND=noninteractive; sudo apt-get update -y; sudo apt-get upgrade -y -o Dpkg::Options::="--force-confold"'
+    Invoke-AzVMRunCommand -ResourceGroupName $RG -VMName $VMName -CommandId 'RunShellScript' -ScriptString $Bash
+    
+    Write-Output "Maintenance complete. Deallocating..."
+    Stop-AzVM -ResourceGroupName $RG -Name $VMName -Force -NoWait
+} else {
+    Write-Warning "SKIPPING: VM is currently $($status.DisplayStatus)."
+}
+Testing results:The Final Production Runbook for all vms with tag Patching:WeeklyTarget VMs globally across the subscription using the tag Patching: Weekly.Why this handles "Many Resource Groups" perfectly:Global Scope: Scans the entire subscription for tagged VMs.Dynamic Targeting: Automatically identifies the correct Resource Group for each VM.ScriptPowerShell# =================================================================================
+# DESCRIPTION: Global Weekly Patching via Tags (Non-interactive)
+# =================================================================================
+$ClientId = "YOUR-ID"; $TenantId = "YOUR-ID"; $SubscriptionId = "YOUR-ID"
+
+Connect-AzAccount -Identity -AccountId $ClientId -TenantId $TenantId -SubscriptionId $SubscriptionId -ErrorAction Stop
+Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
+
+$targetVMs = Get-AzVM | Where-Object { $_.Tags['Patching'] -eq 'Weekly' }
+
+foreach ($vm in $targetVMs) {
+    $statusInfo = Get-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Status
+    $displayStatus = ($statusInfo.Statuses | Where-Object { $_.Code -like "PowerState/*" }).DisplayStatus
+
+    if ($displayStatus -eq "VM deallocated") {
+        Write-Output "Starting $($vm.Name)..."
+        Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -NoWait
+    }
+}
+
+Start-Sleep -Seconds 120 # Wait for Agents to initialize
+
+foreach ($vm in $targetVMs) {
+    Write-Output "Patching $($vm.Name)..."
+    $Bash = 'export DEBIAN_FRONTEND=noninteractive; sudo apt-get update -y; sudo apt-get upgrade -y -o Dpkg::Options::="--force-confold"'
+    try {
+        Invoke-AzVMRunCommand -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -CommandId 'RunShellScript' -ScriptString $Bash
+    } catch { 
+        Write-Error "Failed to patch $($vm.Name)" 
+    }
+    Stop-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force -NoWait
+}
+1. Publish the RunbookThe runbook must move from "Draft" to "Published" to allow for scheduled execution.2. Link the ScheduleLink a schedule (e.g., Mondays at 09:00 AM). Verify the Time Zone.Trigger runbookYou can manually trigger, edit, or view job logs from the dashboard.Azure Automation CostsFirst 500 minutes of job execution are free every month.Usage: 4 VMs x ~5 mins = 20 mins/week (~80 mins/month).Result: Fully covered by the Free Tier.CategoryFree LimitPost-Limit PriceJob runtime500 min$0.002/minWatchers744 hours$0.002/hourNon-Azure nodes5 nodes$6/nodeOfficial Pricing DetailsHow reboot is handledThe Stop-AzVM (Deallocate) and Start-AzVM cycle performs a cold boot.Hardware is re-initialized.The Linux bootloader (GRUB) automatically picks the newest kernel installed during the maintenance window.Result: A cold boot ensures all updates apply correctly without manual intervention.Executive Summary: Automated Infrastructure MaintenanceBenefitImpact💰 Cost ReductionAutomated deallocation eliminates spend on idle resources.🛡️ SecurityWeekly patching ensures compliance and reduces vulnerability risks.⚙️ EfficiencySaves hours of manual labor, allowing the team to focus on high-value projects.📉 Risk MitigationRepeatable logic eliminates human error and manual typos.
