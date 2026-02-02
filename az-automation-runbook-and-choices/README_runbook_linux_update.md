@@ -133,11 +133,15 @@ SUCCESS: Found 4 VMs.
 ```
 ## One Final Requirement:
 
-Assign the Virtual Machine Contributor role at the Subscription scope. 
+Assign the Virtual Machine Contributor role at the Subscription scope, if you did not already do it above in the RBAK step
 
 Run this locally on your admin machine:
 
 ```ps1
+
+# connect
+$id = ""
+connect-AzAccount -TenantId $id
 
 # 1. Configuration
 $uamiName = "name-managedidentity"
@@ -282,4 +286,10 @@ Module Update Guide
 Set up a "Failure" Alert in Azure Monitor to notify the team via email if a job fails
 
 
-## Now that your User-Assigned Identity has the power to manage VMs and the Run Command is working, the possibilities are endless.
+## User-Assigned Identity and Run Command
+
+Now that your User-Assigned Identity has the power to manage VMs and the Run Command is working, the possibilities are endless.
+
+Invoke-AzVMRunCommand
+
+https://learn.microsoft.com/en-us/powershell/module/az.compute/invoke-azvmruncommand?view=azps-15.2.0
