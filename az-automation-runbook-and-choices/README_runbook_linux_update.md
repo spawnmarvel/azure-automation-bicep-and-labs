@@ -473,6 +473,11 @@ The following upgrades have been deferred due to phasing:
 0 upgraded, 0 newly installed, 0 to remove and 6 not upgraded.
 Maintenance Finished: Sat Jan 31 01:20:34 UTC 2026 
 ```
+
+4. Chck the portal and logs after the schedule
+
+![monday](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/monday.png)
+
 ### Automatic Module Updates TODO
 
 In Azure Automation, your Runbook is just the script (the "logic"). For that script to actually understand commands like Start-AzVM or Get-AzContext, it needs Modules (the "dictionary").
