@@ -118,6 +118,19 @@ if ($vms.Count -gt 0) {
 }
 
 ```
+
+Result in log
+
+```log
+--- STARTING CONNECTIVITY TEST ---
+
+Environments                                                                                           Context
+------------                                                                                           -------
+{[AzureCloud, AzureCloud], [AzureChinaCloud, AzureChinaCloud], [AzureUSGovernment, AzureUSGovernment]} Microsoft.Azure.…
+
+SUCCESS: Authenticated as xxxxxxxxxxxxxxx
+SUCCESS: Found 4 VMs.
+```
 ## One Final Requirement:
 
 Assign the Virtual Machine Contributor role at the Subscription scope. 
@@ -140,33 +153,29 @@ New-AzRoleAssignment -ObjectId $uami.PrincipalId -RoleDefinitionName "Virtual Ma
 
 ## The Final Production Runbook for one vm
 
-Safety Gate: The script skips the update if the VM is already running to avoid interrupting active work.Script
+Safety Gate: The script skips the update if the VM is already running to avoid interrupting active work.
+
+Script
 
 ```ps1
- =================================================================================
-# DESCRIPTION: Weekly Patching for ONE specific VM
+
+# other code
 # =================================================================================
-$ClientId = "YOUR-ID"; $TenantId = "YOUR-ID"; $SubscriptionId = "YOUR-ID"
-$VMName = "vmchaos09"; $RG = "RG-UKCHAOS-0009"
+# 3. POWER STATE VERIFICATION
+# =================================================================================
+Write-Output "Checking power state for $TestVMName..."
 
-Connect-AzAccount -Identity -AccountId $ClientId -TenantId $TenantId -SubscriptionId $SubscriptionId -ErrorAction Stop
-Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
+$vmStatus = Get-AzVM -ResourceGroupName $TestRG -Name $TestVMName -Status
+$displayStatus = ($vmStatus.Statuses | Where-Object { $_.Code -like "PowerState/*" }).DisplayStatus
 
-$status = (Get-AzVM -ResourceGroupName $RG -Name $VMName -Status).Statuses | Where-Object { $_.Code -like "PowerState/*" }
+Write-Output "Current status: $displayStatus"
 
-if ($status.DisplayStatus -eq "VM deallocated") {
-    Write-Output "Starting $VMName..."
-    Start-AzVM -ResourceGroupName $RG -Name $VMName -ErrorAction Stop
-    Start-Sleep -Seconds 90 # Wait for Linux Agent
-    
-    $Bash = 'export DEBIAN_FRONTEND=noninteractive; sudo apt-get update -y; sudo apt-get upgrade -y -o Dpkg::Options::="--force-confold"'
-    Invoke-AzVMRunCommand -ResourceGroupName $RG -VMName $VMName -CommandId 'RunShellScript' -ScriptString $Bash
-    
-    Write-Output "Maintenance complete. Deallocating..."
-    Stop-AzVM -ResourceGroupName $RG -Name $VMName -Force -NoWait
-} else {
-    Write-Warning "SKIPPING: VM is currently $($status.DisplayStatus)."
+# Safety Gate: Skip if the VM is already running
+if ($displayStatus -ne "VM deallocated") {
+    Write-Warning "SKIPPING: Maintenance aborted because VM is not in a deallocated state."
+    return 
 }
+# other code
 ```
 Testing results:
 
@@ -180,38 +189,24 @@ Why this handles "Many Resource Groups" perfectly:
 
 Script
 ```ps1
- =================================================================================
-# DESCRIPTION: Global Weekly Patching via Tags (Non-interactive)
+# other code
 # =================================================================================
-$ClientId = "YOUR-ID"; $TenantId = "YOUR-ID"; $SubscriptionId = "YOUR-ID"
+# 3. GLOBAL DISCOVERY (Scanning Entire Subscription via Tags)
+# =================================================================================
+Write-Output "Scanning all Resource Groups for VMs with tag 'Patching: Weekly'..."
 
-Connect-AzAccount -Identity -AccountId $ClientId -TenantId $TenantId -SubscriptionId $SubscriptionId -ErrorAction Stop
-Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
+# Get-AzVM without -ResourceGroupName pulls every VM in the subscription
+$allVMs = Get-AzVM 
+$targetVMs = $allVMs | Where-Object { $_.Tags['Patching'] -eq 'Weekly' }
 
-$targetVMs = Get-AzVM | Where-Object { $_.Tags['Patching'] -eq 'Weekly' }
-
-foreach ($vm in $targetVMs) {
-    $statusInfo = Get-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Status
-    $displayStatus = ($statusInfo.Statuses | Where-Object { $_.Code -like "PowerState/*" }).DisplayStatus
-
-    if ($displayStatus -eq "VM deallocated") {
-        Write-Output "Starting $($vm.Name)..."
-        Start-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -NoWait
-    }
+if ($null -eq $targetVMs -or $targetVMs.Count -eq 0) {
+    Write-Warning "No VMs found with tag 'Patching: Weekly'. Execution aborted."
+    return
 }
 
-Start-Sleep -Seconds 120 # Wait for Agents to initialize
+Write-Output "SUCCESS: Found $($targetVMs.Count) tagged VMs across the subscription."
 
-foreach ($vm in $targetVMs) {
-    Write-Output "Patching $($vm.Name)..."
-    $Bash = 'export DEBIAN_FRONTEND=noninteractive; sudo apt-get update -y; sudo apt-get upgrade -y -o Dpkg::Options::="--force-confold"'
-    try {
-        Invoke-AzVMRunCommand -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -CommandId 'RunShellScript' -ScriptString $Bash
-    } catch { 
-        Write-Error "Failed to patch $($vm.Name)" 
-    }
-    Stop-AzVM -ResourceGroupName $vm.ResourceGroupName -Name $vm.Name -Force -NoWait
-}
+# other code
 
 ```
 1. Publish the RunbookThe runbook must move from "Draft" to "Published" to allow for scheduled execution.
