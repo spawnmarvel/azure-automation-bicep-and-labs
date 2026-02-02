@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # Ensure we are running as root
@@ -20,7 +19,6 @@ systemctl start mysql
 systemctl enable mysql
 
 echo "4. Running Security Hardening..."
-# This replaces the interactive mysql_secure_installation
 mysql <<EOF
 -- Remove anonymous users
 DELETE FROM mysql.user WHERE User='';
@@ -38,3 +36,40 @@ echo "SUCCESS: MySQL is installed and secured."
 mysql --version
 systemctl status mysql | grep "Active:"
 echo "-----------------------------------------------"
+
+# ==============================================================================
+# HOW TO USE THIS INSTALLATION
+# ==============================================================================
+# 
+# 1. LOCAL LOGIN (Root):
+#    Ubuntu uses the 'auth_socket' plugin by default for root. 
+#    You do not need a password; you just need sudo:
+#    $ sudo mysql
+#
+# 2. CREATE A DATABASE USER (Recommended for Apps):
+#    $ sudo mysql
+#    mysql> CREATE USER 'myuser'@'localhost' IDENTIFIED BY 'password123';
+#    mysql> GRANT ALL PRIVILEGES ON *.* TO 'myuser'@'localhost' WITH GRANT OPTION;
+#
+# 3. CHECK LISTENING PORT (Default 3306):
+#    $ sudo ss -tulpn | grep mysql
+#
+# ==============================================================================
+# HOW TO UNINSTALL (THE "CLEAN SLATE" METHOD)
+# ==============================================================================
+#
+# If you want to completely remove MySQL and all its data/configs:
+#
+# 1. Stop the service:
+#    $ sudo systemctl stop mysql
+#
+# 2. Remove packages and configs:
+#    $ sudo apt-get purge -y mysql-server mysql-client mysql-common mysql-server-core-* mysql-client-core-*
+#
+# 3. Remove leftover directories (CAUTION: This deletes all databases!):
+#    $ sudo rm -rf /etc/mysql /var/lib/mysql /var/log/mysql
+#
+# 4. Clean up unused dependencies:
+#    $ sudo apt-get autoremove -y
+#    $ sudo apt-get autoclean
+# ==============================================================================
