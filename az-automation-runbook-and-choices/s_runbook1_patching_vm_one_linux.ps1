@@ -13,7 +13,7 @@ $ClientId       = "YOUR-CLIENT-ID"  # ID of ' yourmanagedidentity'
 $TenantId       = "YOUR-TENANT-ID" 
 $SubscriptionId = "YOUR-SUBSCRIPTION-ID" 
 
-##### Script version 2.4 #
+##### Script version 2.4
 
 # Target VM for testing
 $TestVMName     = "vmchaos09" 
