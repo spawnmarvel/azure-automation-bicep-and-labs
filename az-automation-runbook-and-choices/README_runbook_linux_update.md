@@ -285,3 +285,6 @@ Module Update Guide
 #### Alert (TODO)
 
 Set up a "Failure" Alert in Azure Monitor to notify the team via email if a job fails
+
+
+## Now that your User-Assigned Identity has the power to manage VMs and the Run Command is working, the possibilities are endless.
