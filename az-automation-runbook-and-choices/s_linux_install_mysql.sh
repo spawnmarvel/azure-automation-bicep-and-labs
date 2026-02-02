@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# sudo chmod +x secure_mysql.sh
+# sudo ./secure_mysql.sh
+# tested on ubuntu 24.04
+
 # Ensure we are running as root
 if [ "$EUID" -ne 0 ]; then 
   echo "Please run as sudo"
