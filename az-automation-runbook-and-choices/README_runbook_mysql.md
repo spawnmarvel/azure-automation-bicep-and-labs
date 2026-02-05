@@ -7,7 +7,7 @@ When we first run the script
 script
 
 ```ps1
-s_runbook1_patching_vm_one_linux.ps1
+s_runbook3_stop_mysql_weekly.ps1
 ```
 
 ```log
