@@ -53,5 +53,27 @@ We can now search for it:
 
 ![role](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/role.png)
 
+Step 6: Assign the Role to your Managed Identity
+1. Go back to your Resource Group
+2. Click Access control (IAM) -> + Add -> Add role assignment.
+3. In the search box, type your new role name: MySQL Flexible Server Power Operator.
+4. Select it and click Next.
+5. Select Managed identity and pick your name-managedidentity.
+6. Click Review + assign.
 
+
+```log
+--- STARTING SYSTEM CHECK: Version 1.0.2 ---
+Attempting connection for name-managedidentity...
+
+Environments                                                                                           Context
+------------                                                                                           -------
+{[AzureUSGovernment, AzureUSGovernment], [AzureChinaCloud, AzureChinaCloud], [AzureCloud, AzureCloud]} Microsoft.Azure.…
+
+SUCCESS: Authenticated as 3xxxxxxxxxxxxxxxxxxxxxxxxxx
+Checking status of MySQL Flexible Server: mysqlzabbix0101
+Current Server State: Stopped
+NOTICE: Server is already in 'Stopped' state. No action taken.
+--- SCRIPT COMPLETE ---
+```
 ## Final runbook for stop Azure MySQL
