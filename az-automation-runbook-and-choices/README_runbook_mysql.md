@@ -9,3 +9,6 @@ does not have authorization to perform action 'Microsoft.DBforMySQL/flexibleServ
 ```
 We need to define a custom role to the usernamemanagedidentity
 
+
+
+![rbak custom](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/rbac_custom.png)
