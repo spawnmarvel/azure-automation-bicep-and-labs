@@ -62,6 +62,8 @@ Step 6: Assign the Role to your Managed Identity
 6. Click Review + assign.
 
 
+Log when it is stopped.
+
 ```log
 --- STARTING SYSTEM CHECK: Version 1.0.2 ---
 Attempting connection for name-managedidentity...
@@ -76,4 +78,40 @@ Current Server State: Stopped
 NOTICE: Server is already in 'Stopped' state. No action taken.
 --- SCRIPT COMPLETE ---
 ```
+
+Log when it is started.
+
+```
+--- STARTING SYSTEM CHECK: Version 1.0.2 ---
+Attempting connection for name-managedidentity...
+
+Environments                                                                                           Context
+------------                                                                                           -------
+{[AzureCloud, AzureCloud], [AzureChinaCloud, AzureChinaCloud], [AzureUSGovernment, AzureUSGovernment]} Microsoft.Azure.…
+
+SUCCESS: Authenticated as 3xxxxxxxxxxxxxxxxxxxxx
+Checking status of MySQL Flexible Server: mysqlzabbix0101
+Current Server State: Ready
+Server is ACTIVE. Initiating Stop command...
+SUCCESS: Stop command sent. State will move to 'Stopped' shortly.
+--- SCRIPT COMPLETE ---
+```
+
+Automatic Start: 
+
+The server will remain in the stopped state for 30 consecutive days. If you do not manually start it within that period, it will automatically start at the end of the 30 days.
+
+Management Operations: 
+
+While the server is stopped, you cannot perform most management operations or configuration changes (e.g., changing pricing tier, storage size, or server parameters). You must start the server first to make these changes.
+
+
 ## Final runbook for stop Azure MySQL
+
+script
+
+```ps1
+s_runbook3_stop_mysql_weekly.ps1
+```
+
+Schedule at Sundays at 23:00 every week.
