@@ -115,3 +115,5 @@ s_runbook3_stop_mysql_weekly.ps1
 ```
 
 Schedule at Sundays at 23:00 every week.
+
+![schedule_mysql](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/schedule_mysql.png)
