@@ -31,6 +31,7 @@ Step 3: Adding the Specific Permissions
 11. Instead of searching through the massive list, we will use the JSON editor inside the creation wizard to be precise.
 2. Click Edit.
 3. Locate the "actions": [] section and replace it so it looks exactly like this:
+4. Click Save.
 
 ```json
 "actions": [
@@ -41,5 +42,16 @@ Step 3: Adding the Specific Permissions
 ```
 
 ![rbak custom](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/rbac_custom.png)
+
+Step 4: Assignable Scopes
+1. Click the Assignable scopes tab.
+2. Ensure your Subscription ID is listed there. This tells Azure where this role is allowed to be used.
+
+Step 5: Review and Create
+
+We can now search for it:
+
+![role](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/role.png)
+
 
 ## Final runbook for stop Azure MySQL
