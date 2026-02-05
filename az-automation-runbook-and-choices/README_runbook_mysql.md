@@ -2,7 +2,13 @@
 
 ## Final runbook for stop Azure MySQL
 
-When we first runt the script
+When we first run the script
+
+script
+
+```ps1
+s_runbook1_patching_vm_one_linux.ps1
+```
 
 ```log
 does not have authorization to perform action 'Microsoft.DBforMySQL/flexibleServers/stop/action' over scope
