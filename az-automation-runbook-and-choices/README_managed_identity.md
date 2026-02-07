@@ -65,6 +65,8 @@ Azure checks: "Is this request coming from the specific Automation Account that 
 Hardcoding the IDs actually makes your script more resilient. If Key Vault has an outage or a latency spike, your script can still start because it already knows where to "knock" (the IDs) to get its token.
 
 
+Managed Identities do not work from local machines. The snippet you referenced says the token is retrieved "based on the environment where the code runs." Because your local laptop isn't an "Azure compute resource" (like a VM or a Runbook worker), it doesn't have the internal plumbing to talk to the Entra ID identity service.
+
 ![compare old and new way](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/managed_identity_compare.png)
 
 One Small Best Practice
