@@ -18,5 +18,9 @@ https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resour
 
 ## Differences between system-assigned and user-assigned managed identities
 
+![differences](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/managed_identity.png)
+
+
+
 ## Use in script
 
