@@ -63,3 +63,6 @@ Azure checks: "Is this request coming from the specific Automation Account that 
 - Usually, we use Key Vault to hide Client Secrets or Passwords. Since Managed Identities have zero passwords, there is nothing sensitive to hide.
 
 Hardcoding the IDs actually makes your script more resilient. If Key Vault has an outage or a latency spike, your script can still start because it already knows where to "knock" (the IDs) to get its token.
+
+
+![compare old and new way](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/managed_identity_compare.png)
