@@ -66,3 +66,7 @@ Hardcoding the IDs actually makes your script more resilient. If Key Vault has a
 
 
 ![compare old and new way](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/managed_identity_compare.png)
+
+One Small Best Practice
+
+While hardcoding is safe, if you ever plan to use this script across different environments (Prod vs. Dev), you can move those IDs to Automation Variables (under Shared Resources > Variables) instead of a Key Vault. This isn't for security—it's just so you can change the ID in one place without editing the script code.
