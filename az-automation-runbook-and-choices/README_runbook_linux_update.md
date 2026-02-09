@@ -254,9 +254,9 @@ Benefit and Impact
 
 📉 Risk MitigationRepeatable logic eliminates human error and manual typos.
 
-####
+#### Job status or health check
 
-Job status or health check
+
 The Big Picture: Check Jobs for "Completed" status.
 
 The Receipts: Check the Output tab for Bash logs.
@@ -274,6 +274,8 @@ Or check in the portal
 
 ![portal log](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/portal_log.png)
 
+
+Or check the Azure Update Manager GUI (it may take soem hours before this shows thr actual status)
 
 #### Automatic Module Updates (TODO)
 
