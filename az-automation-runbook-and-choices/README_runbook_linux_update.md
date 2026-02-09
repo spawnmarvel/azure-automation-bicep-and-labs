@@ -277,6 +277,8 @@ Or check in the portal
 
 Or check the Azure Update Manager GUI (it may take soem hours before this shows thr actual status)
 
+![update_man](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-automation-runbook-and-choices/images/update_man.png)
+
 #### Automatic Module Updates (TODO)
 
 Keep your Az modules current via Shared Resources > Modules > Update Az modules.
