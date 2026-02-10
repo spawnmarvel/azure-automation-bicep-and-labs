@@ -33,11 +33,9 @@ Since you've already mastered the administration side, about 40-50% of the techn
 1. The "Architect Mindset" (New Frameworks)
 In AZ-104, you learned how to fix things. In AZ-305, you need to learn how to plan them according to Microsoft’s gold standards.
 
-The Well-Architected Framework (WAF): You must memorize the 5 pillars: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
-
-Cloud Adoption Framework (CAF): Understand the high-level stages: Strategy, Plan, Ready, Adopt.
-
-Decision Criteria: Expect questions like "You need the cheapest option that still provides 99.9% uptime." You need to know the SLAs (Service Level Agreements) for different tiers.
+* The Well-Architected Framework (WAF): You must memorize the 5 pillars: Cost Optimization, Operational Excellence, Performance Efficiency, Reliability, and Security.
+* Cloud Adoption Framework (CAF): Understand the high-level stages: Strategy, Plan, Ready, Adopt.
+* Decision Criteria: Expect questions like "You need the cheapest option that still provides 99.9% uptime." You need to know the SLAs (Service Level Agreements) for different tiers.
 
 2. Data Storage & SQL (The Biggest Gap)
 AZ-104 barely touches on databases, but AZ-305 goes deep. This is often the hardest part for administrators.
