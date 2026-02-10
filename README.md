@@ -13,7 +13,12 @@ https://learn.microsoft.com/en-us/cli/azure/choose-the-right-azure-command-line-
 
 ##  AZ-104 certified professional must know
 
-https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-certified-professional
+https://github.com/spawnmarvel/azure-automation-bicep-and-labs/tree/main/az-104-administrator-certified-professional
+
+Learning information and quickguides for az-104 azure administrator
+
+https://github.com/spawnmarvel/quickguides/tree/main/azure
+
 
 ## Learn modules for Bicep
 
