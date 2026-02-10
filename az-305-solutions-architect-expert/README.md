@@ -64,7 +64,7 @@ Move beyond simple VNETs and Peering.
 * Azure Load Balancer: Regional, Layer 4 (Fast/Non-HTTP).
 * Messaging: Understand the "Why" for Service Bus (reliable queues), Event Grid (event-driven), and Event Hubs (big data streaming).
 
-
+![focus](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/focus.png)
 
 ## AZ-305 Microsoft Azure Architect Design Prerequisites
 
