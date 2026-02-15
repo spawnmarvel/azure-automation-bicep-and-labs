@@ -134,7 +134,25 @@ Govern
 ![govern](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/govern.png)
 
 
+### Introduction to the Microsoft Azure Well-Architected Framework
 
+The Azure Well-Architected Framework consists of five pillars
+
+* Reliability, to enhance worklaod resilience and recoverability
+* Security, to improve security by using the CIA Traid and Zero Trus princicples
+* Cost Optimization, to evaluate ROI and financial constraints
+* Operational Excellence, to ensure workload quality through standardized workflows
+* Performance Efficency, to optimize your workloads ability to adjust to changes in demand
+
+The Security pillar focuses on ensuring that workloads are resilient to attacks by incorporating confidentiality, integrity, availability (the CIA Triad), and Zero Trust principles.
+
+The Cost Optimization pillar focuses on evaluating ROI and financial constraints to help allocate budgets, define spending patterns, and maximize resource investments.
+
+The Operational Excellence pillar focuses on DevOps practices and standardized workflows to help ensure workload quality, minimize process variance, and reduce human error.
+
+The Performance Efficiency pillar focuses on ensuring that workloads can scale efficiently based on demand to maintain performance without compromising user experience.
+
+![5 pillar](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/5pillar.png)
 
 https://learn.microsoft.com/en-us/training/paths/microsoft-azure-architect-design-prerequisites/
 
