@@ -97,6 +97,10 @@ The Cloud Adoption Framework includes eight methodologies:
 7. Manage
 8. Secure
 
+Strategy
+
+![strategy](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/strategy.png)
+
 https://learn.microsoft.com/en-us/training/paths/microsoft-azure-architect-design-prerequisites/
 
 
