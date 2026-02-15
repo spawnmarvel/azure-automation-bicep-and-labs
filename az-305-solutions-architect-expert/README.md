@@ -93,9 +93,10 @@ The Cloud Adoption Framework includes eight methodologies:
 3. Ready, the links for what to first setup, what models to set up and more, ref cloud adoption framework
 4. Migrate, plan, prepare, execute, optimize, decommission
 5. Innovate, plan modernize, prepare, skills and tools, execute modernize, optimize, cloud-native
-6. Govern
-7. Manage
-8. Secure
+6. Govern, build team, assess risk, policy, monitor (repeat)
+7. Manage, responsibility, scope, secure, cost, 
+8. Secure, Cloud Adoption Framwork Secure methodology, Well-Architected Framwork security guidance, Microsoft cloud security benchmark, Zero Trust guidance, 
+CIA Triad model (confidentiality, integrity, avaliability) fundamental model in information security.
 
 Strategy
 
