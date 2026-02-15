@@ -89,8 +89,8 @@ Describe Azure identity, access, and security
 The Cloud Adoption Framework includes eight methodologies:
 
 1. Strategy, a guide and 5 steps. And Cloud Adoption Strategy Evaluator online tool.
-2. Plan
-3. Ready
+2. Plan, prepare, people, discover your workload, select migration, assess, tco, azure calculator
+3. Ready TODO
 4. Migrate
 5. Innovate
 6. Govern
