@@ -88,7 +88,7 @@ Describe Azure identity, access, and security
 
 The Cloud Adoption Framework includes eight methodologies:
 
-1. Strategy
+1. Strategy, a guide and 5 steps. And Cloud Adoption Strategy Evaluator online tool.
 2. Plan
 3. Ready
 4. Migrate
@@ -101,7 +101,32 @@ Strategy
 
 ![strategy](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/strategy.png)
 
+A cloud adoption strategy is a comprehensive plan that outlines your organization's approach when you adopt and integrate cloud technologies.
+
+* https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/strategy/
+
+Cloud Adoption Strategy Evaluator
+
+* https://learn.microsoft.com/en-us/assessments/8fefc6d5-97ac-42b3-8e97-d82701e55bab/
+
+Video is better
+
+* https://learn.microsoft.com/en-us/shows/azure-essentials-show/learn-how-to-assess-your-cloud-journey-using-the-cloud-adoption-strategy-evaluator
+
+
+
+
 https://learn.microsoft.com/en-us/training/paths/microsoft-azure-architect-design-prerequisites/
+
+
+## AZ-305 Designing Microsoft Azure Infrastructure Solutions Study Cram - Over 100,000 views
+
+https://www.youtube.com/watch?v=vq9LuCM4YP4
+
+
+## 2 AZ-305: Design identity, governance, and monitor solutions
+
+https://learn.microsoft.com/en-us/credentials/certifications/exams/az-305/?source=learn
 
 
 
