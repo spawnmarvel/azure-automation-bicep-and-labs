@@ -138,7 +138,7 @@ Govern
 
 The Azure Well-Architected Framework consists of five pillars
 
-* Reliability, to enhance worklaod resilience and recoverability
+* Reliability, to enhance workload resilience and recoverability
 * Security, to improve security by using the CIA Traid and Zero Trus princicples
 * Cost Optimization, to evaluate ROI and financial constraints
 * Operational Excellence, to ensure workload quality through standardized workflows
@@ -160,6 +160,8 @@ https://learn.microsoft.com/en-us/training/paths/microsoft-azure-architect-desig
 ## AZ-305 Designing Microsoft Azure Infrastructure Solutions Study Cram - Over 100,000 views
 
 https://www.youtube.com/watch?v=vq9LuCM4YP4
+
+## Excel study guide check always c:\github2026\az-305-study-guide
 
 
 ## 2 AZ-305: Design identity, governance, and monitor solutions
