@@ -27,6 +27,10 @@ Skills at a glance
 * Implement and manage virtual networking (15–20%)
 * Monitor and maintain Azure resources (10–15%)
 
+## Self quick guide
+
+https://github.com/spawnmarvel/quickguides/tree/main/azure
+
 ## Practice Assessments for Microsoft Certifications
 
 https://learn.microsoft.com/en-us/credentials/certifications/practice-assessments-for-microsoft-certifications
