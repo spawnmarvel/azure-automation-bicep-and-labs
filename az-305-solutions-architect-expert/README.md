@@ -90,7 +90,7 @@ The Cloud Adoption Framework includes eight methodologies:
 
 1. Strategy, a guide and 5 steps. And Cloud Adoption Strategy Evaluator online tool.
 2. Plan, prepare, people, discover your workload, select migration, assess, tco, azure calculator
-3. Ready TODO
+3. Ready
 4. Migrate
 5. Innovate
 6. Govern
@@ -109,9 +109,16 @@ Cloud Adoption Strategy Evaluator
 
 * https://learn.microsoft.com/en-us/assessments/8fefc6d5-97ac-42b3-8e97-d82701e55bab/
 
-Video is better
+Ready (it seems like everything is in the cloud adoption framwork)
 
-* https://learn.microsoft.com/en-us/shows/azure-essentials-show/learn-how-to-assess-your-cloud-journey-using-the-cloud-adoption-strategy-evaluator
+Ready your Azure environment for workloads
+
+* https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/
+
+![ready](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/ready.png)
+
+
+
 
 
 
