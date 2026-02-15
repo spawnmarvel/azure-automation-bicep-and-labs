@@ -65,7 +65,37 @@ Move beyond simple VNETs and Peering.
 ![focus](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/focus.png)
 
 
-## AZ-305 Microsoft Azure Architect Design Prerequisites
+## 1 AZ-305 Microsoft Azure Architect Design Prerequisites
+
+Describe the core architectural components of Azure
+
+* Repeat from az-104, maybe brush later.
+
+Describe Azure compute and networking services
+
+* Repeat from az-104, maybe brush later.
+
+Describe Azure storage services
+
+* Repeat from az-104, maybe brush later.
+
+Describe Azure identity, access, and security
+
+* Maybe brush later.
+
+
+### Introduction to the Microsoft Cloud Adoption Framework
+
+The Cloud Adoption Framework includes eight methodologies:
+
+1. Strategy
+2. Plan
+3. Ready
+4. Migrate
+5. Innovate
+6. Govern
+7. Manage
+8. Secure
 
 https://learn.microsoft.com/en-us/training/paths/microsoft-azure-architect-design-prerequisites/
 
