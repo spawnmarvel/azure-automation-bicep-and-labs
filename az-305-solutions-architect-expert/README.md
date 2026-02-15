@@ -117,8 +117,15 @@ Ready your Azure environment for workloads
 
 ![ready](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/ready.png)
 
+Implement these elements to create a strong foundation for cloud adoption. The Azure setup guide offers step-by-step instructions to help you organize resources, control costs, and secure your environment before you deploy solutions.
 
+* https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/azure-setup-guide/identity
 
+![setup](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/setup.png)
+
+Define a cloud operating model
+
+* https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/plan/prepare-organization-for-cloud#choose-a-cloud-operating-model
 
 
 
