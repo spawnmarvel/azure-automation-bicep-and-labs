@@ -90,9 +90,9 @@ The Cloud Adoption Framework includes eight methodologies:
 
 1. Strategy, a guide and 5 steps. And Cloud Adoption Strategy Evaluator online tool.
 2. Plan, prepare, people, discover your workload, select migration, assess, tco, azure calculator
-3. Ready
-4. Migrate
-5. Innovate
+3. Ready, the links for what to first setup, what models to set up and more, ref cloud adoption framework
+4. Migrate, plan, prepare, execute, optimize, decommission
+5. Innovate, plan modernize, prepare, skills and tools, execute modernize, optimize, cloud-native
 6. Govern
 7. Manage
 8. Secure
@@ -126,6 +126,11 @@ Implement these elements to create a strong foundation for cloud adoption. The A
 Define a cloud operating model
 
 * https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/plan/prepare-organization-for-cloud#choose-a-cloud-operating-model
+
+
+Govern
+
+![govern](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/govern.png)
 
 
 
