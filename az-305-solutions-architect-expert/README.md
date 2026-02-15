@@ -65,7 +65,7 @@ Move beyond simple VNETs and Peering.
 ![focus](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/focus.png)
 
 
-## 1 AZ-305 Microsoft Azure Architect Design Prerequisites
+## AZ-305 Microsoft Azure Architect Design Prerequisites
 
 Describe the core architectural components of Azure
 
@@ -164,7 +164,7 @@ https://www.youtube.com/watch?v=vq9LuCM4YP4
 ## Excel study guide check always c:\github2026\az-305-study-guide
 
 
-## 2 AZ-305: Design identity, governance, and monitor solutions
+## AZ-305: Design identity, governance, and monitor solutions
 
 https://learn.microsoft.com/en-us/credentials/certifications/exams/az-305/?source=learn
 
