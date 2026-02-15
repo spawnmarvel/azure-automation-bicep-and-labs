@@ -19,6 +19,7 @@ Learning information and quickguides for az-104 azure administrator
 
 https://github.com/spawnmarvel/quickguides/tree/main/azure
 
+## 
 
 ## Learn modules for Bicep
 

@@ -64,10 +64,11 @@ Move beyond simple VNETs and Peering.
 
 ![focus](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-305-solutions-architect-expert/images/focus.png)
 
+
 ## AZ-305 Microsoft Azure Architect Design Prerequisites
 
 https://learn.microsoft.com/en-us/training/paths/microsoft-azure-architect-design-prerequisites/
 
-## Start do ms learn, make a folder for each topic.
+
 
 
