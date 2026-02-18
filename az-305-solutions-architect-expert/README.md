@@ -168,6 +168,9 @@ https://www.youtube.com/watch?v=vq9LuCM4YP4
 
 ## Design governance
 
+The term governance describes the general process of establishing rules and policies. Governance ensures those rules and policies are enforced.
+
+
 https://learn.microsoft.com/en-us/credentials/certifications/exams/az-305/?source=learn
 
 
