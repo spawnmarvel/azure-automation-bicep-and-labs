@@ -73,6 +73,13 @@ If you can perform these five tasks without looking at a guide, you will likely 
 
 * DNS Forwarding: Configure conditional forwarders so your Azure VNET can resolve .local domain names.
 
+And also:
+
+Since Identity makes up 30–35% of the AZ-800, you have to be able to do more than just "explain" it. You need to know the exact tools and steps.
+
+You need to do Active Directory (AD DS) labs.
+
+
 ## Deploy and manage identity infrastructure
 
 ### Introduction to AD FS
