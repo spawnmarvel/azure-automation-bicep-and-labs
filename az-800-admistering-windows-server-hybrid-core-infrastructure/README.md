@@ -28,6 +28,51 @@ Helpful Tips for AZ-800:
 * Identity is King: Nearly 35% of the exam is Active Directory. If you aren't familiar with FSMO roles or Group Policy inheritance, prioritize those modules.
 * PowerShell is mandatory: Unlike AZ-104 where you can mostly use the portal, AZ-800 will test you on specific Windows Server PowerShell cmdlets (e.g., Install-ADDSDomainController vs. Add-WindowsFeature).
 
+## Practicing for AZ-800
+
+Practicing for AZ-800 is different from AZ-104 because you can't do everything inside the Azure Portal. You need a Hybrid Lab—a place where a "local" server (on-premises) talks to the "cloud" (Azure).
+
+Since you are already comfortable with Azure, the easiest way to practice without buying physical hardware is to nest your lab inside Azure itself.
+
+1. The "Cloud-Only" Hybrid Lab
+
+You can simulate an on-premises data center by creating a specific Virtual Machine in Azure to act as your "Local Server."
+
+* Step 1: Create an Azure VM (Windows Server 2022).
+* Step 2: Treat this VM as if it is sitting in your office. Do not use Azure-specific tools to manage it at first.
+* Step 3: Install the Active Directory Domain Services role manually.
+* Step 4: Practice the "Hybrid" connection: Install Azure Arc on that VM to "project" it into the Azure Portal.
+
+2. The GitHub "Official" Labs
+
+Microsoft maintains a public repository of the exact labs used in their official instructor-led courses. These are the "gold standard" for practice.
+
+Where to find them: MicrosoftLearning/AZ-800 on GitHub.
+
+* https://github.com/MicrosoftLearning/AZ-800-Administering-Windows-Server-Hybrid-Core-Infrastructure
+
+What's inside: It contains step-by-step .md files that walk you through complex tasks like:
+
+* Implementing Azure File Sync (connecting local files to Azure).
+
+* Configuring Hybrid DNS (so your cloud VMs can find your local servers).
+
+* Setting up Azure AD Connect to sync users.
+
+3. Practice These "Big 5" Hands-on Skills
+
+If you can perform these five tasks without looking at a guide, you will likely pass the lab portion of the exam:
+
+* Group Policy (GPO): Create a policy in "On-Prem" AD and ensure it applies to a member server.
+
+* Azure Arc Onboarding: Use a script to bring a non-Azure server into Azure management.
+
+* Azure File Sync: Set up a Sync Group and observe how local files "tier" to the cloud to save space.
+
+* Windows Admin Center: Install the gateway and manage a server remotely through a web browser.
+
+* DNS Forwarding: Configure conditional forwarders so your Azure VNET can resolve .local domain names.
+
 ## Deploy and manage identity infrastructure
 
 ### Introduction to AD FS
@@ -105,7 +150,6 @@ Before you create a computer object in AD DS, you must have a place to put it. T
 * This container isn't an OU. Instead, it's an object of the Container class. Its common name is CN=Computers.
 
 Define AD DS forests and domains
-
 
 
 
