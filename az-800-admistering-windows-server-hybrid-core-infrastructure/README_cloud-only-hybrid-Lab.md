@@ -16,7 +16,15 @@ Environment
 
 ![vm](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/vm.png)
 
-* Step 3: Install the Active Directory Domain Services role manually.
+Step 3: Install the Active Directory Domain Services role manually.
+
+In the portal go to network settings, NIC, go to settings and ip configuration and set ip to static.
+
+![static](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/static.png)
+
+
+
+
 * Step 4: Practice the "Hybrid" connection: Install Azure Arc on that VM to "project" it into the Azure Portal.
 
 2. The GitHub "Official" Labs
