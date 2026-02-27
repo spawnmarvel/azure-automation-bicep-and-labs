@@ -123,4 +123,6 @@ After you click Save in the Portal:
 
 5. Ensure it points to 168.63.129.16 (Azure's internal recursive resolver) or 8.8.8.8. This ensures your DC can still download Windows Updates and talk to Azure services.
 
+![dns forward](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/dns_forward.png)
+
 
