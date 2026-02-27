@@ -81,6 +81,16 @@ Install-ADDSForest `
 
 ![ad_install](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/ad_install.png)
 
+Post-Install Verification Checklist
+
+Once the server reboots (which will take longer than usual because it is building the NTDS database), log in as LAB\Administrator and check these three things to ensure your AZ-800 lab is healthy:
+
+1. The "Active Directory" Tools: Go to Tools in Server Manager and verify you can open Active Directory Users and Computers.
+2. DNS Loopback: Check your IPv4 settings. It should now automatically be set to 127.0.0.1.
+
+3. The Firewall Profile: Because you are on Windows Server 2025, verify your firewall says "Domain Profile is Active". There is a known 2025 bug where it sometimes stays on "Public." If it is on Public, run this:
+
+Restart-NetAdapter *
 
 
 Step C: The Azure "Bridge" (In the Portal)
