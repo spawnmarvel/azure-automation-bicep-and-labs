@@ -54,6 +54,14 @@ Step B: The Promotion (Inside the VM)
 
 ![boot](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/boot.png)
 
+This error is very common when building a lab. It happens because Windows has a "pending" operation (like the role installation itself or a background update) that requires a fresh boot before it allows the deeper system changes needed for a Domain Controller.
+
+1. Restart the VM Now
+Even if you think you haven't changed anything, Windows Server 2025 often triggers background prerequisite updates when the AD DS role is added. Restart vmhybrid01 and wait 2 minutes for all services to start.
+
+2. Check for Pending Updates
+
+![update](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/update.png)
 
 Step C: The Azure "Bridge" (In the Portal)
 This is the step most people forget.
