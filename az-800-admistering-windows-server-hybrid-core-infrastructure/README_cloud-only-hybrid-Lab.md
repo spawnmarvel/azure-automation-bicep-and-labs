@@ -26,12 +26,34 @@ In the portal go to network settings, NIC, go to settings and ip configuration a
 
 Since your hostname is set and your IP is now Static in the portal, follow this exact sequence:
 
+Step A: The Software (Inside the VM)
+
 Login to server
 
 ```ps1
 Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
 ```
 
+Step B: The Promotion (Inside the VM)
+
+1. In Server Manager, click the Yellow Warning Flag > Promote this server to a domain controller.
+2. Select Add a new forest.
+3. Root Domain Name: lab.local (or whatever you prefer).
+4. Functional Level: Choose Windows Server 2025.
+5. Type your DSRM Password (keep this safe!). Thatswhatwedo104
+6. Click through the defaults and click Install. The server will reboot.
+
+Step C: The Azure "Bridge" (In the Portal)
+This is the step most people forget.
+
+1. Go to the Virtual Network (VNet) where 192.168.3.x exists.
+2. On the left, click DNS Servers.
+3. Select Custom.
+4. Enter 192.168.3.7.
+5. Click Save.
+
+Why Step C is the most important for AZ-800:
+By doing this at the VNet level, every other VM you create in the future will automatically use vmhybrid01 as its DNS server via DHCP. This makes "Domain Joining" other VMs effortless.
 
 
 
