@@ -250,7 +250,7 @@ gpmc.msc — Group Policy Management Console (Where you manage the rules).
 
 dnsmgmt.msc - DNS Manager
 
-## Phase 1: The "Structure" (Organization)
+## Phase 1: The "Structure" (Organization) TODO
 
 To keep it moving, I recommend Phase 1: The Structure. If we don't have OUs, our AD will become a mess within an hour.
 
