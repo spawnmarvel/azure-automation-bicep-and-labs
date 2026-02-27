@@ -83,7 +83,16 @@ Install-ADDSForest `
 
 Post-Install Verification Checklist
 
+Log in with your original admin user
+
+
 Once the server reboots (which will take longer than usual because it is building the NTDS database), log in as LAB\Administrator and check these three things to ensure your AZ-800 lab is healthy:
+
+This confirms your setup is technically correct. Your provisioned user was "promoted" along with the server. Here is the breakdown of why you see those specific paths—this is actually a prime AZ-800 troubleshooting topic regarding the difference between Builtin and Users.
+
+
+![new_admin](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/new_admin.png)
+
 
 1. The "Active Directory" Tools: Go to Tools in Server Manager and verify you can open Active Directory Users and Computers.
 2. DNS Loopback: Check your IPv4 settings. It should now automatically be set to 127.0.0.1.
