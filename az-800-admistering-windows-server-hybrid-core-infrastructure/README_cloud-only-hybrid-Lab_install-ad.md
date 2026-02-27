@@ -49,7 +49,7 @@ Step B: The Promotion (Inside the VM)
 2. Select Add a new forest.
 3. Root Domain Name: lab.local (or whatever you prefer).
 4. Functional Level: Choose Windows Server 2025.
-5. Type your DSRM Password (keep this safe!). Thatswhatwedo104
+5. Type your DSRM Password (keep this safe!). Thatswhatwedo104 (it is imsdal promoted user)
 6. Click through the defaults and click Install. The server will reboot.
 
 ![boot](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/boot.png)
@@ -240,7 +240,20 @@ resolvectl status | grep "DNS Servers"
 
 Since the "plumbing" is finished and your Linux machines are successfully talking to your Windows Server 2025 DC, we can move into the actual administration phase.
 
+## Tools
+
+dsa.msc — Active Directory Users and Computers (The classic tool for users, groups, and OUs).
+
+dsac.exe — Active Directory Administrative Center (The modern "Blue" UI; it has the Recycle Bin and PowerShell History).
+
+gpmc.msc — Group Policy Management Console (Where you manage the rules).
+
+dnsmgmt.msc - DNS Manager
+
 ## Phase 1: The "Structure" (Organization)
+
+To keep it moving, I recommend Phase 1: The Structure. If we don't have OUs, our AD will become a mess within an hour.
+
 
 ## Phase 2: The "Identity" (Users & Groups)
 
