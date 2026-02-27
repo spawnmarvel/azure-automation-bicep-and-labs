@@ -59,7 +59,7 @@ This error is very common when building a lab. It happens because Windows has a 
 1. Restart the VM Now
 Even if you think you haven't changed anything, Windows Server 2025 often triggers background prerequisite updates when the AD DS role is added. Restart vmhybrid01 and wait 2 minutes for all services to start.
 
-2. Check for Pending Updates
+2. Login and check for Pending Updates
 
 ![update](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/update.png)
 
