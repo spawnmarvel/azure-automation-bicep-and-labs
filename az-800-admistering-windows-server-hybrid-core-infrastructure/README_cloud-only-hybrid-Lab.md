@@ -24,6 +24,8 @@ In the portal go to network settings, NIC, go to settings and ip configuration a
 
 ![static](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/static.png)
 
+Since your hostname is set and your IP is now Static in the portal, follow this exact sequence:
+
 Login to server
 
 ```ps1
