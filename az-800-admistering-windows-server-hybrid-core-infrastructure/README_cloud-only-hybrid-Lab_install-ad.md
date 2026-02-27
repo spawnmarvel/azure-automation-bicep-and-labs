@@ -237,3 +237,15 @@ You can confirm this on any Linux machine by running:
 resolvectl status | grep "DNS Servers"
 # DNS Servers: 192.168.3.7
 ```
+
+Since the "plumbing" is finished and your Linux machines are successfully talking to your Windows Server 2025 DC, we can move into the actual administration phase.
+
+## Phase 1: The "Structure" (Organization)
+
+## Phase 2: The "Identity" (Users & Groups)
+
+## Phase 3: The "Policy" (Group Policy Objects)
+
+## Phase 4: The "Hybrid" (Azure Arc & Entra Connect)
+
+
