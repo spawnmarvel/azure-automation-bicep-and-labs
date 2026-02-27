@@ -63,6 +63,26 @@ Even if you think you haven't changed anything, Windows Server 2025 often trigge
 
 ![update](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/update.png)
 
+Final Step: Re-running the Promotion
+
+```ps1
+# This command promotes your server to a new forest named 'lab.local'
+# It will prompt you for the DSRM password twice.
+Import-Module ADDSDeployment
+Install-ADDSForest `
+    -DomainName "lab.local" `
+    -DomainNetbiosName "LAB" `
+    -ForestMode "Win2025" `
+    -DomainMode "Win2025" `
+    -InstallDns:$true `
+    -NoRebootOnCompletion:$false
+
+```
+
+![ad_install](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/ad_install.png)
+
+
+
 Step C: The Azure "Bridge" (In the Portal)
 This is the step most people forget.
 
