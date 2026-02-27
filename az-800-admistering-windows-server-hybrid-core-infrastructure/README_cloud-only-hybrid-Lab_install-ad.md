@@ -126,3 +126,114 @@ After you click Save in the Portal:
 ![dns forward](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/dns_forward.png)
 
 
+In your specific lab scenario, you are absolutely correct: if you only ever connect to your other VMs using their IP addresses (like 192.168.3.10), they will continue to function exactly as they do now.
+
+However, since you're prepping for the AZ-800, you need to be aware of the "silent" consequences. When you switch that Azure VNet setting to Custom, you are changing the "Source of Truth" for those VMs.
+
+
+1. The Linux Connectivity Test
+On your Linux VM, you can use dig or nslookup. These tools will tell you if the Linux machine is actually talking to your Windows DC for its DNS queries.
+
+Test 1: Check the AD Domain Resolution
+
+```bash
+dig @192.168.3.7 lab.local
+
+```
+
+log
+
+```log
+dig @192.168.3.7 lab.local
+
+; <<>> DiG 9.18.39-0ubuntu0.24.04.2-Ubuntu <<>> @192.168.3.7 lab.local
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; WARNING: .local is reserved for Multicast DNS
+;; You are currently testing what happens when an mDNS query is leaked to DNS
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 24907
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4000
+;; QUESTION SECTION:
+;lab.local.                     IN      A
+
+;; ANSWER SECTION:
+lab.local.              600     IN      A       192.168.3.7
+
+;; Query time: 1 msec
+;; SERVER: 192.168.3.7#53(192.168.3.7) (UDP)
+;; WHEN: Fri Feb 27 13:38:27 UTC 2026
+;; MSG SIZE  rcvd: 54
+```
+
+That dig output is a beautiful sight. It confirms three critical things for your lab:
+
+1. Connectivity: Your Linux VM can talk to the Windows DC over Port 53.
+2. Authority: The aa flag (Authoritative Answer) means your DC is confidently claiming it owns the lab.local zone.
+3. Resolution: It correctly mapped lab.local to the IP 192.168.3.7.
+
+One Critical Fix for Linux Internet Access
+Since your Linux machines are now going to ask 192.168.3.7 for everything (including google.com or Ubuntu update mirrors), you must ensure the Windows DC knows how to "pass the ball."
+
+If you haven't done this yet, do it now on vmhybrid01:
+
+1. Open DNS Manager.
+
+2. Right-click vmhybrid01 > Properties > Forwarders.
+
+3. Add 168.63.129.16 (Azure's DNS).
+
+Test from Linux: Run dig @192.168.3.7 google.com. If you get an IP back, your Linux VMs will have seamless internet access once you finalize "Step C."
+
+```bash
+dig @192.168.3.7 google.com
+```
+
+log
+```log
+ dig @192.168.3.7 google.com
+
+; <<>> DiG 9.18.39-0ubuntu0.24.04.2-Ubuntu <<>> @192.168.3.7 google.com
+; (1 server found)
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 51510
+;; flags: qr rd ra; QUERY: 1, ANSWER: 6, AUTHORITY: 0, ADDITIONAL: 1
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4000
+;; QUESTION SECTION:
+;google.com.                    IN      A
+
+;; ANSWER SECTION:
+google.com.             281     IN      A       142.251.30.102
+google.com.             281     IN      A       142.251.30.101
+google.com.             281     IN      A       142.251.30.100
+google.com.             281     IN      A       142.251.30.139
+google.com.             281     IN      A       142.251.30.113
+google.com.             281     IN      A       142.251.30.138
+
+;; Query time: 4 msec
+;; SERVER: 192.168.3.7#53(192.168.3.7) (UDP)
+;; WHEN: Fri Feb 27 13:40:26 UTC 2026
+;; MSG SIZE  rcvd: 135
+````
+
+Perfect. You are officially 100% ready.
+
+Since you finished Step C a while ago, your infrastructure is officially "locked in." The Linux machines are already talking to the Windows DC, and the Windows DC is talking to the internet.
+
+In the eyes of the AZ-800, you have moved past the Infrastructure phase and are now in the Hybrid Management phase.
+
+What is actually happening right now?
+Even if you haven't touched the Linux VMs since changing the portal settings, they have likely already "checked in" with the Azure DHCP server and silently swapped their DNS settings to point to 192.168.3.7.
+
+You can confirm this on any Linux machine by running:
+
+```bash
+resolvectl status | grep "DNS Servers"
+# DNS Servers: 192.168.3.7
+```
