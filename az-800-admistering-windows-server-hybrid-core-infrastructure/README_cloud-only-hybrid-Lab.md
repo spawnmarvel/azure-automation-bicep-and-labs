@@ -18,9 +18,18 @@ Environment
 
 Step 3: Install the Active Directory Domain Services role manually.
 
+In the Azure Portal, the term "Dynamic" or "Static" is hidden inside the IP configuration settings. Since your DC is on 192.168.3.7, you must lock it now so it never changes, as AD will break if Azure's DHCP assigns a new address later.
+
 In the portal go to network settings, NIC, go to settings and ip configuration and set ip to static.
 
 ![static](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/static.png)
+
+Login to server
+
+```ps1
+Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools
+```
+
 
 
 
