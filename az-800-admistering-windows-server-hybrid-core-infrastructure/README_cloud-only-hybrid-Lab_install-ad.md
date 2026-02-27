@@ -94,14 +94,6 @@ This confirms your setup is technically correct. Your provisioned user was "prom
 ![new_admin](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/new_admin.png)
 
 
-1. The "Active Directory" Tools: Go to Tools in Server Manager and verify you can open Active Directory Users and Computers.
-2. DNS Loopback: Check your IPv4 settings. It should now automatically be set to 127.0.0.1.
-
-3. The Firewall Profile: Because you are on Windows Server 2025, verify your firewall says "Domain Profile is Active". There is a known 2025 bug where it sometimes stays on "Public." If it is on Public, run this:
-
-Restart-NetAdapter *
-
-
 Step C: The Azure "Bridge" (In the Portal)
 This is the step most people forget.
 
@@ -111,9 +103,24 @@ This is the step most people forget.
 4. Enter 192.168.3.7.
 5. Click Save.
 
+
+![vnet](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/vnet.png)
+
 Why Step C is the most important for AZ-800:
 By doing this at the VNet level, every other VM you create in the future will automatically use vmhybrid01 as its DNS server via DHCP. This makes "Domain Joining" other VMs effortless.
 
 
+One Final Warning (The Azure DNS Loop)
+After you click Save in the Portal:
+
+1. Azure doesn't update the VM immediately. The VM only picks up this change when its DHCP lease renews or it reboots.
+
+2. The "Forwarder" Requirement: Now that your VNet is pointing to your DC for DNS, your DC is responsible for resolving the internet.
+
+3. Action: In your VM, open the DNS Manager (dnsmgmt.msc).
+
+4. Right-click your Server Name > Properties > Forwarders.
+
+5. Ensure it points to 168.63.129.16 (Azure's internal recursive resolver) or 8.8.8.8. This ensures your DC can still download Windows Updates and talk to Azure services.
 
 
