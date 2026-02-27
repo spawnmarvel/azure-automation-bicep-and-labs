@@ -4,8 +4,17 @@
 
 You can simulate an on-premises data center by creating a specific Virtual Machine in Azure to act as your "Local Server."
 
-* Step 1: Create an Azure VM (Windows Server 2022).
+* Step 1: Create an Azure VM (Windows Server 2025).
 * Step 2: Treat this VM as if it is sitting in your office. Do not use Azure-specific tools to manage it at first.
+
+Environment
+
+* Rg-ukshybridlab
+* vmhybrid01
+* Windows (Windows Server 2025 Datacenter)
+* Standard B2ms (2 vcpus, 8 GiB memory)
+
+
 * Step 3: Install the Active Directory Domain Services role manually.
 * Step 4: Practice the "Hybrid" connection: Install Azure Arc on that VM to "project" it into the Azure Portal.
 
