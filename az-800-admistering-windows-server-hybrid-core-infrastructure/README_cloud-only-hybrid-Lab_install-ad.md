@@ -254,6 +254,63 @@ dnsmgmt.msc - DNS Manager
 
 To keep it moving, I recommend Phase 1: The Structure. If we don't have OUs, our AD will become a mess within an hour.
 
+Phase 1 is about moving away from the "flat" default structure and building a hierarchy that allows for Group Policy (GPO) inheritance and Delegation of Control.
+
+In the AZ-800, Microsoft follows the "Enterprise" model. We’ll create a top-level OU for the company and sub-OUs for specific resources.
+
+1. The Production Hierarchy
+
+Since your lab is lab.local, we will build this structure:
+
+LAB-Production (Top Level)
+
+* *dmins (Where you put your Domain Admins)
+* Users (Standard staff)
+* Servers (Windows VMs)
+* Linux-Workloads (Your Ubuntu/Linux VMs)
+* Groups (Security and Distribution groups)
+
+2. The PowerShell Script
+Running this is much faster than right-clicking in dsa.msc. Open PowerShell (Admin) on your DC and paste this:
+
+```ps1
+# Define the root path
+$root = "DC=lab,DC=local"
+
+# Create Top Level OU
+New-ADOrganizationalUnit -Name "LAB-Production" -Path $root
+
+# Create Sub-OUs
+$parent = "OU=LAB-Production,$root"
+$subOUs = @("Admins", "Users", "Servers", "Linux-Workloads", "Groups")
+
+foreach ($ou in $subOUs) {
+    New-ADOrganizationalUnit -Name $ou -Path $parent
+    Write-Host "Created OU: $ou" -ForegroundColor Cyan
+}
+```
+3. Verify in the GUI
+
+1. Open dsa.msc.
+
+2. You should now see the LAB-Production folder.
+
+3. Pro Tip: Right-click the LAB-Production OU, go to Properties -> Object, and ensure "Protect object from accidental deletion" is checked. This is a common exam topic to prevent "fat-finger" disasters.
+
+4. Moving your Provisioned User
+Right now, your admin user is still in the default Users container. Let's move them to the new Admins OU:
+
+1. In dsa.msc, go to the Users container.
+
+2. Find your username.
+
+3. Right-click -> Move.
+
+4. Select LAB-Production -> Admins.
+
+Why this matters for your Linux VMs
+By having a specific Linux-Workloads OU, you can later apply a Group Policy that only affects Linux machines (like pushing an SSH public key or an Azure Arc script) without breaking your Windows Domain Controller.
+
 
 ## Phase 2: The "Identity" (Users & Groups)
 
