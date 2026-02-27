@@ -52,6 +52,9 @@ Step B: The Promotion (Inside the VM)
 5. Type your DSRM Password (keep this safe!). Thatswhatwedo104
 6. Click through the defaults and click Install. The server will reboot.
 
+![boot](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/boot.png)
+
+
 Step C: The Azure "Bridge" (In the Portal)
 This is the step most people forget.
 
