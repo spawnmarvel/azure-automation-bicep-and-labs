@@ -5,8 +5,9 @@
 
 You can simulate an on-premises data center by creating a specific Virtual Machine in Azure to act as your "Local Server."
 
-* Step 1: Create an Azure VM (Windows Server 2025).
-* Step 2: Treat this VM as if it is sitting in your office. Do not use Azure-specific tools to manage it at first.
+Step 1: Create an Azure VM (Windows Server 2025).
+
+Step 2: Treat this VM as if it is sitting in your office. Do not use Azure-specific tools to manage it at first.
 
 Environment
 
