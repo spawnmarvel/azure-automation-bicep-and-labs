@@ -15,9 +15,9 @@ Environment
 * Windows (Windows Server 2025 Datacenter)
 * Standard B2ms (2 vcpus, 8 GiB memory)
 
-* Step 3: Install the Active Directory Domain Services role manually.
+Step 3: Install the Active Directory Domain Services role manually.
 
-* Step 4: Practice the "Hybrid" connection: Install Azure Arc on that VM to "project" it into the Azure Portal.
+Step 4: Practice the "Hybrid" connection: Install Azure Arc on that VM to "project" it into the Azure Portal.
 
 2. The GitHub "Official" Labs
 
