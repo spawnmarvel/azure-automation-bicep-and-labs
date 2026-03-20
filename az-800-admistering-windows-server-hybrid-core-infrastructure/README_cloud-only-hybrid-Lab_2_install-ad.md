@@ -177,7 +177,7 @@ That dig output is a beautiful sight. It confirms three critical things for your
 2. Authority: The aa flag (Authoritative Answer) means your DC is confidently claiming it owns the lab.local zone.
 3. Resolution: It correctly mapped lab.local to the IP 192.168.3.7.
 
-## One Critical Fix for VM Internet Access
+## Step D: One Critical Fix for VM Internet Access
 
 One Critical Fix for Linux Internet Access.
 
