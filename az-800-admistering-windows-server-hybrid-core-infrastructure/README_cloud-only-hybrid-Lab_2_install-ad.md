@@ -25,7 +25,7 @@ In the portal go to network settings, NIC, go to settings and ip configuration a
 
 Since your hostname is set and your IP is now Static in the portal, follow this exact sequence:
 
-Step A: The Software (Inside the VM)
+## Step A: The Software (Inside the VM)
 
 Login to server
 
@@ -41,7 +41,7 @@ Success Restart Needed Exit Code      Feature Result
 True    No             Success        {Active Directory Domain Services, Group P...
 ```
 
-Step B: The Promotion (Inside the VM)
+## Step B: The Promotion (Inside the VM)
 
 1. In Server Manager, click the Yellow Warning Flag > Promote this server to a domain controller.
 
@@ -95,7 +95,8 @@ This confirms your setup is technically correct. Your provisioned user was "prom
 ![new_admin](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/new_admin.png)
 
 
-Step C: The Azure "Bridge" (In the Portal)
+## Step C: The Azure "Bridge" (In the Portal)
+
 This is the step most people forget.
 
 1. Go to the Virtual Network (VNet) where 192.168.3.x exists.
