@@ -251,7 +251,7 @@ gpmc.msc — Group Policy Management Console (Where you manage the rules).
 
 dnsmgmt.msc - DNS Manager
 
-## Phase 1: The "Structure" (Organization) TODO
+## Phase 1: The "Structure" (Organization) TODO (Take the MS learn first below)
 
 To keep it moving, I recommend Phase 1: The Structure. If we don't have OUs, our AD will become a mess within an hour.
 
@@ -265,7 +265,7 @@ Since your lab is lab.local, we will build this structure:
 
 LAB-Production (Top Level)
 
-* *dmins (Where you put your Domain Admins)
+* *Admins (Where you put your Domain Admins)
 * Users (Standard staff)
 * Servers (Windows VMs)
 * Linux-Workloads (Your Ubuntu/Linux VMs)
@@ -313,10 +313,19 @@ Why this matters for your Linux VMs
 By having a specific Linux-Workloads OU, you can later apply a Group Policy that only affects Linux machines (like pushing an SSH public key or an Azure Arc script) without breaking your Windows Domain Controller.
 
 
-## Phase 2: The "Identity" (Users & Groups)
+# MS Learn Active Directory Domain Services
 
-## Phase 3: The "Policy" (Group Policy Objects)
+https://learn.microsoft.com/en-us/training/paths/active-directory-domain-services/
 
-## Phase 4: The "Hybrid" (Azure Arc & Entra Connect)
+## Introduction to AD DS
+
+## Manage AD DS domain controllers and FSMO roles
+
+## Implement Group Policy Objects
+
+## Manage advanced features of AD DS
+
+## Implement and manage Active Directory Certificate Services
+
 
 
