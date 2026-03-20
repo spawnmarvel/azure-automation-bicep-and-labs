@@ -25,7 +25,7 @@ In the portal go to network settings, NIC, go to settings and ip configuration a
 
 Since your hostname is set and your IP is now Static in the portal, follow this exact sequence:
 
-## Step A: The Software (Inside the VM)
+## Step A: The Software (Inside the VM) Install-WindowsFeature -Name AD-Domain-Services
 
 Login to server
 
@@ -41,7 +41,7 @@ Success Restart Needed Exit Code      Feature Result
 True    No             Success        {Active Directory Domain Services, Group P...
 ```
 
-## Step B: The Promotion (Inside the VM)
+## Step B: The Promotion (Inside the VM) Promote this server to a domain controller
 
 1. In Server Manager, click the Yellow Warning Flag > Promote this server to a domain controller.
 
@@ -95,7 +95,7 @@ This confirms your setup is technically correct. Your provisioned user was "prom
 ![new_admin](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/new_admin.png)
 
 
-## Step C: The Azure "Bridge" (In the Portal)
+## Step C: The Azure "Bridge" (In the Portal) use domain controller vm as DNS server
 
 This is the step most people forget.
 
@@ -177,7 +177,7 @@ That dig output is a beautiful sight. It confirms three critical things for your
 2. Authority: The aa flag (Authoritative Answer) means your DC is confidently claiming it owns the lab.local zone.
 3. Resolution: It correctly mapped lab.local to the IP 192.168.3.7.
 
-## Step D: One Critical Fix for VM Internet Access
+## Step D: Domain controller forward VM's Internet Access
 
 One Critical Fix for Linux Internet Access.
 
