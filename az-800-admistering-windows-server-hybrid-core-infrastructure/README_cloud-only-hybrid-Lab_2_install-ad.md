@@ -177,7 +177,10 @@ That dig output is a beautiful sight. It confirms three critical things for your
 2. Authority: The aa flag (Authoritative Answer) means your DC is confidently claiming it owns the lab.local zone.
 3. Resolution: It correctly mapped lab.local to the IP 192.168.3.7.
 
-One Critical Fix for Linux Internet Access
+## One Critical Fix for VM Internet Access
+
+One Critical Fix for Linux Internet Access.
+
 Since your Linux machines are now going to ask 192.168.3.7 for everything (including google.com or Ubuntu update mirrors), you must ensure the Windows DC knows how to "pass the ball."
 
 If you haven't done this yet, do it now on vmhybrid01:
@@ -188,7 +191,7 @@ If you haven't done this yet, do it now on vmhybrid01:
 
 3. Add 168.63.129.16 (Azure's DNS).
 
-Test from Linux: Run dig @192.168.3.7 google.com. If you get an IP back, your Linux VMs will have seamless internet access once you finalize "Step C."
+Test from Linux: Run dig @192.168.3.7 google.com. If you get an IP back, your Linux VMs will have seamless internet access since you did Step C.
 
 ```bash
 dig @192.168.3.7 google.com
