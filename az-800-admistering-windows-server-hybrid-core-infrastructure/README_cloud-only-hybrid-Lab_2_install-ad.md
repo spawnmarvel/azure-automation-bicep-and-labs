@@ -284,6 +284,10 @@ The netsh interface command provides a comprehensive set of tools for configurin
 ```ps1
 netsh interface [6to4 | clat | dump | fl48 | fl68 | help | httpstunnel | ipv4 | ipv6 | isatap | portproxy | set | show | tcp | teredo | udp | ?]
 ``
+v4tov4
+
+* Adds a proxy rule to listen on an IPv4 address and port, forwarding incoming TCP connections to another IPv4 address and port.
+
 
 https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netsh-interface
 
