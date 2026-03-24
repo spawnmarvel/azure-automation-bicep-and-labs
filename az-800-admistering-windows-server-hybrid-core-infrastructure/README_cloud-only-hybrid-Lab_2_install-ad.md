@@ -276,6 +276,17 @@ New-NetFirewallRule -DisplayName "Octopus Linux Forwarding" -Direction Inbound -
 
 Add NSG also for vmhybrid01 for inbound 10934 since we already have a tenatcle for vmhybrid01, we must use a different port for docker03getmirrortes.
 
+
+### netsh interface
+
+The netsh interface command provides a comprehensive set of tools for configuring and managing network interfaces in Windows.
+
+```ps1
+netsh interface [6to4 | clat | dump | fl48 | fl68 | help | httpstunnel | ipv4 | ipv6 | isatap | portproxy | set | show | tcp | teredo | udp | ?]
+``
+
+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netsh-interface
+
 ## Tools
 
 dsa.msc — Active Directory Users and Computers (The classic tool for users, groups, and OUs).
