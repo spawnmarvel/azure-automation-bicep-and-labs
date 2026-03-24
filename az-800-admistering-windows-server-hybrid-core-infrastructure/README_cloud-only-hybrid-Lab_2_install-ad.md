@@ -245,6 +245,37 @@ resolvectl status | grep "DNS Servers"
 
 Since the "plumbing" is finished and your Linux machines are successfully talking to your Windows Server 2025 DC, we can move into the actual administration phase.
 
+
+## Extra section: Network gateway and port proxy for vm with no public ip
+
+Since your Windows Server (vmhybrid01) has a public IP and sits in the same network as your private Linux box (docker03getmirrortest), you can use it as a ***Network Gateway***.
+
+NSG outbound for offline vm docker03getmirrortest is internet deny and it has no public IP, so we cannot reach it.
+
+* Just private, 172.64.0.5
+
+![deny_internet](https://github.com/spawnmarvel/todo-and-current/blob/main/octopus_free/images/deny_internet.png)
+
+1. The "Signpost" Command (Windows)
+On your Windows Server 2025, open PowerShell as Administrator and run this command:
+
+```ps1
+# Add the new one on Port 10934
+# Run this on your Windows Server to create a dedicated lane for the Linux traffic:
+netsh interface portproxy add v4tov4 listenport=10934 listenaddress=0.0.0.0 connectport=10933 connectaddress=172.64.0.5
+```
+* listenport=10934: The port Octopus will call, we up one port since we already have at tentacle for vmhybrid01
+* listenaddress=0.0.0.0: Tells Windows to listen on all its IPs (including the public one).
+* connectaddress: This is the internal/private IP of your Linux machine.
+
+2. Open the Windows Firewall
+
+```ps1
+New-NetFirewallRule -DisplayName "Octopus Linux Forwarding" -Direction Inbound -LocalPort 10934 -Protocol TCP -Action Allow
+```
+
+Add NSG also for vmhybrid01 for inbound 10934 since we already have a tenatcle for vmhybrid01, we must use a different port for docker03getmirrortes.
+
 ## Tools
 
 dsa.msc — Active Directory Users and Computers (The classic tool for users, groups, and OUs).
