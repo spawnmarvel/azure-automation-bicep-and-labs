@@ -21,7 +21,7 @@ In the Azure Portal, the term "Dynamic" or "Static" is hidden inside the IP conf
 
 In the portal go to network settings, NIC, go to settings and ip configuration and set ip to static.
 
-![static](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/static.png)
+![static](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/static.png)
 
 Since your hostname is set and your IP is now Static in the portal, follow this exact sequence:
 
@@ -45,7 +45,7 @@ True    No             Success        {Active Directory Domain Services, Group P
 
 1. In Server Manager, click the Yellow Warning Flag > Promote this server to a domain controller.
 
-![promote](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/promote.png)
+![promote](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/promote.png)
 
 2. Select Add a new forest.
 3. Root Domain Name: lab.local (or whatever you prefer).
@@ -53,7 +53,7 @@ True    No             Success        {Active Directory Domain Services, Group P
 5. Type your DSRM Password (keep this safe!). Thatswhatwedo104 (it is imsdal promoted user)
 6. Click through the defaults and click Install. The server will reboot.
 
-![boot](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/boot.png)
+![boot](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/boot.png)
 
 This error is very common when building a lab. It happens because Windows has a "pending" operation (like the role installation itself or a background update) that requires a fresh boot before it allows the deeper system changes needed for a Domain Controller.
 
@@ -62,7 +62,7 @@ Even if you think you haven't changed anything, Windows Server 2025 often trigge
 
 2. Login and check for Pending Updates
 
-![update](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/update.png)
+![update](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/update.png)
 
 Final Step: Re-running the Promotion
 
@@ -80,7 +80,7 @@ Install-ADDSForest `
 
 ```
 
-![ad_install](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/ad_install.png)
+![ad_install](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/ad_install.png)
 
 Post-Install Verification Checklist
 
@@ -92,7 +92,7 @@ Once the server reboots (which will take longer than usual because it is buildin
 This confirms your setup is technically correct. Your provisioned user was "promoted" along with the server. Here is the breakdown of why you see those specific paths—this is actually a prime AZ-800 troubleshooting topic regarding the difference between Builtin and Users.
 
 
-![new_admin](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/new_admin.png)
+![new_admin](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/new_admin.png)
 
 
 ## Step C: The Azure "Bridge" (In the Portal) use domain controller vm as DNS server
@@ -106,7 +106,7 @@ This is the step most people forget.
 5. Click Save.
 
 
-![vnet](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/vnet.png)
+![vnet](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/vnet.png)
 
 Why Step C is the most important for AZ-800:
 By doing this at the VNet level, every other VM you create in the future will automatically use vmhybrid01 as its DNS server via DHCP. This makes "Domain Joining" other VMs effortless.
@@ -125,7 +125,7 @@ After you click Save in the Portal:
 
 5. Ensure it points to 168.63.129.16 (Azure's internal recursive resolver) or 8.8.8.8. This ensures your DC can still download Windows Updates and talk to Azure services.
 
-![dns forward](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-800-admistering-windows-server-hybrid-core-infrastructure/images/dns_forward.png)
+![dns forward](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/dns_forward.png)
 
 
 In your specific lab scenario, you are absolutely correct: if you only ever connect to your other VMs using their IP addresses (like 192.168.3.10), they will continue to function exactly as they do now.
