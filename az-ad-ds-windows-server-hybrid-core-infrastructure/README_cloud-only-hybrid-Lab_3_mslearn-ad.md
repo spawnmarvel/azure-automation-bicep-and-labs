@@ -154,7 +154,58 @@ Managing an Active Directory environment involves using a variety of graphical a
 Pro Tip: Within the Active Directory Administrative Center, you can use the PowerShell History Viewer to see the exact code used to perform GUI actions, which is a great way to learn automation.
 
 
-## Manage AD DS domain controllers and FSMO roles (Lab)
+## Manage AD DS domain controllers and FSMO roles (Install)
+
+Deploy AD DS domain controllers in an on-premises environment
+The domain controller deployment process has two steps. 
+
+🟦 First, you install the binaries necessary to implement the domain controller role. For this purpose, you can use Windows Admin Center or Server Manager.
+
+🟦 The second step is to configure AD DS role. The simplest way to perform this configuration is by using the Active Directory Domain Services Configuration Wizard.
+
+A list of good questions and answers are listed her an dalso how to install.
+
+🟦  Deploy AD DS domain controllers in Azure virtual machines (VMs)
+
+* This is what we have for our lab.
+
+### Maintain AD DS domain controllers
+
+Maintaining AD DS domain controllers is essential for business continuity and authentication availability. Here is a summary of the core operational strategies:
+
+🏛️ Domain Controller Availability
+💠 Multi-Master Replication: AD DS uses a replication process to sync data across all controllers.
+💠 Redundancy Rule: Deploy a minimum of two domain controllers per site (or geographical region) to ensure high availability and balance authentication loads.
+
+♻️ Object Recovery: The Recycle Bin
+💠 No Downtime: The Active Directory Recycle Bin allows for the restoration of deleted objects without taking the server offline.
+💠 Persistence: Deleted objects stay in the "Deleted Objects" container for a set lifetime (default is 180 days).
+💠 Limitation: It cannot revert changes made to existing objects; it only recovers fully deleted ones.
+
+💾 Backup and System State
+💠 System State Requirement: Standard full-server backups are insufficient for AD DS recovery. You must specifically back up the System State, which includes the registry and the AD DS database.
+💠 DSRM Mode: To perform a restore, the controller must be booted into Directory Services Repair Mode (DSRM) using a dedicated administrator password.
+
+
+The Global Catalog (GC) is a cross-domain search index that facilitates forest-wide object discovery and authentication. Here is the condensed summary:
+
+🔍 Core Functionality
+💠 Partial Replica: Contains a read-only, searchable copy of all objects in the forest, but only a subset of attributes (e.g., name, email) to optimize traffic.
+💠 Forest-Wide Search: Enables users and services (like Exchange) to find objects located in different domains without querying every individual domain controller.
+💠 Authentication Role: Required during sign-in to verify universal group memberships; without a GC, authentication may fail in multi-domain environments.
+
+#### Manage the AD DS global catalog role
+
+⚙️ Management & Best Practices
+💠 Schema Customization: You can modify the AD DS schema to add or remove which specific attributes replicate to the GC.
+💠 Placement Strategy:
+
+Single Domain: Assign the GC role to all domain controllers.
+
+Multi-Domain/Site: Usually assigned to all DCs, but can be limited to specific servers to reduce replication traffic in low-bandwidth scenarios (though this creates a dependency on site connectivity).
+
+[!NOTE]
+While the GC stores all objects, it does not store all data. It only holds the attributes most relevant for cross-domain identification.
 
 https://learn.microsoft.com/en-us/training/modules/manage-active-directory-domain-services-flexible-single-master-operation-roles/
 
