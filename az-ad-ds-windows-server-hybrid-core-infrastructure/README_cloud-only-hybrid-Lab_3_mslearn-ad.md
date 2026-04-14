@@ -194,7 +194,7 @@ The Global Catalog (GC) is a cross-domain search index that facilitates forest-w
 💠 Forest-Wide Search: Enables users and services (like Exchange) to find objects located in different domains without querying every individual domain controller.
 💠 Authentication Role: Required during sign-in to verify universal group memberships; without a GC, authentication may fail in multi-domain environments.
 
-#### Manage the AD DS global catalog role
+### Manage the AD DS global catalog role
 
 ⚙️ Management & Best Practices
 💠 Schema Customization: You can modify the AD DS schema to add or remove which specific attributes replicate to the GC.
@@ -207,6 +207,43 @@ Multi-Domain/Site: Usually assigned to all DCs, but can be limited to specific s
 [!NOTE]
 While the GC stores all objects, it does not store all data. It only holds the attributes most relevant for cross-domain identification.
 
+### Manage AD DS operations masters
+
+While Active Directory is mostly a multi-master system, certain tasks require a single point of authority. These are managed via Flexible Single Master Operation (FSMO) roles.
+
+There are five operations master roles:
+
+* Schema master
+* Domain-naming master
+* Infrastructure master
+* RID master
+* PDC emulator master
+
+By default, the first domain controller installed in a forest hosts all five roles. However, you can transfer these roles after deploying additional domain controllers. 
+
+🌐 Forest-Level Roles (One per Forest)
+💠 Schema Master: Controls all updates and modifications to the AD schema.
+💠 Domain Naming Master: Manages the addition, removal, or renaming of domains in the forest.
+
+🏠 Domain-Level Roles (One per Domain)
+💠 RID Master: Assigns unique ID blocks (Relative IDs) to domain controllers so they can create new security objects (users, groups) without SID conflicts.
+💠 Infrastructure Master: Syncs cross-domain object references (e.g., seeing a user's name from Domain A while in Domain B). Note: Should not be on a Global Catalog server unless all DCs are GCs.
+💠 PDC Emulator: The most active role. It handles password changes, account lockouts, Group Policy edits, and acts as the primary time source.
+
+
+💻 Running the Command
+To see the forest properties and identify your Forest-Level FSMO holders, run:
+
+```ps1
+Get-ADForest | Select-Object Name, SchemaMaster, DomainNamingMaster, ForestMode
+```
+Result
+
+```txt
+Name      SchemaMaster         DomainNamingMaster          ForestMode
+----      ------------         ------------------          ----------
+lab.local vmhybrid01.lab.local vmhybrid01.lab.local Windows2025Forest
+``` 
 https://learn.microsoft.com/en-us/training/modules/manage-active-directory-domain-services-flexible-single-master-operation-roles/
 
 ## Implement Group Policy Objects
