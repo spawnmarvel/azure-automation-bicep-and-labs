@@ -287,6 +287,8 @@ https://learn.microsoft.com/en-us/training/modules/manage-active-directory-domai
 
 ## Implement Group Policy Objects
 
+https://learn.microsoft.com/en-us/training/modules/implement-group-policy-objects/1-introduction
+
 ## Manage advanced features of AD DS
 
 ## Implement and manage Active Directory Certificate Services
