@@ -13,6 +13,8 @@ gpmc.msc — Group Policy Management Console (Where you manage the rules).
 
 dnsmgmt.msc - DNS Manager
 
+![tools](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/tools.png)
+
 ## Introduction to AD DS
 
 ### Active Directory Domain Services (AD DS)
@@ -246,6 +248,40 @@ lab.local vmhybrid01.lab.local vmhybrid01.lab.local Windows2025Forest
 ``` 
 
 ![get forest](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/get_forest.png)
+
+### Manage AD DS schema
+
+The AD DS Schema is the "blueprint" or "DNA" of your forest. It defines the structure for every piece of data stored in the directory.
+
+🏗️ Structure and Components
+💠 Object Classes: Templates for things like users, computers, or groups (e.g., the "User" class).
+💠 Attributes: Specific data fields within a class (e.g., displayName or mail).
+
+For example, the user class consists of more than 400 possible attributes, including cn (the common name attribute), givenName, displayName, objectSID, and manager. Of these attributes, the cn and objectSID attributes are mandatory.
+
+💠 Rules: The schema dictates which attributes are mandatory (required to create the object) and which are optional.
+💠 Class Types: * Structural: The only classes that can actually exist as objects in the database.
+
+Auxiliary: Used to add extra attributes to structural classes.
+
+🛠️ Schema Management Rules
+💠 Single Source: All changes must occur on the Schema Master FSMO role holder.
+💠 One-Way Street: Deletions are not supported. Once an attribute or class is added, it is permanent (though it can be "defunct" or disabled).
+💠 Replication: Once changed, the update replicates to every domain controller in the entire forest.
+💠 Permissions: You must be a member of the Schema Admins group (found in the forest root domain) to make modifications.
+
+⚠️ Best Practices
+💠 Test First: Because changes are forest-wide and irreversible, always verify schema extensions (like those for Exchange or custom apps) in a lab environment.
+💠 Snap-in Access: The Active Directory Schema snap-in is not visible by default; it usually requires registering the schmmgmt.dll file before it can be added to the MMC console.
+
+[!IMPORTANT]
+Since you are running a Windows2025Forest, your schema is already at the most current version, supporting all the latest object types and security attributes available in that OS generation.
+
+
+Overview.
+
+![overview](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/overview.png)
+
 
 https://learn.microsoft.com/en-us/training/modules/manage-active-directory-domain-services-flexible-single-master-operation-roles/
 
