@@ -244,6 +244,9 @@ Name      SchemaMaster         DomainNamingMaster          ForestMode
 ----      ------------         ------------------          ----------
 lab.local vmhybrid01.lab.local vmhybrid01.lab.local Windows2025Forest
 ``` 
+
+![get forest](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/get_forest.png)
+
 https://learn.microsoft.com/en-us/training/modules/manage-active-directory-domain-services-flexible-single-master-operation-roles/
 
 ## Implement Group Policy Objects
