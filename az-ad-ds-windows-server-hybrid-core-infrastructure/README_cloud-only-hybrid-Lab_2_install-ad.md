@@ -245,8 +245,51 @@ resolvectl status | grep "DNS Servers"
 
 Since the "plumbing" is finished and your Linux machines are successfully talking to your Windows Server 2025 DC, we can move into the actual administration phase.
 
+***But, know this:***
 
-## Extra section: Network gateway and port proxy for vm with no public ip
+Why "Ready" for DNS doesn't mean "Ready" for APT
+
+In networking, successful name resolution is only the first half of the equation. Here is why apt update still fails even though dig succeeds:
+
+🔵 DNS (The Map): vmchaos03 asks 192.168.3.7, "Where is Google?" The DC answers, "It's at 142.250.140.102." This works because the path to your DC is internal (Private IP to Private IP).
+
+🔴 Routing (The Road): vmchaos03 then tries to send a request to 142.250.140.102. Since it has no Public IP or NAT Gateway, the Azure fabric sees a private-only VM trying to talk to a public-only address and drops the packet at the edge.
+
+The Status of your Hybrid Environment
+
+You have successfully achieved the Hybrid Identity/Infrastructure goal of the AZ-800:
+
+🔵 Active Directory Integration: Your Linux nodes are respecting the Windows DC as the source of truth for DNS.
+
+🔵 Internal Connectivity: VNet peering or local routing is allowing the VMs to talk to the DC at 192.168.3.7.
+
+🔴 Missing Internet Egress: Because you are keeping vmchaos03 private, it is technically "secure by isolation," which prevents standard apt operations.
+
+## Extra section: The HTTP Proxy Method for outbund private vms
+
+Instead of moving files manually, you can install a lightweight proxy (like Squid for Windows or even using WinGate) on your DC. Once that is running, you simply tell the Linux VM to "tunnel" its apt requests through the DC.
+
+WinGate8.5.9.4883-USE.exe
+
+Administrator and none
+
+![wingate](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/wingate.png)
+
+
+On vmchaos03, you would create a proxy configuration file:
+
+```bash
+# Version: 1.1.2
+# Add the proxy configuration for apt
+echo 'Acquire::http::Proxy "http://192.168.3.7:3128";' | sudo tee /etc/apt/apt.conf.d/99proxy
+echo 'Acquire::https::Proxy "http://192.168.3.7:3128";' | sudo tee -a /etc/apt/apt.conf.d/99proxy
+```
+
+* *esult: When you run sudo apt update, the VM asks the DC to fetch the files for it.
+
+* Security: Your VM stays private, and you can log exactly what the VM is downloading on the DC.
+
+## Extra section: Network gateway and port proxy for inbound private vms
 
 Since your Windows Server (vmhybrid01) has a public IP and sits in the same network as your private Linux box (docker03getmirrortest), you can use it as a ***Network Gateway***.
 
