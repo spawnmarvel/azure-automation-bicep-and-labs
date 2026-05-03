@@ -289,21 +289,44 @@ start the service
 
 ![wingate_service](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/wingate_service.png)
 
+Final Firewall Check (On the DC)
+Before moving to the Linux terminal, ensure the Windows Firewall is allowing traffic on that new port. Run this in PowerShell as Administrator:
+
+```ps1
+New-NetFirewallRule -DisplayName "WinGate Proxy 3128" -Direction Inbound -LocalPort 3128 -Protocol TCP -Action Allow
+```
 
 
 
 On vmchaos03, you would create a proxy configuration file:
 
 ```bash
-# Version: 1.1.2
+# test proxy
+nc -zv 192.168.3.7 3128
+Connection to 192.168.3.7 3128 port [tcp/*] succeeded!
+
 # Add the proxy configuration for apt
 echo 'Acquire::http::Proxy "http://192.168.3.7:3128";' | sudo tee /etc/apt/apt.conf.d/99proxy
 echo 'Acquire::https::Proxy "http://192.168.3.7:3128";' | sudo tee -a /etc/apt/apt.conf.d/99proxy
+
+# update
+sudo apt update
+sudo apt upgrade
+
 ```
 
-* *esult: When you run sudo apt update, the VM asks the DC to fetch the files for it.
+* Result: When you run sudo apt update, the VM asks the DC to fetch the files for it.
 
 * Security: Your VM stays private, and you can log exactly what the VM is downloading on the DC.
+
+🔵 Summary of the Data Path
+vmchaos03 -> (Outbound from Linux)
+
+Windows DC -> (Inbound to Port 3128 - Allowed by your rule)
+
+WinGate Service -> Processes request
+
+Windows DC -> (Outbound to Internet - Allowed by default)
 
 ## Extra section: Network gateway and port proxy for inbound private vms
 
