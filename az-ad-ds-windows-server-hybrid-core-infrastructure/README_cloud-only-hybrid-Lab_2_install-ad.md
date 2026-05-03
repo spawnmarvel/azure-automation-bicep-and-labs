@@ -320,6 +320,7 @@ sudo apt upgrade
 * Security: Your VM stays private, and you can log exactly what the VM is downloading on the DC.
 
 🔵 Summary of the Data Path
+
 vmchaos03 -> (Outbound from Linux)
 
 Windows DC -> (Inbound to Port 3128 - Allowed by your rule)
@@ -329,6 +330,8 @@ WinGate Service -> Processes request
 Windows DC -> (Outbound to Internet - Allowed by default)
 
 By using WinGate and a strictly configured firewall, you have created a one-way exit for your private VM, not an entrance for hackers.
+
+![wingate_10_vms](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/wingate_10_vms.png)
 
 ## Extra section: Network gateway and port proxy for inbound private vms
 
