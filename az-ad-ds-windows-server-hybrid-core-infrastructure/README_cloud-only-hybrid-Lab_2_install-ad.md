@@ -245,9 +245,7 @@ resolvectl status | grep "DNS Servers"
 
 Since the "plumbing" is finished and your Linux machines are successfully talking to your Windows Server 2025 DC, we can move into the actual administration phase.
 
-***But, know this:***
-
-Why "Ready" for DNS doesn't mean "Ready" for APT
+### Why "Ready" for DNS doesn't mean "Ready" for APT
 
 In networking, successful name resolution is only the first half of the equation. Here is why apt update still fails even though dig succeeds:
 
