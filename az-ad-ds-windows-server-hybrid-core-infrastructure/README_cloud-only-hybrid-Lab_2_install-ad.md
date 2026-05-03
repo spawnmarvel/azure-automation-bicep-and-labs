@@ -328,6 +328,8 @@ WinGate Service -> Processes request
 
 Windows DC -> (Outbound to Internet - Allowed by default)
 
+By using WinGate and a strictly configured firewall, you have created a one-way exit for your private VM, not an entrance for hackers.
+
 ## Extra section: Network gateway and port proxy for inbound private vms
 
 Since your Windows Server (vmhybrid01) has a public IP and sits in the same network as your private Linux box (docker03getmirrortest), you can use it as a ***Network Gateway***.
