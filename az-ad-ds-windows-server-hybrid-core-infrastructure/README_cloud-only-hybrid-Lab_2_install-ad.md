@@ -273,6 +273,24 @@ Administrator and none
 
 ![wingate](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/wingate.png)
 
+Step 1: Install the WWW Proxy Service
+
+Select WWW Proxy Service from that list.
+
+Click Next >.
+
+Name the Service: You can leave it as "WWW Proxy Server."
+
+Important - Change the Port: When the wizard asks for the port, change it from 80 to 3128. This avoids the conflict with IIS on your Domain Controller.
+
+Bindings: Ensure it is bound to your internal IP address (192.168.3.7).
+
+start the service
+
+![wingate_service](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/wingate_service.png)
+
+
+
 
 On vmchaos03, you would create a proxy configuration file:
 
