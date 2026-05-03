@@ -263,7 +263,7 @@ You have successfully achieved the Hybrid Identity/Infrastructure goal of the AZ
 
 🔴 Missing Internet Egress: Because you are keeping vmchaos03 private, it is technically "secure by isolation," which prevents standard apt operations.
 
-## Extra section: The HTTP Proxy Method for outbund private vms
+## Extra section: The HTTP Proxy Method for outbund private vms (apt)
 
 Instead of moving files manually, you can install a lightweight proxy (like Squid for Windows or even using WinGate) on your DC. Once that is running, you simply tell the Linux VM to "tunnel" its apt requests through the DC.
 
