@@ -306,12 +306,18 @@ nc -zv 192.168.3.7 3128
 Connection to 192.168.3.7 3128 port [tcp/*] succeeded!
 
 # Add the proxy configuration for apt
-echo 'Acquire::http::Proxy "http://192.168.3.7:3128";' | sudo tee /etc/apt/apt.conf.d/99proxy
-echo 'Acquire::https::Proxy "http://192.168.3.7:3128";' | sudo tee -a /etc/apt/apt.conf.d/99proxy
+# Version 1.0.4
+# Appending proxy settings to bashrc for persistence
+# Persistence: If you want this to work every time you log in, add those export lines to the end of your ~/.bashrc file
+echo 'export http_proxy="http://192.168.3.7:3128"' >> ~/.bashrc
+echo 'export https_proxy="http://192.168.3.7:3128"' >> ~/.bashrc
+source ~/.bashrc
 
 # update
 sudo apt update
 sudo apt upgrade
+# works also
+wget
 
 ```
 
