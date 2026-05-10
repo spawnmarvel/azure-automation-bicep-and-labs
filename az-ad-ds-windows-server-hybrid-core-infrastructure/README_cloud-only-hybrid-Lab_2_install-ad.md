@@ -395,6 +395,79 @@ gpmc.msc — Group Policy Management Console (Where you manage the rules).
 dnsmgmt.msc - DNS Manager
 
 
+
+## Domain join
+
+Why Step C is the most important for AZ-800:
+By doing this at the VNet level, every other VM you create in the future will automatically use vmhybrid01 as its DNS server via DHCP. This makes "Domain Joining" other VMs effortless.
+
+To join a new Windows VM to your lab.local domain, we will follow the standard procedure for a hybrid environment. Since you have already configured the VNet DNS to point to 192.168.3.7, the "finding the domain" part is already handled.
+
+
+Prerequisites
+
+* DNS Check: Ensure the new VM is in the same VNet (or a peered one) and has picked up the custom DNS settings.
+
+
+* Credentials: You will need the LAB\Administrator password you set during the DC promotion.
+* That is imsdal
+
+DNS check on vmap2203, 172.16.07
+
+```ps1
+# Version 1.0.7
+# Checks the current DNS server configuration
+Get-DnsClientServerAddress -AddressFamily IPv4
+# Expected Result: You should see 192.168.3.7 listed for your active Ethernet interface
+
+# Version 1.0.7
+# Tests if the DC can resolve the domain name lab.local
+nslookup lab.local
+# Server: vmhybrid01.internal.cloudapp.net
+# Address: 192.168.3.7
+# Name: lab.local
+# Address: 192.168.3.7 
+
+# Version 1.0.7
+# Verifies that forwarding is working through the DC
+nslookup google.com
+
+```
+
+Since your DNS and connectivity tests passed, you are ready to execute the join. Run this command in a PowerShell window (as Administrator) on the new Windows VM.
+
+```ps1
+# Version 1.0.8
+# Joining the Windows VM to the lab.local domain
+# Note: You will be prompted for the LAB\Administrator credentials
+$credential = Get-Credential
+Add-Computer -DomainName "lab.local" -Credential $credential -Restart
+```
+What is happening behind the scenes:
+
+🔹 Authentication: The VM uses the credentials you provide to talk to the DC via Kerberos (Port 88).
+🔹 Object Creation: The DC creates a Computer Object in the CN=Computers container in Active Directory.
+🔹 Security Token: A secure trust relationship is established between the VM and the DC.
+🔹 Reboot: The -Restart flag triggers an immediate reboot, which is required for the VM to initialize as a domain member and apply security identifiers (SIDs).
+
+Once the VM restarts, follow these steps to confirm everything is synchronized:
+
+* Login Change: On the login screen, you should now see an option to "Sign in to: LAB". Use your domain credentials (e.g., LAB\Administrator) imsdal AD DS user
+* You must now use Domain Credentials to RDP into this joined VM
+* The user must be a member of the Remote Desktop Users group or Domain Admins
+
+```ps1
+# Version 1.0.8
+Get-WmiObject -Class Win32_ComputerSystem | Select-Object PartOfDomain, Domain
+# PartOfDomain Domain
+#------------- ------
+          True lab.local
+```
+
+
+
+![domian join](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/domain_join.png)
+
 ## Now go to README 3 MS Learn Active Directory Domain Services
 
 
