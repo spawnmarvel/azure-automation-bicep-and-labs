@@ -452,6 +452,8 @@ What is happening behind the scenes:
 
 Once the VM restarts, follow these steps to confirm everything is synchronized:
 
+Because you enabled Network Level Authentication (NLA) on your gateway earlier, remember:
+
 * Login Change: On the login screen, you should now see an option to "Sign in to: LAB". Use your domain credentials (e.g., LAB\Administrator) imsdal AD DS user
 * You must now use Domain Credentials to RDP into this joined VM
 * The user must be a member of the Remote Desktop Users group or Domain Admins
@@ -467,6 +469,11 @@ Get-WmiObject -Class Win32_ComputerSystem | Select-Object PartOfDomain, Domain
 
 
 ![domian join](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-ad-ds-windows-server-hybrid-core-infrastructure/images/domain_join.png)
+
+
+## Group Policy (GPMC)
+
+Now that the VM is joined, would you like to move into Group Policy (GPMC) to automate the firewall rules for Zabbix and Octopus across the whole domain?
 
 ## Now go to README 3 MS Learn Active Directory Domain Services
 
