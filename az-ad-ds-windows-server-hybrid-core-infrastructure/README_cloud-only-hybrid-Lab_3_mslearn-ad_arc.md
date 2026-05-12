@@ -1,4 +1,7 @@
-# MS Learn Active Directory Domain Services
+# MS Learn Active Directory Domain Services and Deploy and manage Azure Arc-enabled Servers
+
+
+## 1. MS Learn Active Directory Domain Service
 
 https://learn.microsoft.com/en-us/training/paths/active-directory-domain-services/
 
@@ -292,3 +295,8 @@ https://learn.microsoft.com/en-us/training/modules/implement-group-policy-object
 ## Manage advanced features of AD DS
 
 ## Implement and manage Active Directory Certificate Services
+
+
+## 2. Deploy and manage Azure Arc-enabled Servers
+
+https://learn.microsoft.com/en-us/training/paths/deploy-manage-azure-arc-enabled-servers/
