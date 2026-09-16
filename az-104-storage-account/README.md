@@ -1,6 +1,30 @@
 # Az Storage Account
 
-## Storage account and Fileshare
+# Table of Contents all headers
+
+-[Configure storage accounts](#configure-storage-accounts)
+
+
+
+## Configure storage accounts
+
+https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/
+
+
+## Implement security and manage access for Azure Storage
+
+https://learn.microsoft.com/en-us/training/modules/implement-storage-account-security/
+
+## Configure network security for Azure Storage
+
+https://learn.microsoft.com/en-us/training/modules/configure-network-security-azure-storage/
+
+## Secure your Azure Storage account
+
+https://learn.microsoft.com/en-us/training/modules/secure-azure-storage-account/
+
+
+## Storage account and Fileshare tbd
 
 We use Rg-ukdmzwindows-0007 and create a fileshare for dmzwindows07.
 
@@ -26,7 +50,7 @@ https://learn.microsoft.com/en-us/azure/storage/files/create-classic-file-share?
 
 https://learn.microsoft.com/en-us/azure/storage/files/storage-how-to-use-files-windows
 
-## Access storage account
+## Access storage account tbd
 
 The path is:
 
