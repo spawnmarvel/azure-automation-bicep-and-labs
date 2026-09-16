@@ -17,9 +17,15 @@
 3 Premium performance storage accounts use solid-state drives (SSDs) for low latency and high throughput.
 
 
-Standard General-Purpose v2 (Your Account Type): Uses the Pay-As-You-Go consumption model. You are billed based on actual used capacity (plus read/write transactions and egress). Setting a 15 TiB quota sets an execution ceiling; it does not trigger a baseline charge for 15 TiB.
+Standard General-Purpose v2 (Your Account Type): Uses the Pay-As-You-Go consumption model. 
 
-Premium Accounts (File Shares, Block Blobs, Page Blobs): Use the Provisioned Model. If you provision a Premium File Share with a 15 TiB quota, Azure bills you for the full 15 TiB immediately, regardless of whether you store 1 GiB or 15 TiB. IOPS and throughput scale based on that provisioned size.
+* You are billed based on actual used capacity (plus read/write transactions and egress). 
+* Setting a 15 TiB quota sets an execution ceiling; it does not trigger a baseline charge for 15 TiB.
+
+Premium Accounts (File Shares, Block Blobs, Page Blobs): 
+
+* Use the Provisioned Model. If you provision a Premium File Share with a 15 TiB quota, 
+* Azure bills you for the full 15 TiB immediately, regardless of whether you store 1 GiB or 15 TiB. IOPS and throughput scale based on that provisioned size.
 
 
 Check the Overview blade of your storage account under Essentials
