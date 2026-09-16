@@ -1,10 +1,58 @@
 # Az Storage Account
 
 # Table of Contents
-
+- [Overview of storage accounts](#overview-of-storage-accounts)
+- [Pricing](#pricing)
 - [Configure storage accounts](#configure-storage-accounts)
 
 
+## Overview of storage accounts
+
+
+* Standard general-purpose v2, [...], Azure Queue Storage, Azure Table Storage, and Azure Files
+* Premium block blobs3
+* Premium file shares3, Azure Files
+* Premium page blobs3
+
+3 Premium performance storage accounts use solid-state drives (SSDs) for low latency and high throughput.
+
+
+Standard General-Purpose v2 (Your Account Type): Uses the Pay-As-You-Go consumption model. You are billed based on actual used capacity (plus read/write transactions and egress). Setting a 15 TiB quota sets an execution ceiling; it does not trigger a baseline charge for 15 TiB.
+
+Premium Accounts (File Shares, Block Blobs, Page Blobs): Use the Provisioned Model. If you provision a Premium File Share with a 15 TiB quota, Azure bills you for the full 15 TiB immediately, regardless of whether you store 1 GiB or 15 TiB. IOPS and throughput scale based on that provisioned size.
+
+
+Check the Overview blade of your storage account under Essentials
+
+Standard General-Purpose v2:
+
+* Performance: Standard
+
+* Account kind: StorageV2 (general purpose v2)
+
+Premium Accounts:
+
+* Performance: Premium
+
+* Account kind: FileStorage (for Premium File Shares), BlockBlobStorage (for Premium Block Blobs), or PageBlobStorage (for Premium Page Blobs).
+
+
+### Summary Comparison
+
+
+https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview
+
+## Pricing
+
+
+Pricing calculator
+
+* https://azure.microsoft.com/en-gb/pricing/calculator/
+
+
+Your current setup (StorageV2 + Standard + Cool): Operates on the standard Pay-As-You-Go model. If your quota is set to 15 TiB but you only store 500 GiB, you are billed strictly for 500 GiB.
+
+Quotas in Pay-As-You-Go: The 15 TiB quota shown in your properties is a safety ceiling to prevent unexpected growth or runaway writes; it is not a pre-billed amount.
 
 ## Configure storage accounts
 
