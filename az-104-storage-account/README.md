@@ -17,7 +17,7 @@
 NOTE! .3 Premium performance storage accounts use solid-state drives (SSDs) for low latency and high throughput.
 
 
-Standard General-Purpose v2 (Your Account Type): Uses the Pay-As-You-Go consumption model. :palm_tree:
+Standard General-Purpose v2: Uses the Pay-As-You-Go consumption model. :palm_tree:
 
 * You are billed based on actual used capacity (plus read/write transactions and egress). 
 * Setting a 15 TiB quota sets an execution ceiling; it does not trigger a baseline charge for 15 TiB.
