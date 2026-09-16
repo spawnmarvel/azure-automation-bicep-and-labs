@@ -1,8 +1,8 @@
 # Az Storage Account
 
-# Table of Contents all headers
+# Table of Contents
 
--[Configure storage accounts](#configure-storage-accounts)
+- [Configure storage accounts](#configure-storage-accounts)
 
 
 
