@@ -10,11 +10,11 @@
 
 
 * Standard general-purpose v2, [...], Azure Queue Storage, Azure Table Storage, and Azure Files
-* Premium block blobs3
-* Premium file shares3, Azure Files
-* Premium page blobs3
+* Premium block blobs .3
+* Premium file shares .3, Azure Files
+* Premium page blobs .3
 
-3 Premium performance storage accounts use solid-state drives (SSDs) for low latency and high throughput.
+NOTE! .3 Premium performance storage accounts use solid-state drives (SSDs) for low latency and high throughput.
 
 
 Standard General-Purpose v2 (Your Account Type): Uses the Pay-As-You-Go consumption model. 
