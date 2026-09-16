@@ -40,7 +40,7 @@ Premium Accounts:
 ***Summary Comparison***
 
 
-https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/compare_st.png
+![summary](https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/compare_st.png)
 
 https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview
 
