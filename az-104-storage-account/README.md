@@ -8,18 +8,26 @@
 
 ## Configure storage accounts
 
+todo
+
 https://learn.microsoft.com/en-us/training/modules/configure-storage-accounts/
 
 
 ## Implement security and manage access for Azure Storage
 
+todo
+
 https://learn.microsoft.com/en-us/training/modules/implement-storage-account-security/
 
 ## Configure network security for Azure Storage
 
+todo
+
 https://learn.microsoft.com/en-us/training/modules/configure-network-security-azure-storage/
 
 ## Secure your Azure Storage account
+
+todo
 
 https://learn.microsoft.com/en-us/training/modules/secure-azure-storage-account/
 
