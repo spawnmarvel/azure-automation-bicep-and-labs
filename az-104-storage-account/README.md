@@ -24,6 +24,14 @@ https://learn.microsoft.com/en-us/training/modules/configure-network-security-az
 https://learn.microsoft.com/en-us/training/modules/secure-azure-storage-account/
 
 
+# tbd as scenarios 1, 2 3 etc
+
+from linux vm to storage
+from linux vm to storage private link
+
+form windows vm to storage with robocopy
+
+
 ## Storage account and Fileshare tbd
 
 We use Rg-ukdmzwindows-0007 and create a fileshare for dmzwindows07.
