@@ -37,8 +37,10 @@ Premium Accounts:
 * Account kind: FileStorage (for Premium File Shares), BlockBlobStorage (for Premium Block Blobs), or PageBlobStorage (for Premium Page Blobs).
 
 
-### Summary Comparison
+***Summary Comparison***
 
+
+https://github.com/spawnmarvel/azure-automation-bicep-and-labs/blob/main/az-104-storage-account/images/compare_st.png
 
 https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview
 
